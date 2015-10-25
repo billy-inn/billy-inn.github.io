@@ -4,7 +4,7 @@
   <title><![CDATA[IRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2015-10-25T22:18:09+08:00</updated>
+  <updated>2015-10-25T22:25:52+08:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,5 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[test]]></title>
+    <link href="http://billy-inn.github.io/blog/2015/10/25/test/"/>
+    <updated>2015-10-25T22:24:24+08:00</updated>
+    <id>http://billy-inn.github.io/blog/2015/10/25/test</id>
+    <content type="html"><![CDATA[<h1>Test</h1>
+
+<h3>Test</h3>
+
+<p><code>ls -l</code></p>
+
+<p>$\frac12$</p>
+]]></content>
+  </entry>
   
 </feed>
