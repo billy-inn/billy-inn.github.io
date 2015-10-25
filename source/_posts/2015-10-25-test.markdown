@@ -19,9 +19,10 @@ int main()
 	return 0;
 }
 ```
+
 ### LaTeX
 
-$\frac12 x^n$
+formula: $$\frac12 x^n$$
 
 $$\sum_{i=1}^n x_i$$
 
