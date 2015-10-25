@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://billy-inn.github.io/sitemap.xml 
