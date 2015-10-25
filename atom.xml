@@ -4,7 +4,7 @@
   <title><![CDATA[IRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2015-10-25T23:50:44+08:00</updated>
+  <updated>2015-10-26T00:22:47+08:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -18,34 +18,35 @@
     <link href="http://billy-inn.github.io/blog/2015/10/25/test/"/>
     <updated>2015-10-25T22:24:24+08:00</updated>
     <id>http://billy-inn.github.io/blog/2015/10/25/test</id>
-    <content type="html"><![CDATA[<h1>Test</h1>
+    <content type="html"><![CDATA[<h1 id="test">Test</h1>
 
-<h3>Code</h3>
+<h3 id="code">Code</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cp">#include &lt;iostream&gt;</span>
-</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="c++"><span class="line"><span class="cp">#include &lt;iostream&gt;</span>
+</span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class="line"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class="line"><span class="p">{</span>
+</span><span class="line">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class="line">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<h3 id="latex">LaTeX</h3>
 
-<h3>LaTeX</h3>
+<p>formula: <script type="math/tex">\frac12 x^n</script></p>
 
-<p>formula: $$\frac12 x<sup>n</sup>$$</p>
+<script type="math/tex; mode=display">\sum_{i=1}^n x_i</script>
 
-<p>$$\sum_{i=1}^n x_i<sup>n</sup>$$</p>
+<p>formula: <script type="math/tex">2^x</script></p>
 
-<p>formula: $$2<sup>x</sup>$$</p>
+<p>段内插入LaTeX代码是这样的：<script type="math/tex">\exp(-\frac{x^2}{2})</script>，试试看看吧</p>
 ]]></content>
   </entry>
   

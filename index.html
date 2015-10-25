@@ -66,7 +66,12 @@ $(document).ready(
 );
 </script>
 
-	
+	<head>
+	<script type="text/javascript"
+		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+</head>
+
 </head>
 
 
@@ -117,34 +122,35 @@ $(document).ready(
 			Test</a>
 	</h2>
 	<div class="entry-content">
-		<h1>Test</h1>
+		<h1 id="test">Test</h1>
 
-<h3>Code</h3>
+<h3 id="code">Code</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="cp">#include &lt;iostream&gt;</span>
-</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+</pre></td><td class="code"><pre><code class="c++"><span class="line"><span class="cp">#include &lt;iostream&gt;</span>
+</span><span class="line"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class="line"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class="line"><span class="p">{</span>
+</span><span class="line">	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class="line">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<h3 id="latex">LaTeX</h3>
 
-<h3>LaTeX</h3>
+<p>formula: <script type="math/tex">\frac12 x^n</script></p>
 
-<p>formula: $$\frac12 x<sup>n</sup>$$</p>
+<script type="math/tex; mode=display">\sum_{i=1}^n x_i</script>
 
-<p>$$\sum_{i=1}^n x_i<sup>n</sup>$$</p>
+<p>formula: <script type="math/tex">2^x</script></p>
 
-<p>formula: $$2<sup>x</sup>$$</p>
+<p>段内插入LaTeX代码是这样的：<script type="math/tex">\exp(-\frac{x^2}{2})</script>，试试看看吧</p>
 
 		
 		
@@ -176,22 +182,7 @@ $(document).ready(
     
     <div class="center"><a href="/archives">Blog Archives</a></div>
 </nav></div>
-	<footer id="footer" class="inner"><!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-		jax: ["input/TeX", "output/HYML-CSS"],
-		tex2jax: {
-			inlineMath: [ ['$', '$'] ],
-			displayMath: [ ['$$', '$$'] ],
-			processEscapes: true,
-			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-		},
-		messageStyle: "none",
-		"HTML-CSS": { preferredFond: "TeX", availableFonts: ["STIX", "TeX"] }
-	});
-</script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-Copyright &copy; 2015
+	<footer id="footer" class="inner">Copyright &copy; 2015
 
     Peng Xu
 
