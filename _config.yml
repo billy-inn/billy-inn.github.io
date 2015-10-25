@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://billy-inn.github.io
+title: IRIS
+subtitle: Information Regularization and Idea Sedimentation
+author: Peng Xu
 simple_search: https://www.google.com/search
 description:
 
@@ -19,7 +19,7 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email:
+email: bly930725@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
