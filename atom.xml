@@ -4,7 +4,7 @@
   <title><![CDATA[IRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2015-10-25T23:27:23+08:00</updated>
+  <updated>2015-10-25T23:50:44+08:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -41,9 +41,11 @@
 
 <h3>LaTeX</h3>
 
-<p>$\frac12 x<sup>n</sup>$</p>
+<p>formula: $$\frac12 x<sup>n</sup>$$</p>
 
-<p>$$\sum_{i=1}^n x_i$$</p>
+<p>$$\sum_{i=1}^n x_i<sup>n</sup>$$</p>
+
+<p>formula: $$2<sup>x</sup>$$</p>
 ]]></content>
   </entry>
   
