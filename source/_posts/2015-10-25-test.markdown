@@ -8,8 +8,20 @@ categories:
 
 # Test
 
-### Test
+### Code
 
-`ls -l`
+``` c++
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout << "Hello World!" << endl;
+	return 0;
+}
+```
+### LaTeX
 
-$\frac12$
+$\frac12 x^n$
+
+$$\sum_{i=1}^n x_i$$
+
