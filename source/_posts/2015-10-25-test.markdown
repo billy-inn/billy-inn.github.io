@@ -18,6 +18,8 @@ int main()
 }
 ```
 
+<!--more-->
+
 ### LaTeX
 
 formula: $$\frac12 x^n$$
