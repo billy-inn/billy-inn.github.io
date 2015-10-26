@@ -1,9 +1,17 @@
 ---
-layout: default
+layout: page
+footer: false
 ---
 
-<div class="archive-page-wrapper">
-  {% for post in site.categories[page.category] %}
-    {% include archive_post.html %}
-  {% endfor %}
+<div id="blog-archives" class="category">
+{% for post in site.categories[page.category] %}
+{% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+{% unless year == this_year %}
+  {% assign year = this_year %}
+  <h1>{{ year }}</h1>
+{% endunless %}
+<article>
+  {% include archive_post.html %}
+</article>
+{% endfor %}
 </div>
