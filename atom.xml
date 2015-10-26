@@ -4,7 +4,7 @@
   <title><![CDATA[KRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2015-10-26T18:30:30+08:00</updated>
+  <updated>2015-10-26T18:47:01+08:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -35,6 +35,8 @@
 </span><span class="line">	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class="line"><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<!--more-->
 
 <h3 id="latex">LaTeX</h3>
 
