@@ -6,8 +6,6 @@ comments: true
 categories: 
 ---
 
-# Test
-
 ### Code
 
 ``` c++
@@ -30,4 +28,4 @@ formula: $$2^x$$
 
 段内插入LaTeX代码是这样的：$$\exp(-\frac{x^2}{2})$$，试试看看吧
 
-x
+$x$

@@ -5,52 +5,47 @@ $max-width: 1000px;
 	padding: 0;
 }
 body{
-	font-family: "proxima-nova-1", "proxima-nova-2", "Helvetica Neue", Arial, sans-serif;
-	font-size: 16px;
-	font-weight: 300;
-	line-height: 1.5;
+	font-family: $font-default;
+	font-weight: 100;
+	font-size: 20px;
 	background: $color-background;
-    color: $color-gray01;
-	@media screen and (max-width: 1040px){
+	color: $color-gray01;
+	@media screen and (max-width: 1240px){
 		margin: 0 20px;
 	}
-	@media screen and (max-width: 600px){
-		font-size: 13px;
-		margin: 0 20px;
+	@media screen and (max-width: 900px){
+		font-size: 16px;
 	}
 }
-
 h1{
-	font-size: 36px;
+	font-size: 1.8em;
+	font-family: "Open Sans", sans-serif;
+  font-weight: 700;
 }
 h2{
-	font-size: 36px;
-	line-height:1;
-	font-weight:300;
+	font-size: 1.5em;
+	font-family: "Open Sans", sans-serif;
+  font-weight: 700;
 }
 h3{
-	
-	font-size: 20px;
-	line-height: 1.2;
-	margin: 1.2em 0 0 0;
-	font-weight: normal;
-	display: block;
-	@media screen and (max-width: 620px) {
-	font-size: 15px;
-		}
-	}
-a {
- 	text-decoration:none;
-	color:#bf0222;
-	-webkit-transition:border .25s linear;
-	-moz-transition:border .25s linear;
-	-ms-transition:border .25s linear;
-	transition:border .25s linear;
-	outline:none;
+	font-size: 1.3em;
+	font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+}
+p{
+  margin-bottom: 30px;
+}
+a{
+	text-decoration: none;
+	outline-width: 0;
+	color: $color-main;
 }
 
-a:hover {
-	border-bottom:1px solid #bf0222;
+.basic-alignment {
+  &.left { float: left; margin-right: 1.5em; }
+  &.right { float: right; margin-left: 1.5em; }
+  &.center { display:block; margin: 0 auto 1.5em; }
+  &.left, &.right { margin-bottom: .8em; }
 }
 
 .alignleft{
@@ -65,7 +60,11 @@ a:hover {
 .inner{
 	width: $max-width;
 	margin: 0 auto;
-	@media screen and (max-width: 1040px){
+	@media screen and (max-width: 1240px){
 		width: 100%;
 	}
+}
+.article-inner{
+  @extend .inner;
+	margin: 0 auto 0 5%;
 }
