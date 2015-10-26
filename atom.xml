@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[KRIS]]></title>
+  <title><![CDATA[IRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2015-10-26T18:47:01+08:00</updated>
+  <updated>2015-10-27T00:38:28+08:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -44,9 +44,9 @@
 
 <script type="math/tex; mode=display">\sum_{i=1}^n x_i</script>
 
-<p>formula: <script type="math/tex">2^x</script></p>
+<p>formula: $2^x$</p>
 
-<p>段内插入LaTeX代码是这样的：<script type="math/tex">\exp(-\frac{x^2}{2})</script>，试试看看吧</p>
+<p>段内插入LaTeX代码是这样的：$\exp(-\frac{x^2}{2})$，试试看看吧</p>
 
 <p>$x$</p>
 ]]></content>

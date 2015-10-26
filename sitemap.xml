@@ -11,12 +11,15 @@
     <loc>http://billy-inn.github.io/blog/</loc>
   </url>
   <url>
-    <loc>http://billy-inn.github.io/</loc>
-  </url>
-  <url>
     <loc>http://billy-inn.github.io/blog/archives/</loc>
   </url>
   <url>
+    <loc>http://billy-inn.github.io/</loc>
+  </url>
+  <url>
     <loc>http://billy-inn.github.io/about/</loc>
+  </url>
+  <url>
+    <loc>http://billy-inn.github.io/blog/categories/test/</loc>
   </url>
 </urlset>

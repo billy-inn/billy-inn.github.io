@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: test | IRIS]]></title>
+  <link href="http://billy-inn.github.io/blog/categories/test/atom.xml" rel="self"/>
+  <link href="http://billy-inn.github.io/"/>
+  <updated>2015-10-27T00:38:28+08:00</updated>
+  <id>http://billy-inn.github.io/</id>
+  <author>
+    <name><![CDATA[Peng Xu]]></name>
+    <email><![CDATA[bly930725@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[test]]></title>
+    <link href="http://billy-inn.github.io/blog/2015/10/25/test/"/>
+    <updated>2015-10-25T22:24:24+08:00</updated>
+    <id>http://billy-inn.github.io/blog/2015/10/25/test</id>
+    <content type="html"><![CDATA[<h3 id="code">Code</h3>
+
+<p><code>c++
+#include &lt;iostream&gt;
+using namespace std;
+int main()
+{
+	cout &lt;&lt; "Hello World!" &lt;&lt; endl;
+	return 0;
+}
+</code></p>
+
+<!--more-->
+
+<h3 id="latex">LaTeX</h3>
+
+<p>formula: <script type="math/tex">\frac12 x^n</script></p>
+
+<script type="math/tex; mode=display">\sum_{i=1}^n x_i</script>
+
+<p>formula: $2^x$</p>
+
+<p>段内插入LaTeX代码是这样的：$\exp(-\frac{x^2}{2})$，试试看看吧</p>
+
+<p>$x$</p>
+]]></content>
+  </entry>
+  
+</feed>
