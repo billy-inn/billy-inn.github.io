@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[KRIS]]></title>
-  <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: learning | KRIS]]></title>
+  <link href="http://billy-inn.github.io/blog/categories/learning/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
   <updated>2015-12-23T16:58:31-07:00</updated>
   <id>http://billy-inn.github.io/</id>
@@ -92,68 +92,17 @@
 
 <p>The implementations is extremely easy in a language like <strong>R</strong>, even without specific packages. The core code is shown below:</p>
 
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class="r"><span class="line"><span class="kn">library</span><span class="p">(</span>MASS<span class="p">)</span>
-</span><span class="line">betaHat <span class="o">&lt;-</span> ginv<span class="p">(</span><span class="kp">t</span><span class="p">(</span>X<span class="p">)</span> <span class="o">%*%</span> X<span class="p">)</span> <span class="o">%*%</span> <span class="kp">t</span><span class="p">(</span>X<span class="p">)</span> <span class="o">%*%</span> y
-</span><span class="line">yhat <span class="o">&lt;-</span> X <span class="o">%*%</span> betaHat
-</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p><code>r
+library(MASS)
+betaHat &lt;- ginv(t(X) %*% X) %*% t(X) %*% y
+yhat &lt;- X %*% betaHat
+</code></p>
 
 <p>You can also use packages like <em>lm</em> in <strong>R</strong>. It provides not only $\hat\beta$ but also a lot sophisticated coefficients.</p>
 
 <h3 id="taste-on-statistics">4. Taste on Statistics</h3>
 
 <p><strong><em>To be continued</em></strong></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First Post: General Goals]]></title>
-    <link href="http://billy-inn.github.io/blog/2015/10/27/first-post/"/>
-    <updated>2015-10-27T10:24:51-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2015/10/27/first-post</id>
-    <content type="html"><![CDATA[<p>签证总算下来了，从毕业到现在，整个人都处于一种很难形容的颓废状态中。昨天又一整夜没有睡，看了很多博客，看到了许多学长的奋斗经历与学术积累，深感不能再如此颓废下去了。</p>
-
-<p>没有压力的生活往往会让人无所事事，现在的我就处于这样一个状态。为了给自己找点事做，也给自己点压力，所以花了些功夫把这个博客搭了起来。希望自己可以把这个博客维护好，坚持将自己在学习生活上的点滴记录下来，同时也可以分享一些有益的东西。</p>
-
-<!--more-->
-
-<p>现在离出发去加拿大还有一个多月的时间，为了一过去就可以在research入门。这段时间的目标大致如下：</p>
-
-<ul>
-  <li>Coursera: Introduction to Natural Language Processing</li>
-  <li>Mathemathics:
-    <ul>
-      <li>Revise Linear Algerba</li>
-      <li><em>Statistical Inference</em></li>
-      <li><em>Convex Optimization</em> (if possible)</li>
-    </ul>
-  </li>
-  <li>Machine Learning:
-    <ul>
-      <li><em>Elements of Statistical Learning</em></li>
-    </ul>
-  </li>
-  <li>Life:
-    <ul>
-      <li>Learn basic cooking</li>
-      <li>Daily physical exercise</li>
-    </ul>
-  </li>
-  <li>Articles:
-    <ul>
-      <li>Notes on Linear Algerba</li>
-      <li>Notes on <em>Elements of Statistical Learning</em></li>
-      <li>Notes on NLP (if necessary)</li>
-    </ul>
-  </li>
-  <li>Programming:
-    <ul>
-      <li>Re-implement experiments in <em>Elements of Statistical Learning</em> via <strong>R</strong></li>
-    </ul>
-  </li>
-</ul>
 ]]></content>
   </entry>
   

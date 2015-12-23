@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>KRIS</title>
+  <title>Machine Learning Basics(1): Linear Regression - KRIS</title>
   <meta name="author" content="Peng Xu">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://billy-inn.github.io">
+  <link rel="canonical" href="http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -129,15 +129,13 @@
 </nav>
   <div class="container">
     <div class="row-fluid">
-      <div class="span9">
-  
-  
-  
-    <article>
       
+<article class="hentry span9" role="article">
+
+  
   <header class="page-header">
     
-      <h1 class="entry-title"><a href="/blog/2015/12/23/machine-learning-basics-1-linear-regression/">Machine Learning Basics(1): Linear Regression</a></h1>
+      <h1 class="entry-title">Machine Learning Basics(1): Linear Regression</h1>
     
     
       <p class="meta">
@@ -148,14 +146,14 @@
 
 <time class='entry-date' datetime='2015-12-23T16:56:20-07:00'><span class='date'>2015-12-23</span> <span class='time'>4:56 pm</span></time>
         
-         | <a href="/blog/2015/12/23/machine-learning-basics-1-linear-regression/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>As a beginner in machine learning, I plan to sketch out my learning process. And it will be my first post in this series.</p>
+<div class="entry-content"><p>As a beginner in machine learning, I plan to sketch out my learning process. And it will be my first post in this series.</p>
 
 <h3 id="definition">1. Definition</h3>
 
@@ -243,56 +241,60 @@
 
 <p><strong><em>To be continued</em></strong></p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header class="page-header">
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Peng Xu</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-12-23T16:56:20-07:00'><span class='date'>2015-12-23</span> <span class='time'>4:56 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/learning/'>learning</a>, <a class='category' href='/blog/categories/machine/'>machine</a>
+  
+</span>
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/2015/10/27/first-post/">First Post: General Goals</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-10-27T10:24:51-06:00'><span class='date'>2015-10-27</span> <span class='time'>10:24 am</span></time>
-        
-         | <a href="/blog/2015/10/27/first-post/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>签证总算下来了，从毕业到现在，整个人都处于一种很难形容的颓废状态中。昨天又一整夜没有睡，看了很多博客，看到了许多学长的奋斗经历与学术积累，深感不能再如此颓废下去了。</p>
-
-<p>没有压力的生活往往会让人无所事事，现在的我就处于这样一个状态。为了给自己找点事做，也给自己点压力，所以花了些功夫把这个博客搭了起来。希望自己可以把这个博客维护好，坚持将自己在学习生活上的点滴记录下来，同时也可以分享一些有益的东西。</p>
-
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression/" data-via="" data-counturl="http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/10/27/first-post/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <ul class="pager">
     
-    <li><a href="/blog/archives">Blog Archives</a></li>
     
-  </ul>
+    <section>
+      <h1>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+    </section>
+    
+    <ul class="pager">
+      
+      <li class="previous"><a class="basic-alignment left"
+        href="/blog/2015/10/27/first-post/" title="Previous Post:
+        First Post: General Goals">&laquo; First Post: General Goals</a></li>
+      
+      <li><a href="/blog/archives">Blog Archives</a></li>
+      
+    </ul>
+  </footer>
+</article>
+
 <aside class="sidebar-nav span3">
   
     <section>
@@ -340,6 +342,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo" class="page-footer"><hr>
@@ -355,7 +358,10 @@
       var disqus_shortname = 'billy-inn';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression/';
+        var disqus_url = 'http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
