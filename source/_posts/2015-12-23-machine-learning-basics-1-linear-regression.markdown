@@ -3,7 +3,7 @@ layout: post
 title: "Machine Learning Basics(1): Linear Regression"
 date: 2015-12-23 16:56:20 -0700
 comments: true
-categories: Machine Learning
+categories: MachineLearning
 ---
 
 As a beginner in machine learning, I plan to sketch out my learning process. And it will be my first post in this series.
@@ -61,7 +61,7 @@ Then, we put all the derivatives together and rewrite it in matrix form to get $
 
 #### Geometry Interpretation
 
-![Alt text](./1450827663189.png)
+![Alt text](/images/LinearRegression1.png)
 
 The picture above shows a direct gemotrical representation of the least squares estimate with two predictors. It's convenient to extend this to the case with more predictors. We denote the column vectors of $X$ by $\mathbf{x}_0,\mathbf{x}_1,\dots,\mathbf{x}_p$ with $\mathbf{x}_0 \equiv 1$. These vectors span a subspace of $\mathbb{R}^N$, also referred to as the column space of $\mathbf{X}$. We minimize $RSS(\beta)=\lVert\mathbf{y}-\mathbf{X}\beta\rVert^2$ by choosing $\hat \beta$ so that the residual vector $\mathbf{y}-\mathbf{\hat y}$ is orthogonal to this subspace. This orthogonality is expressed in $(2.4)$, and the resulting estimate $\mathbf{\hat y}$ is hence the orthogonal projection of $\mathbf y$ onto this subspace.
 
