@@ -4,7 +4,7 @@
   <title><![CDATA[KRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2015-12-23T16:58:31-07:00</updated>
+  <updated>2015-12-23T17:04:27-07:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -27,6 +27,8 @@
 <script type="math/tex; mode=display">f(X)=\beta_0 + \sum_{j=1}^pX_j\beta_j.\quad(1.1)</script>
 
 <p>Here the $\beta_j$’s are unknown parameters or coefficients.</p>
+
+<!--more-->
 
 <h3 id="least-squares">2. Least Squares</h3>
 
