@@ -16,6 +16,8 @@ $$f(X)=\beta_0 + \sum_{j=1}^pX_j\beta_j.\quad(1.1)$$
 
 Here the $\beta_j$'s are unknown parameters or coefficients.
 
+<!--more-->
+
 ### 2. Least Squares
 
 Typically we have a set of training data $(x_1,y_1)\dots(x_N,y_N)$ from which to estimate the parameters $\beta$. The most popular estimation method is least squares, in which we pick the coefficients $\beta=(
