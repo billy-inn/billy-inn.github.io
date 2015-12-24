@@ -4,7 +4,7 @@
   <title><![CDATA[KRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2015-12-23T17:04:27-07:00</updated>
+  <updated>2015-12-23T17:17:40-07:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -74,7 +74,7 @@
 
 <h4 id="geometry-interpretation">Geometry Interpretation</h4>
 
-<p><img src="./1450827663189.png" alt="Alt text" /></p>
+<p><img src="http://billy-inn.github.io/images/LinearRegression1.png" alt="Alt text" /></p>
 
 <p>The picture above shows a direct gemotrical representation of the least squares estimate with two predictors. It’s convenient to extend this to the case with more predictors. We denote the column vectors of $X$ by $\mathbf{x}_0,\mathbf{x}_1,\dots,\mathbf{x}_p$ with $\mathbf{x}_0 \equiv 1$. These vectors span a subspace of $\mathbb{R}^N$, also referred to as the column space of $\mathbf{X}$. We minimize $RSS(\beta)=\lVert\mathbf{y}-\mathbf{X}\beta\rVert^2$ by choosing $\hat \beta$ so that the residual vector $\mathbf{y}-\mathbf{\hat y}$ is orthogonal to this subspace. This orthogonality is expressed in $(2.4)$, and the resulting estimate $\mathbf{\hat y}$ is hence the orthogonal projection of $\mathbf y$ onto this subspace.</p>
 
