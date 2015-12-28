@@ -4,7 +4,7 @@
   <title><![CDATA[KRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2015-12-23T17:17:40-07:00</updated>
+  <updated>2015-12-27T17:58:06-07:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,95 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Trace of My Study on Machine Learning]]></title>
+    <link href="http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning/"/>
+    <updated>2015-12-27T17:38:14-07:00</updated>
+    <id>http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning</id>
+    <content type="html"><![CDATA[<p>This blog will record the timeline, resources, projects along the way of my study on machine learning since 2015. And I will keep updating this blog.</p>
+
+<h3 id="mathematics">Mathematics</h3>
+
+<ul>
+  <li>Basics: better to review before real study of ML
+    <ul>
+      <li>Calculus</li>
+      <li>Linear Algebra
+        <ul>
+          <li><a href="http://math.mit.edu/~gs/linearalgebra/">Introduction to Linear Algebra</a>: a nice textbook in linear algebra.</li>
+          <li><a href="https://www.youtube.com/watch?v=ZK3O402wf1c&amp;list=PLE7DDD91010BC51F8">MIT 18.06</a>: Course of MIT in linear algebra (<strong>Completed</strong> in <em>15.12</em>).</li>
+        </ul>
+      </li>
+      <li>Probability Theory</li>
+    </ul>
+  </li>
+  <li>Reference
+    <ul>
+      <li><a href="http://www.springer.com/us/book/9783662462201">Handbook of Mathematics</a>: an amazing reference book of mathematics.</li>
+    </ul>
+  </li>
+  <li>Statistics
+    <ul>
+      <li><a href="http://www.stat.cmu.edu/~larry/all-of-statistics/">All of Statistics</a>: Ongoing</li>
+      <li><a href="http://www.amazon.com/Statistical-Inference-George-Casella/dp/0534243126">Statistical Inference</a>: Ongoing</li>
+      <li><a href="http://www.stat.cmu.edu/~larry/=stat705/">CMU 10-705</a>: Ongoing</li>
+    </ul>
+  </li>
+  <li>Optimization
+    <ul>
+      <li><a href="http://web.stanford.edu/~boyd/cvxbook/">Convex Optimization</a>: Ongoing</li>
+      <li><a href="http://stanford.edu/class/ee364a/index.html">Stanford EE364a</a>: Ongoing</li>
+    </ul>
+  </li>
+</ul>
+
+<!--more-->
+
+<h3 id="statistical-machine-learning">Statistical Machine Learning</h3>
+
+<ul>
+  <li><a href="https://www.coursera.org/learn/machine-learning">MOOC: Machine Learning</a>: Introduction to machine learning. (<a href="http://billy-inn.github.io/certificates/ml.pdf">Certificate</a>)</li>
+  <li><a href="https://lagunita.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/info">MOOC: Statistical Learning</a>: Introduction to statistical learning and <strong>R</strong>. (<a href="http://billy-inn.github.io/certificates/sl.pdf">Certificate</a>)</li>
+  <li><a href="http://statweb.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning</a>: Ongoing
+    <ul>
+      <li><a href="http://waxworksmath.com/Authors/G_M/Hastie/hastie.html">Manual</a>: Figure out the mathematical details.</li>
+      <li><a href="https://cran.r-project.org/web/packages/ElemStatLearn/index.html">R package “ElemStatLearn”</a>: Contain data sets, functions and examples from the book.</li>
+      <li><a href="https://github.com/billy-inn/ElemStatLearn">My code</a>: Exercises and experiment reimplementations in <strong>R</strong>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="deep-learning">Deep Learning</h3>
+
+<ul>
+  <li><a href="">Neural Network and Deep Learning</a>: Nice online tutorial for beginners in deep learning.</li>
+  <li><a href="https://github.com/dmlc/mshadow">MShadow</a></li>
+  <li><a href="https://github.com/dmlc/mxnet">Mxnet</a></li>
+</ul>
+
+<h3 id="large-scale-machine-learning">Large Scale Machine Learning</h3>
+
+<ul>
+  <li><a href="https://courses.edx.org/courses/BerkeleyX/CS100.1x/1T2015/info">Introduction to Big Data with Apache Spark</a>: Introduction to Spark in <strong>Python</strong>. (<a href="http://billy-inn.github.io/certificates/spark.pdf">Certificate</a>)</li>
+  <li><a href="https://courses.edx.org/courses/BerkeleyX/CS190.1x/1T2015/info">Scalable Machine Learning</a>: Explore deeper usage of Spark on large scale machine learning. (<a href="http://billy-inn.github.io/certificates/scalableML.pdf">Certificate</a>)</li>
+</ul>
+
+<h3 id="data-mining">Data Mining</h3>
+
+<ul>
+  <li><a href="https://www.coursera.org/course/mmds">MOOC: Mining of Massive Datasets</a>: Introduction to a lot data mining techniques. (<a href="http://billy-inn.github.io/certificates/mmds.pdf">Certificate</a>)</li>
+</ul>
+
+<h3 id="miscellanea">Miscellanea</h3>
+
+<ul>
+  <li><strong>Python</strong> &amp; <strong>R</strong>: For experiment and plotting.</li>
+  <li><strong>C++</strong> &amp; <strong>Scala</strong>: For development.</li>
+  <li><a href="https://www.vagrantup.com/">Vagrant</a>: Create and configure lightweight, reproducible, and portable development environments. Very Useful tool!</li>
+</ul>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Machine Learning Basics(1): Linear Regression]]></title>

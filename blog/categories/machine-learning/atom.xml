@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: machinelearning | KRIS]]></title>
-  <link href="http://billy-inn.github.io/blog/categories/machinelearning/atom.xml" rel="self"/>
+  <title><![CDATA[Category: machine_learning | KRIS]]></title>
+  <link href="http://billy-inn.github.io/blog/categories/machine-learning/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2015-12-23T17:17:40-07:00</updated>
+  <updated>2015-12-27T17:58:06-07:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
