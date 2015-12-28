@@ -39,7 +39,7 @@ This blog will record the timeline, resources, projects along the way of my stud
 
 ### Deep Learning
 
-- [Neural Network and Deep Learning](): Nice online tutorial for beginners in deep learning.
+- [Neural Network and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html): Nice online tutorial for beginners in deep learning.
 - [MShadow](https://github.com/dmlc/mshadow)
 - [Mxnet](https://github.com/dmlc/mxnet)
 
