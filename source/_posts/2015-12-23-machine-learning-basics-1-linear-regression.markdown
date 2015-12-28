@@ -3,7 +3,7 @@ layout: post
 title: "Machine Learning Basics(1): Linear Regression"
 date: 2015-12-23 16:56:20 -0700
 comments: true
-categories: MachineLearning
+categories: Machine_Learning
 ---
 
 As a beginner in machine learning, I plan to sketch out my learning process. And it will be my first post in this series.
