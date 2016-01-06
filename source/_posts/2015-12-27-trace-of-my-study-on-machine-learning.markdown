@@ -36,6 +36,10 @@ This blog will record the timeline, resources, projects along the way of my stud
     - [Manual](http://waxworksmath.com/Authors/G_M/Hastie/hastie.html): Figure out the mathematical details.
 	- [R package "ElemStatLearn"](https://cran.r-project.org/web/packages/ElemStatLearn/index.html): Contain data sets, functions and examples from the book.
 	- [My code](https://github.com/billy-inn/ElemStatLearn): Exercises and experiment reimplementations in **R**.
+- Probabilistic Graphical Models:
+    - [UAlberta CMPUT 659](https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models): Graduate Course in University of Alberta based on Coursera Course instructed by [Koller](http://ai.stanford.edu/users/koller/)
+	- [CMU 10-708](http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html): Ongoing
+	- [Probabilistic Graphical Models: Principles and Techniques](http://pgm.stanford.edu/): Ongoing
 
 ### Deep Learning
 
