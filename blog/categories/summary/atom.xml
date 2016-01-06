@@ -4,7 +4,7 @@
   <title><![CDATA[Category: summary | KRIS]]></title>
   <link href="http://billy-inn.github.io/blog/categories/summary/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2015-12-27T18:04:08-07:00</updated>
+  <updated>2016-01-05T19:31:10-07:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -67,6 +67,13 @@
       <li><a href="http://waxworksmath.com/Authors/G_M/Hastie/hastie.html">Manual</a>: Figure out the mathematical details.</li>
       <li><a href="https://cran.r-project.org/web/packages/ElemStatLearn/index.html">R package “ElemStatLearn”</a>: Contain data sets, functions and examples from the book.</li>
       <li><a href="https://github.com/billy-inn/ElemStatLearn">My code</a>: Exercises and experiment reimplementations in <strong>R</strong>.</li>
+    </ul>
+  </li>
+  <li>Probabilistic Graphical Models:
+    <ul>
+      <li><a href="https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models">UAlberta CMPUT 659</a>: Graduate Course in University of Alberta based on Coursera Course instructed by <a href="http://ai.stanford.edu/users/koller/">Koller</a></li>
+      <li><a href="http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html">CMU 10-708</a>: Ongoing</li>
+      <li><a href="http://pgm.stanford.edu/">Probabilistic Graphical Models: Principles and Techniques</a>: Ongoing</li>
     </ul>
   </li>
 </ul>
