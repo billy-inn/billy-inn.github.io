@@ -44,6 +44,8 @@ This blog will record the timeline, resources, projects along the way of my stud
 ### Deep Learning
 
 - [Neural Network and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html): Nice online tutorial for beginners in deep learning.
+- [Stanford CS224d](http://cs224d.stanford.edu/): Deep Learning for Natural Language Processing. A nice intro to Word2Vec and its applications.
+- [Stanford CS231n](http://vision.stanford.edu/teaching/cs231n/index.html): Convolutional Neural Networks for Visual Recognition.
 - [MShadow](https://github.com/dmlc/mshadow)
 - [Mxnet](https://github.com/dmlc/mxnet)
 
