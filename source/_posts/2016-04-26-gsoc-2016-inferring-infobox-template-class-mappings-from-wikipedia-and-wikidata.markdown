@@ -7,10 +7,13 @@ categories: Project
 ---
 
 *This page is the public project page and will be updated every week.*
+
 ### To Do List
 - Meet with my mentors.
 - Get and clean the data.
 - Implement a baseline approach: SVM or GBT.
+
+<!--more-->
 
 ### Issues Encountered
 
