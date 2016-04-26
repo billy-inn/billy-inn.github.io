@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: project | KRIS]]></title>
+  <link href="http://billy-inn.github.io/blog/categories/project/atom.xml" rel="self"/>
+  <link href="http://billy-inn.github.io/"/>
+  <updated>2016-04-26T15:52:55-06:00</updated>
+  <id>http://billy-inn.github.io/</id>
+  <author>
+    <name><![CDATA[Peng Xu]]></name>
+    <email><![CDATA[bly930725@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[GSoC 2016: Inferring infobox template class mappings from Wikipedia and WikiData]]></title>
+    <link href="http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/"/>
+    <updated>2016-04-26T15:51:27-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata</id>
+    <content type="html"><![CDATA[<p><em>This page is the public project page and will be updated every week.</em>
+### To Do List
+- Meet with my mentors.
+- Get and clean the data.
+- Implement a baseline approach: SVM or GBT.</p>
+
+<h3 id="issues-encountered">Issues Encountered</h3>
+
+<ul>
+  <li>Data: Where to get the existing mappings and the mappings to be predicted?</li>
+  <li>Computing Resources: Any server to work on?</li>
+</ul>
+
+<h3 id="progress">Progress</h3>
+
+<p>Week1 (4.24-4.30): Not yet.</p>
+]]></content>
+  </entry>
+  
+</feed>
