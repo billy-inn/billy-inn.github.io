@@ -4,7 +4,7 @@
   <title><![CDATA[KRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-04-26T15:55:45-06:00</updated>
+  <updated>2016-04-26T19:03:38-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -100,9 +100,10 @@
   </li>
   <li>Probabilistic Graphical Models:
     <ul>
-      <li><a href="https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models">UAlberta CMPUT 659</a>: Graduate Course in University of Alberta based on Coursera Course instructed by <a href="http://ai.stanford.edu/users/koller/">Koller</a></li>
+      <li><a href="https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models">UAlberta CMPUT 659</a>: Graduate Course in University of Alberta based on Coursera Course instructed by <a href="http://ai.stanford.edu/users/koller/">Koller</a> (<strong>Completed</strong> in <em>16.4</em>).</li>
       <li><a href="http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html">CMU 10-708</a>: Ongoing</li>
-      <li><a href="http://pgm.stanford.edu/">Probabilistic Graphical Models: Principles and Techniques</a>: Ongoing</li>
+      <li><a href="http://pgm.stanford.edu/">Probabilistic Graphical Models: Principles and Techniques</a>: Classic Textbook for Probabilistic Graphical Models. I’ve read a few chapters of it and gave up. This book is somewhat too mathematical and I will not recommend this book for beginners in PGM.</li>
+      <li><a href="https://github.com/jmschrei/pomegranate">Pomegranate</a>: A Python package for PGM. Nice tutorials for beginners in PGM!</li>
     </ul>
   </li>
 </ul>
@@ -128,6 +129,12 @@
 
 <ul>
   <li><a href="https://www.coursera.org/course/mmds">MOOC: Mining of Massive Datasets</a>: Introduction to a lot data mining techniques. (<a href="http://billy-inn.github.io/certificates/mmds.pdf">Certificate</a>)</li>
+</ul>
+
+<h3 id="ml-competitions">ML Competitions</h3>
+
+<ul>
+  <li><a href="https://www.kaggle.com/c/home-depot-product-search-relevance">Kaggle: Home Depot Product Search Relevance</a>: Top 10%.</li>
 </ul>
 
 <h3 id="miscellanea">Miscellanea</h3>
