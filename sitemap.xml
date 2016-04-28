@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation/</loc>
+    <lastmod>2016-04-28T16:17:08-06:00</lastmod>
+  </url>
+  <url>
     <loc>http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/</loc>
     <lastmod>2016-04-26T15:51:27-06:00</lastmod>
   </url>
