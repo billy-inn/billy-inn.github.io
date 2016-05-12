@@ -4,7 +4,7 @@
   <title><![CDATA[Category: project | KRIS]]></title>
   <link href="http://billy-inn.github.io/blog/categories/project/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-04-28T16:31:05-06:00</updated>
+  <updated>2016-05-12T17:51:21-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -20,25 +20,31 @@
     <id>http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata</id>
     <content type="html"><![CDATA[<p><em>This page is the public project page and will be updated every week.</em></p>
 
-<h3 id="to-do-list">To Do List</h3>
-<ul>
-  <li>Meet with my mentors.</li>
-  <li>Get and clean the data.</li>
-  <li>Implement a baseline approach: SVM or GBT.</li>
-</ul>
+<h3 id="project-description">Project Description</h3>
+
+<p>There are many infoboxes on wikipedia. Here is a example about football box:</p>
+
+<p><img src="/images/GSoC1.png" alt="Alt text" /></p>
+
+<p>As seen, every infobox has some properties. Actually, every infobox follows a certain template. In my project, the goal is to find mappings between the classes (eg. <code>dbo:Person</code>, <code>dbo:City</code>) in the DBpedia ontology and infobox templates on pages of Wikipedia resources using techniques of machine learning.</p>
+
+<p>There are lots of infobox mappings available for a few languages, but not as many for other languages. In order to infer mappings for all the languages, cross-lingual knowledge validation should also be considered.</p>
+
+<p>The main output of the project will be a list of new high-quality infobox-class mappings.</p>
 
 <!--more-->
 
-<h3 id="issues-encountered">Issues Encountered</h3>
+<h3 id="weekly-progess">Weekly Progess</h3>
+
+<p><strong>Week 1 (5.9-5.15)</strong></p>
 
 <ul>
-  <li>Data: Where to get the existing mappings and the mappings to be predicted?</li>
-  <li>Computing Resources: Any server to work on?</li>
+  <li>First meeting with my mentor</li>
+  <li>Create the public page for the project</li>
+  <li>Create the google doc for the project</li>
 </ul>
 
-<h3 id="progress">Progress</h3>
-
-<p>Week1 (4.24-4.30): Not yet.</p>
+<p><strong>Week 2 (5.16-5.22)</strong></p>
 ]]></content>
   </entry>
   
