@@ -4,7 +4,7 @@
   <title><![CDATA[KRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-05-12T17:51:21-06:00</updated>
+  <updated>2016-05-23T17:16:49-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -83,6 +83,14 @@
 </ul>
 
 <p><strong>Week 2 (5.16-5.22)</strong></p>
+
+<ul>
+  <li>Get the <a href="http://mappings.dbpedia.org/server/mappings/en/pages/rdf/all">existing mappings</a></li>
+  <li>Get the information about all templates: <a href="https://github.com/dbpedia/extraction-framework/tree/master/server/src/main/statistics">https://github.com/dbpedia/extraction-framework/tree/master/server/src/main/statistics</a></li>
+  <li>Parse and clean the data</li>
+</ul>
+
+<p><strong>Week 3 (5.23-5.29)</strong></p>
 ]]></content>
   </entry>
   
