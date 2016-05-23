@@ -31,3 +31,9 @@ The main output of the project will be a list of new high-quality infobox-class 
 - Create the google doc for the project
 
 **Week 2 (5.16-5.22)**
+
+- Get the [existing mappings](http://mappings.dbpedia.org/server/mappings/en/pages/rdf/all)
+- Get the information about all templates: [https://github.com/dbpedia/extraction-framework/tree/master/server/src/main/statistics](https://github.com/dbpedia/extraction-framework/tree/master/server/src/main/statistics)
+- Parse and clean the data
+
+**Week 3 (5.23-5.29)**
