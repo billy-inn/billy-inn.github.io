@@ -4,7 +4,7 @@
   <title><![CDATA[KRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-05-23T17:16:49-06:00</updated>
+  <updated>2016-05-29T22:06:20-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -74,7 +74,7 @@
 
 <h3 id="weekly-progess">Weekly Progess</h3>
 
-<p><strong>Week 1 (5.9-5.15)</strong></p>
+<p><strong>Week 1 (5.8-5.14)</strong></p>
 
 <ul>
   <li>First meeting with my mentor</li>
@@ -82,7 +82,7 @@
   <li>Create the google doc for the project</li>
 </ul>
 
-<p><strong>Week 2 (5.16-5.22)</strong></p>
+<p><strong>Week 2 (5.15-5.21)</strong></p>
 
 <ul>
   <li>Get the <a href="http://mappings.dbpedia.org/server/mappings/en/pages/rdf/all">existing mappings</a></li>
@@ -90,7 +90,21 @@
   <li>Parse and clean the data</li>
 </ul>
 
-<p><strong>Week 3 (5.23-5.29)</strong></p>
+<p><strong>Week 3 (5.22-5.28)</strong></p>
+
+<ul>
+  <li>Figure out the information we have:
+    <ul>
+      <li>1) Existing mappings, we have manual information that a template in lang $X$ is mapped to class $Y$</li>
+      <li>2) Inter-language links between templates, e.g. template $X_1$ in lang $X$ is mapped to class $Y$ and there is a link from this template to templates in other languages. This gives a high probability that the equivalent templates in other languages should be mapped to the same class $Y$.</li>
+      <li>3) Links between articles in different languages and templates each article uses, this way, when (2) is not always true we can find which templates are used for the same concepts.</li>
+      <li>4) Most wikidata articles have a type assigned, using this information we have a variation of  metric (3) but with manual types assigned.</li>
+    </ul>
+  </li>
+  <li>Process the information (1) - (3) described above and obtain some prelimenary results.</li>
+</ul>
+
+<p><strong>Week 4 (5.29-6.4)</strong></p>
 ]]></content>
   </entry>
   
