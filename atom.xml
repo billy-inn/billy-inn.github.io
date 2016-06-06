@@ -4,7 +4,7 @@
   <title><![CDATA[KRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-05-29T22:06:20-06:00</updated>
+  <updated>2016-06-05T21:58:23-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -105,6 +105,21 @@
 </ul>
 
 <p><strong>Week 4 (5.29-6.4)</strong></p>
+
+<ul>
+  <li>Propose a baseline approach: Given a template classified as an infobox, the approach is instance-based and exploits the already mapped articles and their cross-language links to the articles that contain the template to be mapped. This approach is summaried in the below figure.</li>
+</ul>
+
+<p><img src="http://billy-inn.github.io/images/GSoC.png" alt="Alt text" /></p>
+
+<ul>
+  <li>Experiments:
+    <ul>
+      <li>Based on existing mappings in English, to create mappings for Chinese.</li>
+      <li>Evaluations: try this approach on some other languages which have some existing mappings. (In progress)</li>
+    </ul>
+  </li>
+</ul>
 ]]></content>
   </entry>
   
