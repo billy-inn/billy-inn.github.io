@@ -4,7 +4,7 @@
   <title><![CDATA[Category: project | KRIS]]></title>
   <link href="http://billy-inn.github.io/blog/categories/project/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-06-05T21:58:23-06:00</updated>
+  <updated>2016-06-05T22:01:19-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -72,7 +72,7 @@
   <li>Propose a baseline approach: Given a template classified as an infobox, the approach is instance-based and exploits the already mapped articles and their cross-language links to the articles that contain the template to be mapped. This approach is summaried in the below figure.</li>
 </ul>
 
-<p><img src="/images/GSoC.png" alt="Alt text" /></p>
+<p><img src="/images/GSoC2.png" alt="Alt text" /></p>
 
 <ul>
   <li>Experiments:
