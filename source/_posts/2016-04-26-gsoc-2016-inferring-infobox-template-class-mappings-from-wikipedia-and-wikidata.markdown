@@ -46,3 +46,11 @@ The main output of the project will be a list of new high-quality infobox-class 
 - Process the information (1) - (3) described above and obtain some prelimenary results.
 
 **Week 4 (5.29-6.4)**
+
+- Propose a baseline approach: Given a template classified as an infobox, the approach is instance-based and exploits the already mapped articles and their cross-language links to the articles that contain the template to be mapped. This approach is summaried in the below figure.
+
+![Alt text](/images/GSoC.png)
+
+- Experiments:
+    - Based on existing mappings in English, to create mappings for Chinese.
+	- Evaluations: try this approach on some other languages which have some existing mappings. (In progress)
