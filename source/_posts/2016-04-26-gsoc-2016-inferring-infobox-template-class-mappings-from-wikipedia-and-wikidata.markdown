@@ -54,3 +54,9 @@ The main output of the project will be a list of new high-quality infobox-class 
 - Experiments:
     - Based on existing mappings in English, to create mappings for Chinese.
 	- Evaluations: try this approach on some other languages which have some existing mappings. (In progress)
+
+**Week 5 (6.5-6.11)**
+
+- Learn the difference between infoboxes and macro templates and try to filter the macro templates.
+- More experiments.
+- Start to write a summary about the progress so far.
