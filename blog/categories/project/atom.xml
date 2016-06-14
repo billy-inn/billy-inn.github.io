@@ -4,7 +4,7 @@
   <title><![CDATA[Category: project | KRIS]]></title>
   <link href="http://billy-inn.github.io/blog/categories/project/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-06-05T22:01:19-06:00</updated>
+  <updated>2016-06-14T11:42:38-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -81,6 +81,14 @@
       <li>Evaluations: try this approach on some other languages which have some existing mappings. (In progress)</li>
     </ul>
   </li>
+</ul>
+
+<p><strong>Week 5 (6.5-6.11)</strong></p>
+
+<ul>
+  <li>Learn the difference between infoboxes and macro templates and try to filter the macro templates.</li>
+  <li>More experiments.</li>
+  <li>Start to write a summary about the progress so far.</li>
 </ul>
 ]]></content>
   </entry>
