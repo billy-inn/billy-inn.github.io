@@ -4,7 +4,7 @@
   <title><![CDATA[KRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-06-14T11:42:38-06:00</updated>
+  <updated>2016-06-17T22:05:19-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -127,6 +127,22 @@
   <li>Learn the difference between infoboxes and macro templates and try to filter the macro templates.</li>
   <li>More experiments.</li>
   <li>Start to write a summary about the progress so far.</li>
+</ul>
+
+<p><strong>Week 6 (6.12-6.18)</strong></p>
+
+<ul>
+  <li>Complete the code and the documentation, see <a href="https://github.com/dbpedia/mappings-autogeneration">this repo</a> on github.</li>
+  <li>Complete the report about the current progress and further work required by the mid-term evaluation.</li>
+  <li>Starts working on ontology hierarchy and templates filtering.</li>
+</ul>
+
+<p><strong>Next week’s plan</strong></p>
+
+<ul>
+  <li>Check the uniqueness of article-template links.</li>
+  <li>Filter the articles with existing mappings and classify the infoboxes based on these articles.</li>
+  <li>Use multiple pivot languages to evaluate the results.</li>
 </ul>
 ]]></content>
   </entry>
