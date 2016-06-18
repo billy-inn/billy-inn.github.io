@@ -60,3 +60,15 @@ The main output of the project will be a list of new high-quality infobox-class 
 - Learn the difference between infoboxes and macro templates and try to filter the macro templates.
 - More experiments.
 - Start to write a summary about the progress so far.
+
+**Week 6 (6.12-6.18)**
+
+- Complete the code and the documentation, see [this repo](https://github.com/dbpedia/mappings-autogeneration) on github.
+- Complete the report about the current progress and further work required by the mid-term evaluation.
+- Starts working on ontology hierarchy and templates filtering.
+
+**Next week's plan**
+
+- Check the uniqueness of article-template links.
+- Filter the articles with existing mappings and classify the infoboxes based on these articles.
+- Use multiple pivot languages to evaluate the results.
