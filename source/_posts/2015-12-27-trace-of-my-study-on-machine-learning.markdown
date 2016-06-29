@@ -36,11 +36,13 @@ This blog will record the timeline, resources, projects along the way of my stud
     - [Manual](http://waxworksmath.com/Authors/G_M/Hastie/hastie.html): Figure out the mathematical details.
 	- [R package "ElemStatLearn"](https://cran.r-project.org/web/packages/ElemStatLearn/index.html): Contain data sets, functions and examples from the book.
 	- [My code](https://github.com/billy-inn/ElemStatLearn): Exercises and experiment reimplementations in **R**.
-- Probabilistic Graphical Models:
-    - [UAlberta CMPUT 659](https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models): Graduate Course in University of Alberta based on Coursera Course instructed by [Koller](http://ai.stanford.edu/users/koller/) (**Completed** in *16.4*).
-	- [CMU 10-708](http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html): Ongoing
-	- [Probabilistic Graphical Models: Principles and Techniques](http://pgm.stanford.edu/): Classic Textbook for Probabilistic Graphical Models. I've read a few chapters of it and gave up. This book is somewhat too mathematical and I will not recommend this book for beginners in PGM.
-	- [Pomegranate](https://github.com/jmschrei/pomegranate): A Python package for PGM. Nice tutorials for beginners in PGM!
+
+### Probabilistic Graphical Models:
+
+- [UAlberta CMPUT 659](https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models): Graduate Course in University of Alberta based on Coursera Course instructed by [Koller](http://ai.stanford.edu/users/koller/) (**Completed** in *16.4*).
+- [CMU 10-708](http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html): Ongoing
+- [Probabilistic Graphical Models: Principles and Techniques](http://pgm.stanford.edu/): Classic Textbook for Probabilistic Graphical Models. I've read a few chapters of it and gave up. This book is somewhat too mathematical and I will not recommend this book for beginners in PGM.
+- [Pomegranate](https://github.com/jmschrei/pomegranate): A Python package for PGM. Nice tutorials for beginners in PGM!
 
 ### Deep Learning
 
@@ -52,8 +54,9 @@ This blog will record the timeline, resources, projects along the way of my stud
 
 ### Large Scale Machine Learning
 
-- [Introduction to Big Data with Apache Spark](https://courses.edx.org/courses/BerkeleyX/CS100.1x/1T2015/info): Introduction to Spark in **Python**. ([Certificate](/certificates/spark.pdf))
-- [Scalable Machine Learning](https://courses.edx.org/courses/BerkeleyX/CS190.1x/1T2015/info): Explore deeper usage of Spark on large scale machine learning. ([Certificate](/certificates/scalableML.pdf))
+- [MOOC: Introduction to Big Data with Apache Spark](https://courses.edx.org/courses/BerkeleyX/CS100.1x/1T2015/info): Introduction to Spark in **Python**. ([Certificate](/certificates/spark.pdf))
+- [MOOC: Scalable Machine Learning](https://courses.edx.org/courses/BerkeleyX/CS190.1x/1T2015/info): Explore deeper usage of Spark on large scale machine learning. ([Certificate](/certificates/scalableML.pdf))
+- [MOOC: Functional Programming Principles in Scala](https://www.coursera.org/learn/progfun1/): Introduction to **Scala**. ([Certificate](/certificates/fpp.pdf))
 
 ### Data Mining
 
