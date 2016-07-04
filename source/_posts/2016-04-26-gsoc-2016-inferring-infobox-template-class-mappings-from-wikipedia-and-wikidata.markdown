@@ -67,8 +67,12 @@ The main output of the project will be a list of new high-quality infobox-class 
 - Complete the report about the current progress and further work required by the mid-term evaluation.
 - Starts working on ontology hierarchy and templates filtering.
 
-**Next week's plan**
+**Week 7 (6.19-6.25)**
 
-- Check the uniqueness of article-template links.
-- Filter the articles with existing mappings and classify the infoboxes based on these articles.
-- Use multiple pivot languages to evaluate the results.
+- Use multiple languages to evaluate the predicted results.
+- Use ontology hierarchy to assign types to articles and evaluate the predicted results.
+
+**Week 8 (6.26-7.2)**
+
+- Complete a script combining all the modules so far together, which can download the data, parse the data, predicted the mappings and evaluate on the predicted results as a whole.
+- Update the README file and added some figures about the evaluation results on Bulgarian.
