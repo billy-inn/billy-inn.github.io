@@ -4,7 +4,7 @@
   <title><![CDATA[Category: project | KRIS]]></title>
   <link href="http://billy-inn.github.io/blog/categories/project/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-06-29T15:22:03-06:00</updated>
+  <updated>2016-07-04T17:00:33-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -99,12 +99,18 @@
   <li>Starts working on ontology hierarchy and templates filtering.</li>
 </ul>
 
-<p><strong>Next week’s plan</strong></p>
+<p><strong>Week 7 (6.19-6.25)</strong></p>
 
 <ul>
-  <li>Check the uniqueness of article-template links.</li>
-  <li>Filter the articles with existing mappings and classify the infoboxes based on these articles.</li>
-  <li>Use multiple pivot languages to evaluate the results.</li>
+  <li>Use multiple languages to evaluate the predicted results.</li>
+  <li>Use ontology hierarchy to assign types to articles and evaluate the predicted results.</li>
+</ul>
+
+<p><strong>Week 8 (6.26-7.2)</strong></p>
+
+<ul>
+  <li>Complete a script combining all the modules so far together, which can download the data, parse the data, predicted the mappings and evaluate on the predicted results as a whole.</li>
+  <li>Update the README file and added some figures about the evaluation results on Bulgarian.</li>
 </ul>
 ]]></content>
   </entry>
