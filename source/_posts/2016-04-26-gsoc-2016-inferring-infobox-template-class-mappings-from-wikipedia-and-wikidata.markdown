@@ -76,3 +76,16 @@ The main output of the project will be a list of new high-quality infobox-class 
 
 - Complete a script combining all the modules so far together, which can download the data, parse the data, predicted the mappings and evaluate on the predicted results as a whole.
 - Update the README file and added some figures about the evaluation results on Bulgarian.
+
+**Week 9 (7.3-7.9)**
+
+- Use information in wikidata: Quite a bit entities in wikidata has a DBpedia ontology types assigned already. In addition, we have links between wikidata and other languages. As a result, we can treat wikidata as a pivot language directly. The information from wikidata can be useful to improve the performance of our approach.
+- Case study on miss classified cases on Bulgarian.
+
+**Week 10 (7.10-7.16)**
+
+- Read papers for further improvements:
+    - [Type Prediction in RDF Knowledge Bases Using Hierarchical Multilabel Classification](http://ub-madoc.bib.uni-mannheim.de/40970/1/a14-melo.pdf)
+	    - [Grounding Topic Models with Knowledge Bases](http://www.ijcai.org/Proceedings/16/Papers/226.pdf)
+		    - [A Review of Relational Machine Learning for Knowledge Graphs](https://arxiv.org/abs/1503.00759)
+			- Start working on manually checking the predicted mappings in Chinese as final output of the project. 
