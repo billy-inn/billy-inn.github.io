@@ -86,6 +86,6 @@ The main output of the project will be a list of new high-quality infobox-class 
 
 - Read papers for further improvements:
     - [Type Prediction in RDF Knowledge Bases Using Hierarchical Multilabel Classification](http://ub-madoc.bib.uni-mannheim.de/40970/1/a14-melo.pdf)
-	    - [Grounding Topic Models with Knowledge Bases](http://www.ijcai.org/Proceedings/16/Papers/226.pdf)
-		    - [A Review of Relational Machine Learning for Knowledge Graphs](https://arxiv.org/abs/1503.00759)
-			- Start working on manually checking the predicted mappings in Chinese as final output of the project. 
+	- [Grounding Topic Models with Knowledge Bases](http://www.ijcai.org/Proceedings/16/Papers/226.pdf)
+	- [A Review of Relational Machine Learning for Knowledge Graphs](https://arxiv.org/abs/1503.00759)
+- Start working on manually checking the predicted mappings in Chinese as final output of the project. 
