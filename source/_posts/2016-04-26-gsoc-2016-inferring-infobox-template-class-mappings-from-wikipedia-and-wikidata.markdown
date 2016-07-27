@@ -89,3 +89,8 @@ The main output of the project will be a list of new high-quality infobox-class 
 	- [Grounding Topic Models with Knowledge Bases](http://www.ijcai.org/Proceedings/16/Papers/226.pdf)
 	- [A Review of Relational Machine Learning for Knowledge Graphs](https://arxiv.org/abs/1503.00759)
 - Start working on manually checking the predicted mappings in Chinese as final output of the project. 
+
+**Week 11 (7.17-7.23)**
+
+- Implement the ideas in [this paper](http://www.dbs.ifi.lmu.de/~tresp/papers/p271.pdf) on DBpedia. 
+- Use cross-validation to evaluate the performance on link prediction task.
