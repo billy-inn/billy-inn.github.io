@@ -4,7 +4,7 @@
   <title><![CDATA[Category: project | KRIS]]></title>
   <link href="http://billy-inn.github.io/blog/categories/project/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-07-17T18:21:59-06:00</updated>
+  <updated>2016-07-27T16:56:16-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -131,6 +131,13 @@
     </ul>
   </li>
   <li>Start working on manually checking the predicted mappings in Chinese as final output of the project.</li>
+</ul>
+
+<p><strong>Week 11 (7.17-7.23)</strong></p>
+
+<ul>
+  <li>Implement the ideas in <a href="http://www.dbs.ifi.lmu.de/~tresp/papers/p271.pdf">this paper</a> on DBpedia.</li>
+  <li>Use cross-validation to evaluate the performance on link prediction task.</li>
 </ul>
 ]]></content>
   </entry>
