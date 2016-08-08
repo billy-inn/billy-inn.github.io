@@ -94,3 +94,13 @@ The main output of the project will be a list of new high-quality infobox-class 
 
 - Implement the ideas in [this paper](http://www.dbs.ifi.lmu.de/~tresp/papers/p271.pdf) on DBpedia. 
 - Use cross-validation to evaluate the performance on link prediction task.
+
+**Week 12 (7.24-7.30)**
+
+- More experiments about tensor factorization on DBpedia. But the results are not that good.
+
+**Week 13 (7.31-8.6)**
+
+- Read papers about graph embeddings and applications on knowledge base: [TransE](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf) and [HOLE](http://arxiv.org/pdf/1510.04935.pdf)
+- Apply the ideas in above paper on DBpedia. However, the results are still not that good compared to the results presented in the paper.
+- Use grid search to find the optimal parameter setting to improve the performance.
