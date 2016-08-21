@@ -104,3 +104,13 @@ The main output of the project will be a list of new high-quality infobox-class 
 - Read papers about graph embeddings and applications on knowledge base: [TransE](http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf) and [HOLE](http://arxiv.org/pdf/1510.04935.pdf)
 - Apply the ideas in above paper on DBpedia. However, the results are still not that good compared to the results presented in the paper.
 - Use grid search to find the optimal parameter setting to improve the performance.
+
+**Week 14 (8.7-8.13)**
+
+- For RESCAL, with large rank, it can achieve fairly good performance for tasks like type prediction on small languages like Balgarian. The AUC-PR is around 0.8. However, due to the memory limit, RESCAL performs poorly on larger languages like German and English.
+- Develop two scripts based on RESCAL and HOLE to compute a score for given triples indicating the likelihood of the existance of the triples in DBpedia, which can help determine whether to add new triples to DBpedia.
+- So far, I almost complete all my work for this project. 
+
+**Week 15 (8.14-8.19)**
+
+- Submit the code and complete the final evaluations.
