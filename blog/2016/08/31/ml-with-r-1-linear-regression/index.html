@@ -1,24 +1,159 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[KRIS]]></title>
-  <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
-  <link href="http://billy-inn.github.io/"/>
-  <updated>2016-08-31T15:03:39-06:00</updated>
-  <id>http://billy-inn.github.io/</id>
-  <author>
-    <name><![CDATA[Peng Xu]]></name>
-    <email><![CDATA[bly930725@gmail.com]]></email>
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ML with R (1): Linear Regression - KRIS</title>
+  <meta name="author" content="Peng Xu">
 
   
-  <entry>
-    <title type="html"><![CDATA[ML with R (1): Linear Regression]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression/"/>
-    <updated>2016-08-31T14:58:57-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression</id>
-    <content type="html"><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml">
+  <meta name="description" content="">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/syntax/syntax.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    body {
+      padding-bottom: 40px;
+    }
+    h1 {
+      margin-bottom: 15px;
+    }
+    img {
+      max-width: 100%;
+    }
+    .sharing, .meta, .pager {
+      margin: 20px 0px 20px 0px;
+    }
+    .page-footer p {
+      text-align: center;
+    }
+  </style>
+  <script src="/javascripts/libs/jquery.js"></script>
+  <script src="/javascripts/libs/modernizr-2.0.js"></script>
+  <script src="/javascripts/libs/bootstrap.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="KRIS" type="application/atom+xml">
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                       tex2jax: {
+                       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                       processEscapes: true
+                       }
+                       });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+                       tex2jax: {
+                       skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                       }
+                       });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+                      var all = MathJax.Hub.getAllJax(), i;
+                      for(i=0; i < all.length; i += 1) {
+                      all[i].SourceElement().parentNode.className += ' has-jax';
+                      }
+                      });
+</script>
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-69271262-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="brand" href="/">KRIS</a>
+
+      <div class="nav-collapse">
+        <ul class="nav">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+
+        <ul class="nav pull-right" data-subscription="rss">
+          <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+          
+        </ul>
+
+        
+          <form class="pull-right navbar-search" action="https://www.google.com/search" method="get">
+            <fieldset role="search">
+              <input type="hidden" name="q" value="site:billy-inn.github.io" />
+              <input class="search-query" type="text" name="q" results="0" placeholder="Search"/>
+            </fieldset>
+          </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</nav>
+  <div class="container">
+    <div class="row-fluid">
+      
+<article class="hentry span9" role="article">
+
+  
+  <header class="page-header">
+    
+      <h1 class="entry-title">ML With R (1): Linear Regression</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-31T14:58:57-06:00'><span class='date'>2016-08-31</span> <span class='time'>2:58 pm</span></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -214,491 +349,169 @@ $(document).ready(function () {
 
 </body>
 </html>
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[阶段性回顾与展望]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/08/30/jie-duan-xing-hui-gu-yu-zhan-wang/"/>
-    <updated>2016-08-30T14:14:59-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/08/30/jie-duan-xing-hui-gu-yu-zhan-wang</id>
-    <content type="html"><![CDATA[<p>不知不觉已经到加拿大九个月了，虽然一路上磕磕绊绊，但一切似乎都在我预想的轨道上发展，实在有些出乎意料。新的一个学期就要开始了，居然有点踌躇满志的意思呢。</p>
 
-<h3 id="section">生活</h3>
+<span class="byline author vcard">Posted by <span class="fn">Peng Xu</span></span>
 
-<p><em>回顾</em>：一开始真的不算顺利，先是遇到一个不怎么样的房东，lease没到就被要求搬走，押金也被扣了。初来乍到，只能认栽了，接下来又稀里糊涂的接了一个快到期的lease，结果住了3个月又得搬家。不到半年就搬了两次家也是醉了……还有吃饭，理发都是不小的问题。不过慢慢的自理能力也上来了，现在基本上生活上已经问题不大了，现在做饭虽然算不上多好吃，但基本饿不死了，周末还可以做个大盘鸡，炖个羊肉汤什么的，剩饭也可以炒个蛋炒饭，感觉还是挺滋润的。不过刚过来的时候碳酸饮料喝的有点多，导致现在牙齿有点敏感，可惜国外看牙太贵了，有机会回国的话一定得把牙齿好好检查一下。</p>
+      
 
-<p><em>展望</em>：碳酸饮料需要戒掉，甜食也尽量少吃；多多学习烹饪，尽量少出去吃些快餐；多注意一下形象管理，别太邋遢了；还有就是平时多注意锻炼，吃完饭犯困了，可以出去走走，玩会儿pokemon go~</p>
 
-<!--more-->
 
-<h3 id="section-1">时间管理</h3>
 
-<p><em>回顾</em>：出国后有段时间每天整体手机刷个没完，严重影响效率。之后下了不少时间管理的软件，也读了“Soft Skills: The software developer’s life manual”，加上一些机缘巧合（主要是被网上一些极易被煽动、且喜欢强加意志于别人身上的群体感到恶心），终于慢慢的把刷手机的习惯的淡化了。之前读pluskid的博客，他每周平均的工作时间居然是50h+，当时我也想达到这个水平，可我后来发现这对我来说根本不可能。每个人每天每周的精力其实都是有限的，如果超过一定的threshold，时间和生产力未必就是正相关的。提高效率的关键还是在于每天能否在有效的几个小时里做到专注，用短暂时间片来保持专注确实是个不错的方法（Pomodoro Method）。还有一点就是每天都要对今天要做的事有一个明确的规划，否则很容易在无所事事中浪费大量的时间。现在我平时差不多每天可以脱离手机专注工作学习6-7小时左右了，而周末的话基本只学习2-3小时。</p>
+<time class='entry-date' datetime='2016-08-31T14:58:57-06:00'><span class='date'>2016-08-31</span> <span class='time'>2:58 pm</span></time>
+      
 
-<p><em>展望</em>：现在的节奏不错，希望可以继续保持，还有就是在工作学习的时候还是希望注意力能够更加集中（偶尔还会刷网页版的微博，或者总去看跑着的实验）。</p>
-
-<h3 id="section-2">科研与学业</h3>
-
-<p><em>回顾</em>：过来的第一个学期，基本就是上课。一过来就选了三门graduate level的课，基本每天就是上课做作业，准备presentation，做project。一个学期一共做了4次presentation，3个project。一门PGM，一门NLP&amp;IR相关的课还是收获比较大的。而且作为project在Kaggle上拿了第一个top10%，也算掌握了data science in python的一系列工具：pandas, numpy, scikit-learn, xgboost。之后又仔细读了winning solution的code，熟悉了Kaggle比赛的一整套的pipeline。最近自己稍微改了改套到另一个比赛里，用basic feature ensemble一下已经top10%了，可惜这个比赛得用neural nets，完全没这方面的经验，加的feature都一点improvement都没有，各种调参也没什么效果，sigh~</p>
-
-<p>由于是winter term才入学，又是course-based的所以没有认识到太多人，着实比较遗憾，也挺尴尬的。3月份偶然看到Google Summer of Code开始申请了，由于课上介绍knowledge bases 时提到过DBpedia，作业里也有用到，所以抱着试一试的心态去申了DBpedia的项目，没想到就申请上了。学期结束等成绩时还挺忐忑的，最后发现担心完全是多余的，两门A，NLP&amp;IR相关的A+。然后和教NLP&amp;IR的老师谈了一谈，基本上就确定可以转thesis-based了。然后整个暑假就是搞GSoC了，其实感觉前半部分都挺颓废的，随便找了篇paper搞了一下。到后半段整个人才调整过来，边打Kaggle，边读paper做实验完善code。整个暑假还把Coursera上EPFL关于Scala的三门课程学了（虽然Coursera现在要收费了，但我发现只要申请助学金，还是可以拿到verfied certificate），晚上偶尔会自学Stephen Boyd的convex optimization和做做statistical inference上的exercise。今天Google Summer of Code的结果出来了，没什么意外的通过了，一个暑假赚了5500刀，和去美帝读硕，各种FLAG实习的小伙伴差距太大了，说多了都是泪。不过通过GSoC这个项目，我还是确定了自己之后的研究方向（至少是研究生阶段）会在knowledge graph及其相关任务和应用了，比如link prediction，entity resolution之类的。和GSoC的mentor的交流也挺愉快的，之后应该还会继续合作，可能会造个关于DL on Scala and Spark的轮子，想想还有点小激动呢~</p>
-
-<p><em>展望</em>：新学期开始前其实还不确定能不能顺利拿到TA，一方面是钱的问题，另一方面就是来国外也挺久了，然而用英语和人的交流还是太少，有TA的话应该会有更多的机会。没想到的是，转成thesis-based之后，和管TA的教授聊了聊，居然拿到了Machine Learning的TA，offer也很快下来了。这实在属于意外之喜了，一般的MSc甚至PhD刚开始一般都只会TA一些比较基础的本科课程。这门课其实是undergraduate和graduate混合的课程，本来我还差点去选，从需要花钱上课到拿TA，这转变真是让我始料未及。但我其实ML的底子也一般，就在网上走马观花的上过几门课，在Kaggle上随便水水，几次想尝试啃大部头，最后都放弃了。之后也一直有意识的想要加强自己的数学底子，然而进展缓慢~现在反而要去回答本科生甚至是研究生的问题，我还是有点虚的，所以这学期我决定认真准备这门TA。这门课相当一部分作业就是Andrew NG的那门ML课里的，网上Python版本的也有不少，我决定用R全部重写一遍（可能的话，也可以用scala基于spark写一写distributed的），然后就是好好搞定statistics和convex optimization，争取能跟着课程进度把”Elements of Statistical Learning”啃一遍，顺便写点blog什么的。</p>
-
-<p>这学期我就选了一门课，不过是门神课”Reinforcement Learning”由大牛教授rachard sutton亲自上。毕竟是University of Alberta计算机最为出名的研究领域，肯定要上一上，不过看了看材料，压力显然不会小，还有midterm和final，需要踏踏实实的学好。除此以外，Coursera上Geoffrey Hinton的Neural Networks for Machine Learning又重新开了，决定去上一遍。还有EPFL关于scala and spark的后续课程如果开了，估计也会去跟一跟。本来还想上点关于finance的课，毕竟手上有了点闲钱，想去捣腾下美股，后来想想还是算了，就算我annual return能翻倍也没几个钱，投入太多精力在这上面根本不划算。</p>
-
-<p>至于在research方面的话，主要就是和mentor合作用scala and spark to factorize DBpedia。另外，刚来国外比较空虚，关注女明星比较多，所以用新浪的API写了个检测明星微博数据的小玩意，准备维护个营销号玩玩，可能也会根据名人之类的，搞个construct a knowledge graph from scratch之类的玩意。还有想到大公司都有自己的knowledge graph，所以就想抓google的搜索结果可以当做一些research的benchmark或者做improvement之类的。没想到google也太流氓了，几乎瞬间被block，搞得我有些心灰意冷，没办法，只能先抓抓Bing和Baidu了，等程序框架成熟了、Proxy IP池什么的都有了，能大规模抓Bing和Baidu之后再试着去抓Google吧。</p>
-
-<p>洋洋洒洒的写了这么多，对未来的畅想实在是有点太理想化了，如果有机会的话，还想搞篇paper什么的呢。差不多就这样了，希望一个学期以后计划的事能做到一半以上吧~</p>
-]]></content>
-  </entry>
+<span class="categories">
   
-  <entry>
-    <title type="html"><![CDATA[Probabilistic Graphical Models (1): Introduction]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation/"/>
-    <updated>2016-04-28T16:17:08-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation</id>
-    <content type="html"><![CDATA[<p>What is probabilistic graphical model (PGM)? Forget about some high-level and complicated sentences on textbook or wikipedia. From my perspective, it’s all about graphs, distributions and the connections between them.</p>
-
-<p>There are three aspects to a graphical model:</p>
-
-<ul>
-  <li>The graph</li>
-  <li>A model of the data based on the graph</li>
-  <li>The data itself</li>
-</ul>
-
-<p>Actually, the data is generated by the underlying distribution and the model is the connection between the graph and the distribution. Here comes three fundamental issues:</p>
-
-<ul>
-  <li><strong>Representation</strong>: How to represent the three aspects mentioned above succinctly?</li>
-  <li><strong>Inference</strong>: How do I answser questions/queries according to my model and the given data? For example, the probability of a certain variable given some observations $P(X_i \vert \mathcal{D})$.</li>
-  <li><strong>Learning</strong>: What model is “right” for my data? We may want to “learn” the parameters of the model, or the model itself or even the topology of the graph from the data.</li>
-</ul>
-
-<!--more-->
-
-<p>But, why we need to use PGM? Consider a multivariate distribution on $8$ binary-valued variables $X_1,\dots, X_8$. Such a distribution contains $2^8$ configurations and the specification of the joint distribution would require $2^8-1$ numbers. In pratical, quite a bit of these configurations are unnecessary. In this form, inference is also expensive as it would, in general, require summing over an exponential number of configurations of unobserved variables. Learning is also problematic in this case because huge amounts of data are needed to accurately learn probabilities, especially of rare events. A solution to this problem is to use conditional independencies. Conditional independencies are statements of the form “$X$ is independent of $Y$ given $Z$” or $X \perp Y \vert Z$. If all the variables are independent, we can write:</p>
-
-<script type="math/tex; mode=display">P(X_1,\dots,X_8)=P(X_1)P(X_2)P(X_3)\dots P(X_8)</script>
-
-<p>This representation reduces parameter requirement from exponential to linear in the number of variables. But this representation is not rich enough to capture all possibilities. PGM try to capture middle ground by using conditional independencies known from the domain. Graph representation captures these conditional independencies compactly.</p>
-
-<p><img src="http://billy-inn.github.io/images/PGM1.1.png" alt="Alt text" /></p>
-
-<p>So, what is a PGM after all? It’s a smart way to specify exponentially-large probability distributions without paying an exponential cost, and at the same time endow the distributions with structured semantics. More formally, it refers to a family of distributions on a set of random variables that are compatible with all the probabiliistic independence propositions encoded by a graph that connects these variables.</p>
-]]></content>
-  </entry>
+    <a class='category' href='/blog/categories/machine-learning/'>machine_learning</a>
   
-  <entry>
-    <title type="html"><![CDATA[GSoC 2016: Inferring infobox template class mappings from Wikipedia and WikiData]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/"/>
-    <updated>2016-04-26T15:51:27-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata</id>
-    <content type="html"><![CDATA[<p><em>This page is the public project page and will be updated every week.</em></p>
+</span>
 
-<h3 id="project-description">Project Description</h3>
 
-<p>There are many infoboxes on wikipedia. Here is a example about football box:</p>
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression/" data-via="" data-counturl="http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression/" >Tweet</a>
+  
+  
+  
+</div>
 
-<p><img src="http://billy-inn.github.io/images/GSoC1.png" alt="Alt text" /></p>
-
-<p>As seen, every infobox has some properties. Actually, every infobox follows a certain template. In my project, the goal is to find mappings between the classes (eg. <code>dbo:Person</code>, <code>dbo:City</code>) in the DBpedia ontology and infobox templates on pages of Wikipedia resources using techniques of machine learning.</p>
-
-<p>There are lots of infobox mappings available for a few languages, but not as many for other languages. In order to infer mappings for all the languages, cross-lingual knowledge validation should also be considered.</p>
-
-<p>The main output of the project will be a list of new high-quality infobox-class mappings.</p>
-
-<!--more-->
-
-<h3 id="weekly-progess">Weekly Progess</h3>
-
-<p><strong>Week 1 (5.8-5.14)</strong></p>
-
-<ul>
-  <li>First meeting with my mentor</li>
-  <li>Create the public page for the project</li>
-  <li>Create the google doc for the project</li>
-</ul>
-
-<p><strong>Week 2 (5.15-5.21)</strong></p>
-
-<ul>
-  <li>Get the <a href="http://mappings.dbpedia.org/server/mappings/en/pages/rdf/all">existing mappings</a></li>
-  <li>Get the information about all templates: <a href="https://github.com/dbpedia/extraction-framework/tree/master/server/src/main/statistics">https://github.com/dbpedia/extraction-framework/tree/master/server/src/main/statistics</a></li>
-  <li>Parse and clean the data</li>
-</ul>
-
-<p><strong>Week 3 (5.22-5.28)</strong></p>
-
-<ul>
-  <li>Figure out the information we have:
-    <ul>
-      <li>1) Existing mappings, we have manual information that a template in lang $X$ is mapped to class $Y$</li>
-      <li>2) Inter-language links between templates, e.g. template $X_1$ in lang $X$ is mapped to class $Y$ and there is a link from this template to templates in other languages. This gives a high probability that the equivalent templates in other languages should be mapped to the same class $Y$.</li>
-      <li>3) Links between articles in different languages and templates each article uses, this way, when (2) is not always true we can find which templates are used for the same concepts.</li>
-      <li>4) Most wikidata articles have a type assigned, using this information we have a variation of  metric (3) but with manual types assigned.</li>
+    
+    
+    <section>
+      <h1>Comments</h1>
+      <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </section>
+    
+    <ul class="pager">
+      
+      <li class="previous"><a class="basic-alignment left"
+        href="/blog/2016/08/30/jie-duan-xing-hui-gu-yu-zhan-wang/" title="Previous Post:
+        阶段性回顾与展望">&laquo; 阶段性回顾与展望</a></li>
+      
+      <li><a href="/blog/archives">Blog Archives</a></li>
+      
     </ul>
-  </li>
-  <li>Process the information (1) - (3) described above and obtain some prelimenary results.</li>
-</ul>
+  </footer>
+</article>
 
-<p><strong>Week 4 (5.29-6.4)</strong></p>
-
-<ul>
-  <li>Propose a baseline approach: Given a template classified as an infobox, the approach is instance-based and exploits the already mapped articles and their cross-language links to the articles that contain the template to be mapped. This approach is summaried in the below figure.</li>
-</ul>
-
-<p><img src="http://billy-inn.github.io/images/GSoC2.png" alt="Alt text" /></p>
-
-<ul>
-  <li>Experiments:
-    <ul>
-      <li>Based on existing mappings in English, to create mappings for Chinese.</li>
-      <li>Evaluations: try this approach on some other languages which have some existing mappings. (In progress)</li>
-    </ul>
-  </li>
-</ul>
-
-<p><strong>Week 5 (6.5-6.11)</strong></p>
-
-<ul>
-  <li>Learn the difference between infoboxes and macro templates and try to filter the macro templates.</li>
-  <li>More experiments.</li>
-  <li>Start to write a summary about the progress so far.</li>
-</ul>
-
-<p><strong>Week 6 (6.12-6.18)</strong></p>
-
-<ul>
-  <li>Complete the code and the documentation, see <a href="https://github.com/dbpedia/mappings-autogeneration">this repo</a> on github.</li>
-  <li>Complete the report about the current progress and further work required by the mid-term evaluation.</li>
-  <li>Starts working on ontology hierarchy and templates filtering.</li>
-</ul>
-
-<p><strong>Week 7 (6.19-6.25)</strong></p>
-
-<ul>
-  <li>Use multiple languages to evaluate the predicted results.</li>
-  <li>Use ontology hierarchy to assign types to articles and evaluate the predicted results.</li>
-</ul>
-
-<p><strong>Week 8 (6.26-7.2)</strong></p>
-
-<ul>
-  <li>Complete a script combining all the modules so far together, which can download the data, parse the data, predicted the mappings and evaluate on the predicted results as a whole.</li>
-  <li>Update the README file and added some figures about the evaluation results on Bulgarian.</li>
-</ul>
-
-<p><strong>Week 9 (7.3-7.9)</strong></p>
-
-<ul>
-  <li>Use information in wikidata: Quite a bit entities in wikidata has a DBpedia ontology types assigned already. In addition, we have links between wikidata and other languages. As a result, we can treat wikidata as a pivot language directly. The information from wikidata can be useful to improve the performance of our approach.</li>
-  <li>Case study on miss classified cases on Bulgarian.</li>
-</ul>
-
-<p><strong>Week 10 (7.10-7.16)</strong></p>
-
-<ul>
-  <li>Read papers for further improvements:
-    <ul>
-      <li><a href="http://ub-madoc.bib.uni-mannheim.de/40970/1/a14-melo.pdf">Type Prediction in RDF Knowledge Bases Using Hierarchical Multilabel Classification</a></li>
-      <li><a href="http://www.ijcai.org/Proceedings/16/Papers/226.pdf">Grounding Topic Models with Knowledge Bases</a></li>
-      <li><a href="https://arxiv.org/abs/1503.00759">A Review of Relational Machine Learning for Knowledge Graphs</a></li>
-    </ul>
-  </li>
-  <li>Start working on manually checking the predicted mappings in Chinese as final output of the project.</li>
-</ul>
-
-<p><strong>Week 11 (7.17-7.23)</strong></p>
-
-<ul>
-  <li>Implement the ideas in <a href="http://www.dbs.ifi.lmu.de/~tresp/papers/p271.pdf">this paper</a> on DBpedia.</li>
-  <li>Use cross-validation to evaluate the performance on link prediction task.</li>
-</ul>
-
-<p><strong>Week 12 (7.24-7.30)</strong></p>
-
-<ul>
-  <li>More experiments about tensor factorization on DBpedia. But the results are not that good.</li>
-</ul>
-
-<p><strong>Week 13 (7.31-8.6)</strong></p>
-
-<ul>
-  <li>Read papers about graph embeddings and applications on knowledge base: <a href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a> and <a href="http://arxiv.org/pdf/1510.04935.pdf">HOLE</a></li>
-  <li>Apply the ideas in above paper on DBpedia. However, the results are still not that good compared to the results presented in the paper.</li>
-  <li>Use grid search to find the optimal parameter setting to improve the performance.</li>
-</ul>
-
-<p><strong>Week 14 (8.7-8.13)</strong></p>
-
-<ul>
-  <li>For RESCAL, with large rank, it can achieve fairly good performance for tasks like type prediction on small languages like Balgarian. The AUC-PR is around 0.8. However, due to the memory limit, RESCAL performs poorly on larger languages like German and English.</li>
-  <li>Develop two scripts based on RESCAL and HOLE to compute a score for given triples indicating the likelihood of the existance of the triples in DBpedia, which can help determine whether to add new triples to DBpedia.</li>
-  <li>So far, I almost complete all my work for this project.</li>
-</ul>
-
-<p><strong>Week 15 (8.14-8.19)</strong></p>
-
-<ul>
-  <li>Submit the code and complete the final evaluations.</li>
-</ul>
-]]></content>
-  </entry>
+<aside class="sidebar-nav span3">
   
-  <entry>
-    <title type="html"><![CDATA[Trace of My Study on Machine Learning]]></title>
-    <link href="http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning/"/>
-    <updated>2015-12-27T17:38:14-07:00</updated>
-    <id>http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning</id>
-    <content type="html"><![CDATA[<p>This blog will record the timeline, resources, projects along the way of my study on machine learning since 2015. And I will keep updating this blog.</p>
-
-<h3 id="mathematics">Mathematics</h3>
-
-<ul>
-  <li>Basics: better to review before real study of ML
-    <ul>
-      <li>Calculus</li>
-      <li>Linear Algebra
-        <ul>
-          <li><a href="http://math.mit.edu/~gs/linearalgebra/">Introduction to Linear Algebra</a>: a nice textbook in linear algebra.</li>
-          <li><a href="https://www.youtube.com/watch?v=ZK3O402wf1c&amp;list=PLE7DDD91010BC51F8">MIT 18.06</a>: Course of MIT in linear algebra (<strong>Completed</strong> in <em>15.12</em>).</li>
-        </ul>
+    <section>
+	<ul id="subtitle" class="nav nav-list">
+		<img src="/images/subtitle.png">
+		<p></p>
+	</ul>
+</section>
+<section class="well">
+ <ul id="about" class="nav nav-list">
+	 <li class="nav-header"><a href="/about">About Me</a></li>
+	 <p>Machine Learning Lover.</p>
+	 <p>Now working hard on related mathematics, e.g. Statistics, Optimization.</p>
+	 <p>Also interested in the applied domains like NLP, DM, CV, FE.</p>
+	 <p>Welcome to communicate with me among above topics.</p>
+	 <p>微博: <a href="http://www.weibo.com/u/2540837283">百里云_bly</a></p>
+	 <p>GitHub: <a href="http://github.com/billy-inn">billy-inn</a></p>
+	 <p>Email:<code>bly930725 [at] gmail.com</code></p>
+ </ul>
+</section>
+<section class="well">
+ <ul id="categories_list" class="nav nav-list">
+	<li class="nav-header">Categories</li>
+	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
+<li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (2)</a></li>
+<li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
+<li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
+<li class='category'><a href='/blog/categories/summary/'>summary (1)</a></li>
+</li>
+ </ul>
+</section>
+<section class="well">
+  <ul id="recent_posts" class="nav nav-list">
+    <li class="nav-header">Recent Posts</li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/31/ml-with-r-1-linear-regression/">ML with R (1): Linear Regression</a>
       </li>
-      <li>Probability Theory</li>
-    </ul>
-  </li>
-  <li>Reference
-    <ul>
-      <li><a href="http://www.springer.com/us/book/9783662462201">Handbook of Mathematics</a>: an amazing reference book of mathematics.</li>
-    </ul>
-  </li>
-  <li>Statistics
-    <ul>
-      <li><a href="http://www.stat.cmu.edu/~larry/all-of-statistics/">All of Statistics</a>: Ongoing</li>
-      <li><a href="http://www.amazon.com/Statistical-Inference-George-Casella/dp/0534243126">Statistical Inference</a>: Ongoing</li>
-      <li><a href="http://www.stat.cmu.edu/~larry/=stat705/">CMU 10-705</a>: Ongoing</li>
-    </ul>
-  </li>
-  <li>Optimization
-    <ul>
-      <li><a href="http://web.stanford.edu/~boyd/cvxbook/">Convex Optimization</a>: Ongoing</li>
-      <li><a href="http://stanford.edu/class/ee364a/index.html">Stanford EE364a</a>: Ongoing</li>
-    </ul>
-  </li>
-</ul>
+    
+      <li class="post">
+        <a href="/blog/2016/08/30/jie-duan-xing-hui-gu-yu-zhan-wang/">阶段性回顾与展望</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/28/probabilistic-graphical-models-1-representation/">Probabilistic Graphical Models (1): Introduction</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/">GSoC 2016: Inferring infobox template class mappings from Wikipedia and WikiData</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/27/trace-of-my-study-on-machine-learning/">Trace of My Study on Machine Learning</a>
+      </li>
+    
+  </ul>
+</section>
 
-<!--more-->
-
-<h3 id="statistical-machine-learning">Statistical Machine Learning</h3>
-
-<ul>
-  <li><a href="https://www.coursera.org/learn/machine-learning">MOOC: Machine Learning</a>: Introduction to machine learning. (<a href="http://billy-inn.github.io/certificates/ml.pdf">Certificate</a>)</li>
-  <li><a href="https://lagunita.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/info">MOOC: Statistical Learning</a>: Introduction to statistical learning and <strong>R</strong>. (<a href="http://billy-inn.github.io/certificates/sl.pdf">Certificate</a>)</li>
-  <li><a href="http://statweb.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning</a>: Ongoing
-    <ul>
-      <li><a href="http://waxworksmath.com/Authors/G_M/Hastie/hastie.html">Manual</a>: Figure out the mathematical details.</li>
-      <li><a href="https://cran.r-project.org/web/packages/ElemStatLearn/index.html">R package “ElemStatLearn”</a>: Contain data sets, functions and examples from the book.</li>
-      <li><a href="https://github.com/billy-inn/ElemStatLearn">My code</a>: Exercises and experiment reimplementations in <strong>R</strong>.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="probabilistic-graphical-models">Probabilistic Graphical Models:</h3>
-
-<ul>
-  <li><a href="https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models">UAlberta CMPUT 659</a>: Graduate Course in University of Alberta based on Coursera Course instructed by <a href="http://ai.stanford.edu/users/koller/">Koller</a> (<strong>Completed</strong> in <em>16.4</em>).</li>
-  <li><a href="http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html">CMU 10-708</a>: Ongoing</li>
-  <li><a href="http://pgm.stanford.edu/">Probabilistic Graphical Models: Principles and Techniques</a>: Classic Textbook for Probabilistic Graphical Models. I’ve read a few chapters of it and gave up. This book is somewhat too mathematical and I will not recommend this book for beginners in PGM.</li>
-  <li><a href="https://github.com/jmschrei/pomegranate">Pomegranate</a>: A Python package for PGM. Nice tutorials for beginners in PGM!</li>
-</ul>
-
-<h3 id="deep-learning">Deep Learning</h3>
-
-<ul>
-  <li><a href="http://neuralnetworksanddeeplearning.com/index.html">Neural Network and Deep Learning</a>: Nice online tutorial for beginners in deep learning.</li>
-  <li><a href="http://cs224d.stanford.edu/">Stanford CS224d</a>: Deep Learning for Natural Language Processing. A nice intro to Word2Vec and its applications.</li>
-  <li><a href="http://vision.stanford.edu/teaching/cs231n/index.html">Stanford CS231n</a>: Convolutional Neural Networks for Visual Recognition.</li>
-  <li><a href="https://github.com/dmlc/mshadow">MShadow</a></li>
-  <li><a href="https://github.com/dmlc/mxnet">Mxnet</a></li>
-</ul>
-
-<h3 id="large-scale-machine-learning">Large Scale Machine Learning</h3>
-
-<ul>
-  <li><a href="https://courses.edx.org/courses/BerkeleyX/CS100.1x/1T2015/info">MOOC: Introduction to Big Data with Apache Spark</a>: Introduction to Spark in <strong>Python</strong>. (<a href="http://billy-inn.github.io/certificates/spark.pdf">Certificate</a>)</li>
-  <li><a href="https://courses.edx.org/courses/BerkeleyX/CS190.1x/1T2015/info">MOOC: Scalable Machine Learning</a>: Explore deeper usage of Spark on large scale machine learning. (<a href="http://billy-inn.github.io/certificates/scalableML.pdf">Certificate</a>)</li>
-  <li><a href="https://www.coursera.org/learn/progfun1/">MOOC: Functional Programming Principles in Scala</a>: Introduction to <strong>Scala</strong>. (<a href="http://billy-inn.github.io/certificates/fpp.pdf">Certificate</a>)</li>
-</ul>
-
-<h3 id="data-mining">Data Mining</h3>
-
-<ul>
-  <li><a href="https://www.coursera.org/course/mmds">MOOC: Mining of Massive Datasets</a>: Introduction to a lot data mining techniques. (<a href="http://billy-inn.github.io/certificates/mmds.pdf">Certificate</a>)</li>
-</ul>
-
-<h3 id="ml-competitions">ML Competitions</h3>
-
-<ul>
-  <li><a href="https://www.kaggle.com/c/home-depot-product-search-relevance">Kaggle: Home Depot Product Search Relevance</a>: Top 10%.</li>
-</ul>
-
-<h3 id="miscellanea">Miscellanea</h3>
-
-<ul>
-  <li><strong>Python</strong> &amp; <strong>R</strong>: For experiment and plotting.</li>
-  <li><strong>C++</strong> &amp; <strong>Scala</strong>: For development.</li>
-  <li><a href="https://www.vagrantup.com/">Vagrant</a>: Create and configure lightweight, reproducible, and portable development environments. Very Useful tool!</li>
-</ul>
-]]></content>
-  </entry>
   
-  <entry>
-    <title type="html"><![CDATA[Machine Learning Basics(1): Linear Regression]]></title>
-    <link href="http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression/"/>
-    <updated>2015-12-23T16:56:20-07:00</updated>
-    <id>http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression</id>
-    <content type="html"><![CDATA[<p>As a beginner in machine learning, I plan to sketch out my learning process. And it will be my first post in this series.</p>
+</aside>
 
-<h3 id="definition">1. Definition</h3>
 
-<p>We have an input vector $X^T=(X_1, X_2, \dots, X_p)$ and want to predict a real-valued output $Y$. The linear regression model has the form</p>
+    </div>
+  </div>
+  <footer role="contentinfo" class="page-footer"><hr>
+<p>
+  Copyright &copy; 2016 - Peng Xu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
 
-<script type="math/tex; mode=display">f(X)=\beta_0 + \sum_{j=1}^pX_j\beta_j.\quad(1.1)</script>
-
-<p>Here the $\beta_j$’s are unknown parameters or coefficients.</p>
-
-<!--more-->
-
-<h3 id="least-squares">2. Least Squares</h3>
-
-<p>Typically we have a set of training data $(x_1,y_1)\dots(x_N,y_N)$ from which to estimate the parameters $\beta$. The most popular estimation method is least squares, in which we pick the coefficients $\beta=(
-\beta_0, \beta_1, \dots, \beta_p)^T$ to minimize the residual sum of squares (RSS)</p>
-
-<script type="math/tex; mode=display">RSS(\beta)=\sum_{i=1}^N(y_i-f(x_i))^2.\quad(2.1)</script>
-
-<p>How do we minimize $(2.1)$? This is an important question with a beautiful answer. The best $\beta$ can be found by geometry or algebra or calculus. Let’s explain the three approaches one by one.</p>
-
-<h4 id="calculus-interpretation">Calculus Interpretation</h4>
-
-<p>Denote by $\mathbf{X}$ the $N\times (p+1)$ matrix with each row an input vector (with a 1 in the first position). We can rewrite $(2.1)$ in the matrix form as</p>
-
-<script type="math/tex; mode=display">RSS(\beta)=(\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta).\quad(2.2)</script>
-
-<p>This is a quadratic function in the $p+1$ parameters. Differentating with respect to $\beta$ we obtain</p>
-
-<script type="math/tex; mode=display">\frac{\partial RSS}{\partial\beta}=-2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta).\quad(2.3)</script>
-
-<p>In order to get the minimum RSS, we set the first derivative to zero</p>
-
-<script type="math/tex; mode=display">\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta)=0\quad(2.4)</script>
-
-<p>to obtain the unique solution</p>
-
-<script type="math/tex; mode=display">\hat\beta = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}.\quad(2.5)</script>
-
-<p>The fitted values are</p>
-
-<script type="math/tex; mode=display">\mathbf{\hat y}=\mathbf{X}\hat\beta=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}.\quad(2.6)</script>
-
-<p>One thing which should be noticed is that it’s wrong to split $(\mathbf{X}^T\mathbf{X})^{-1}$ into $\mathbf{X}^{-1}$ times $\mathbf{X}$ and cancel the terms before $\mathbf{y}$ in $(2.6)$. The matrix $\mathbf{X}$ is rectangualr and has no inverse matrix. And if $\mathbf{X}$ is square and invertible, $\mathbf{\hat y}$ is exactly $\mathbf{y}$ just as $(2.6)$ shows.</p>
-
-<p>Someone may be confused by how to get $(2.3)$ by $(2.2)$ just as I once experienced. Actually, the easiest way to figure it out is to differentiate with respect to each $\beta_j$ respectively</p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\begin{split}\frac{\partial RSS}{\partial\beta_j}&=\frac{\partial}{\partial\beta_j}\sum_{i=1}^N\left(y_i-\sum_{j=0}^px_{ij}\beta_j\right)^2 \\
-&=-2\sum_{i=1}^Nx_{ij}\left(y_i-\sum_{j=0}^px_{ij}\beta_j\right). \\
-\end{split} %]]&gt;</script>
-
-<p>Then, we put all the derivatives together and rewrite it in matrix form to get $(2.3)$.</p>
-
-<h4 id="geometry-interpretation">Geometry Interpretation</h4>
-
-<p><img src="http://billy-inn.github.io/images/LinearRegression1.png" alt="Alt text" /></p>
-
-<p>The picture above shows a direct gemotrical representation of the least squares estimate with two predictors. It’s convenient to extend this to the case with more predictors. We denote the column vectors of $X$ by $\mathbf{x}_0,\mathbf{x}_1,\dots,\mathbf{x}_p$ with $\mathbf{x}_0 \equiv 1$. These vectors span a subspace of $\mathbb{R}^N$, also referred to as the column space of $\mathbf{X}$. We minimize $RSS(\beta)=\lVert\mathbf{y}-\mathbf{X}\beta\rVert^2$ by choosing $\hat \beta$ so that the residual vector $\mathbf{y}-\mathbf{\hat y}$ is orthogonal to this subspace. This orthogonality is expressed in $(2.4)$, and the resulting estimate $\mathbf{\hat y}$ is hence the orthogonal projection of $\mathbf y$ onto this subspace.</p>
-
-<h4 id="algebra-interpretation">Algebra Interpretation</h4>
-
-<p>In the world of linear algebra, we will also view our problem from a perspective of algebra. Now we reformulate the problem as to solve the linear equations system $\mathbf{X}\beta=\mathbf{y}$. If you are somewhat familar with linear algebra, you can try to use elimination to solve it. Unfortunately, it has no solution typically due to there are more equations than unknowns ($n$ is larger than $p$).</p>
-
-<p>Instead, we hope that the length of error $\mathbf{e}=\mathbf{y}-\mathbf{X}\hat\beta$ is as small as possible. And the corresponding $\hat\beta$ is a least squares solution.</p>
-
-<p>When $\mathbf{X}\beta=\mathbf{y}$ has no solution, we can multiply by $\mathbf{X}^T$ and solve $\mathbf{X}^T\mathbf{X}\beta=\mathbf{X}^T\mathbf{y}$. And it yields the solution from calculus exactly. In the language of algebra, we can split the $\mathbf{y}$ into two parts as $\mathbf{p}+\mathbf{e}$. The part in the column space is $\mathbf{p}$. The perpendicular part in the nullspace of $\mathbf{X}^T$ is $\mathbf{e}$. There is an equation we cannot solve ($\mathbf{X}\beta=\mathbf{y}$). There is an equation $\mathbf{X}\hat\beta=\mathbf{p}$ we do solve. And the solution to $\mathbf{X}\hat\beta=\mathbf{p}$ leaves the least possible error. How do we choose $\mathbf{p}$ in the column space? Just as the geometry part tells us, the projection of $\mathbf{y}$ onto the column space!</p>
-
-<p>Ok, now the three interpretations come together and form a complete picture for the least squares.</p>
-
-<p>Wait a minute, there is still one more question. It might happen that that the columns of $\mathbf{X}$ are not linearly independent, so that $\mathbf{X}$ is not of full rank. Then $\mathbf{X}^T\mathbf{X}$ is singular and the least squares coefficients $\hat\beta$ are not uniquely defined. However, the fitted values $\mathbf{\hat y}=\mathbf{X}\hat\beta$ are still the projection of $\mathbf{y}$ onto the column space of $\mathbf{X}$; there is just more than one way to express that projections in terms of the column vectors of $\mathbf{X}$.</p>
-
-<h3 id="implementations">3. Implementations</h3>
-
-<p>The implementations is extremely easy in a language like <strong>R</strong>, even without specific packages. The core code is shown below:</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class="r"><span class="line"><span class="kn">library</span><span class="p">(</span>MASS<span class="p">)</span>
-</span><span class="line">betaHat <span class="o">&lt;-</span> ginv<span class="p">(</span><span class="kp">t</span><span class="p">(</span>X<span class="p">)</span> <span class="o">%*%</span> X<span class="p">)</span> <span class="o">%*%</span> <span class="kp">t</span><span class="p">(</span>X<span class="p">)</span> <span class="o">%*%</span> y
-</span><span class="line">yhat <span class="o">&lt;-</span> X <span class="o">%*%</span> betaHat
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>You can also use packages like <em>lm</em> in <strong>R</strong>. It provides not only $\hat\beta$ but also a lot sophisticated coefficients.</p>
-
-<h3 id="taste-on-statistics">4. Taste on Statistics</h3>
-
-<p><strong><em>To be continued</em></strong></p>
-]]></content>
-  </entry>
+</footer>
   
-  <entry>
-    <title type="html"><![CDATA[First Post: General Goals]]></title>
-    <link href="http://billy-inn.github.io/blog/2015/10/27/first-post/"/>
-    <updated>2015-10-27T10:24:51-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2015/10/27/first-post</id>
-    <content type="html"><![CDATA[<p>签证总算下来了，从毕业到现在，整个人都处于一种很难形容的颓废状态中。昨天又一整夜没有睡，看了很多博客，看到了许多学长的奋斗经历与学术积累，深感不能再如此颓废下去了。</p>
 
-<p>没有压力的生活往往会让人无所事事，现在的我就处于这样一个状态。为了给自己找点事做，也给自己点压力，所以花了些功夫把这个博客搭了起来。希望自己可以把这个博客维护好，坚持将自己在学习生活上的点滴记录下来，同时也可以分享一些有益的东西。</p>
+<script type="text/javascript">
+      var disqus_shortname = 'billy-inn';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression/';
+        var disqus_url = 'http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
-<!--more-->
 
-<p>现在离出发去加拿大还有一个多月的时间，为了一过去就可以在research入门。这段时间的目标大致如下：</p>
 
-<ul>
-  <li>Coursera: Introduction to Natural Language Processing</li>
-  <li>Mathemathics:
-    <ul>
-      <li>Revise Linear Algerba</li>
-      <li><em>Statistical Inference</em></li>
-      <li><em>Convex Optimization</em> (if possible)</li>
-    </ul>
-  </li>
-  <li>Machine Learning:
-    <ul>
-      <li><em>Elements of Statistical Learning</em></li>
-    </ul>
-  </li>
-  <li>Life:
-    <ul>
-      <li>Learn basic cooking</li>
-      <li>Daily physical exercise</li>
-    </ul>
-  </li>
-  <li>Articles:
-    <ul>
-      <li>Notes on Linear Algerba</li>
-      <li>Notes on <em>Elements of Statistical Learning</em></li>
-      <li>Notes on NLP (if necessary)</li>
-    </ul>
-  </li>
-  <li>Programming:
-    <ul>
-      <li>Re-implement experiments in <em>Elements of Statistical Learning</em> via <strong>R</strong></li>
-    </ul>
-  </li>
-</ul>
-]]></content>
-  </entry>
-  
-</feed>
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
