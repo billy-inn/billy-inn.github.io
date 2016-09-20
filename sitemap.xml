@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://billy-inn.github.io/blog/2016/09/20/ml-with-r-3-logistic-regression/</loc>
+    <lastmod>2016-09-20T17:37:11-06:00</lastmod>
+  </url>
+  <url>
     <loc>http://billy-inn.github.io/blog/2016/09/14/ml-with-r-2-regularized-linear-regression/</loc>
     <lastmod>2016-09-14T16:21:10-06:00</lastmod>
   </url>
