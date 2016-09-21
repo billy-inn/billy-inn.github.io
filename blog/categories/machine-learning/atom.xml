@@ -4,7 +4,7 @@
   <title><![CDATA[Category: machine_learning | KRIS]]></title>
   <link href="http://billy-inn.github.io/blog/categories/machine-learning/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-09-20T17:39:38-06:00</updated>
+  <updated>2016-09-20T22:49:45-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -756,6 +756,131 @@ $(document).ready(function () {
 
 </body>
 </html>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Trace of My Study on Machine Learning]]></title>
+    <link href="http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning/"/>
+    <updated>2015-12-27T17:38:14-07:00</updated>
+    <id>http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning</id>
+    <content type="html"><![CDATA[<p>This blog will record the timeline, resources, projects along the way of my study on machine learning since 2015. And I will keep updating this blog.</p>
+
+<h3 id="mathematics">Mathematics</h3>
+
+<ul>
+  <li>Basics: better to review before real study of ML
+    <ul>
+      <li>Calculus</li>
+      <li>Linear Algebra
+        <ul>
+          <li><a href="http://math.mit.edu/~gs/linearalgebra/">Introduction to Linear Algebra</a>: a nice textbook in linear algebra.</li>
+          <li><a href="https://www.youtube.com/watch?v=ZK3O402wf1c&amp;list=PLE7DDD91010BC51F8">MIT 18.06</a>: Linear algebra (<strong>Completed</strong> in <em>15.12</em>).</li>
+        </ul>
+      </li>
+      <li>Probability Theory</li>
+    </ul>
+  </li>
+  <li>Reference
+    <ul>
+      <li><a href="http://www.springer.com/us/book/9783662462201">Handbook of Mathematics</a>: an amazing reference book of mathematics.</li>
+    </ul>
+  </li>
+  <li>Statistics
+    <ul>
+      <li><a href="http://www.stat.cmu.edu/~larry/all-of-statistics/">All of Statistics</a>: A textbook appealing to MLers.</li>
+      <li><a href="http://www.amazon.com/Statistical-Inference-George-Casella/dp/0534243126">Statistical Inference</a>: Classic textbook.</li>
+      <li><a href="http://www.stat.cmu.edu/~larry/=stat705/">CMU 10-705</a>: Intermediate Statistics.</li>
+    </ul>
+  </li>
+  <li>Optimization
+    <ul>
+      <li><a href="http://web.stanford.edu/~boyd/cvxbook/">Convex Optimization</a>: Classic textbook.</li>
+      <li><a href="http://stanford.edu/class/ee364a/index.html">Stanford EE364a</a>: Convex Optimization.</li>
+    </ul>
+  </li>
+  <li>Advanced Topics on Linear Algebra
+    <ul>
+      <li><a href="http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/3274/pdf/imm3274.pdf">The Matrix Cookbook</a>: Ongoing</li>
+      <li><a href="https://www.amazon.ca/Matrix-Analysis-Roger-Horn/dp/0521548233">Matrix Analysis</a>: Ongoing</li>
+    </ul>
+  </li>
+</ul>
+
+<!--more-->
+
+<h3 id="statistical-machine-learning">Statistical Machine Learning</h3>
+
+<ul>
+  <li><a href="https://www.coursera.org/learn/machine-learning">Coursera: Machine Learning</a>: Introduction to machine learning. (<a href="/certificates/ml.pdf">Certificate</a>)</li>
+  <li><a href="https://lagunita.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/info">StanfordOnline: Statistical Learning</a>: Introduction to statistical learning and <strong>R</strong>. (<a href="/certificates/sl.pdf">Certificate</a>)</li>
+  <li><a href="https://www.ualberta.ca/computing-science/undergraduate-studies/course-directory/courses/machine-learning">UAlberta CMPUT 466/551</a>: Machine Learning. I’m one of TAs in this course.</li>
+  <li><a href="http://statweb.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning</a>: Ongoing
+    <ul>
+      <li><a href="http://waxworksmath.com/Authors/G_M/Hastie/hastie.html">Manual</a>: Figure out the mathematical details.</li>
+      <li><a href="https://cran.r-project.org/web/packages/ElemStatLearn/index.html">R package “ElemStatLearn”</a>: Contain data sets, functions and examples from the book.</li>
+      <li><a href="https://github.com/billy-inn/ElemStatLearn">My code</a>: Exercises and experiment reimplementations in <strong>R</strong>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="probabilistic-graphical-models">Probabilistic Graphical Models:</h3>
+
+<ul>
+  <li><a href="https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models">UAlberta CMPUT 659</a>: Probabilistic Graphical Models. Graduate course in University of Alberta based on Coursera course instructed by <a href="http://ai.stanford.edu/users/koller/">Koller</a> (<a href="/papers/cmput659.pdf">Report:A Topic Model of Genetic Mutations in Cancer</a>, <strong>Completed</strong> in <em>16.4</em>).</li>
+  <li><a href="http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html">CMU 10-708</a>: Probabilistic Graphical Models.</li>
+  <li><a href="http://pgm.stanford.edu/">Probabilistic Graphical Models: Principles and Techniques</a>: Classic textbook for probabilistic graphical models. I’ve read a few chapters of it and gave up. This book is somewhat too mathematical and I will not recommend this book for beginners in PGM.</li>
+  <li><a href="https://github.com/jmschrei/pomegranate">Pomegranate</a>: A Python package for PGM. Nice tutorials for beginners in PGM!</li>
+</ul>
+
+<h3 id="deep-learning">Deep Learning</h3>
+
+<ul>
+  <li><a href="http://neuralnetworksanddeeplearning.com/index.html">Neural Network and Deep Learning</a>: Nice online tutorial for beginners in deep learning (<strong>Completed</strong> in <em>16.9</em>).</li>
+  <li><a href="http://cs224d.stanford.edu/">Stanford CS224d</a>: Deep Learning for Natural Language Processing. A nice intro to Word2Vec and its applications.</li>
+  <li><a href="http://vision.stanford.edu/teaching/cs231n/index.html">Stanford CS231n</a>: Convolutional Neural Networks for Visual Recognition.</li>
+  <li><a href="http://www.deeplearningbook.org/">Deep Learning Book</a>: Ongoing.</li>
+  <li><a href="https://www.coursera.org/learn/neural-networks">Coursera: Neural Networks for Machine Learning</a>: Excellent course for beginners in neural networks.</li>
+  <li><a href="https://github.com/dmlc/mxnet">Mxnet</a>: High performance.</li>
+  <li><a href="https://keras.io/">Keras</a>: High-level, easy to use.</li>
+</ul>
+
+<h3 id="large-scale-machine-learning">Large Scale Machine Learning</h3>
+
+<ul>
+  <li><a href="https://courses.edx.org/courses/BerkeleyX/CS100.1x/1T2015/info">edX: Introduction to Big Data with Apache Spark</a>: Introduction to Spark in <strong>Python</strong>. (<a href="/certificates/spark.pdf">Certificate</a>)</li>
+  <li><a href="https://courses.edx.org/courses/BerkeleyX/CS190.1x/1T2015/info">edX: Scalable Machine Learning</a>: Explore deeper usage of Spark on large scale machine learning. (<a href="/certificates/scalableML.pdf">Certificate</a>)</li>
+  <li><a href="https://www.coursera.org/learn/progfun1/">Coursera: Functional Programming Principles in Scala</a>: Introduction to <strong>Scala</strong>. (<a href="/certificates/fpp.pdf">Certificate</a>)</li>
+  <li><a href="https://www.coursera.org/learn/progfun2">Coursera: Functional Program Design in Scala</a>: Further study on <strong>Scala</strong>. (<a href="/certificates/fpd.pdf">Certificate</a>)</li>
+  <li><a href="https://www.coursera.org/learn/parprog1">Coursera: Parallel Programming</a>: Parallel computing in <strong>Scala</strong>. (<a href="/certificates/pp.pdf">Certificate</a>)</li>
+</ul>
+
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+
+<ul>
+  <li><a href="https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai">UAlberta CMPUT 609</a>: Reinforcement Learning. Graduate course in UofA instructed by <a href="https://webdocs.cs.ualberta.ca/~sutton/">Sutton</a>.</li>
+  <li><a href="https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html">Introduction to Reinforcement Learning</a>: Classic textbook.</li>
+</ul>
+
+<h3 id="data-mining">Data Mining</h3>
+
+<ul>
+  <li><a href="https://www.coursera.org/course/mmds">Coursera: Mining of Massive Datasets</a>: Introduction to a lot data mining techniques. (<a href="/certificates/mmds.pdf">Certificate</a>)</li>
+</ul>
+
+<h3 id="ml-competitions">ML Competitions</h3>
+
+<ul>
+  <li><a href="https://www.kaggle.com/c/home-depot-product-search-relevance">Kaggle: Home Depot Product Search Relevance</a>: Top 10%. (<a href="/papers/cmput690.pdf">Report</a>)</li>
+</ul>
+
+<h3 id="miscellanea">Miscellanea</h3>
+
+<ul>
+  <li><strong>Python</strong> &amp; <strong>R</strong>: For experiment and plotting.</li>
+  <li><strong>C++</strong> &amp; <strong>Scala</strong>: For development.</li>
+  <li><a href="https://www.vagrantup.com/">Vagrant</a>: Create and configure lightweight, reproducible, and portable development environments. Very Useful tool!</li>
+</ul>
 ]]></content>
   </entry>
   
