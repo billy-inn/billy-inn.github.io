@@ -140,6 +140,51 @@
       
   <header class="page-header">
     
+      <h1 class="entry-title"><a href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Notes on Reinforcement Learning (1): Finite Markov Decision Processes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-10-05T14:55:31-06:00'><span class='date'>2016-10-05</span> <span class='time'>2:55 pm</span></time>
+        
+         | <a href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3 id="the-agent-environment-interface">The Agent-Environment Interface</h3>
+
+<p><img src="/images/rl1.1.png" alt="Alt text" /></p>
+
+<ul>
+  <li>The agent and environment interact at each of a sequence of discrete time steps, $t=0,1,2,3,\dots$</li>
+  <li>At each time step $t$, the agent receives some representation of the environment’s state, $S_t\in\mathcal{S}$, where $\mathcal{S}$ is the set of possible states.</li>
+  <li>On that basis, the agent selects an action, $A_t \in \mathcal{A}(S_t)$, where $\mathcal{A}(S_t)$ is the set of actions available in state $S_t$.</li>
+  <li>One time step later, in part as a consequence of its action, the agent receives a numerical reward, $R_{t+1} \in \mathcal{R} \subset \mathbb{R}$, and finds itself in a new state, $S_{t+1}$.</li>
+</ul>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header class="page-header">
+    
       <h1 class="entry-title"><a href="/blog/2016/09/20/ml-with-r-3-logistic-regression/">ML With R (3): Logistic Regression</a></h1>
     
     
@@ -787,7 +832,7 @@ ggplot(data, aes(V1, V2, col=&quot;Training data&quot;)) +
  <ul id="categories_list" class="nav nav-list">
 	<li class="nav-header">Categories</li>
 	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
-<li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (5)</a></li>
+<li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (6)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
 <li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
 </li>
@@ -798,11 +843,15 @@ ggplot(data, aes(V1, V2, col=&quot;Training data&quot;)) +
     <li class="nav-header">Recent Posts</li>
     
       <li class="post">
-        <a href="/blog/2016/09/20/ml-with-r-3-logistic-regression/">ML With R (3): Logistic Regression</a>
+        <a href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Notes on Reinforcement Learning (1): Finite Markov Decision Processes</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2016/09/14/ml-with-r-2-regularized-linear-regression/">ML With R (2): Regularized Linear Regression</a>
+        <a href="/blog/2016/09/20/ml-with-r-3-logistic-regression/">ML with R (3): Logistic Regression</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/09/14/ml-with-r-2-regularized-linear-regression/">ML with R (2): Regularized Linear Regression</a>
       </li>
     
       <li class="post">
@@ -811,10 +860,6 @@ ggplot(data, aes(V1, V2, col=&quot;Training data&quot;)) +
     
       <li class="post">
         <a href="/blog/2016/08/30/jie-duan-xing-hui-gu-yu-zhan-wang/">阶段性回顾与展望</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/04/28/probabilistic-graphical-models-1-representation/">Probabilistic Graphical Models (1): Introduction</a>
       </li>
     
   </ul>
