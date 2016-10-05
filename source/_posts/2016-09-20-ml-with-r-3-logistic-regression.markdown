@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ML With R (3): Logistic Regression"
+title: "ML with R (3): Logistic Regression"
 date: 2016-09-20 17:37:11 -0600
 comments: true
 categories: machine_learning 

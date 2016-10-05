@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ML With R (2): Regularized Linear Regression"
+title: "ML with R (2): Regularized Linear Regression"
 date: 2016-09-14 16:21:10 -0600
 comments: true
 categories: machine_learning 
