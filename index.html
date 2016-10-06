@@ -140,6 +140,54 @@
       
   <header class="page-header">
     
+      <h1 class="entry-title"><a href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Notes on Reinforcement Learning (2): Dynamic Programming</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-10-06T17:37:02-06:00'><span class='date'>2016-10-06</span> <span class='time'>5:37 pm</span></time>
+        
+         | <a href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3 id="policy-evaluation">Policy Evaluation</h3>
+
+<p>Consider a sequence of approximate value functions $v_0, v_1, v_2, \dots,$ each mapping $\mathcal{S}^+$ to $\mathbb{R}$. The initial approximation, $v_0$ is chosen arbitrarily, and each successive approximation is obtained by using the Bellman equation for $v_\pi$ as an update rule:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
+&= \sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_k(s')],
+\end{split} %]]></script>
+
+<p>for all $s\in\mathcal{S}$.</p>
+
+<p><img src="/images/rl2.1.png" alt="Alt text" /></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header class="page-header">
+    
       <h1 class="entry-title"><a href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Notes on Reinforcement Learning (1): Finite Markov Decision Processes</a></h1>
     
     
@@ -764,45 +812,9 @@ ggplot(data, aes(V1, V2, col=&quot;Training data&quot;)) +
 
     </article>
   
-  
-    <article>
-      
-  <header class="page-header">
-    
-      <h1 class="entry-title"><a href="/blog/2015/10/27/first-post/">First Post: General Goals</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-10-27T10:24:51-06:00'><span class='date'>2015-10-27</span> <span class='time'>10:24 am</span></time>
-        
-         | <a href="/blog/2015/10/27/first-post/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>签证总算下来了，从毕业到现在，整个人都处于一种很难形容的颓废状态中。昨天又一整夜没有睡，看了很多博客，看到了许多学长的奋斗经历与学术积累，深感不能再如此颓废下去了。</p>
-
-<p>没有压力的生活往往会让人无所事事，现在的我就处于这样一个状态。为了给自己找点事做，也给自己点压力，所以花了些功夫把这个博客搭了起来。希望自己可以把这个博客维护好，坚持将自己在学习生活上的点滴记录下来，同时也可以分享一些有益的东西。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/10/27/first-post/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <ul class="pager">
+    
+    <li class="previous"><a href="2">&larr; Older</a></li>
     
     <li><a href="/blog/archives">Blog Archives</a></li>
     
@@ -832,7 +844,7 @@ ggplot(data, aes(V1, V2, col=&quot;Training data&quot;)) +
  <ul id="categories_list" class="nav nav-list">
 	<li class="nav-header">Categories</li>
 	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
-<li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (6)</a></li>
+<li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (7)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
 <li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
 </li>
@@ -841,6 +853,10 @@ ggplot(data, aes(V1, V2, col=&quot;Training data&quot;)) +
 <section class="well">
   <ul id="recent_posts" class="nav nav-list">
     <li class="nav-header">Recent Posts</li>
+    
+      <li class="post">
+        <a href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Notes on Reinforcement Learning (2): Dynamic Programming</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Notes on Reinforcement Learning (1): Finite Markov Decision Processes</a>
@@ -856,10 +872,6 @@ ggplot(data, aes(V1, V2, col=&quot;Training data&quot;)) +
     
       <li class="post">
         <a href="/blog/2016/08/31/ml-with-r-1-linear-regression/">ML with R (1): Linear Regression</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/08/30/jie-duan-xing-hui-gu-yu-zhan-wang/">阶段性回顾与展望</a>
       </li>
     
   </ul>
