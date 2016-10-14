@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: reinforcement_learning | KRIS]]></title>
+  <link href="http://billy-inn.github.io/blog/categories/reinforcement-learning/atom.xml" rel="self"/>
+  <link href="http://billy-inn.github.io/"/>
+  <updated>2016-10-14T16:27:20-06:00</updated>
+  <id>http://billy-inn.github.io/</id>
+  <author>
+    <name><![CDATA[Peng Xu]]></name>
+    <email><![CDATA[bly930725@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Notes on Reinforcement Learning (3): Monte Carlo Methods]]></title>
+    <link href="http://billy-inn.github.io/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/"/>
+    <updated>2016-10-14T16:07:35-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods</id>
+    <content type="html"><![CDATA[<p>Monte Carlo methods are ways of solving the reinforcement learning problem based on averaging sample returns. To ensure that well-defined returns are available, here we define Monte Carlo methods only for episodic tasks.</p>
+
+<h3 id="monte-carlo-prediction">Monte Carlo Prediction</h3>
+
+<p>An obvious way to estimate the state-value function which is the expected return starting from that state from experience, is to average the returns observed after visits to that state. This idea underlies all Monte Carlo methods.</p>
+
+<p>In particular, suppose we wish to estimate $v_\pi(s)$, the value of a state $s$ under policy $\pi$, given a set of episodes obtained by following $\pi$ and passing through $s$. Each occurrence of state $s$ in an episode is called a visit to $s$. The first-visit MC method estimates $v_\pi(s)$ as the average of the returns following from first visits to $s$, whereas every-visit MC method averages the returns following all visits to $s$.</p>
+
+<p><img src="/images/rl3.1.png" alt="Alt text" /></p>
+
+<!--more-->
+
+<p>An important fact about Monte Carlo method methods is that the estimates for each state are independent. The estimate for one state does not build upon the estimate of any other state, as is the case in DP.</p>
+
+<h3 id="monte-carlo-estimation-of-action-values">Monte Carlo Estimation of Action Values</h3>
+
+<p>If a model is not available, then it is particularly useful to estimate action values rather than state values. The Monte Carlo methods for this this are essentially the same as just presented for state values, except now we talk about visits to a state–action pair rather than to a state. A state–action pair $s, a$ is said to be visited in an episode if ever the state $s$ is visited and action $a$ is taken in it.</p>
+
+<p>The only complication is that many state–action pairs may never be visited. This is the general problem of maintaining exploration.</p>
+
+<h3 id="monte-carlo-control">Monte Carlo Control</h3>
+
+<p>The overall idea of how Monte Carlo estimation can be used in control is to according to the idea of generalized policy iteration (GPI). In GPI one maintains both an approximate policy and an approximate value function. The value function is repeatedly altered to more closely approximate the value function for the current policy, and the policy is repeatedly improved with respect to the current value function.</p>
+
+<p><img src="/images/rl3.2.png" alt="Alt text" /></p>
+
+<p>We made two unlikely assumptions in order to easily obtain guarantee of convergence for the Monte Carlo method. One was that the episodes have exploring starts, and the other was that policy evaluation could be done with an infinite number of episodes.</p>
+
+<p>The assumption that policy evaluation operates on an infinite number of episodes are relatively easy to remove. One of the approaches it to forgo trying to complete policy evaluation before returning to policy improvement. For Monte Carlo policy evaluation it is natural to alternate between evaluation and improvement on an episode-by-episode basis.</p>
+
+<p><img src="/images/rl3.3.png" alt="Alt text" /></p>
+
+<h3 id="monte-carlo-control-without-exploring-starts">Monte Carlo Control without Exploring Starts</h3>
+
+<p>The only general way to ensure that all actions are selected infinitely often is for the agent to continue to select them. There are two approaches to ensuring this, resulting in what we call on-policy methods and off-policy methods. On-policy methods attempt to evaluate or improve the policy that is used to make decisions, whereas on-policy methods evaluate or improve a policy different from that used to generate the data.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>In on-policy control methods the policy is generally soft, meaning that $\pi(a</td>
+      <td>s)&gt;0$ for all $s\in\mathcal{S}$ and all $a\in\mathcal{A}(s)$, but gradually shifted closer and closer to a deterministic optimal policy.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="/images/rl3.4.png" alt="Alt text" /></p>
+
+<h3 id="off-policy-prediction-via-importance-sampling">Off-policy Prediction via Importance Sampling</h3>
+
+<p>All learning control methods face a dilemma: They seek to learn action values conditional on subsequent optimal behavior, but they need to behave non-optimally in order to explore all actions (to find the optimal actions). How can they learn about the optimal policy while behaving according to an exploratory policy? The on-policy approach in the preceding section is actually a compromise. It learns action values not for the optimal policy, but for a near-optimal policy that still explores. A more straightforward approach is to use two policies, one that is learned about and that becomes the optimal policy, and one that is more exploratory and is used to gen- erate behavior. The policy being learned about is called the target policy, and the policy used to generate behavior is called the behavior policy. In this case we say that learning is from data “off” the target policy, and the overall process is termed off-policy learning.</p>
+
+<p>Suppose we wish to estimate $v_\pi$ or $q_\pi$, but we have all we have are episodes following another policy $\mu$, where $\mu \ne \pi$. In this case, $\pi$ is the target policy, $\mu$ is the behavior policy, and both policies are considered fixed and given. We require that $\pi(a \vert s)&gt;0$ implies $\mu(a \vert s)&gt;0$. This is called the assumption of coverage.</p>
+
+<p>Almost all off-policy methods utilize importance sampling, a general technique for estimating expected values under one distribution given samples from another. Given a starting state $S_t$, the probability of the subsequent state-action trajectory, $A_t,S_{t+1},A_{t+1},\dots,S_T$, occurring under any policy $\pi$ is</p>
+
+<script type="math/tex; mode=display">\prod_{k=t}^{T-1}\pi(A_k|S_k)p(S_{k+1}|S_k,A_k).</script>
+
+<p>Thus, the relatvie probability of the trajectory under the target and behavior policies (the importance-sampling ratio) is</p>
+
+<script type="math/tex; mode=display">\rho_t^T=\prod_{k=t}^{T-1}\frac{\pi(A_k|S_k)}{\mu(A_k|S_k)}.</script>
+
+<p>We can define the set of all time steps in which state is visited, denoted $\mathcal{J}(s)$. This is for an every-visit method; for a first-visit method, $\mathcal{J}(s)$ would only include time steps that were first visits to $s$ within their episodes. Also, let $T(t)$ denote the first time of termination following time $t$, and $G_t$ denote the return after $t$ up through $T(t)$. Then ${G_t}<em>{t\in\mathcal{J}(s)}$ are the returns that pertain to state $s$, and ${\rho_t^{T(t)}}</em>{t\in\mathcal{J}(s)}$ are the corresponding importance-sampling ratios. To estimate $v_\pi(s)$, we simply scale the returns by the ratios and average the results:</p>
+
+<script type="math/tex; mode=display">V(s)=\frac{\sum _{t\in\mathcal{J}(s)}\rho_t^{T(t)}G_t}{\lvert\mathcal{J}(s)\rvert}.</script>
+
+<p>When importance sampling is done as a simple average in this way it is called ordinary importance sampling.</p>
+
+<p>An import alternative iis weighted importance sampling, which uses a weighted average, defined as</p>
+
+<script type="math/tex; mode=display">V(s)=\frac{\sum _{t\in\mathcal{J}(s)}\rho_t^{T(t)}G_t}{\sum_{t\in\mathcal{J}(s)}\rho_t^{T(t)}},</script>
+
+<p>or zero if the denominator is zero.</p>
+
+<p>The difference between the two kinds of importance sampling is expressed in their biases and variances. The ordinary importance-sampling estimator is unbiased whereas the weighted importance-sampling estimator is biased. On the other hand, the variance of the ordinary importance-sampling estimator is in general unbounded because the variance of the ratios can be unbounded, whereas in the weighted estimator the largest weight on any single return is one. In fact, assuming bounded returns, the variance of the weighted importance-sampling estimator converges to zero even if the variance of the ratios themselves is infinite. In practice, the weighted estimator usually has dramatically lower variance and is strongly preferred.</p>
+
+<h3 id="incremental-implementation">Incremental Implementation</h3>
+
+<p>Suppose we have a sequence of returns $G_1, G_2, \dots, G_{n-1}$, all starting in the same state and each with a corresponding random weight $W_i$ (e.g., $W_i=\rho_t^{T(t)}$).</p>
+
+<p><img src="/images/rl3.5.png" alt="Alt text" /></p>
+
+<h3 id="off-policy-monte-carlo-control">Off-Policy Monte Carlo Control</h3>
+
+<p><img src="/images/rl3.6.png" alt="Alt text" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Notes on Reinforcement Learning (2): Dynamic Programming]]></title>
+    <link href="http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/"/>
+    <updated>2016-10-06T17:37:02-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming</id>
+    <content type="html"><![CDATA[<h3 id="policy-evaluation">Policy Evaluation</h3>
+
+<p>Consider a sequence of approximate value functions $v_0, v_1, v_2, \dots,$ each mapping $\mathcal{S}^+$ to $\mathbb{R}$. The initial approximation, $v_0$ is chosen arbitrarily, and each successive approximation is obtained by using the Bellman equation for $v_\pi$ as an update rule:</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
+&= \sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_k(s')],
+\end{split} %]]&gt;</script>
+
+<p>for all $s\in\mathcal{S}$.</p>
+
+<p><img src="/images/rl2.1.png" alt="Alt text" /></p>
+
+<!--more-->
+
+<h3 id="policy-improvement">Policy Improvement</h3>
+
+<p>Let $\pi$ and $\pi’$ be any pair of deterministic policies such that, for all $s\in\mathcal{S}$,</p>
+
+<script type="math/tex; mode=display">q_\pi(s,\pi'(s)) \ge v_\pi(s).</script>
+
+<p>Then the policy $\pi’$ must be as good as, or better than, $\pi$. That is, it must obtain greater or equal expected return from all states $s\in\mathcal{S}$:</p>
+
+<script type="math/tex; mode=display">v_{\pi'}(s) \ge v_\pi(s).</script>
+
+<p>This result is called policy improvement theorem.</p>
+
+<p>Consider the new greedy policy, $\pi’$, given by</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\pi'(s)&=\underset{a}{\mathrm{argmin}}q_\pi(s,a)\\
+&=\underset{a}{\mathrm{argmin}}\mathbb{E}[R_{t+1}+\gamma v_\pi(S_{t+1})|S_t=s, A_t=a]\\
+&=\underset{a}{\mathrm{argmin}}\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')].
+\end{split} %]]&gt;</script>
+
+<p>The greedy policy takes the action that looks best in the short term according to $v_\pi$. By construction, the greedy policy meets the conditions of the policy improvement theorem. The process of making a new policy that improves on an original policy, by making it greedy with respect to the value function of the original policy, is called policy improvement.</p>
+
+<p>In addition, policy improvement must give us a strictly better policy excepy when the original policy is already optimal.</p>
+
+<h3 id="policy-iteration">Policy Iteration</h3>
+
+<p><img src="/images/rl2.2.png" alt="Alt text" /></p>
+
+<h3 id="value-iteration">Value Iteration</h3>
+
+<p><img src="/images/rl2.3.png" alt="Alt text" /></p>
+
+<h3 id="generalized-policy-iteration">Generalized Policy Iteration</h3>
+
+<p>We use the term generalized policy iteration (GPI) to refer to the general idea of letting policy evaluation and policy improvement processes interact, independent of the grandularity and other details of the two processes.</p>
+
+<p><img src="/images/rl2.4.png" alt="Alt text" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Notes on Reinforcement Learning (1): Finite Markov Decision Processes]]></title>
+    <link href="http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/"/>
+    <updated>2016-10-05T14:55:31-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes</id>
+    <content type="html"><![CDATA[<h3 id="the-agent-environment-interface">The Agent-Environment Interface</h3>
+
+<p><img src="/images/rl1.1.png" alt="Alt text" /></p>
+
+<ul>
+  <li>The agent and environment interact at each of a sequence of discrete time steps, $t=0,1,2,3,\dots$</li>
+  <li>At each time step $t$, the agent receives some representation of the environment’s state, $S_t\in\mathcal{S}$, where $\mathcal{S}$ is the set of possible states.</li>
+  <li>On that basis, the agent selects an action, $A_t \in \mathcal{A}(S_t)$, where $\mathcal{A}(S_t)$ is the set of actions available in state $S_t$.</li>
+  <li>One time step later, in part as a consequence of its action, the agent receives a numerical reward, $R_{t+1} \in \mathcal{R} \subset \mathbb{R}$, and finds itself in a new state, $S_{t+1}$.</li>
+</ul>
+
+<!--more-->
+
+<p>At each time step, the agent implements a mapping from states to probabilities of selecting each possible action. This mapping is called the agent’s policy and is denoted $\pi_t$, where $\pi_t(a \vert s)$ is the probability that $A_t=a$ if $S_t=s$. Reinforcement learning methods specify how the agent changes its policy as a result of its experience. The agent’s goal, roughly speaking, is to maximize the total amount of reward it receives over the long run.</p>
+
+<p>The general rule we follow is that anything that cannot be changed arbitrarily by the agent is considered to be outside of it and thus part of its environment.</p>
+
+<h3 id="rewards-and-returns">Rewards and Returns</h3>
+
+<p>At each time step, the reward is a simple number, $R_t \in \mathbb{R}$. Informally, the agent’s goal is to maximize the total amount of reward it receives. If the sequence of rewards received after time step $t$ is denoted $R_{t+1}, R_{t+2}, R_{t+3}, \dots$, we seek to maximize the expected return, where the return $G_t$ is defined as some specific function of the reward sequence.</p>
+
+<p>Here we define the return as:</p>
+
+<script type="math/tex; mode=display">G_t = \sum_{k=0}^{T-t-1}\gamma^kR_{t+k+1}</script>
+
+<p>where $T$ can be $\infty$ and $0&lt;\gamma\le1$ is the discounting rate.</p>
+
+<h3 id="markov-decision-processes">Markov Decision Processes</h3>
+
+<p>A reinforment learning task that satisfies the Markov preperty is called a Markov decision process, or MDP. If the state and action spaces are finite, then it is called a finite Markov decision process (finite MDP).</p>
+
+<p>Given any state and action $s$ and $a$, the probability of each possible pair of next state and reward, $s’$, $r$, is denoted</p>
+
+<script type="math/tex; mode=display">p(s',r|s,a)=\Pr\{S_{t+1}=s',R_{t+1}=r|S_t=s,A_t=a\}.</script>
+
+<p>These quantities completely specify the dynamics of a finite MDP.</p>
+
+<h3 id="value-functions">Value Functions</h3>
+
+<p>The value of a state $s$ under a policy $\pi$, denoted $v_\pi(s)$, is the expected return when starting in $s$ and following $\pi$ thereafter. For MDPs, we can define $v_\pi(s)$ formally as</p>
+
+<script type="math/tex; mode=display">v_\pi(s)=\mathbb{E}_\pi[G_t|S_t=s]=\mathbb{E}_\pi\left[\sum_{k=0}^\infty\gamma^kR_{t+k+1}\middle|S_t=s\right],</script>
+
+<p>where $\mathbb{E}<em>\pi[\centerdot]$ denotes the expected value of a random variable given that the agent follows policy $\pi$, and $t$ is any time step. We call the function $v</em>\pi$ the state-value function for policy $\pi$.</p>
+
+<p>Similarly, we define the value of taking action $a$ in state $s$ under a policy $\pi$, denoted $q_\pi(s,a)$, as the expected return starting from $s$, taking the action $a$, and thereafter following policy $\pi$:</p>
+
+<script type="math/tex; mode=display">q_\pi(s,a)=\mathbb{E}_\pi[G_t|S_t=s,A_t=s]=\mathbb{E}_\pi\left[\sum_{k=0}^\infty\gamma^kR_{t+k+1}\middle|S_t=s,A_t=a\right].</script>
+
+<p>We call $q_\pi$ the action-value function for policy $\pi$.</p>
+
+<p>A fundamental property of value functions used throughour reinforcement learning and dynamic programming is that they satisfy particular recursive relationships. For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states:</p>
+
+<script type="math/tex; mode=display">v_\pi(s)=\sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')], \forall s \in \mathcal{S}.</script>
+
+<p>This equation is the Bellman equation for $v_\pi$. Likewise, the Bellman equation for action values $q_\pi$ is as follows:</p>
+
+<script type="math/tex; mode=display">q_\pi(s,a)=\sum_{s',r}p(s',r|s,a)[r+\gamma\sum_{a'}\pi(a'|s')q(s',a')]</script>
+
+<p><img src="/images/rl1.2.png" alt="Alt text" /></p>
+
+<p>According to the Bellman equations, we can derive the relatioship between $v_\pi$ and $q_\pi$:</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+v_\pi(s)&=\mathbb{E}_\pi[q_\pi(S_{t}, a)|S_t=s]\\
+&= \sum_a\pi(a|s)q_\pi(s,a)
+\end{split} %]]&gt;</script>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+q_\pi(s, a)&=\mathbb{E}[R_{t+1}+\gamma v_\pi(S_{t+1})|S_t=s, A_t=a]\\
+&=\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')]
+\end{split} %]]&gt;</script>
+
+<h3 id="optimal-value-functions">Optimal Value Functions</h3>
+
+<p>A policy $\pi$ is defined to be better than or equal to a policy $\pi’$ if its expected return is greater than or equal to that of $\pi’$ for all states. In other words, $\pi\ge\pi’$ if and only if $v_\pi(s)\ge v_{\pi’}(s)$ for all $s\in\mathcal{S}$. There is always at least one policy that is better than or equal to all other policies. This is an optimal policy $\pi_*$.</p>
+
+<p>The optimal state-value function, denoted $v_*$, are defined as</p>
+
+<script type="math/tex; mode=display">v_*(s) = \max_\pi v_\pi(s),</script>
+
+<p>for all $s\in\mathcal{S}$.</p>
+
+<p>The optimal action-value function, denoted $q_*$, are defined as</p>
+
+<script type="math/tex; mode=display">q_*(s,a)=\max_\pi q_\pi(s,a),</script>
+
+<p>for all $s\in\mathcal{S}$ and $a\in\mathcal{A}(s)$.</p>
+
+<p>The Bellman optimalality equation for $v_<em>$ and $q_</em>$ is</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+v_*(s)&=\max_a\mathbb{E}_\pi[R_{t+1}+\gamma v_*(S_{t+1})|S_t=s, A_t=a]\\
+&= \max_{a\in\mathcal{A}(s)}\sum_{s',r}p(s',r|s,a)[r+\gamma v_*(s')]
+\end{split} %]]&gt;</script>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma \max_{a'}q_*(S_{t+1},a')\middle|S_t=s, A_t=a\right]\\
+&=\sum_{s',r}p(s',r|s,a)[r+\gamma \max_{a'}q_*(s',a')]
+\end{split} %]]&gt;</script>
+]]></content>
+  </entry>
+  
+</feed>

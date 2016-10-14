@@ -4,7 +4,7 @@
   <title><![CDATA[Category: machine_learning | KRIS]]></title>
   <link href="http://billy-inn.github.io/blog/categories/machine-learning/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-10-08T18:15:50-06:00</updated>
+  <updated>2016-10-14T16:27:20-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,180 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Notes on Reinforcement Learning (2): Dynamic Programming]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/"/>
-    <updated>2016-10-06T17:37:02-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming</id>
-    <content type="html"><![CDATA[<h3 id="policy-evaluation">Policy Evaluation</h3>
-
-<p>Consider a sequence of approximate value functions $v_0, v_1, v_2, \dots,$ each mapping $\mathcal{S}^+$ to $\mathbb{R}$. The initial approximation, $v_0$ is chosen arbitrarily, and each successive approximation is obtained by using the Bellman equation for $v_\pi$ as an update rule:</p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\begin{split}
-v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
-&= \sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_k(s')],
-\end{split} %]]&gt;</script>
-
-<p>for all $s\in\mathcal{S}$.</p>
-
-<p><img src="/images/rl2.1.png" alt="Alt text" /></p>
-
-<!--more-->
-
-<h3 id="policy-improvement">Policy Improvement</h3>
-
-<p>Let $\pi$ and $\pi’$ be any pair of deterministic policies such that, for all $s\in\mathcal{S}$,</p>
-
-<script type="math/tex; mode=display">q_\pi(s,\pi'(s)) \ge v_\pi(s).</script>
-
-<p>Then the policy $\pi’$ must be as good as, or better than, $\pi$. That is, it must obtain greater or equal expected return from all states $s\in\mathcal{S}$:</p>
-
-<script type="math/tex; mode=display">v_{\pi'}(s) \ge v_\pi(s).</script>
-
-<p>This result is called policy improvement theorem.</p>
-
-<p>Consider the new greedy policy, $\pi’$, given by</p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\begin{split}
-\pi'(s)&=\underset{a}{\mathrm{argmin}}q_\pi(s,a)\\
-&=\underset{a}{\mathrm{argmin}}\mathbb{E}[R_{t+1}+\gamma v_\pi(S_{t+1})|S_t=s, A_t=a]\\
-&=\underset{a}{\mathrm{argmin}}\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')].
-\end{split} %]]&gt;</script>
-
-<p>The greedy policy takes the action that looks best in the short term according to $v_\pi$. By construction, the greedy policy meets the conditions of the policy improvement theorem. The process of making a new policy that improves on an original policy, by making it greedy with respect to the value function of the original policy, is called policy improvement.</p>
-
-<p>In addition, policy improvement must give us a strictly better policy excepy when the original policy is already optimal.</p>
-
-<h3 id="policy-iteration">Policy Iteration</h3>
-
-<p><img src="/images/rl2.2.png" alt="Alt text" /></p>
-
-<h3 id="value-iteration">Value Iteration</h3>
-
-<p><img src="/images/rl2.3.png" alt="Alt text" /></p>
-
-<h3 id="generalized-policy-iteration">Generalized Policy Iteration</h3>
-
-<p>We use the term generalized policy iteration (GPI) to refer to the general idea of letting policy evaluation and policy improvement processes interact, independent of the grandularity and other details of the two processes.</p>
-
-<p><img src="/images/rl2.4.png" alt="Alt text" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Notes on Reinforcement Learning (1): Finite Markov Decision Processes]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/"/>
-    <updated>2016-10-05T14:55:31-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes</id>
-    <content type="html"><![CDATA[<h3 id="the-agent-environment-interface">The Agent-Environment Interface</h3>
-
-<p><img src="/images/rl1.1.png" alt="Alt text" /></p>
-
-<ul>
-  <li>The agent and environment interact at each of a sequence of discrete time steps, $t=0,1,2,3,\dots$</li>
-  <li>At each time step $t$, the agent receives some representation of the environment’s state, $S_t\in\mathcal{S}$, where $\mathcal{S}$ is the set of possible states.</li>
-  <li>On that basis, the agent selects an action, $A_t \in \mathcal{A}(S_t)$, where $\mathcal{A}(S_t)$ is the set of actions available in state $S_t$.</li>
-  <li>One time step later, in part as a consequence of its action, the agent receives a numerical reward, $R_{t+1} \in \mathcal{R} \subset \mathbb{R}$, and finds itself in a new state, $S_{t+1}$.</li>
-</ul>
-
-<!--more-->
-
-<p>At each time step, the agent implements a mapping from states to probabilities of selecting each possible action. This mapping is called the agent’s policy and is denoted $\pi_t$, where $\pi_t(a \vert s)$ is the probability that $A_t=a$ if $S_t=s$. Reinforcement learning methods specify how the agent changes its policy as a result of its experience. The agent’s goal, roughly speaking, is to maximize the total amount of reward it receives over the long run.</p>
-
-<p>The general rule we follow is that anything that cannot be changed arbitrarily by the agent is considered to be outside of it and thus part of its environment.</p>
-
-<h3 id="rewards-and-returns">Rewards and Returns</h3>
-
-<p>At each time step, the reward is a simple number, $R_t \in \mathbb{R}$. Informally, the agent’s goal is to maximize the total amount of reward it receives. If the sequence of rewards received after time step $t$ is denoted $R_{t+1}, R_{t+2}, R_{t+3}, \dots$, we seek to maximize the expected return, where the return $G_t$ is defined as some specific function of the reward sequence.</p>
-
-<p>Here we define the return as:</p>
-
-<script type="math/tex; mode=display">G_t = \sum_{k=0}^{T-t-1}\gamma^kR_{t+k+1}</script>
-
-<p>where $T$ can be $\infty$ and $0&lt;\gamma\le1$ is the discounting rate.</p>
-
-<h3 id="markov-decision-processes">Markov Decision Processes</h3>
-
-<p>A reinforment learning task that satisfies the Markov preperty is called a Markov decision process, or MDP. If the state and action spaces are finite, then it is called a finite Markov decision process (finite MDP).</p>
-
-<p>Given any state and action $s$ and $a$, the probability of each possible pair of next state and reward, $s’$, $r$, is denoted</p>
-
-<script type="math/tex; mode=display">p(s',r|s,a)=\Pr\{S_{t+1}=s',R_{t+1}=r|S_t=s,A_t=a\}.</script>
-
-<p>These quantities completely specify the dynamics of a finite MDP.</p>
-
-<h3 id="value-functions">Value Functions</h3>
-
-<p>The value of a state $s$ under a policy $\pi$, denoted $v_\pi(s)$, is the expected return when starting in $s$ and following $\pi$ thereafter. For MDPs, we can define $v_\pi(s)$ formally as</p>
-
-<script type="math/tex; mode=display">v_\pi(s)=\mathbb{E}_\pi[G_t|S_t=s]=\mathbb{E}_\pi\left[\sum_{k=0}^\infty\gamma^kR_{t+k+1}\middle|S_t=s\right],</script>
-
-<p>where $\mathbb{E}<em>\pi[\centerdot]$ denotes the expected value of a random variable given that the agent follows policy $\pi$, and $t$ is any time step. We call the function $v</em>\pi$ the state-value function for policy $\pi$.</p>
-
-<p>Similarly, we define the value of taking action $a$ in state $s$ under a policy $\pi$, denoted $q_\pi(s,a)$, as the expected return starting from $s$, taking the action $a$, and thereafter following policy $\pi$:</p>
-
-<script type="math/tex; mode=display">q_\pi(s,a)=\mathbb{E}_\pi[G_t|S_t=s,A_t=s]=\mathbb{E}_\pi\left[\sum_{k=0}^\infty\gamma^kR_{t+k+1}\middle|S_t=s,A_t=a\right].</script>
-
-<p>We call $q_\pi$ the action-value function for policy $\pi$.</p>
-
-<p>A fundamental property of value functions used throughour reinforcement learning and dynamic programming is that they satisfy particular recursive relationships. For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states:</p>
-
-<script type="math/tex; mode=display">v_\pi(s)=\sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')], \forall s \in \mathcal{S}.</script>
-
-<p>This equation is the Bellman equation for $v_\pi$. Likewise, the Bellman equation for action values $q_\pi$ is as follows:</p>
-
-<script type="math/tex; mode=display">q_\pi(s,a)=\sum_{s',r}p(s',r|s,a)[r+\gamma\sum_{a'}\pi(a'|s')q(s',a')]</script>
-
-<p><img src="/images/rl1.2.png" alt="Alt text" /></p>
-
-<p>According to the Bellman equations, we can derive the relatioship between $v_\pi$ and $q_\pi$:</p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\begin{split}
-v_\pi(s)&=\mathbb{E}_\pi[q_\pi(S_{t}, a)|S_t=s]\\
-&= \sum_a\pi(a|s)q_\pi(s,a)
-\end{split} %]]&gt;</script>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\begin{split}
-q_\pi(s, a)&=\mathbb{E}[R_{t+1}+\gamma v_\pi(S_{t+1})|S_t=s, A_t=a]\\
-&=\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')]
-\end{split} %]]&gt;</script>
-
-<h3 id="optimal-value-functions">Optimal Value Functions</h3>
-
-<p>A policy $\pi$ is defined to be better than or equal to a policy $\pi’$ if its expected return is greater than or equal to that of $\pi’$ for all states. In other words, $\pi\ge\pi’$ if and only if $v_\pi(s)\ge v_{\pi’}(s)$ for all $s\in\mathcal{S}$. There is always at least one policy that is better than or equal to all other policies. This is an optimal policy $\pi_*$.</p>
-
-<p>The optimal state-value function, denoted $v_*$, are defined as</p>
-
-<script type="math/tex; mode=display">v_*(s) = \max_\pi v_\pi(s),</script>
-
-<p>for all $s\in\mathcal{S}$.</p>
-
-<p>The optimal action-value function, denoted $q_*$, are defined as</p>
-
-<script type="math/tex; mode=display">q_*(s,a)=\max_\pi q_\pi(s,a),</script>
-
-<p>for all $s\in\mathcal{S}$ and $a\in\mathcal{A}(s)$.</p>
-
-<p>The Bellman optimalality equation for $v_<em>$ and $q_</em>$ is</p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\begin{split}
-v_*(s)&=\max_a\mathbb{E}_\pi[R_{t+1}+\gamma v_*(S_{t+1})|S_t=s, A_t=a]\\
-&= \max_{a\in\mathcal{A}(s)}\sum_{s',r}p(s',r|s,a)[r+\gamma v_*(s')]
-\end{split} %]]&gt;</script>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\begin{split}
-q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma \max_{a'}q_*(S_{t+1},a')\middle|S_t=s, A_t=a\right]\\
-&=\sum_{s',r}p(s',r|s,a)[r+\gamma \max_{a'}q_*(s',a')]
-\end{split} %]]&gt;</script>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[ML with R (3): Logistic Regression]]></title>
@@ -930,6 +756,226 @@ $(document).ready(function () {
 
 </body>
 </html>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Trace of My Study on Machine Learning]]></title>
+    <link href="http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning/"/>
+    <updated>2015-12-27T17:38:14-07:00</updated>
+    <id>http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning</id>
+    <content type="html"><![CDATA[<p>This blog will record the timeline, resources, projects along the way of my study on machine learning since 2015. And I will keep updating this blog.</p>
+
+<h3 id="mathematics">Mathematics</h3>
+
+<ul>
+  <li>Basics: better to review before real study of ML
+    <ul>
+      <li>Calculus</li>
+      <li>Linear Algebra
+        <ul>
+          <li><a href="http://math.mit.edu/~gs/linearalgebra/">Introduction to Linear Algebra</a>: a nice textbook in linear algebra.</li>
+          <li><a href="https://www.youtube.com/watch?v=ZK3O402wf1c&amp;list=PLE7DDD91010BC51F8">MIT 18.06</a>: Linear algebra (<strong>Completed</strong> in <em>15.12</em>).</li>
+        </ul>
+      </li>
+      <li>Probability Theory</li>
+    </ul>
+  </li>
+  <li>Reference
+    <ul>
+      <li><a href="http://www.springer.com/us/book/9783662462201">Handbook of Mathematics</a>: an amazing reference book of mathematics.</li>
+    </ul>
+  </li>
+  <li>Statistics
+    <ul>
+      <li><a href="http://www.stat.cmu.edu/~larry/all-of-statistics/">All of Statistics</a>: A textbook appealing to MLers.</li>
+      <li><a href="http://www.amazon.com/Statistical-Inference-George-Casella/dp/0534243126">Statistical Inference</a>: Classic textbook.</li>
+      <li><a href="http://www.stat.cmu.edu/~larry/=stat705/">CMU 10-705</a>: Intermediate Statistics.</li>
+    </ul>
+  </li>
+  <li>Optimization
+    <ul>
+      <li><a href="http://web.stanford.edu/~boyd/cvxbook/">Convex Optimization</a>: Classic textbook.</li>
+      <li><a href="http://stanford.edu/class/ee364a/index.html">Stanford EE364a</a>: Convex Optimization.</li>
+    </ul>
+  </li>
+  <li>Advanced Topics on Linear Algebra
+    <ul>
+      <li><a href="http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/3274/pdf/imm3274.pdf">The Matrix Cookbook</a>: Ongoing</li>
+      <li><a href="https://www.amazon.ca/Matrix-Analysis-Roger-Horn/dp/0521548233">Matrix Analysis</a>: Ongoing</li>
+    </ul>
+  </li>
+</ul>
+
+<!--more-->
+
+<h3 id="statistical-machine-learning">Statistical Machine Learning</h3>
+
+<ul>
+  <li><a href="https://www.coursera.org/learn/machine-learning">Coursera: Machine Learning</a>: Introduction to machine learning. (<a href="/certificates/ml.pdf">Certificate</a>)</li>
+  <li><a href="https://lagunita.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/info">StanfordOnline: Statistical Learning</a>: Introduction to statistical learning and <strong>R</strong>. (<a href="/certificates/sl.pdf">Certificate</a>)</li>
+  <li><a href="https://www.ualberta.ca/computing-science/undergraduate-studies/course-directory/courses/machine-learning">UAlberta CMPUT 466/551</a>: Machine Learning. I’m one of TAs in this course.</li>
+  <li><a href="http://statweb.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning</a>: Ongoing
+    <ul>
+      <li><a href="http://waxworksmath.com/Authors/G_M/Hastie/hastie.html">Manual</a>: Figure out the mathematical details.</li>
+      <li><a href="https://cran.r-project.org/web/packages/ElemStatLearn/index.html">R package “ElemStatLearn”</a>: Contain data sets, functions and examples from the book.</li>
+      <li><a href="https://github.com/billy-inn/ElemStatLearn">My code</a>: Exercises and experiment reimplementations in <strong>R</strong>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="probabilistic-graphical-models">Probabilistic Graphical Models:</h3>
+
+<ul>
+  <li><a href="https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models">UAlberta CMPUT 659</a>: Probabilistic Graphical Models. Graduate course in University of Alberta based on Coursera course instructed by <a href="http://ai.stanford.edu/users/koller/">Koller</a> (<a href="/papers/cmput659.pdf">Report:A Topic Model of Genetic Mutations in Cancer</a>, <strong>Completed</strong> in <em>16.4</em>).</li>
+  <li><a href="http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html">CMU 10-708</a>: Probabilistic Graphical Models.</li>
+  <li><a href="http://pgm.stanford.edu/">Probabilistic Graphical Models: Principles and Techniques</a>: Classic textbook for probabilistic graphical models. I’ve read a few chapters of it and gave up. This book is somewhat too mathematical and I will not recommend this book for beginners in PGM.</li>
+  <li><a href="https://github.com/jmschrei/pomegranate">Pomegranate</a>: A Python package for PGM. Nice tutorials for beginners in PGM!</li>
+</ul>
+
+<h3 id="deep-learning">Deep Learning</h3>
+
+<ul>
+  <li><a href="http://neuralnetworksanddeeplearning.com/index.html">Neural Network and Deep Learning</a>: Nice online tutorial for beginners in deep learning (<strong>Completed</strong> in <em>16.9</em>).</li>
+  <li><a href="https://www.coursera.org/learn/neural-networks">Coursera: Neural Networks for Machine Learning</a>: Excellent course for beginners in neural networks.</li>
+  <li><a href="http://cs224d.stanford.edu/">Stanford CS224d</a>: Deep Learning for Natural Language Processing. A nice intro to Word2Vec and its applications.</li>
+  <li><a href="http://vision.stanford.edu/teaching/cs231n/index.html">Stanford CS231n</a>: Convolutional Neural Networks for Visual Recognition.</li>
+  <li><a href="http://www.deeplearningbook.org/">Deep Learning Book</a>: Ongoing.</li>
+  <li><a href="https://github.com/dmlc/mxnet">Mxnet</a>: High performance.</li>
+  <li><a href="https://keras.io/">Keras</a>: High-level, easy to use.</li>
+</ul>
+
+<h3 id="large-scale-machine-learning">Large Scale Machine Learning</h3>
+
+<ul>
+  <li><a href="https://courses.edx.org/courses/BerkeleyX/CS100.1x/1T2015/info">edX: Introduction to Big Data with Apache Spark</a>: Introduction to Spark in <strong>Python</strong>. (<a href="/certificates/spark.pdf">Certificate</a>)</li>
+  <li><a href="https://courses.edx.org/courses/BerkeleyX/CS190.1x/1T2015/info">edX: Scalable Machine Learning</a>: Explore deeper usage of Spark on large scale machine learning. (<a href="/certificates/scalableML.pdf">Certificate</a>)</li>
+  <li><a href="https://www.coursera.org/learn/progfun1/">Coursera: Functional Programming Principles in Scala</a>: Introduction to <strong>Scala</strong>. (<a href="/certificates/fpp.pdf">Certificate</a>)</li>
+  <li><a href="https://www.coursera.org/learn/progfun2">Coursera: Functional Program Design in Scala</a>: Further study on <strong>Scala</strong>. (<a href="/certificates/fpd.pdf">Certificate</a>)</li>
+  <li><a href="https://www.coursera.org/learn/parprog1">Coursera: Parallel Programming</a>: Parallel computing in <strong>Scala</strong>. (<a href="/certificates/pp.pdf">Certificate</a>)</li>
+</ul>
+
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+
+<ul>
+  <li><a href="https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai">UAlberta CMPUT 609</a>: Reinforcement Learning. Graduate course in UofA instructed by <a href="https://webdocs.cs.ualberta.ca/~sutton/">Sutton</a>.</li>
+  <li><a href="https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html">Introduction to Reinforcement Learning</a>: Classic textbook.</li>
+</ul>
+
+<h3 id="data-mining">Data Mining</h3>
+
+<ul>
+  <li><a href="https://www.coursera.org/course/mmds">Coursera: Mining of Massive Datasets</a>: Introduction to a lot data mining techniques. (<a href="/certificates/mmds.pdf">Certificate</a>)</li>
+</ul>
+
+<h3 id="ml-competitions">ML Competitions</h3>
+
+<ul>
+  <li><a href="https://www.kaggle.com/c/home-depot-product-search-relevance">Kaggle: Home Depot Product Search Relevance</a>: Top 10%. (<a href="/papers/cmput690.pdf">Report</a>)</li>
+</ul>
+
+<h3 id="miscellanea">Miscellanea</h3>
+
+<ul>
+  <li><strong>Python</strong> &amp; <strong>R</strong>: For experiment and plotting.</li>
+  <li><strong>C++</strong> &amp; <strong>Scala</strong>: For development.</li>
+  <li><a href="https://www.vagrantup.com/">Vagrant</a>: Create and configure lightweight, reproducible, and portable development environments. Very Useful tool!</li>
+</ul>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Machine Learning Basics(1): Linear Regression]]></title>
+    <link href="http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression/"/>
+    <updated>2015-12-23T16:56:20-07:00</updated>
+    <id>http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression</id>
+    <content type="html"><![CDATA[<p>As a beginner in machine learning, I plan to sketch out my learning process. And it will be my first post in this series.</p>
+
+<h3 id="definition">1. Definition</h3>
+
+<p>We have an input vector $X^T=(X_1, X_2, \dots, X_p)$ and want to predict a real-valued output $Y$. The linear regression model has the form</p>
+
+<script type="math/tex; mode=display">f(X)=\beta_0 + \sum_{j=1}^pX_j\beta_j.\quad(1.1)</script>
+
+<p>Here the $\beta_j$’s are unknown parameters or coefficients.</p>
+
+<!--more-->
+
+<h3 id="least-squares">2. Least Squares</h3>
+
+<p>Typically we have a set of training data $(x_1,y_1)\dots(x_N,y_N)$ from which to estimate the parameters $\beta$. The most popular estimation method is least squares, in which we pick the coefficients $\beta=(
+\beta_0, \beta_1, \dots, \beta_p)^T$ to minimize the residual sum of squares (RSS)</p>
+
+<script type="math/tex; mode=display">RSS(\beta)=\sum_{i=1}^N(y_i-f(x_i))^2.\quad(2.1)</script>
+
+<p>How do we minimize $(2.1)$? This is an important question with a beautiful answer. The best $\beta$ can be found by geometry or algebra or calculus. Let’s explain the three approaches one by one.</p>
+
+<h4 id="calculus-interpretation">Calculus Interpretation</h4>
+
+<p>Denote by $\mathbf{X}$ the $N\times (p+1)$ matrix with each row an input vector (with a 1 in the first position). We can rewrite $(2.1)$ in the matrix form as</p>
+
+<script type="math/tex; mode=display">RSS(\beta)=(\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta).\quad(2.2)</script>
+
+<p>This is a quadratic function in the $p+1$ parameters. Differentating with respect to $\beta$ we obtain</p>
+
+<script type="math/tex; mode=display">\frac{\partial RSS}{\partial\beta}=-2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta).\quad(2.3)</script>
+
+<p>In order to get the minimum RSS, we set the first derivative to zero</p>
+
+<script type="math/tex; mode=display">\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta)=0\quad(2.4)</script>
+
+<p>to obtain the unique solution</p>
+
+<script type="math/tex; mode=display">\hat\beta = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}.\quad(2.5)</script>
+
+<p>The fitted values are</p>
+
+<script type="math/tex; mode=display">\mathbf{\hat y}=\mathbf{X}\hat\beta=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}.\quad(2.6)</script>
+
+<p>One thing which should be noticed is that it’s wrong to split $(\mathbf{X}^T\mathbf{X})^{-1}$ into $\mathbf{X}^{-1}$ times $\mathbf{X}$ and cancel the terms before $\mathbf{y}$ in $(2.6)$. The matrix $\mathbf{X}$ is rectangualr and has no inverse matrix. And if $\mathbf{X}$ is square and invertible, $\mathbf{\hat y}$ is exactly $\mathbf{y}$ just as $(2.6)$ shows.</p>
+
+<p>Someone may be confused by how to get $(2.3)$ by $(2.2)$ just as I once experienced. Actually, the easiest way to figure it out is to differentiate with respect to each $\beta_j$ respectively</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}\frac{\partial RSS}{\partial\beta_j}&=\frac{\partial}{\partial\beta_j}\sum_{i=1}^N\left(y_i-\sum_{j=0}^px_{ij}\beta_j\right)^2 \\
+&=-2\sum_{i=1}^Nx_{ij}\left(y_i-\sum_{j=0}^px_{ij}\beta_j\right). \\
+\end{split} %]]&gt;</script>
+
+<p>Then, we put all the derivatives together and rewrite it in matrix form to get $(2.3)$.</p>
+
+<h4 id="geometry-interpretation">Geometry Interpretation</h4>
+
+<p><img src="/images/LinearRegression1.png" alt="Alt text" /></p>
+
+<p>The picture above shows a direct gemotrical representation of the least squares estimate with two predictors. It’s convenient to extend this to the case with more predictors. We denote the column vectors of $X$ by $\mathbf{x}_0,\mathbf{x}_1,\dots,\mathbf{x}_p$ with $\mathbf{x}_0 \equiv 1$. These vectors span a subspace of $\mathbb{R}^N$, also referred to as the column space of $\mathbf{X}$. We minimize $RSS(\beta)=\lVert\mathbf{y}-\mathbf{X}\beta\rVert^2$ by choosing $\hat \beta$ so that the residual vector $\mathbf{y}-\mathbf{\hat y}$ is orthogonal to this subspace. This orthogonality is expressed in $(2.4)$, and the resulting estimate $\mathbf{\hat y}$ is hence the orthogonal projection of $\mathbf y$ onto this subspace.</p>
+
+<h4 id="algebra-interpretation">Algebra Interpretation</h4>
+
+<p>In the world of linear algebra, we will also view our problem from a perspective of algebra. Now we reformulate the problem as to solve the linear equations system $\mathbf{X}\beta=\mathbf{y}$. If you are somewhat familar with linear algebra, you can try to use elimination to solve it. Unfortunately, it has no solution typically due to there are more equations than unknowns ($n$ is larger than $p$).</p>
+
+<p>Instead, we hope that the length of error $\mathbf{e}=\mathbf{y}-\mathbf{X}\hat\beta$ is as small as possible. And the corresponding $\hat\beta$ is a least squares solution.</p>
+
+<p>When $\mathbf{X}\beta=\mathbf{y}$ has no solution, we can multiply by $\mathbf{X}^T$ and solve $\mathbf{X}^T\mathbf{X}\beta=\mathbf{X}^T\mathbf{y}$. And it yields the solution from calculus exactly. In the language of algebra, we can split the $\mathbf{y}$ into two parts as $\mathbf{p}+\mathbf{e}$. The part in the column space is $\mathbf{p}$. The perpendicular part in the nullspace of $\mathbf{X}^T$ is $\mathbf{e}$. There is an equation we cannot solve ($\mathbf{X}\beta=\mathbf{y}$). There is an equation $\mathbf{X}\hat\beta=\mathbf{p}$ we do solve. And the solution to $\mathbf{X}\hat\beta=\mathbf{p}$ leaves the least possible error. How do we choose $\mathbf{p}$ in the column space? Just as the geometry part tells us, the projection of $\mathbf{y}$ onto the column space!</p>
+
+<p>Ok, now the three interpretations come together and form a complete picture for the least squares.</p>
+
+<p>Wait a minute, there is still one more question. It might happen that that the columns of $\mathbf{X}$ are not linearly independent, so that $\mathbf{X}$ is not of full rank. Then $\mathbf{X}^T\mathbf{X}$ is singular and the least squares coefficients $\hat\beta$ are not uniquely defined. However, the fitted values $\mathbf{\hat y}=\mathbf{X}\hat\beta$ are still the projection of $\mathbf{y}$ onto the column space of $\mathbf{X}$; there is just more than one way to express that projections in terms of the column vectors of $\mathbf{X}$.</p>
+
+<h3 id="implementations">3. Implementations</h3>
+
+<p>The implementations is extremely easy in a language like <strong>R</strong>, even without specific packages. The core code is shown below:</p>
+
+<p><code>r
+library(MASS)
+betaHat &lt;- ginv(t(X) %*% X) %*% t(X) %*% y
+yhat &lt;- X %*% betaHat
+</code></p>
+
+<p>You can also use packages like <em>lm</em> in <strong>R</strong>. It provides not only $\hat\beta$ but also a lot sophisticated coefficients.</p>
+
+<h3 id="taste-on-statistics">4. Taste on Statistics</h3>
+
+<p><strong><em>To be continued</em></strong></p>
 ]]></content>
   </entry>
   

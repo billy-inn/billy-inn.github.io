@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://billy-inn.github.io/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/</loc>
+    <lastmod>2016-10-14T16:07:35-06:00</lastmod>
+  </url>
+  <url>
     <loc>http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/</loc>
     <lastmod>2016-10-06T17:37:02-06:00</lastmod>
   </url>
@@ -70,5 +74,8 @@
   </url>
   <url>
     <loc>http://billy-inn.github.io/blog/categories/pgm/</loc>
+  </url>
+  <url>
+    <loc>http://billy-inn.github.io/blog/categories/reinforcement-learning/</loc>
   </url>
 </urlset>
