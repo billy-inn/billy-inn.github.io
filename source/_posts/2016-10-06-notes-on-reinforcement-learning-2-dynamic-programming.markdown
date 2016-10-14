@@ -3,7 +3,7 @@ layout: post
 title: "Notes on Reinforcement Learning (2): Dynamic Programming"
 date: 2016-10-06 17:37:02 -0600
 comments: true
-categories: machine_learning
+categories: reinforcement_learning
 ---
 
 ### Policy Evaluation

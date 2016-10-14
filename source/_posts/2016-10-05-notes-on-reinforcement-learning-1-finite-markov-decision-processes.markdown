@@ -3,7 +3,7 @@ layout: post
 title: "Notes on Reinforcement Learning (1): Finite Markov Decision Processes"
 date: 2016-10-05 14:55:31 -0600
 comments: true
-categories: machine_learning 
+categories: reinforcement_learning 
 ---
 
 ### The Agent-Environment Interface
