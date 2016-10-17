@@ -47,7 +47,7 @@ The value of a state $s$ under a policy $\pi$, denoted $v_\pi(s)$, is the expect
 
 $$v_\pi(s)=\mathbb{E}_\pi[G_t|S_t=s]=\mathbb{E}_\pi\left[\sum_{k=0}^\infty\gamma^kR_{t+k+1}\middle|S_t=s\right],$$
 
-where $\mathbb{E}_\pi[\centerdot]$ denotes the expected value of a random variable given that the agent follows policy $\pi$, and $t$ is any time step. We call the function $v_\pi$ the state-value function for policy $\pi$.
+where $\mathbb{E}[\centerdot]$ denotes the expected value of a random variable given that the agent follows policy $\pi$, and $t$ is any time step. We call the function $v_\pi$ the state-value function for policy $\pi$.
 
 Similarly, we define the value of taking action $a$ in state $s$ under a policy $\pi$, denoted $q_\pi(s,a)$, as the expected return starting from $s$, taking the action $a$, and thereafter following policy $\pi$:
 
