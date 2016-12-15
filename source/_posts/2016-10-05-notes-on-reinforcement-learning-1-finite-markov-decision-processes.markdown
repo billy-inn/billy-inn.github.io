@@ -55,7 +55,7 @@ $$q_\pi(s,a)=\mathbb{E}_\pi[G_t|S_t=s,A_t=s]=\mathbb{E}_\pi\left[\sum_{k=0}^\inf
 
 We call $q_\pi$ the action-value function for policy $\pi$.
 
-A fundamental property of value functions used throughour reinforcement learning and dynamic programming is that they satisfy particular recursive relationships. For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states:
+A fundamental property of value functions used throughout reinforcement learning and dynamic programming is that they satisfy particular recursive relationships. For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states:
 
 $$v_\pi(s)=\sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')], \forall s \in \mathcal{S}.$$
 
@@ -101,6 +101,6 @@ v_*(s)&=\max_a\mathbb{E}_\pi[R_{t+1}+\gamma v_*(S_{t+1})|S_t=s, A_t=a]\\
 \end{split}$$
 
 $$\begin{split}
-q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma \max_{a'}q_*(S_{t+1},a')\middle|S_t=s, A_t=a\right]\\
+q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma q_*(S_{t+1},a')\middle|S_t=s, A_t=a\right]\\
 &=\sum_{s',r}p(s',r|s,a)[r+\gamma \max_{a'}q_*(s',a')]
 \end{split}$$

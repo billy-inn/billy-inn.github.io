@@ -42,7 +42,7 @@ The assumption that policy evaluation operates on an infinite number of episodes
 
 The only general way to ensure that all actions are selected infinitely often is for the agent to continue to select them. There are two approaches to ensuring this, resulting in what we call on-policy methods and off-policy methods. On-policy methods attempt to evaluate or improve the policy that is used to make decisions, whereas on-policy methods evaluate or improve a policy different from that used to generate the data.
 
-In on-policy control methods the policy is generally soft, meaning that $\pi(a|s)>0$ for all $s\in\mathcal{S}$ and all $a\in\mathcal{A}(s)$, but gradually shifted closer and closer to a deterministic optimal policy.
+In on-policy control methods the policy is generally soft, meaning that $\pi(a \vert s)>0$ for all $s\in\mathcal{S}$ and all $a\in\mathcal{A}(s)$, but gradually shifted closer and closer to a deterministic optimal policy.
 
 ![Alt text](/images/rl3.4.png)
 
@@ -60,7 +60,7 @@ Thus, the relatvie probability of the trajectory under the target and behavior p
 
 $$\rho_t^T=\prod_{k=t}^{T-1}\frac{\pi(A_k|S_k)}{\mu(A_k|S_k)}.$$
 
-We can define the set of all time steps in which state is visited, denoted $\mathcal{J}(s)$. This is for an every-visit method; for a first-visit method, $\mathcal{J}(s)$ would only include time steps that were first visits to $s$ within their episodes. Also, let $T(t)$ denote the first time of termination following time $t$, and $G_t$ denote the return after $t$ up through $T(t)$. Then $\{G_t\}_{t\in\mathcal{J}(s)}$ are the returns that pertain to state $s$, and $\{\rho_t^{T(t)}\}_{t\in\mathcal{J}(s)}$ are the corresponding importance-sampling ratios. To estimate $v_\pi(s)$, we simply scale the returns by the ratios and average the results:
+We can define the set of all time steps in which state is visited, denoted $\mathcal{J}(s)$. This is for an every-visit method; for a first-visit method, $\mathcal{J}(s)$ would only include time steps that were first visits to $s$ within their episodes. Also, let $T(t)$ denote the first time of termination following time $t$, and $G_t$ denote the return after $t$ up through $T(t)$. Then $\\{G\_t\\}\_{t\in\mathcal{J}(s)}$ are the returns that pertain to state $s$, and $\\{\rho\_t^{T(t)}\\}\_{t\in\mathcal{J}(s)}$ are the corresponding importance-sampling ratios. To estimate $v\_{\pi}(s)$, we simply scale the returns by the ratios and average the results:
 
 $$V(s)=\frac{\sum _{t\in\mathcal{J}(s)}\rho_t^{T(t)}G_t}{\lvert\mathcal{J}(s)\rvert}.$$
 
