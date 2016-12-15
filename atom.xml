@@ -4,7 +4,7 @@
   <title><![CDATA[KRIS]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-10-16T18:32:13-06:00</updated>
+  <updated>2016-12-14T21:45:06-07:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[【失控：机器、社会与经济的新生物学】漫谈（1）：众与寡]]></title>
+    <link href="http://billy-inn.github.io/blog/2016/12/14/%5B(shi-kong-:ji-qi-,-she-hui-yu-jing-ji-de-xin-sheng-wu-xue-)%5D-man-tan-(1):zhong-yu-gua/"/>
+    <updated>2016-12-14T21:44:01-07:00</updated>
+    <id>http://billy-inn.github.io/blog/2016/12/14/[(shi-kong-:ji-qi-,-she-hui-yu-jing-ji-de-xin-sheng-wu-xue-)]-man-tan-(1):zhong-yu-gua</id>
+    <content type="html"><![CDATA[<p>重拾阅读后的第一本书，读而不思则罔，于是决定随着阅读随便写点什么，谓之“漫谈”。</p>
+
+<p>虽然成书于94年，但书中种种观点和当今社会与技术的发展却有诸多不谋而合之处。读罢前几章，最为深刻的印象就是蜂群思维，分布式系统，去中心化等等一系列相关的概念。总而言之，论述的是一种与传统自上而下的系统相悖的自下而上的系统。这里的系统是一个非常宽泛的说法，它可以是机器，可以是软件，也可以是动物，乃至于人类社会、政治体系、万维网等等。可能是我实在是孤陋寡闻，在阅读这本书之前，我潜意识里确实认为绝大多数系统都应该有一个中心，拥有绝对的权威并下达指令，比如PC的CPU，古代的皇帝，人的大脑等等。然而这本书却提出了一个截然不同的系统，简而言之就是没有一个绝对的中心，每一个个体的行为决定了整体的行动（也可以简单的理解为少数服从多数，但实际情况往往更加复杂）并由简单的行为（操作）逐层向上模块化的增加更加复杂的行为（操作），另外分布式的存在方式令其拥有更强的容错性和在部分失灵的情况下能够继续运转的稳定性。现代科学在群体动物（蜂群、蚁群）中发现了这样的系统，而脑科学的发展也说明大脑并非我们原本想象的那样控制着人体的一切。无数的神经的共同作用造就了大脑，而大脑与身体的各种感官也似乎并非简单的从属关系。</p>
+
+<!--more-->
+
+<p>这样的系统的优越性早已在工业界得到了印证。我也在这记录一下我在阅读过程中所联想到的各种相干（或者不相干？）的点点吧：
+- Ensemble Learning的motivation似乎和蜂群思维不谋而合。
+- 神经网络也很好的体现了这个系统的特征，比如mixture of experts，dropout等等技巧的成功应用。
+- 算法的泛化能力 = 系统的容错能力？
+- MXNet的开发就在强调去中心化和模块化，具体进展如何，拭目以待。不过我暂时还是出于易用性考虑继续站tensorflow。
+- 社交网络时代下的我们就是群氓中的一份子，个性化推荐加剧了信息不对称。
+- 极端的民主并不利于文明的发展，强大的容错性的代价是无意义的徘徊和拉锯战，正如通过大量重复计算来换取更强的泛化能力。美国的大选或许就是个例子。</p>
+
+<p>微博上看到有人喷这本书的作者就是个大忽悠，对于作者现在到哪儿去演讲、圈钱、布道什么的不做评价。但上个世纪的书对当下仍有现实启发意义，我觉得这本书还是值得一读的。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Notes on Reinforcement Learning (4): Temporal-Difference Learning]]></title>
@@ -143,14 +166,7 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
 
 <p>The only general way to ensure that all actions are selected infinitely often is for the agent to continue to select them. There are two approaches to ensuring this, resulting in what we call on-policy methods and off-policy methods. On-policy methods attempt to evaluate or improve the policy that is used to make decisions, whereas on-policy methods evaluate or improve a policy different from that used to generate the data.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>In on-policy control methods the policy is generally soft, meaning that $\pi(a</td>
-      <td>s)&gt;0$ for all $s\in\mathcal{S}$ and all $a\in\mathcal{A}(s)$, but gradually shifted closer and closer to a deterministic optimal policy.</td>
-    </tr>
-  </tbody>
-</table>
+<p>In on-policy control methods the policy is generally soft, meaning that $\pi(a \vert s)&gt;0$ for all $s\in\mathcal{S}$ and all $a\in\mathcal{A}(s)$, but gradually shifted closer and closer to a deterministic optimal policy.</p>
 
 <p><img src="http://billy-inn.github.io/images/rl3.4.png" alt="Alt text" /></p>
 
@@ -168,7 +184,7 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
 
 <script type="math/tex; mode=display">\rho_t^T=\prod_{k=t}^{T-1}\frac{\pi(A_k|S_k)}{\mu(A_k|S_k)}.</script>
 
-<p>We can define the set of all time steps in which state is visited, denoted $\mathcal{J}(s)$. This is for an every-visit method; for a first-visit method, $\mathcal{J}(s)$ would only include time steps that were first visits to $s$ within their episodes. Also, let $T(t)$ denote the first time of termination following time $t$, and $G_t$ denote the return after $t$ up through $T(t)$. Then ${G_t}<em>{t\in\mathcal{J}(s)}$ are the returns that pertain to state $s$, and ${\rho_t^{T(t)}}</em>{t\in\mathcal{J}(s)}$ are the corresponding importance-sampling ratios. To estimate $v_\pi(s)$, we simply scale the returns by the ratios and average the results:</p>
+<p>We can define the set of all time steps in which state is visited, denoted $\mathcal{J}(s)$. This is for an every-visit method; for a first-visit method, $\mathcal{J}(s)$ would only include time steps that were first visits to $s$ within their episodes. Also, let $T(t)$ denote the first time of termination following time $t$, and $G_t$ denote the return after $t$ up through $T(t)$. Then $\{G_t\}_{t\in\mathcal{J}(s)}$ are the returns that pertain to state $s$, and $\{\rho_t^{T(t)}\}_{t\in\mathcal{J}(s)}$ are the corresponding importance-sampling ratios. To estimate $v_{\pi}(s)$, we simply scale the returns by the ratios and average the results:</p>
 
 <script type="math/tex; mode=display">V(s)=\frac{\sum _{t\in\mathcal{J}(s)}\rho_t^{T(t)}G_t}{\lvert\mathcal{J}(s)\rvert}.</script>
 
@@ -312,7 +328,7 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
 
 <p>We call $q_\pi$ the action-value function for policy $\pi$.</p>
 
-<p>A fundamental property of value functions used throughour reinforcement learning and dynamic programming is that they satisfy particular recursive relationships. For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states:</p>
+<p>A fundamental property of value functions used throughout reinforcement learning and dynamic programming is that they satisfy particular recursive relationships. For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states:</p>
 
 <script type="math/tex; mode=display">v_\pi(s)=\sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')], \forall s \in \mathcal{S}.</script>
 
@@ -362,7 +378,7 @@ v_*(s)&=\max_a\mathbb{E}_\pi[R_{t+1}+\gamma v_*(S_{t+1})|S_t=s, A_t=a]\\
 
 <script type="math/tex; mode=display">% &lt;![CDATA[
 \begin{split}
-q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma \max_{a'}q_*(S_{t+1},a')\middle|S_t=s, A_t=a\right]\\
+q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma q_*(S_{t+1},a')\middle|S_t=s, A_t=a\right]\\
 &=\sum_{s',r}p(s',r|s,a)[r+\gamma \max_{a'}q_*(s',a')]
 \end{split} %]]&gt;</script>
 ]]></content>

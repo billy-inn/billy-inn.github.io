@@ -204,7 +204,7 @@
 
 <p>We call $q_\pi$ the action-value function for policy $\pi$.</p>
 
-<p>A fundamental property of value functions used throughour reinforcement learning and dynamic programming is that they satisfy particular recursive relationships. For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states:</p>
+<p>A fundamental property of value functions used throughout reinforcement learning and dynamic programming is that they satisfy particular recursive relationships. For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states:</p>
 
 <script type="math/tex; mode=display">v_\pi(s)=\sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')], \forall s \in \mathcal{S}.</script>
 
@@ -254,7 +254,7 @@ v_*(s)&=\max_a\mathbb{E}_\pi[R_{t+1}+\gamma v_*(S_{t+1})|S_t=s, A_t=a]\\
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{split}
-q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma \max_{a'}q_*(S_{t+1},a')\middle|S_t=s, A_t=a\right]\\
+q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma q_*(S_{t+1},a')\middle|S_t=s, A_t=a\right]\\
 &=\sum_{s',r}p(s',r|s,a)[r+\gamma \max_{a'}q_*(s',a')]
 \end{split} %]]></script>
 </div>
@@ -352,6 +352,10 @@ q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma \max_{a'}q_*(S_{t+1},a')\middle|S_t=
     <li class="nav-header">Recent Posts</li>
     
       <li class="post">
+        <a href="/blog/2016/12/14/%5B(shi-kong-:ji-qi-,-she-hui-yu-jing-ji-de-xin-sheng-wu-xue-)%5D-man-tan-(1):zhong-yu-gua/">【失控：机器、社会与经济的新生物学】漫谈（1）：众与寡</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/">Notes on Reinforcement Learning (4): Temporal-Difference Learning</a>
       </li>
     
@@ -365,10 +369,6 @@ q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma \max_{a'}q_*(S_{t+1},a')\middle|S_t=
     
       <li class="post">
         <a href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Notes on Reinforcement Learning (1): Finite Markov Decision Processes</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/09/20/ml-with-r-3-logistic-regression/">ML with R (3): Logistic Regression</a>
       </li>
     
   </ul>

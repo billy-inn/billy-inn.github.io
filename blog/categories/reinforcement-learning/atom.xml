@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reinforcement_learning | KRIS]]></title>
   <link href="http://billy-inn.github.io/blog/categories/reinforcement-learning/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-10-16T18:32:13-06:00</updated>
+  <updated>2016-12-14T21:45:06-07:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -143,14 +143,7 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
 
 <p>The only general way to ensure that all actions are selected infinitely often is for the agent to continue to select them. There are two approaches to ensuring this, resulting in what we call on-policy methods and off-policy methods. On-policy methods attempt to evaluate or improve the policy that is used to make decisions, whereas on-policy methods evaluate or improve a policy different from that used to generate the data.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>In on-policy control methods the policy is generally soft, meaning that $\pi(a</td>
-      <td>s)&gt;0$ for all $s\in\mathcal{S}$ and all $a\in\mathcal{A}(s)$, but gradually shifted closer and closer to a deterministic optimal policy.</td>
-    </tr>
-  </tbody>
-</table>
+<p>In on-policy control methods the policy is generally soft, meaning that $\pi(a \vert s)&gt;0$ for all $s\in\mathcal{S}$ and all $a\in\mathcal{A}(s)$, but gradually shifted closer and closer to a deterministic optimal policy.</p>
 
 <p><img src="/images/rl3.4.png" alt="Alt text" /></p>
 
@@ -168,7 +161,7 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
 
 <script type="math/tex; mode=display">\rho_t^T=\prod_{k=t}^{T-1}\frac{\pi(A_k|S_k)}{\mu(A_k|S_k)}.</script>
 
-<p>We can define the set of all time steps in which state is visited, denoted $\mathcal{J}(s)$. This is for an every-visit method; for a first-visit method, $\mathcal{J}(s)$ would only include time steps that were first visits to $s$ within their episodes. Also, let $T(t)$ denote the first time of termination following time $t$, and $G_t$ denote the return after $t$ up through $T(t)$. Then ${G_t}<em>{t\in\mathcal{J}(s)}$ are the returns that pertain to state $s$, and ${\rho_t^{T(t)}}</em>{t\in\mathcal{J}(s)}$ are the corresponding importance-sampling ratios. To estimate $v_\pi(s)$, we simply scale the returns by the ratios and average the results:</p>
+<p>We can define the set of all time steps in which state is visited, denoted $\mathcal{J}(s)$. This is for an every-visit method; for a first-visit method, $\mathcal{J}(s)$ would only include time steps that were first visits to $s$ within their episodes. Also, let $T(t)$ denote the first time of termination following time $t$, and $G_t$ denote the return after $t$ up through $T(t)$. Then $\{G_t\}_{t\in\mathcal{J}(s)}$ are the returns that pertain to state $s$, and $\{\rho_t^{T(t)}\}_{t\in\mathcal{J}(s)}$ are the corresponding importance-sampling ratios. To estimate $v_{\pi}(s)$, we simply scale the returns by the ratios and average the results:</p>
 
 <script type="math/tex; mode=display">V(s)=\frac{\sum _{t\in\mathcal{J}(s)}\rho_t^{T(t)}G_t}{\lvert\mathcal{J}(s)\rvert}.</script>
 
@@ -312,7 +305,7 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
 
 <p>We call $q_\pi$ the action-value function for policy $\pi$.</p>
 
-<p>A fundamental property of value functions used throughour reinforcement learning and dynamic programming is that they satisfy particular recursive relationships. For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states:</p>
+<p>A fundamental property of value functions used throughout reinforcement learning and dynamic programming is that they satisfy particular recursive relationships. For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states:</p>
 
 <script type="math/tex; mode=display">v_\pi(s)=\sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')], \forall s \in \mathcal{S}.</script>
 
@@ -362,7 +355,7 @@ v_*(s)&=\max_a\mathbb{E}_\pi[R_{t+1}+\gamma v_*(S_{t+1})|S_t=s, A_t=a]\\
 
 <script type="math/tex; mode=display">% &lt;![CDATA[
 \begin{split}
-q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma \max_{a'}q_*(S_{t+1},a')\middle|S_t=s, A_t=a\right]\\
+q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma q_*(S_{t+1},a')\middle|S_t=s, A_t=a\right]\\
 &=\sum_{s',r}p(s',r|s,a)[r+\gamma \max_{a'}q_*(s',a')]
 \end{split} %]]&gt;</script>
 ]]></content>
