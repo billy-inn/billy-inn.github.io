@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "【失控：机器、社会与经济的新生物学】漫谈（1）：众与寡"
+title: "【失控: 机器、社会与经济的新生物学】漫谈（一）"
 date: 2016-12-14 21:44:01 -0700
 comments: true
-categories: 
+categories: reading
 ---
 
 重拾阅读后的第一本书，读而不思则罔，于是决定随着阅读随便写点什么，谓之“漫谈”。
@@ -13,6 +13,7 @@ categories:
 <!--more-->
 
 这样的系统的优越性早已在工业界得到了印证。我也在这记录一下我在阅读过程中所联想到的各种相干（或者不相干？）的点点吧：
+
 - Ensemble Learning的motivation似乎和蜂群思维不谋而合。
 - 神经网络也很好的体现了这个系统的特征，比如mixture of experts，dropout等等技巧的成功应用。
 - 算法的泛化能力 = 系统的容错能力？
