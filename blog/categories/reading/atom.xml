@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: reading | KRIS]]></title>
+  <link href="http://billy-inn.github.io/blog/categories/reading/atom.xml" rel="self"/>
+  <link href="http://billy-inn.github.io/"/>
+  <updated>2016-12-14T21:53:58-07:00</updated>
+  <id>http://billy-inn.github.io/</id>
+  <author>
+    <name><![CDATA[Peng Xu]]></name>
+    <email><![CDATA[bly930725@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[【失控: 机器、社会与经济的新生物学】漫谈（一）]]></title>
+    <link href="http://billy-inn.github.io/blog/2016/12/14/lose-control-1/"/>
+    <updated>2016-12-14T21:44:01-07:00</updated>
+    <id>http://billy-inn.github.io/blog/2016/12/14/lose-control-1</id>
+    <content type="html"><![CDATA[<p>重拾阅读后的第一本书，读而不思则罔，于是决定随着阅读随便写点什么，谓之“漫谈”。</p>
+
+<p>虽然成书于94年，但书中种种观点和当今社会与技术的发展却有诸多不谋而合之处。读罢前几章，最为深刻的印象就是蜂群思维，分布式系统，去中心化等等一系列相关的概念。总而言之，论述的是一种与传统自上而下的系统相悖的自下而上的系统。这里的系统是一个非常宽泛的说法，它可以是机器，可以是软件，也可以是动物，乃至于人类社会、政治体系、万维网等等。可能是我实在是孤陋寡闻，在阅读这本书之前，我潜意识里确实认为绝大多数系统都应该有一个中心，拥有绝对的权威并下达指令，比如PC的CPU，古代的皇帝，人的大脑等等。然而这本书却提出了一个截然不同的系统，简而言之就是没有一个绝对的中心，每一个个体的行为决定了整体的行动（也可以简单的理解为少数服从多数，但实际情况往往更加复杂）并由简单的行为（操作）逐层向上模块化的增加更加复杂的行为（操作），另外分布式的存在方式令其拥有更强的容错性和在部分失灵的情况下能够继续运转的稳定性。现代科学在群体动物（蜂群、蚁群）中发现了这样的系统，而脑科学的发展也说明大脑并非我们原本想象的那样控制着人体的一切。无数的神经的共同作用造就了大脑，而大脑与身体的各种感官也似乎并非简单的从属关系。</p>
+
+<!--more-->
+
+<p>这样的系统的优越性早已在工业界得到了印证。我也在这记录一下我在阅读过程中所联想到的各种相干（或者不相干？）的点点吧：</p>
+
+<ul>
+  <li>Ensemble Learning的motivation似乎和蜂群思维不谋而合。</li>
+  <li>神经网络也很好的体现了这个系统的特征，比如mixture of experts，dropout等等技巧的成功应用。</li>
+  <li>算法的泛化能力 = 系统的容错能力？</li>
+  <li>MXNet的开发就在强调去中心化和模块化，具体进展如何，拭目以待。不过我暂时还是出于易用性考虑继续站tensorflow。</li>
+  <li>社交网络时代下的我们就是群氓中的一份子，个性化推荐加剧了信息不对称。</li>
+  <li>极端的民主并不利于文明的发展，强大的容错性的代价是无意义的徘徊和拉锯战，正如通过大量重复计算来换取更强的泛化能力。美国的大选或许就是个例子。</li>
+</ul>
+
+<p>微博上看到有人喷这本书的作者就是个大忽悠，对于作者现在到哪儿去演讲、圈钱、布道什么的不做评价。但上个世纪的书对当下仍有现实启发意义，我觉得这本书还是值得一读的。</p>
+]]></content>
+  </entry>
+  
+</feed>
