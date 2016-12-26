@@ -4,7 +4,7 @@
   <title><![CDATA[Category: machine_learning | KRIS]]></title>
   <link href="http://billy-inn.github.io/blog/categories/machine-learning/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-12-14T21:53:58-07:00</updated>
+  <updated>2016-12-25T23:30:14-07:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -827,7 +827,7 @@ $(document).ready(function () {
 <h3 id="probabilistic-graphical-models">Probabilistic Graphical Models:</h3>
 
 <ul>
-  <li><a href="https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models">UAlberta CMPUT 659</a>: Probabilistic Graphical Models. Graduate course in University of Alberta based on Coursera course instructed by <a href="http://ai.stanford.edu/users/koller/">Koller</a> (<a href="/papers/cmput659.pdf">Report:A Topic Model of Genetic Mutations in Cancer</a>, <strong>Completed</strong> in <em>16.4</em>).</li>
+  <li><a href="https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models">UAlberta CMPUT 659</a>: Probabilistic Graphical Models. Graduate course in University of Alberta based on Coursera course instructed by <a href="http://ai.stanford.edu/users/koller/">Koller</a> (<a href="/papers/cmput659.pdf">Report: A Topic Model of Genetic Mutations in Cancer</a>, <strong>Completed</strong> in <em>16.4</em>).</li>
   <li><a href="http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html">CMU 10-708</a>: Probabilistic Graphical Models.</li>
   <li><a href="http://pgm.stanford.edu/">Probabilistic Graphical Models: Principles and Techniques</a>: Classic textbook for probabilistic graphical models. I’ve read a few chapters of it and gave up. This book is somewhat too mathematical and I will not recommend this book for beginners in PGM.</li>
   <li><a href="https://github.com/jmschrei/pomegranate">Pomegranate</a>: A Python package for PGM. Nice tutorials for beginners in PGM!</li>
@@ -837,12 +837,13 @@ $(document).ready(function () {
 
 <ul>
   <li><a href="http://neuralnetworksanddeeplearning.com/index.html">Neural Network and Deep Learning</a>: Nice online tutorial for beginners in deep learning (<strong>Completed</strong> in <em>16.9</em>).</li>
-  <li><a href="https://www.coursera.org/learn/neural-networks">Coursera: Neural Networks for Machine Learning</a>: Excellent course for beginners in neural networks.</li>
+  <li><a href="https://www.coursera.org/learn/neural-networks">Coursera: Neural Networks for Machine Learning</a>: Excellent course for beginners in neural networks. (<a href="/certificates/NN4ML.pdf">Certificate</a>)</li>
   <li><a href="http://cs224d.stanford.edu/">Stanford CS224d</a>: Deep Learning for Natural Language Processing. A nice intro to Word2Vec and its applications.</li>
   <li><a href="http://vision.stanford.edu/teaching/cs231n/index.html">Stanford CS231n</a>: Convolutional Neural Networks for Visual Recognition.</li>
   <li><a href="http://www.deeplearningbook.org/">Deep Learning Book</a>: Ongoing.</li>
-  <li><a href="https://github.com/dmlc/mxnet">Mxnet</a>: High performance.</li>
-  <li><a href="https://keras.io/">Keras</a>: High-level, easy to use.</li>
+  <li><a href="https://www.tensorflow.org/">TensorFlow</a>: Large amount of high-quality tutorials and well-coded recent advances in DL. Most applicable scenario: research.</li>
+  <li><a href="https://github.com/dmlc/mxnet">Mxnet</a>: High performance. Most applicable scenario: industry.</li>
+  <li><a href="https://keras.io/">Keras</a>: High-level, easy to use. Most applicable scenario: competitions like Kaggle.</li>
 </ul>
 
 <h3 id="large-scale-machine-learning">Large Scale Machine Learning</h3>
@@ -858,8 +859,8 @@ $(document).ready(function () {
 <h3 id="reinforcement-learning">Reinforcement Learning</h3>
 
 <ul>
-  <li><a href="https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai">UAlberta CMPUT 609</a>: Reinforcement Learning. Graduate course in UofA instructed by <a href="https://webdocs.cs.ualberta.ca/~sutton/">Sutton</a>.</li>
-  <li><a href="https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html">Introduction to Reinforcement Learning</a>: Classic textbook.</li>
+  <li><a href="https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai">UAlberta CMPUT 609</a>: Reinforcement Learning. Graduate course in UofA instructed by <a href="https://webdocs.cs.ualberta.ca/~sutton/">Sutton</a>. (<a href="/papers/cmput609.pdf">Report: Investigation on Deep Reinforcement Learning Methods for Classical Control Problems</a>, <strong>Completed</strong> in <em>16.12</em>).</li>
+  <li><a href="https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html">Introduction to Reinforcement Learning</a>: Classic textbook, recommended for beginners in RL.</li>
 </ul>
 
 <h3 id="data-mining">Data Mining</h3>
