@@ -43,7 +43,7 @@ This blog will record the timeline, resources, projects along the way of my stud
 
 ### Probabilistic Graphical Models:
 
-- [UAlberta CMPUT 659](https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models): Probabilistic Graphical Models. Graduate course in University of Alberta based on Coursera course instructed by [Koller](http://ai.stanford.edu/users/koller/) ([Report:A Topic Model of Genetic Mutations in Cancer](/papers/cmput659.pdf), **Completed** in *16.4*).
+- [UAlberta CMPUT 659](https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models): Probabilistic Graphical Models. Graduate course in University of Alberta based on Coursera course instructed by [Koller](http://ai.stanford.edu/users/koller/) ([Report: A Topic Model of Genetic Mutations in Cancer](/papers/cmput659.pdf), **Completed** in *16.4*).
 - [CMU 10-708](http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html): Probabilistic Graphical Models.
 - [Probabilistic Graphical Models: Principles and Techniques](http://pgm.stanford.edu/): Classic textbook for probabilistic graphical models. I've read a few chapters of it and gave up. This book is somewhat too mathematical and I will not recommend this book for beginners in PGM.
 - [Pomegranate](https://github.com/jmschrei/pomegranate): A Python package for PGM. Nice tutorials for beginners in PGM!
@@ -51,12 +51,13 @@ This blog will record the timeline, resources, projects along the way of my stud
 ### Deep Learning
 
 - [Neural Network and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html): Nice online tutorial for beginners in deep learning (**Completed** in *16.9*).
-- [Coursera: Neural Networks for Machine Learning](https://www.coursera.org/learn/neural-networks): Excellent course for beginners in neural networks.
+- [Coursera: Neural Networks for Machine Learning](https://www.coursera.org/learn/neural-networks): Excellent course for beginners in neural networks. ([Certificate](/certificates/NN4ML.pdf))
 - [Stanford CS224d](http://cs224d.stanford.edu/): Deep Learning for Natural Language Processing. A nice intro to Word2Vec and its applications.
 - [Stanford CS231n](http://vision.stanford.edu/teaching/cs231n/index.html): Convolutional Neural Networks for Visual Recognition.
 - [Deep Learning Book](http://www.deeplearningbook.org/): Ongoing.
-- [Mxnet](https://github.com/dmlc/mxnet): High performance.
-- [Keras](https://keras.io/): High-level, easy to use.
+- [TensorFlow](https://www.tensorflow.org/): Large amount of high-quality tutorials and well-coded recent advances in DL. Most applicable scenario: research.
+- [Mxnet](https://github.com/dmlc/mxnet): High performance. Most applicable scenario: industry.
+- [Keras](https://keras.io/): High-level, easy to use. Most applicable scenario: competitions like Kaggle.
 
 ### Large Scale Machine Learning
 
@@ -68,8 +69,8 @@ This blog will record the timeline, resources, projects along the way of my stud
 
 ### Reinforcement Learning
 
-- [UAlberta CMPUT 609](https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai): Reinforcement Learning. Graduate course in UofA instructed by [Sutton](https://webdocs.cs.ualberta.ca/~sutton/).
-- [Introduction to Reinforcement Learning](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html): Classic textbook.
+- [UAlberta CMPUT 609](https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai): Reinforcement Learning. Graduate course in UofA instructed by [Sutton](https://webdocs.cs.ualberta.ca/~sutton/). ([Report: Investigation on Deep Reinforcement Learning Methods for Classical Control Problems](/papers/cmput609.pdf), **Completed** in *16.12*). 
+- [Introduction to Reinforcement Learning](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html): Classic textbook, recommended for beginners in RL.
 
 ### Data Mining
 
