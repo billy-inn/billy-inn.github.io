@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading | KRIS]]></title>
   <link href="http://billy-inn.github.io/blog/categories/reading/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2016-12-25T23:30:14-07:00</updated>
+  <updated>2017-01-11T16:16:20-07:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[【失控:机器、社会与经济的新生物学】漫谈（二）]]></title>
+    <link href="http://billy-inn.github.io/blog/2017/01/11/lose-control-2/"/>
+    <updated>2017-01-11T16:13:46-07:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/01/11/lose-control-2</id>
+    <content type="html"><![CDATA[<p>随着人工智能大潮的火热，各种噱头在大公司和媒体的鼓吹下刺激着大众的神经。关于智械的各种“浪漫”幻想也不再仅仅诉诸于电影和小说，而是开始被严肃的讨论了起来。在这本书里，我看到了一个之前没有见过的有趣的观点：“机器是人类的一种进化形式”。显然这并非通常的经过亿万年自然选择产生的进化，而是一种定向的选择。就如同培育有机食品、杂交水稻一般，人工智能是否也可以定向的让人类自身变得更为强大呢？相比于制造通用智能，越来越多业界的人也都认为AI被定义为Augmented Intelligence（增强智能）而非Artifical Intelligence（人工智能）更加实际和贴切。总的来说，现在的AI还是高度面向任务的，大量人工标注的数据加上工程上的细节才能使计算机在特定任务上战胜人类，而这些努力一旦换了一个领域就难再有大的用武之地。另一方面，希望计算机或者机器人在某些领域完全取代人类也是不现实的，除了一些很基础的任务外，人类的介入在现阶段还是很有必要的，比如机器翻译，智能助理等等。</p>
+
+<!--more-->
+
+<p>另外，创造智械还会带来一系列现实问题，诸如道德，法律，就业等等问题。就比如无人车车祸的责任判定，机器取代工人而引发的大量失业等等。</p>
+
+<p>总而言之，与其创造一个与人类等价的新族类“智械”，不如思考如何利用人工智能更好的辅助人类，定向地将人类进化的更加强大。相信这是在可预见的未来，人工智能领域的一个趋势。</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[【失控: 机器、社会与经济的新生物学】漫谈（一）]]></title>
