@@ -3,3 +3,10 @@
 @import "base/theme";
 @import "base/typography";
 @import "base/layout";
+.mbtablestyle {
+	        border-collapse: collapse;
+
+			   > table, td, th {
+				           border: 1px solid black;
+						           }
+							   }

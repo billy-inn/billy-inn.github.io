@@ -13,8 +13,8 @@ This blog will record the timeline, resources, projects along the way of my stud
 - Basics: better to review before real study of ML
     - Calculus
 	- Linear Algebra
-		- [Introduction to Linear Algebra](http://math.mit.edu/~gs/linearalgebra/): a nice textbook in linear algebra.
-		- [MIT 18.06](https://www.youtube.com/watch?v=ZK3O402wf1c&list=PLE7DDD91010BC51F8): Linear algebra (**Completed** in *15.12*).
+		- [Introduction to Linear Algebra](http://math.mit.edu/~gs/linearalgebra/): a nice textbook in linear algebra (**First Pass** in *Dec, 2015*).
+		- [MIT 18.06](https://www.youtube.com/watch?v=ZK3O402wf1c&list=PLE7DDD91010BC51F8): Linear algebra (**Completed** in *Dec, 2015*).
 	- Probability Theory
 - Reference
 	- [Handbook of Mathematics](http://www.springer.com/us/book/9783662462201): an amazing reference book of mathematics.
@@ -43,16 +43,16 @@ This blog will record the timeline, resources, projects along the way of my stud
 
 ### Probabilistic Graphical Models:
 
-- [UAlberta CMPUT 659](https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models): Probabilistic Graphical Models. Graduate course in University of Alberta based on Coursera course instructed by [Koller](http://ai.stanford.edu/users/koller/) ([Report: A Topic Model of Genetic Mutations in Cancer](/papers/cmput659.pdf), **Completed** in *16.4*).
+- [UAlberta CMPUT 659](https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models): Probabilistic Graphical Models. Graduate course in University of Alberta based on Coursera course instructed by [Koller](http://ai.stanford.edu/users/koller/) ([Report: A Topic Model of Genetic Mutations in Cancer](/papers/cmput659.pdf), **Completed** in *Apr, 2016*).
 - [CMU 10-708](http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html): Probabilistic Graphical Models.
 - [Probabilistic Graphical Models: Principles and Techniques](http://pgm.stanford.edu/): Classic textbook for probabilistic graphical models. I've read a few chapters of it and gave up. This book is somewhat too mathematical and I will not recommend this book for beginners in PGM.
 - [Pomegranate](https://github.com/jmschrei/pomegranate): A Python package for PGM. Nice tutorials for beginners in PGM!
 
 ### Deep Learning
 
-- [Neural Network and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html): Nice online tutorial for beginners in deep learning (**Completed** in *16.9*).
+- [Neural Network and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html): Nice online tutorial for beginners in deep learning (**Completed** in *Sep, 2016*).
 - [Coursera: Neural Networks for Machine Learning](https://www.coursera.org/learn/neural-networks): Excellent course for beginners in neural networks. ([Certificate](/certificates/NN4ML.pdf))
-- [Stanford CS224d](http://cs224d.stanford.edu/): Deep Learning for Natural Language Processing. A nice intro to Word2Vec and its applications.
+- [Stanford CS224d](http://cs224d.stanford.edu/): Deep Learning for Natural Language Processing (**Completed** in *Apr, 2017*).
 - [Stanford CS231n](http://vision.stanford.edu/teaching/cs231n/index.html): Convolutional Neural Networks for Visual Recognition.
 - [Deep Learning Book](http://www.deeplearningbook.org/): Ongoing.
 - [TensorFlow](https://www.tensorflow.org/): Large amount of high-quality tutorials and well-coded recent advances in DL. Most applicable scenario: research.
@@ -66,11 +66,14 @@ This blog will record the timeline, resources, projects along the way of my stud
 - [Coursera: Functional Programming Principles in Scala](https://www.coursera.org/learn/progfun1/): Introduction to **Scala**. ([Certificate](/certificates/fpp.pdf))
 - [Coursera: Functional Program Design in Scala](https://www.coursera.org/learn/progfun2): Further study on **Scala**. ([Certificate](/certificates/fpd.pdf))
 - [Coursera: Parallel Programming](https://www.coursera.org/learn/parprog1): Parallel computing in **Scala**. ([Certificate](/certificates/pp.pdf))
+- [Coursera: Big Data Analysis with Scala and Spark](https://www.coursera.org/learn/scala-spark-big-data): Intro to **Spark** with **Scala**. ([Certificate](/certificates/ScalaAndSpark.pdf))
+- [Coursera: Big Data Analysis with Scala and Spark](https://www.coursera.org/learn/scala-spark-big-data): Intro to **Spark** with **Scala**. ([Certificate](/certificates/ScalaAndSpark.pdf))
+- [Coursera: Functional Programming in Scala Capstone](https://www.coursera.org/learn/scala-capstone): Capstone project for **Scala**. ([Certificate](/certificates/ScalaCapstone.pdf))
 
 ### Reinforcement Learning
 
-- [UAlberta CMPUT 609](https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai): Reinforcement Learning. Graduate course in UofA instructed by [Sutton](https://webdocs.cs.ualberta.ca/~sutton/). ([Report: Investigation on Deep Reinforcement Learning Methods for Classical Control Problems](/papers/cmput609.pdf), **Completed** in *16.12*). 
-- [Introduction to Reinforcement Learning](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html): Classic textbook, recommended for beginners in RL.
+- [UAlberta CMPUT 609](https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai): Reinforcement Learning. Graduate course in UofA instructed by [Sutton](https://webdocs.cs.ualberta.ca/~sutton/). ([Report: Investigation on Deep Reinforcement Learning Methods for Classical Control Problems](/papers/cmput609.pdf), **Completed** in *Dec, 2016*). 
+- [Introduction to Reinforcement Learning](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html): Classic textbook, recommended for beginners in RL (**First Pass** in *Dec, 2016*).
 
 ### Data Mining
 
@@ -79,9 +82,3 @@ This blog will record the timeline, resources, projects along the way of my stud
 ### ML Competitions
 
 - [Kaggle: Home Depot Product Search Relevance](https://www.kaggle.com/c/home-depot-product-search-relevance): Top 10%. ([Report](/papers/cmput690.pdf))
-
-### Miscellanea
-
-- **Python** & **R**: For experiment and plotting.
-- **C++** & **Scala**: For development.
-- [Vagrant](https://www.vagrantup.com/): Create and configure lightweight, reproducible, and portable development environments. Very Useful tool!
