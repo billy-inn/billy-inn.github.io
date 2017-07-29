@@ -1,96 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://billy-inn.github.io/blog/2017/01/11/lose-control-2/</loc>
-    <lastmod>2017-01-11T16:13:46-07:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2016/12/14/lose-control-1/</loc>
-    <lastmod>2016-12-14T21:44:01-07:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/</loc>
-    <lastmod>2016-10-16T17:47:27-06:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/</loc>
-    <lastmod>2016-10-14T16:07:35-06:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/</loc>
-    <lastmod>2016-10-06T17:37:02-06:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/</loc>
-    <lastmod>2016-10-05T14:55:31-06:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2016/09/20/ml-with-r-3-logistic-regression/</loc>
-    <lastmod>2016-09-20T17:37:11-06:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2016/09/14/ml-with-r-2-regularized-linear-regression/</loc>
-    <lastmod>2016-09-14T16:21:10-06:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression/</loc>
-    <lastmod>2016-08-31T14:58:57-06:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2016/08/30/jie-duan-xing-hui-gu-yu-zhan-wang/</loc>
-    <lastmod>2016-08-30T14:14:59-06:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation/</loc>
-    <lastmod>2016-04-28T16:17:08-06:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/</loc>
-    <lastmod>2016-04-26T15:51:27-06:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning/</loc>
-    <lastmod>2015-12-27T17:38:14-07:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression/</loc>
-    <lastmod>2015-12-23T16:56:20-07:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/2015/10/27/first-post/</loc>
-    <lastmod>2015-10-27T10:24:51-06:00</lastmod>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/</loc>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/archives/</loc>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/</loc>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/archives/</loc>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/about/</loc>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/categories/life/</loc>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/categories/machine-learning/</loc>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/categories/project/</loc>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/categories/pgm/</loc>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/categories/reinforcement-learning/</loc>
-  </url>
-  <url>
-    <loc>http://billy-inn.github.io/blog/categories/reading/</loc>
-  </url>
+<url>
+<loc>http://billy-inn.github.io/blog/2017/07/28/p-value/</loc>
+<lastmod>2017-07-28T20:33:16-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2017/01/11/lose-control-2/</loc>
+<lastmod>2017-01-11T16:13:46-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2016/12/14/lose-control-1/</loc>
+<lastmod>2016-12-14T21:44:01-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/</loc>
+<lastmod>2016-10-16T17:47:27-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/</loc>
+<lastmod>2016-10-14T16:07:35-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/</loc>
+<lastmod>2016-10-06T17:37:02-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/</loc>
+<lastmod>2016-10-05T14:55:31-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2016/09/20/ml-with-r-3-logistic-regression/</loc>
+<lastmod>2016-09-20T17:37:11-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2016/09/14/ml-with-r-2-regularized-linear-regression/</loc>
+<lastmod>2016-09-14T16:21:10-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression/</loc>
+<lastmod>2016-08-31T14:58:57-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2016/08/30/jie-duan-xing-hui-gu-yu-zhan-wang/</loc>
+<lastmod>2016-08-30T14:14:59-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation/</loc>
+<lastmod>2016-04-28T16:17:08-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/</loc>
+<lastmod>2016-04-26T15:51:27-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning/</loc>
+<lastmod>2015-12-27T17:38:14-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression/</loc>
+<lastmod>2015-12-23T16:56:20-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/2015/10/27/first-post/</loc>
+<lastmod>2015-10-27T10:24:51-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/archives/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/archives/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/about/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/categories/life/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/categories/machine-learning/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/categories/project/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/categories/pgm/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/categories/reinforcement-learning/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/categories/reading/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/blog/categories/statistics/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/Coursera%20gametheory%202015.pdf</loc>
+<lastmod>2015-12-27T17:44:22-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/fpd.pdf</loc>
+<lastmod>2016-09-20T22:12:25-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/fpp.pdf</loc>
+<lastmod>2016-06-29T14:33:51-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/ml.pdf</loc>
+<lastmod>2015-12-27T17:44:22-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/mmds.pdf</loc>
+<lastmod>2015-12-27T17:44:22-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/NN4ML.pdf</loc>
+<lastmod>2016-12-25T23:18:18-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/pp.pdf</loc>
+<lastmod>2016-09-20T22:12:40-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/ScalaAndSpark.pdf</loc>
+<lastmod>2017-07-28T14:43:53-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/scalableML.pdf</loc>
+<lastmod>2015-12-27T17:44:22-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/ScalaCapstone.pdf</loc>
+<lastmod>2017-07-28T14:46:26-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/sl.pdf</loc>
+<lastmod>2015-12-27T17:44:22-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/certificates/spark.pdf</loc>
+<lastmod>2015-12-27T17:44:22-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/papers/cmput609.pdf</loc>
+<lastmod>2016-12-25T23:19:11-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/papers/cmput659.pdf</loc>
+<lastmod>2016-09-20T22:46:38-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/papers/cmput690.pdf</loc>
+<lastmod>2016-09-20T22:42:39-06:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/papers/CV-PengXu.pdf</loc>
+<lastmod>2016-11-28T11:15:19-07:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/papers/ICCS15.pdf</loc>
+<lastmod>2015-10-26T13:59:10-06:00</lastmod>
+</url>
 </urlset>

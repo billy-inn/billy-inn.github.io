@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Probabilistic Graphical Models (1): Introduction - KRIS</title>
+  <title>Probabilistic Graphical Models (1): Introduction - Billy Inn in Wonderland</title>
   <meta name="author" content="Peng Xu">
 
   
-  <meta name="description" content="">
+  <meta name="description" content="What is probabilistic graphical model (PGM)? Forget about some high-level and complicated sentences on textbook or wikipedia. From my perspective, it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,61 +18,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation">
+  <link rel="canonical" href="http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation/">
   <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/bootstrap/bootstrap.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/stylesheets/bootstrap/responsive.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/stylesheets/syntax/syntax.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <style type="text/css">
-    body {
-      padding-bottom: 40px;
-    }
-    h1 {
-      margin-bottom: 15px;
-    }
-    img {
-      max-width: 100%;
-    }
-    .sharing, .meta, .pager {
-      margin: 20px 0px 20px 0px;
-    }
-    .page-footer p {
-      text-align: center;
-    }
-  </style>
-  <script src="/javascripts/libs/jquery.js"></script>
-  <script src="/javascripts/libs/modernizr-2.0.js"></script>
-  <script src="/javascripts/libs/bootstrap.js"></script>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Billy Inn in Wonderland" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="KRIS" type="application/atom+xml">
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-                       tex2jax: {
-                       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                       processEscapes: true
-                       }
-                       });
-</script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-                       tex2jax: {
-                       skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-                       }
-                       });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-                      var all = MathJax.Hub.getAllJax(), i;
-                      for(i=0; i < all.length; i += 1) {
-                      all[i].SourceElement().parentNode.className += ' has-jax';
-                      }
-                      });
-</script>
-<script type="text/javascript"
-    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
   
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -90,50 +47,37 @@
 </head>
 
 <body   >
-  <nav role="navigation"><div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
+  <header role="banner"><hgroup>
+  <h1><a href="/">Billy Inn in Wonderland</a></h1>
+  
+</hgroup>
 
-      <a class="brand" href="/">KRIS</a>
-
-      <div class="nav-collapse">
-        <ul class="nav">
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="billy-inn.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
   <li><a href="/about">About</a></li>
 </ul>
 
-
-        <ul class="nav pull-right" data-subscription="rss">
-          <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-          
-        </ul>
-
-        
-          <form class="pull-right navbar-search" action="https://www.google.com/search" method="get">
-            <fieldset role="search">
-              <input type="hidden" name="q" value="site:billy-inn.github.io" />
-              <input class="search-query" type="text" name="q" results="0" placeholder="Search"/>
-            </fieldset>
-          </form>
-        
-      </div>
-    </div>
-  </div>
-</div>
 </nav>
-  <div class="container">
-    <div class="row-fluid">
-      
-<article class="hentry span9" role="article">
-
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
   
-  <header class="page-header">
+  <header>
     
       <h1 class="entry-title">Probabilistic Graphical Models (1): Introduction</h1>
     
@@ -146,7 +90,8 @@
 
 <time class='entry-date' datetime='2016-04-28T16:17:08-06:00'><span class='date'>2016-04-28</span> <span class='time'>4:17 pm</span></time>
         
-         | <a href="#disqus_thread">Comments</a>
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io">Comments</a>
         
       </p>
     
@@ -211,55 +156,51 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation/" data-via="" data-counturl="http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation/" data-via="" data-counturl="http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation/" >Tweet</a>
   
   
   
 </div>
 
     
-    
-    <section>
-      <h1>Comments</h1>
-      <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-    </section>
-    
-    <ul class="pager">
+    <p class="meta">
       
-      <li class="previous"><a class="basic-alignment left"
-        href="/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/" title="Previous Post:
-        GSoC 2016: Inferring infobox template class mappings from Wikipedia and WikiData">&laquo; GSoC 2016: Inferring infobox template class mappings from Wikipedia and WikiData</a></li>
+        <a class="basic-alignment left" href="/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/" title="Previous Post: GSoC 2016: Inferring infobox template class mappings from Wikipedia and WikiData">&laquo; GSoC 2016: Inferring infobox template class mappings from Wikipedia and WikiData</a>
       
-      <li><a href="/blog/archives">Blog Archives</a></li>
       
-      <li class="next"><a class="basic-alignment right" href="/blog/2016/08/30/jie-duan-xing-hui-gu-yu-zhan-wang/"
-        title="Next Post: 阶段性回顾与展望">阶段性回顾与展望
-        &raquo;</a></li>
+        <a class="basic-alignment right" href="/blog/2016/08/30/jie-duan-xing-hui-gu-yu-zhan-wang/" title="Next Post: 阶段性回顾与展望">阶段性回顾与展望 &raquo;</a>
       
-    </ul>
+    </p>
   </footer>
 </article>
 
-<aside class="sidebar-nav span3">
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
   
-    <section>
+    <!--<section>
 	<ul id="subtitle" class="nav nav-list">
 		<img src="/images/subtitle.png">
 		<p></p>
 	</ul>
-</section>
-<section class="well">
- <ul id="about" class="nav nav-list">
-	 <li class="nav-header"><a href="/about">About Me</a></li>
-	 <p>Machine Learning Lover.</p>
-	 <p>Now working hard on related mathematics, e.g. Statistics, Optimization.</p>
-	 <p>Also interested in the applied domains like NLP, DM, CV, FE.</p>
-	 <p>Welcome to communicate with me among above topics.</p>
-	 <p>微博: <a href="http://www.weibo.com/u/2540837283">百里云_bly</a></p>
-	 <p>GitHub: <a href="http://github.com/billy-inn">billy-inn</a></p>
-	 <p>Email:<code>bly930725 [at] gmail.com</code></p>
- </ul>
+	</section>-->
+<section>
+	<ul id="about" class="nav nav-list">
+		<li class="nav-header">About Me</a></li>
+			<p>Machine Learning Lover, Deep Learning Alchemist and NLPer</p>
+			<p>Nintendo Switch Owner, Piano Beginner</p>
+			<p>Fan of SNH48 Kiku and Blackpink Ros&egrave</p>
+			<p>Welcome to communicate with me among above topics.</p>
+			<p>微博: <a href="http://www.weibo.com/u/2540837283">百里云_bly</a></p>
+			<p>GitHub: <a href="http://github.com/billy-inn">billy-inn</a></p>
+			<p>Email:<code>bly930725 [at] gmail.com</code></p>
+	</ul>
 </section>
 <section class="well">
  <ul id="categories_list" class="nav nav-list">
@@ -270,12 +211,17 @@
 <li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
 <li class='category'><a href='/blog/categories/reading/'>reading (2)</a></li>
 <li class='category'><a href='/blog/categories/reinforcement-learning/'>reinforcement_learning (4)</a></li>
+<li class='category'><a href='/blog/categories/statistics/'>statistics (1)</a></li>
 </li>
  </ul>
 </section>
-<section class="well">
-  <ul id="recent_posts" class="nav nav-list">
-    <li class="nav-header">Recent Posts</li>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/07/28/p-value/">统计释疑(1)：什么是p值</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/01/11/lose-control-2/">【失控:机器、社会与经济的新生物学】漫谈（二）</a>
@@ -291,10 +237,6 @@
     
       <li class="post">
         <a href="/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/">Notes on Reinforcement Learning (3): Monte Carlo Methods</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Notes on Reinforcement Learning (2): Dynamic Programming</a>
       </li>
     
   </ul>
@@ -313,11 +255,27 @@
 
     </div>
   </div>
-  <footer role="contentinfo" class="page-footer"><hr>
-<p>
+  <footer role="contentinfo"><p>
   Copyright &copy; 2017 - Peng Xu -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		  jax: ["input/TeX", "output/HTML-CSS"],
+		    tex2jax: {
+				    inlineMath: [ ['$', '$'] ],
+					    displayMath: [ ['$$', '$$']],
+						    processEscapes: true,
+							    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+								  },
+								    messageStyle: "none",
+									  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+								  });
+							  </script>
+							  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
 
 </footer>
   
@@ -333,7 +291,7 @@
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
@@ -349,7 +307,7 @@
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>
