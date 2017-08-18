@@ -22,6 +22,10 @@ This blog will record the timeline, resources, projects along the way of my stud
 	- [All of Statistics](http://www.stat.cmu.edu/~larry/all-of-statistics/): A textbook appealing to MLers.
 	- [Statistical Inference](http://www.amazon.com/Statistical-Inference-George-Casella/dp/0534243126): Classic textbook.
 	- [CMU 10-705](http://www.stat.cmu.edu/~larry/=stat705/): Intermediate Statistics.
+	- Post Series: Doubt Clarification for Statistics (In *Chinese*)
+		- 1\. [What is p-value?](/blog/2017/07/28/p-value/)
+		- 2\. [What's the usage of probability inequalities](/blog/2017/08/09/probability-inequalities/)
+		- 3\. [Law of Large Numbers and Central Limit Theorem](/blog/2017/08/17/lln-and-clt/)
 - Optimization
 	- [Convex Optimization](http://web.stanford.edu/~boyd/cvxbook/): Classic textbook.
 	- [Stanford EE364a](http://stanford.edu/class/ee364a/index.html): Convex Optimization.
@@ -36,6 +40,10 @@ This blog will record the timeline, resources, projects along the way of my stud
 - [Coursera: Machine Learning](https://www.coursera.org/learn/machine-learning): Introduction to machine learning. ([Certificate](/certificates/ml.pdf))
 - [StanfordOnline: Statistical Learning](https://lagunita.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/info): Introduction to statistical learning and **R**. ([Certificate](/certificates/sl.pdf)) 
 - [UAlberta CMPUT 466/551](https://www.ualberta.ca/computing-science/undergraduate-studies/course-directory/courses/machine-learning): Machine Learning. I'm one of TAs in this course.
+	- Post Series: ML with R
+		- 1\. [Linear Regression](/blog/2016/08/31/ml-with-r-1-linear-regression/)
+		- 2\. [Regularized Linear Regression](/blog/2016/09/14/ml-with-r-2-regularized-linear-regression/)
+		- 3\. [Logistic Regression](/blog/2016/09/20/ml-with-r-3-logistic-regression/)
 - [The Elements of Statistical Learning](http://statweb.stanford.edu/~tibs/ElemStatLearn/): Ongoing
     - [Manual](http://waxworksmath.com/Authors/G_M/Hastie/hastie.html): Figure out the mathematical details.
 	- [R package "ElemStatLearn"](https://cran.r-project.org/web/packages/ElemStatLearn/index.html): Contain data sets, functions and examples from the book.
@@ -74,6 +82,11 @@ This blog will record the timeline, resources, projects along the way of my stud
 
 - [UAlberta CMPUT 609](https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai): Reinforcement Learning. Graduate course in UofA instructed by [Sutton](https://webdocs.cs.ualberta.ca/~sutton/). ([Report: Investigation on Deep Reinforcement Learning Methods for Classical Control Problems](/papers/cmput609.pdf), **Completed** in *Dec, 2016*). 
 - [Introduction to Reinforcement Learning](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html): Classic textbook, recommended for beginners in RL (**First Pass** in *Dec, 2016*).
+- Post Series: Notes on Reinforcement Learning
+	- 1\. [Finite Markov Decision Processes](/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/)
+	- 2\. [Dynamic Programming](/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/)
+	- 3\. [Monte Carlo Methods](/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/)
+	- 4\. [Temporal-Difference Learning](/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/)
 
 ### Data Mining
 
