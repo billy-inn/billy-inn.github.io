@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Statistics | Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/blog/categories/statistics/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2017-08-09T22:51:05-06:00</updated>
+  <updated>2017-08-17T23:53:14-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[统计释疑(3)：大数定理和中心极限定理]]></title>
+    <link href="http://billy-inn.github.io/blog/2017/08/17/lln-and-clt/"/>
+    <updated>2017-08-17T23:49:29-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/08/17/lln-and-clt</id>
+    <content type="html"><![CDATA[<p>两个必须得记住并理解的统计学定理：大数定理和中心极限定理。有相当多的统计学理论是以这两个定理为基础。另外从我个人理解，这两个定理在一定程度上解释了为什么数据越多越好（为什么我们需要大数据）。</p>
+
+<h3 id="section">收敛的类型</h3>
+
+<p>为了更加准确的理解上述两个定理，我们需要理解概率层面的收敛，而非微积分里的收敛（如果对与任意$\epsilon&gt;0$和足够大的$n$，$\vert x_n -x \rvert &lt; \epsilon$，那么我们称这一实数列$x_n$收敛于极限$x$）。</p>
+
+<p>在统计中，主要有两种类型的收敛：</p>
+
+<!--more-->
+
+<blockquote>
+  <p>令$X_1,X_2,\dots$为一系列随机变量并令$X$为另一个随机变量。令$F_n$表示$X_n$的概率密度函数 (CDF)，$F$表示$X$的概率密度函数。
+1) $X_n$在概率上收敛于$X$ (converges in probability)，写作$X_n\xrightarrow[]{P} X$，如果对于任意$\epsilon&gt;0$</p>
+</blockquote>
+
+<script type="math/tex; mode=display">\mathbb{P}(\vert X_n - X\vert>\epsilon) \rightarrow 0</script>
+
+<blockquote>
+  <p>当$n\rightarrow\infty$。
+2) $X_n$在分布上收敛于$X$ (converges in distribution), 写作$X_n\rightsquigarrow X$，如果对于任意在$F$中连续的点$t$，</p>
+</blockquote>
+
+<script type="math/tex; mode=display">\lim_{n\rightarrow\infty}F_n(t)=F(t)</script>
+
+<p>另外由$X_n\xrightarrow[]{P}X$可以推出$X_n\rightsquigarrow X$。</p>
+
+<p>P.S. 其实还有另外两种类型的收敛，他们之间的关系也更加复杂，这里的重点是介绍两个定理，所以这部分从简，想深入了解可参考相关教材。</p>
+
+<h3 id="the-law-of-large-numbers">大数定理 (The Law of Large Numbers)</h3>
+
+<p>令$X_1,X_2\dots$为独立同分布 (IID) 的样本，令$\mu=\mathbb{E}(X_1)$，$\sigma^2=\mathbb{V}(X_1)$。另外$\bar X_n = n^{-1}\sum_{i=1}^nX_i$为样本均值并且$\mathbb{E}(\bar X_n)=\mu$，$\mathbb{V}(\bar X_n)=\sigma^2/n$。</p>
+
+<blockquote>
+  <p><strong>弱大数定理(WLLN)</strong>：如果$X_1,\dots, X_n$为独立同分布，那么$\bar X_n \xrightarrow[]{P} \mu$。</p>
+</blockquote>
+
+<p>理解：当$n$越来越大时，$\bar X_n$的分布变得越来越聚集于$\mu$附近。</p>
+
+<h3 id="the-central-limit-theorem">中心极限定理 (The Central Limit Theorem)</h3>
+
+<blockquote>
+  <p><strong>中心极限定理(CLT)</strong>：如果$X_1,\dots,X_n$为独立同分布，那么</p>
+</blockquote>
+
+<script type="math/tex; mode=display">Z_n=\frac{\sqrt{n}(\bar X_n - \mu)}{\sigma} \rightsquigarrow Z</script>
+
+<blockquote>
+  <p>其中$Z \sim N(0,1)$，即正态分布。</p>
+</blockquote>
+
+<p>理解：关于$\bar X_n$的概率表达式可以近似于正态分布。注意并不是随机变量本身近似于正态分布。</p>
+
+<p>然而大多数时候我们并不知道$\sigma$，实际中我们可以用标准差$S_n^2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X_n)^2$来代替$\sigma$。</p>
+
+<blockquote>
+  <p><strong>定理</strong>：在与CLT相同的条件下，</p>
+</blockquote>
+
+<script type="math/tex; mode=display">\frac{\sqrt{n}(\bar X_n - \mu)}{S_n} \rightsquigarrow N(0,1)</script>
+
+<h3 id="delta-the-delta-method">Delta方法 (The Delta Method)</h3>
+
+<p>为了能更加广泛有效的利用中心极限定理，掌握Delta方法是相当有必要的。</p>
+
+<blockquote>
+  <p><strong>Delta方法</strong>：</p>
+</blockquote>
+
+<script type="math/tex; mode=display">Y\approx N\left(\mu,\frac{\mu^2}{n}\right) \Rightarrow g(Y_n) \approx N\left(g(\mu),(g'(\mu))^2\frac{\sigma^2}n\right)</script>
+
+<blockquote>
+  <p>其中$g$是一个可导函数从而$g’(\mu)\ne0$。</p>
+</blockquote>
+
+<p>P.S. 强大数定理，多元中心极限定理及多元Delta方法由于比较复杂就省略了。另外由于比较懒，所以有助于理解的例子也没用写，纯粹当是记录一下学习的过程了。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[统计释疑(2)：概率不等式有什么用？]]></title>
