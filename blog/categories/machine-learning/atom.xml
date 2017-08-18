@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Machine_learning | Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/blog/categories/machine-learning/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2017-08-17T23:53:14-06:00</updated>
+  <updated>2017-08-18T00:31:49-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -791,6 +791,13 @@ $(document).ready(function () {
       <li><a href="http://www.stat.cmu.edu/~larry/all-of-statistics/">All of Statistics</a>: A textbook appealing to MLers.</li>
       <li><a href="http://www.amazon.com/Statistical-Inference-George-Casella/dp/0534243126">Statistical Inference</a>: Classic textbook.</li>
       <li><a href="http://www.stat.cmu.edu/~larry/=stat705/">CMU 10-705</a>: Intermediate Statistics.</li>
+      <li>Post Series: Doubt Clarification for Statistics (In <em>Chinese</em>)
+        <ul>
+          <li>1. <a href="/blog/2017/07/28/p-value/">What is p-value?</a></li>
+          <li>2. <a href="/blog/2017/08/09/probability-inequalities/">What’s the usage of probability inequalities</a></li>
+          <li>3. <a href="/blog/2017/08/17/lln-and-clt/">Law of Large Numbers and Central Limit Theorem</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li>Optimization
@@ -814,7 +821,17 @@ $(document).ready(function () {
 <ul>
   <li><a href="https://www.coursera.org/learn/machine-learning">Coursera: Machine Learning</a>: Introduction to machine learning. (<a href="/certificates/ml.pdf">Certificate</a>)</li>
   <li><a href="https://lagunita.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/info">StanfordOnline: Statistical Learning</a>: Introduction to statistical learning and <strong>R</strong>. (<a href="/certificates/sl.pdf">Certificate</a>)</li>
-  <li><a href="https://www.ualberta.ca/computing-science/undergraduate-studies/course-directory/courses/machine-learning">UAlberta CMPUT 466/551</a>: Machine Learning. I’m one of TAs in this course.</li>
+  <li><a href="https://www.ualberta.ca/computing-science/undergraduate-studies/course-directory/courses/machine-learning">UAlberta CMPUT 466/551</a>: Machine Learning. I’m one of TAs in this course.
+    <ul>
+      <li>Post Series: ML with R
+        <ul>
+          <li>1. <a href="/blog/2016/08/31/ml-with-r-1-linear-regression/">Linear Regression</a></li>
+          <li>2. <a href="/blog/2016/09/14/ml-with-r-2-regularized-linear-regression/">Regularized Linear Regression</a></li>
+          <li>3. <a href="/blog/2016/09/20/ml-with-r-3-logistic-regression/">Logistic Regression</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
   <li><a href="http://statweb.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning</a>: Ongoing
     <ul>
       <li><a href="http://waxworksmath.com/Authors/G_M/Hastie/hastie.html">Manual</a>: Figure out the mathematical details.</li>
@@ -864,6 +881,14 @@ $(document).ready(function () {
 <ul>
   <li><a href="https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai">UAlberta CMPUT 609</a>: Reinforcement Learning. Graduate course in UofA instructed by <a href="https://webdocs.cs.ualberta.ca/~sutton/">Sutton</a>. (<a href="/papers/cmput609.pdf">Report: Investigation on Deep Reinforcement Learning Methods for Classical Control Problems</a>, <strong>Completed</strong> in <em>Dec, 2016</em>).</li>
   <li><a href="https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html">Introduction to Reinforcement Learning</a>: Classic textbook, recommended for beginners in RL (<strong>First Pass</strong> in <em>Dec, 2016</em>).</li>
+  <li>Post Series: Notes on Reinforcement Learning
+    <ul>
+      <li>1. <a href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Finite Markov Decision Processes</a></li>
+      <li>2. <a href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Dynamic Programming</a></li>
+      <li>3. <a href="/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/">Monte Carlo Methods</a></li>
+      <li>4. <a href="/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/">Temporal-Difference Learning</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="data-mining">Data Mining</h3>
