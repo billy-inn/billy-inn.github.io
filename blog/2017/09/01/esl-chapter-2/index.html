@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Notes on Reinforcement Learning (1): Finite Markov Decision Processes - Billy Inn in Wonderland</title>
+  <title>[Notes on Mathematics for ESL] Chapter 2: Overview of Supervised Learning - Billy Inn in Wonderland</title>
   <meta name="author" content="Peng Xu">
 
   
-  <meta name="description" content="The Agent-Environment Interface The agent and environment interact at each of a sequence of discrete time steps, $t=0,1,2,3,\dots$ At each time step &hellip;">
+  <meta name="description" content="2.4 Statistical Decision Theory Derivation of Equation (2.16) The expected predicted error (EPE) under the squared error loss: Taking derivatives &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">
+  <link rel="canonical" href="http://billy-inn.github.io/blog/2017/09/01/esl-chapter-2/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Billy Inn in Wonderland" type="application/atom+xml">
@@ -79,7 +79,7 @@
   
   <header>
     
-      <h1 class="entry-title">Notes on Reinforcement Learning (1): Finite Markov Decision Processes</h1>
+      <h1 class="entry-title">[Notes on Mathematics for ESL] Chapter 2: Overview of Supervised Learning</h1>
     
     
       <p class="meta">
@@ -88,7 +88,7 @@
 
 
 
-<time class='entry-date' datetime='2016-10-05T14:55:31-06:00'><span class='date'>2016-10-05</span> <span class='time'>2:55 pm</span></time>
+<time class='entry-date' datetime='2017-09-01T01:12:36-06:00'><span class='date'>2017-09-01</span> <span class='time'>1:12 am</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://billy-inn.github.io">Comments</a>
@@ -98,110 +98,94 @@
   </header>
 
 
-<div class="entry-content"><h3 id="the-agent-environment-interface">The Agent-Environment Interface</h3>
+<div class="entry-content"><h3 id="statistical-decision-theory">2.4 Statistical Decision Theory</h3>
 
-<p><img src="/images/rl1.1.png" alt="Alt text" /></p>
+<h4 id="derivation-of-equation-216">Derivation of Equation (2.16)</h4>
 
-<ul>
-  <li>The agent and environment interact at each of a sequence of discrete time steps, $t=0,1,2,3,\dots$</li>
-  <li>At each time step $t$, the agent receives some representation of the environment’s state, $S_t\in\mathcal{S}$, where $\mathcal{S}$ is the set of possible states.</li>
-  <li>On that basis, the agent selects an action, $A_t \in \mathcal{A}(S_t)$, where $\mathcal{A}(S_t)$ is the set of actions available in state $S_t$.</li>
-  <li>One time step later, in part as a consequence of its action, the agent receives a numerical reward, $R_{t+1} \in \mathcal{R} \subset \mathbb{R}$, and finds itself in a new state, $S_{t+1}$.</li>
-</ul>
+<p>The expected predicted error (EPE) under the squared error loss:</p>
+
+<script type="math/tex; mode=display">\mathrm{EPE}(\beta) = \int (y-x^T\beta)^2\Pr(dx, dy).</script>
+
+<p>Taking derivatives with respect to $\beta$:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+\frac{\partial\mathrm{EFE}}{\partial\beta}&=-2\int(y-x^T\beta)x\Pr(dx, dy). \\
+&= -2(E[yx]-E[xx^T\beta])
+\end{split} %]]></script>
+
+<p>In order to minimize the EFE, we make derivatives equal zero which gives <strong>Equation (2.16)</strong>:</p>
+
+<script type="math/tex; mode=display">\beta=E[xx^T]^{-1}E[yx].</script>
+
+<p><em>Note: $x^T\beta$ is a scalar, and $\beta$ is a constant.</em></p>
 
 <!--more-->
 
-<p>At each time step, the agent implements a mapping from states to probabilities of selecting each possible action. This mapping is called the agent’s policy and is denoted $\pi_t$, where $\pi_t(a \vert s)$ is the probability that $A_t=a$ if $S_t=s$. Reinforcement learning methods specify how the agent changes its policy as a result of its experience. The agent’s goal, roughly speaking, is to maximize the total amount of reward it receives over the long run.</p>
+<h3 id="local-methods-in-high-dimensions">2.5 Local Methods in High Dimensions</h3>
 
-<p>The general rule we follow is that anything that cannot be changed arbitrarily by the agent is considered to be outside of it and thus part of its environment.</p>
+<h4 id="intuition-on-equation-224">Intuition on Equation (2.24)</h4>
 
-<h3 id="rewards-and-returns">Rewards and Returns</h3>
+<p>There are $N$ $p$-dimensional data point $x_1,\dots, x_N$, that is, $N\times p$ dimensions in total. Let $r_i=\Vert x_i \Vert$. Without loss of generality, we assume that $A &lt; r_1 &lt; \dots &lt; r_n &lt; 1$. Let $U(A)$ be the region of all possible sampled data which meet the assumptation:</p>
 
-<p>At each time step, the reward is a simple number, $R_t \in \mathbb{R}$. Informally, the agent’s goal is to maximize the total amount of reward it receives. If the sequence of rewards received after time step $t$ is denoted $R_{t+1}, R_{t+2}, R_{t+3}, \dots$, we seek to maximize the expected return, where the return $G_t$ is defined as some specific function of the reward sequence.</p>
+<script type="math/tex; mode=display">% <![CDATA[
+U(A) = \int_{A<r_1<\dots<r_n<1}dx_1\dots dx_N. %]]></script>
 
-<p>Here we define the return as:</p>
+<p>The goal is to find $A$ such that $U(A)=\frac12U(0)$. It turns out to be a integration problem on a $N \times p$ dimensional space.</p>
 
-<script type="math/tex; mode=display">G_t = \sum_{k=0}^{T-t-1}\gamma^kR_{t+k+1}</script>
+<p>With some mathematical techniques (which make me overwhelmed), we can get $U(A)=(1-A^p)^N$. Then $U(0)=1$. Solving $(1-A^p)^N=1/2$, we obtain <strong>Equation (2.24)</strong>:</p>
 
-<p>where $T$ can be $\infty$ and $0&lt;\gamma\le1$ is the discounting rate.</p>
+<script type="math/tex; mode=display">A=\left(1-2^{-\frac1N}\right)^{\frac1p}.</script>
 
-<h3 id="markov-decision-processes">Markov Decision Processes</h3>
+<h4 id="derivation-of-equation-227-and-228">Derivation of Equation (2.27) and (2.28)</h4>
 
-<p>A reinforment learning task that satisfies the Markov preperty is called a Markov decision process, or MDP. If the state and action spaces are finite, then it is called a finite Markov decision process (finite MDP).</p>
+<p>The variation is over all training sets $\mathcal{T}$, and over all values of $y_0$, while keeping $x_0$ fixed. Note that $x_0$ and $y_0$ are chosen independently of $\mathcal{T}$ and so the expectations commute: 
+$\mathrm{E}_{y_0\vert x_0}\mathrm{E}_{\mathcal{T}}=\mathrm{E}_{\mathcal{T}}\mathrm{E}_{y_0 \vert x_0}$.
+Also $\mathrm{E}_\mathcal{T}=\mathrm{E}_\mathcal{X}\mathrm{E}_{\mathcal{Y \vert X}}$.</p>
 
-<p>Given any state and action $s$ and $a$, the probability of each possible pair of next state and reward, $s’$, $r$, is denoted</p>
-
-<script type="math/tex; mode=display">p(s',r|s,a)=\Pr\{S_{t+1}=s',R_{t+1}=r|S_t=s,A_t=a\}.</script>
-
-<p>These quantities completely specify the dynamics of a finite MDP.</p>
-
-<h3 id="value-functions">Value Functions</h3>
-
-<p>The value of a state $s$ under a policy $\pi$, denoted $v_\pi(s)$, is the expected return when starting in $s$ and following $\pi$ thereafter. For MDPs, we can define $v_\pi(s)$ formally as</p>
-
-<script type="math/tex; mode=display">v_\pi(s)=\mathbb{E}_\pi[G_t|S_t=s]=\mathbb{E}_\pi\left[\sum_{k=0}^\infty\gamma^kR_{t+k+1}\middle|S_t=s\right],</script>
-
-<p>where $\mathbb{E}[\centerdot]$ denotes the expected value of a random variable given that the agent follows policy $\pi$, and $t$ is any time step. We call the function $v_\pi$ the state-value function for policy $\pi$.</p>
-
-<p>Similarly, we define the value of taking action $a$ in state $s$ under a policy $\pi$, denoted $q_\pi(s,a)$, as the expected return starting from $s$, taking the action $a$, and thereafter following policy $\pi$:</p>
-
-<script type="math/tex; mode=display">q_\pi(s,a)=\mathbb{E}_\pi[G_t|S_t=s,A_t=s]=\mathbb{E}_\pi\left[\sum_{k=0}^\infty\gamma^kR_{t+k+1}\middle|S_t=s,A_t=a\right].</script>
-
-<p>We call $q_\pi$ the action-value function for policy $\pi$.</p>
-
-<p>A fundamental property of value functions used throughout reinforcement learning and dynamic programming is that they satisfy particular recursive relationships. For any policy $\pi$ and any state $s$, the following consistency condition holds between the value of $s$ and the value of its possible successor states:</p>
-
-<script type="math/tex; mode=display">v_\pi(s)=\sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')], \forall s \in \mathcal{S}.</script>
-
-<p>This equation is the Bellman equation for $v_\pi$. Likewise, the Bellman equation for action values $q_\pi$ is as follows:</p>
-
-<script type="math/tex; mode=display">q_\pi(s,a)=\sum_{s',r}p(s',r|s,a)[r+\gamma\sum_{a'}\pi(a'|s')q(s',a')]</script>
-
-<p><img src="/images/rl1.2.png" alt="Alt text" /></p>
-
-<p>According to the Bellman equations, we can derive the relatioship between $v_\pi$ and $q_\pi$:</p>
+<p>In order to make the derivation more comprehensible, here lists some definitions:</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{split}
-v_\pi(s)&=\mathbb{E}_\pi[q_\pi(S_{t}, a)|S_t=s]\\
-&= \sum_a\pi(a|s)q_\pi(s,a)
+y_0 &= x_0^T\beta + \varepsilon \\
+\hat y_0 &= x_0^T\beta + \sum_{i=1}^Nl_i(x_0)\varepsilon_i \\
+\mathrm{E}_\mathcal{T}(\hat y_0) &= x_0^T\beta + \mathrm{E}_{\mathcal{T}}((X^TX)^{-1}Xx_0\varepsilon) \\
+&= x_0^T\beta+x_0^T\mathrm{E}_\mathcal{X}((X^TX)^{-1}X^T\mathrm{E}_{\mathcal{Y|X}}\varepsilon) \\
+&=x_0^T\beta
 \end{split} %]]></script>
+
+<p>$y_0-\hat y_0$ can be written as the sum of three terms:</p>
+
+<script type="math/tex; mode=display">(y_0-x_0^T\beta)-(\hat y_0-\mathrm{E}_\mathcal{T}(\hat y_0))-(\mathrm{E}_\mathcal{T}(\hat y_0)-x_0^T\beta)=U_1-U_2-U_3</script>
+
+<p>Following above definitions, we have $U_1=\varepsilon$, $U_3=0$. In addition, clearly we have $\mathrm{E}_\mathcal{T}U_2=0$. When squaring $U_1-U_2-U_3$, we can eliminate all three cross terms and one squared terms $U_3^2$.</p>
+
+<p>Following the definition of variance, we have: $\mathrm{E}_{y_0\vert x_0}\mathrm{E}_\mathcal{T}U_1^2=\mathrm{Var}(\varepsilon)=\sigma^2$ and $\mathrm{E}_\mathcal{T}(\hat y_0 - \mathrm{E}_\mathcal{T}\hat y_0)^2=\mathrm{Var}_\mathcal{T}(\hat y_0)$.</p>
+
+<p>Since $U_2=\sum_{i=1}^Nl_i(x_0)\varepsilon_i$, we have $\mathrm{Var}_\mathcal{T}(\hat y_0)=\mathrm{E}_\mathcal{T}U_2^2$ as</p>
+
+<script type="math/tex; mode=display">\mathrm{E}\_\mathcal{T}(x_0^T(X_TX)^{-1}X^T\varepsilon\varepsilon^TX(X^TX)^{-1}x_0).</script>
+
+<p>Since $\mathrm{E}_\mathcal{T}\varepsilon\varepsilon^T=\sigma^2I_N$, this is equal to $\mathrm{E}_\mathcal{T}x_0(X^TX)^{-1}x_0\sigma^2$. This completes the derivation of <strong>Equation (2.27)</strong>.</p>
+
+<p>Under the conditions stated by the authors, $X^TX/N$ is then approximately equal to $\mathrm{Cov}(X)=\mathrm{Cov}(x_0)$. Applying $\mathrm{E}_{x_0}$ to $\mathrm{E}_\mathcal{T}x_0(X^TX)^{-1}x_0\sigma^2$, we obtain (approximately)</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{split}
-q_\pi(s, a)&=\mathbb{E}[R_{t+1}+\gamma v_\pi(S_{t+1})|S_t=s, A_t=a]\\
-&=\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')]
+\sigma^2\mathrm{E}_{x_0}(x_0^T\mathrm{Cov}(X)^{-1}x_0)/N &= \sigma^2\mathrm{E}_{x_0}(\mathrm{trace}(x_0^T\mathrm{Cov}(X)^{-1}x_0))/N \\
+&= \sigma^2\mathrm{E}_{x_0}(\mathrm{trace}(\mathrm{Cov}(X)^{-1}x_0x_0^T))/N \\
+&= \sigma^2\mathrm{trace}(\mathrm{Cov}(X)^{-1}\mathrm{C ov}(x_0))/N \\
+&= \sigma^2\mathrm{trace}(I_p)/N \\
+&= \sigma^2p/N.
 \end{split} %]]></script>
 
-<h3 id="optimal-value-functions">Optimal Value Functions</h3>
+<p>This completes the derivation of <strong>Equation (2.28)</strong>.</p>
 
-<p>A policy $\pi$ is defined to be better than or equal to a policy $\pi’$ if its expected return is greater than or equal to that of $\pi’$ for all states. In other words, $\pi\ge\pi’$ if and only if $v_\pi(s)\ge v_{\pi’}(s)$ for all $s\in\mathcal{S}$. There is always at least one policy that is better than or equal to all other policies. This is an optimal policy $\pi_*$.</p>
+<h4 id="references">References</h4>
 
-<p>The optimal state-value function, denoted $v_*$, are defined as</p>
-
-<script type="math/tex; mode=display">v_*(s) = \max_\pi v_\pi(s),</script>
-
-<p>for all $s\in\mathcal{S}$.</p>
-
-<p>The optimal action-value function, denoted $q_*$, are defined as</p>
-
-<script type="math/tex; mode=display">q_*(s,a)=\max_\pi q_\pi(s,a),</script>
-
-<p>for all $s\in\mathcal{S}$ and $a\in\mathcal{A}(s)$.</p>
-
-<p>The Bellman optimalality equation for $v_<em>$ and $q_</em>$ is</p>
-
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{split}
-v_*(s)&=\max_a\mathbb{E}_\pi[R_{t+1}+\gamma v_*(S_{t+1})|S_t=s, A_t=a]\\
-&= \max_{a\in\mathcal{A}(s)}\sum_{s',r}p(s',r|s,a)[r+\gamma v_*(s')]
-\end{split} %]]></script>
-
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{split}
-q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma q_*(S_{t+1},a')\middle|S_t=s, A_t=a\right]\\
-&=\sum_{s',r}p(s',r|s,a)[r+\gamma \max_{a'}q_*(s',a')]
-\end{split} %]]></script>
+<ul>
+  <li><a href="http://waxworksmath.com/Authors/G_M/Hastie/hastie.html">Notes on The Elements of Statistical Learning (by John Weatherwax)</a></li>
+</ul>
 </div>
 
 
@@ -217,12 +201,12 @@ q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma q_*(S_{t+1},a')\middle|S_t=s, A_t=a\
 
 
 
-<time class='entry-date' datetime='2016-10-05T14:55:31-06:00'><span class='date'>2016-10-05</span> <span class='time'>2:55 pm</span></time>
+<time class='entry-date' datetime='2017-09-01T01:12:36-06:00'><span class='date'>2017-09-01</span> <span class='time'>1:12 am</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/reinforcement-learning/'>reinforcement_learning</a>
+    <a class='category' href='/blog/categories/machine-learning/'>machine_learning</a>
   
 </span>
 
@@ -231,7 +215,7 @@ q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma q_*(S_{t+1},a')\middle|S_t=s, A_t=a\
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/" data-via="" data-counturl="http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2017/09/01/esl-chapter-2/" data-via="" data-counturl="http://billy-inn.github.io/blog/2017/09/01/esl-chapter-2/" >Tweet</a>
   
   
   
@@ -240,10 +224,8 @@ q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma q_*(S_{t+1},a')\middle|S_t=s, A_t=a\
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2016/09/20/ml-with-r-3-logistic-regression/" title="Previous Post: ML with R (3): Logistic Regression">&laquo; ML with R (3): Logistic Regression</a>
+        <a class="basic-alignment left" href="/blog/2017/08/17/lln-and-clt/" title="Previous Post: 统计释疑(3)：大数定理和中心极限定理">&laquo; 统计释疑(3)：大数定理和中心极限定理</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/" title="Next Post: Notes on Reinforcement Learning (2): Dynamic Programming">Notes on Reinforcement Learning (2): Dynamic Programming &raquo;</a>
       
     </p>
   </footer>
@@ -360,8 +342,8 @@ q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma q_*(S_{t+1},a')\middle|S_t=s, A_t=a\
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/';
-        var disqus_url = 'http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/';
+        var disqus_identifier = 'http://billy-inn.github.io/blog/2017/09/01/esl-chapter-2/';
+        var disqus_url = 'http://billy-inn.github.io/blog/2017/09/01/esl-chapter-2/';
         var disqus_script = 'embed.js';
       
     (function () {

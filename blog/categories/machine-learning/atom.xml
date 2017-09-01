@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Machine_learning | Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/blog/categories/machine-learning/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2017-08-18T00:31:49-06:00</updated>
+  <updated>2017-09-01T01:28:58-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,102 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 2: Overview of Supervised Learning]]></title>
+    <link href="http://billy-inn.github.io/blog/2017/09/01/esl-chapter-2/"/>
+    <updated>2017-09-01T01:12:36-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/09/01/esl-chapter-2</id>
+    <content type="html"><![CDATA[<h3 id="statistical-decision-theory">2.4 Statistical Decision Theory</h3>
+
+<h4 id="derivation-of-equation-216">Derivation of Equation (2.16)</h4>
+
+<p>The expected predicted error (EPE) under the squared error loss:</p>
+
+<script type="math/tex; mode=display">\mathrm{EPE}(\beta) = \int (y-x^T\beta)^2\Pr(dx, dy).</script>
+
+<p>Taking derivatives with respect to $\beta$:</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\frac{\partial\mathrm{EFE}}{\partial\beta}&=-2\int(y-x^T\beta)x\Pr(dx, dy). \\
+&= -2(E[yx]-E[xx^T\beta])
+\end{split} %]]&gt;</script>
+
+<p>In order to minimize the EFE, we make derivatives equal zero which gives <strong>Equation (2.16)</strong>:</p>
+
+<script type="math/tex; mode=display">\beta=E[xx^T]^{-1}E[yx].</script>
+
+<p><em>Note: $x^T\beta$ is a scalar, and $\beta$ is a constant.</em></p>
+
+<!--more-->
+
+<h3 id="local-methods-in-high-dimensions">2.5 Local Methods in High Dimensions</h3>
+
+<h4 id="intuition-on-equation-224">Intuition on Equation (2.24)</h4>
+
+<p>There are $N$ $p$-dimensional data point $x_1,\dots, x_N$, that is, $N\times p$ dimensions in total. Let $r_i=\Vert x_i \Vert$. Without loss of generality, we assume that $A &lt; r_1 &lt; \dots &lt; r_n &lt; 1$. Let $U(A)$ be the region of all possible sampled data which meet the assumptation:</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+U(A) = \int_{A<r_1<\dots<r_n<1}dx_1\dots dx_N. %]]&gt;</script>
+
+<p>The goal is to find $A$ such that $U(A)=\frac12U(0)$. It turns out to be a integration problem on a $N \times p$ dimensional space.</p>
+
+<p>With some mathematical techniques (which make me overwhelmed), we can get $U(A)=(1-A^p)^N$. Then $U(0)=1$. Solving $(1-A^p)^N=1/2$, we obtain <strong>Equation (2.24)</strong>:</p>
+
+<script type="math/tex; mode=display">A=\left(1-2^{-\frac1N}\right)^{\frac1p}.</script>
+
+<h4 id="derivation-of-equation-227-and-228">Derivation of Equation (2.27) and (2.28)</h4>
+
+<p>The variation is over all training sets $\mathcal{T}$, and over all values of $y_0$, while keeping $x_0$ fixed. Note that $x_0$ and $y_0$ are chosen independently of $\mathcal{T}$ and so the expectations commute: 
+$\mathrm{E}_{y_0\vert x_0}\mathrm{E}_{\mathcal{T}}=\mathrm{E}_{\mathcal{T}}\mathrm{E}_{y_0 \vert x_0}$.
+Also $\mathrm{E}_\mathcal{T}=\mathrm{E}_\mathcal{X}\mathrm{E}_{\mathcal{Y \vert X}}$.</p>
+
+<p>In order to make the derivation more comprehensible, here lists some definitions:</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+y_0 &= x_0^T\beta + \varepsilon \\
+\hat y_0 &= x_0^T\beta + \sum_{i=1}^Nl_i(x_0)\varepsilon_i \\
+\mathrm{E}_\mathcal{T}(\hat y_0) &= x_0^T\beta + \mathrm{E}_{\mathcal{T}}((X^TX)^{-1}Xx_0\varepsilon) \\
+&= x_0^T\beta+x_0^T\mathrm{E}_\mathcal{X}((X^TX)^{-1}X^T\mathrm{E}_{\mathcal{Y|X}}\varepsilon) \\
+&=x_0^T\beta
+\end{split} %]]&gt;</script>
+
+<p>$y_0-\hat y_0$ can be written as the sum of three terms:</p>
+
+<script type="math/tex; mode=display">(y_0-x_0^T\beta)-(\hat y_0-\mathrm{E}_\mathcal{T}(\hat y_0))-(\mathrm{E}_\mathcal{T}(\hat y_0)-x_0^T\beta)=U_1-U_2-U_3</script>
+
+<p>Following above definitions, we have $U_1=\varepsilon$, $U_3=0$. In addition, clearly we have $\mathrm{E}_\mathcal{T}U_2=0$. When squaring $U_1-U_2-U_3$, we can eliminate all three cross terms and one squared terms $U_3^2$.</p>
+
+<p>Following the definition of variance, we have: $\mathrm{E}_{y_0\vert x_0}\mathrm{E}_\mathcal{T}U_1^2=\mathrm{Var}(\varepsilon)=\sigma^2$ and $\mathrm{E}_\mathcal{T}(\hat y_0 - \mathrm{E}_\mathcal{T}\hat y_0)^2=\mathrm{Var}_\mathcal{T}(\hat y_0)$.</p>
+
+<p>Since $U_2=\sum_{i=1}^Nl_i(x_0)\varepsilon_i$, we have $\mathrm{Var}_\mathcal{T}(\hat y_0)=\mathrm{E}_\mathcal{T}U_2^2$ as</p>
+
+<script type="math/tex; mode=display">\mathrm{E}\_\mathcal{T}(x_0^T(X_TX)^{-1}X^T\varepsilon\varepsilon^TX(X^TX)^{-1}x_0).</script>
+
+<p>Since $\mathrm{E}_\mathcal{T}\varepsilon\varepsilon^T=\sigma^2I_N$, this is equal to $\mathrm{E}_\mathcal{T}x_0(X^TX)^{-1}x_0\sigma^2$. This completes the derivation of <strong>Equation (2.27)</strong>.</p>
+
+<p>Under the conditions stated by the authors, $X^TX/N$ is then approximately equal to $\mathrm{Cov}(X)=\mathrm{Cov}(x_0)$. Applying $\mathrm{E}_{x_0}$ to $\mathrm{E}_\mathcal{T}x_0(X^TX)^{-1}x_0\sigma^2$, we obtain (approximately)</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\sigma^2\mathrm{E}_{x_0}(x_0^T\mathrm{Cov}(X)^{-1}x_0)/N &= \sigma^2\mathrm{E}_{x_0}(\mathrm{trace}(x_0^T\mathrm{Cov}(X)^{-1}x_0))/N \\
+&= \sigma^2\mathrm{E}_{x_0}(\mathrm{trace}(\mathrm{Cov}(X)^{-1}x_0x_0^T))/N \\
+&= \sigma^2\mathrm{trace}(\mathrm{Cov}(X)^{-1}\mathrm{C ov}(x_0))/N \\
+&= \sigma^2\mathrm{trace}(I_p)/N \\
+&= \sigma^2p/N.
+\end{split} %]]&gt;</script>
+
+<p>This completes the derivation of <strong>Equation (2.28)</strong>.</p>
+
+<h4 id="references">References</h4>
+
+<ul>
+  <li><a href="http://waxworksmath.com/Authors/G_M/Hastie/hastie.html">Notes on The Elements of Statistical Learning (by John Weatherwax)</a></li>
+</ul>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ML With R (3): Logistic Regression]]></title>
@@ -788,9 +884,9 @@ $(document).ready(function () {
   </li>
   <li>Statistics
     <ul>
-      <li><a href="http://www.stat.cmu.edu/~larry/all-of-statistics/">All of Statistics</a>: A textbook appealing to MLers.</li>
+      <li><a href="http://www.stat.cmu.edu/~larry/all-of-statistics/">All of Statistics</a>: A textbook appealing to MLers (<strong>First Pass</strong> in <em>Aug, 2017</em>).</li>
       <li><a href="http://www.amazon.com/Statistical-Inference-George-Casella/dp/0534243126">Statistical Inference</a>: Classic textbook.</li>
-      <li><a href="http://www.stat.cmu.edu/~larry/=stat705/">CMU 10-705</a>: Intermediate Statistics.</li>
+      <li><a href="http://www.stat.cmu.edu/~larry/=stat705/">CMU 10-705</a>: Intermediate Statistics (<strong>Completed</strong> in <em>Aug, 2017</em>).</li>
       <li>Post Series: Doubt Clarification for Statistics (In <em>Chinese</em>)
         <ul>
           <li>1. <a href="/blog/2017/07/28/p-value/">What is p-value?</a></li>
@@ -902,101 +998,6 @@ $(document).ready(function () {
 <ul>
   <li><a href="https://www.kaggle.com/c/home-depot-product-search-relevance">Kaggle: Home Depot Product Search Relevance</a>: Top 10%. (<a href="/papers/cmput690.pdf">Report</a>)</li>
 </ul>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Machine Learning Basics(1): Linear Regression]]></title>
-    <link href="http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression/"/>
-    <updated>2015-12-23T16:56:20-07:00</updated>
-    <id>http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression</id>
-    <content type="html"><![CDATA[<p>As a beginner in machine learning, I plan to sketch out my learning process. And it will be my first post in this series.</p>
-
-<h3 id="definition">1. Definition</h3>
-
-<p>We have an input vector $X^T=(X_1, X_2, \dots, X_p)$ and want to predict a real-valued output $Y$. The linear regression model has the form</p>
-
-<script type="math/tex; mode=display">f(X)=\beta_0 + \sum_{j=1}^pX_j\beta_j.\quad(1.1)</script>
-
-<p>Here the $\beta_j$’s are unknown parameters or coefficients.</p>
-
-<!--more-->
-
-<h3 id="least-squares">2. Least Squares</h3>
-
-<p>Typically we have a set of training data $(x_1,y_1)\dots(x_N,y_N)$ from which to estimate the parameters $\beta$. The most popular estimation method is least squares, in which we pick the coefficients $\beta=(
-\beta_0, \beta_1, \dots, \beta_p)^T$ to minimize the residual sum of squares (RSS)</p>
-
-<script type="math/tex; mode=display">RSS(\beta)=\sum_{i=1}^N(y_i-f(x_i))^2.\quad(2.1)</script>
-
-<p>How do we minimize $(2.1)$? This is an important question with a beautiful answer. The best $\beta$ can be found by geometry or algebra or calculus. Let’s explain the three approaches one by one.</p>
-
-<h4 id="calculus-interpretation">Calculus Interpretation</h4>
-
-<p>Denote by $\mathbf{X}$ the $N\times (p+1)$ matrix with each row an input vector (with a 1 in the first position). We can rewrite $(2.1)$ in the matrix form as</p>
-
-<script type="math/tex; mode=display">RSS(\beta)=(\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta).\quad(2.2)</script>
-
-<p>This is a quadratic function in the $p+1$ parameters. Differentating with respect to $\beta$ we obtain</p>
-
-<script type="math/tex; mode=display">\frac{\partial RSS}{\partial\beta}=-2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta).\quad(2.3)</script>
-
-<p>In order to get the minimum RSS, we set the first derivative to zero</p>
-
-<script type="math/tex; mode=display">\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta)=0\quad(2.4)</script>
-
-<p>to obtain the unique solution</p>
-
-<script type="math/tex; mode=display">\hat\beta = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}.\quad(2.5)</script>
-
-<p>The fitted values are</p>
-
-<script type="math/tex; mode=display">\mathbf{\hat y}=\mathbf{X}\hat\beta=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}.\quad(2.6)</script>
-
-<p>One thing which should be noticed is that it’s wrong to split $(\mathbf{X}^T\mathbf{X})^{-1}$ into $\mathbf{X}^{-1}$ times $\mathbf{X}$ and cancel the terms before $\mathbf{y}$ in $(2.6)$. The matrix $\mathbf{X}$ is rectangualr and has no inverse matrix. And if $\mathbf{X}$ is square and invertible, $\mathbf{\hat y}$ is exactly $\mathbf{y}$ just as $(2.6)$ shows.</p>
-
-<p>Someone may be confused by how to get $(2.3)$ by $(2.2)$ just as I once experienced. Actually, the easiest way to figure it out is to differentiate with respect to each $\beta_j$ respectively</p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\begin{split}\frac{\partial RSS}{\partial\beta_j}&=\frac{\partial}{\partial\beta_j}\sum_{i=1}^N\left(y_i-\sum_{j=0}^px_{ij}\beta_j\right)^2 \\
-&=-2\sum_{i=1}^Nx_{ij}\left(y_i-\sum_{j=0}^px_{ij}\beta_j\right). \\
-\end{split} %]]&gt;</script>
-
-<p>Then, we put all the derivatives together and rewrite it in matrix form to get $(2.3)$.</p>
-
-<h4 id="geometry-interpretation">Geometry Interpretation</h4>
-
-<p><img src="/images/LinearRegression1.png" alt="Alt text" /></p>
-
-<p>The picture above shows a direct gemotrical representation of the least squares estimate with two predictors. It’s convenient to extend this to the case with more predictors. We denote the column vectors of $X$ by $\mathbf{x}_0,\mathbf{x}_1,\dots,\mathbf{x}_p$ with $\mathbf{x}_0 \equiv 1$. These vectors span a subspace of $\mathbb{R}^N$, also referred to as the column space of $\mathbf{X}$. We minimize $RSS(\beta)=\lVert\mathbf{y}-\mathbf{X}\beta\rVert^2$ by choosing $\hat \beta$ so that the residual vector $\mathbf{y}-\mathbf{\hat y}$ is orthogonal to this subspace. This orthogonality is expressed in $(2.4)$, and the resulting estimate $\mathbf{\hat y}$ is hence the orthogonal projection of $\mathbf y$ onto this subspace.</p>
-
-<h4 id="algebra-interpretation">Algebra Interpretation</h4>
-
-<p>In the world of linear algebra, we will also view our problem from a perspective of algebra. Now we reformulate the problem as to solve the linear equations system $\mathbf{X}\beta=\mathbf{y}$. If you are somewhat familar with linear algebra, you can try to use elimination to solve it. Unfortunately, it has no solution typically due to there are more equations than unknowns ($n$ is larger than $p$).</p>
-
-<p>Instead, we hope that the length of error $\mathbf{e}=\mathbf{y}-\mathbf{X}\hat\beta$ is as small as possible. And the corresponding $\hat\beta$ is a least squares solution.</p>
-
-<p>When $\mathbf{X}\beta=\mathbf{y}$ has no solution, we can multiply by $\mathbf{X}^T$ and solve $\mathbf{X}^T\mathbf{X}\beta=\mathbf{X}^T\mathbf{y}$. And it yields the solution from calculus exactly. In the language of algebra, we can split the $\mathbf{y}$ into two parts as $\mathbf{p}+\mathbf{e}$. The part in the column space is $\mathbf{p}$. The perpendicular part in the nullspace of $\mathbf{X}^T$ is $\mathbf{e}$. There is an equation we cannot solve ($\mathbf{X}\beta=\mathbf{y}$). There is an equation $\mathbf{X}\hat\beta=\mathbf{p}$ we do solve. And the solution to $\mathbf{X}\hat\beta=\mathbf{p}$ leaves the least possible error. How do we choose $\mathbf{p}$ in the column space? Just as the geometry part tells us, the projection of $\mathbf{y}$ onto the column space!</p>
-
-<p>Ok, now the three interpretations come together and form a complete picture for the least squares.</p>
-
-<p>Wait a minute, there is still one more question. It might happen that that the columns of $\mathbf{X}$ are not linearly independent, so that $\mathbf{X}$ is not of full rank. Then $\mathbf{X}^T\mathbf{X}$ is singular and the least squares coefficients $\hat\beta$ are not uniquely defined. However, the fitted values $\mathbf{\hat y}=\mathbf{X}\hat\beta$ are still the projection of $\mathbf{y}$ onto the column space of $\mathbf{X}$; there is just more than one way to express that projections in terms of the column vectors of $\mathbf{X}$.</p>
-
-<h3 id="implementations">3. Implementations</h3>
-
-<p>The implementations is extremely easy in a language like <strong>R</strong>, even without specific packages. The core code is shown below:</p>
-
-<p><code>r
-library(MASS)
-betaHat &lt;- ginv(t(X) %*% X) %*% t(X) %*% y
-yhat &lt;- X %*% betaHat
-</code></p>
-
-<p>You can also use packages like <em>lm</em> in <strong>R</strong>. It provides not only $\hat\beta$ but also a lot sophisticated coefficients.</p>
-
-<h3 id="taste-on-statistics">4. Taste on Statistics</h3>
-
-<p><strong><em>To be continued</em></strong></p>
 ]]></content>
   </entry>
   
