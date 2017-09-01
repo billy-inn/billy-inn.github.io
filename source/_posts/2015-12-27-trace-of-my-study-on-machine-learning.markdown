@@ -19,9 +19,9 @@ This blog will record the timeline, resources, projects along the way of my stud
 - Reference
 	- [Handbook of Mathematics](http://www.springer.com/us/book/9783662462201): an amazing reference book of mathematics.
 - Statistics
-	- [All of Statistics](http://www.stat.cmu.edu/~larry/all-of-statistics/): A textbook appealing to MLers.
+	- [All of Statistics](http://www.stat.cmu.edu/~larry/all-of-statistics/): A textbook appealing to MLers (**First Pass** in *Aug, 2017*).
 	- [Statistical Inference](http://www.amazon.com/Statistical-Inference-George-Casella/dp/0534243126): Classic textbook.
-	- [CMU 10-705](http://www.stat.cmu.edu/~larry/=stat705/): Intermediate Statistics.
+	- [CMU 10-705](http://www.stat.cmu.edu/~larry/=stat705/): Intermediate Statistics (**Completed** in *Aug, 2017*).
 	- Post Series: Doubt Clarification for Statistics (In *Chinese*)
 		- 1\. [What is p-value?](/blog/2017/07/28/p-value/)
 		- 2\. [What's the usage of probability inequalities](/blog/2017/08/09/probability-inequalities/)
