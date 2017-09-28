@@ -70,7 +70,7 @@ Following the definition of variance, we have: $\mathrm{E}\_{y_0\vert x_0}\mathr
 
 Since $U_2=\sum_{i=1}^Nl_i(x_0)\varepsilon_i$, we have $\mathrm{Var}\_\mathcal{T}(\hat y_0)=\mathrm{E}\_\mathcal{T}U_2^2$ as 
 
-$$\mathrm{E}\_\mathcal{T}(x_0^T(X_TX)^{-1}X^T\varepsilon\varepsilon^TX(X^TX)^{-1}x_0).$$
+$$\mathrm{E}_\mathcal{T}(x_0^T(X_TX)^{-1}X^T\varepsilon\varepsilon^TX(X^TX)^{-1}x_0).$$
 
 Since $\mathrm{E}\_\mathcal{T}\varepsilon\varepsilon^T=\sigma^2I_N$, this is equal to $\mathrm{E}\_\mathcal{T}x_0(X^TX)^{-1}x_0\sigma^2$. This completes the derivation of **Equation (2.27)**.
 
