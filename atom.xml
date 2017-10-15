@@ -4,7 +4,7 @@
   <title><![CDATA[Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2017-10-04T11:33:52-06:00</updated>
+  <updated>2017-10-15T14:40:44-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,101 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 4: Linear Methods for Classification]]></title>
+    <link href="http://billy-inn.github.io/blog/2017/10/15/esl-chapter-4/"/>
+    <updated>2017-10-15T14:30:27-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/10/15/esl-chapter-4</id>
+    <content type="html"><![CDATA[<h3 id="linear-discriminant-analysis">4.3 Linear Discriminant Analysis</h3>
+
+<h4 id="derivation-of-equation-49">Derivation of Equation (4.9)</h4>
+
+<p>For that each class’s density follows multivariate Gaussian</p>
+
+<script type="math/tex; mode=display">f_k(x) = \frac{1}{(2\pi)^{p/2}\lvert\Sigma\rvert^{1/2}}e^{-\frac12(x-\mu_k)^T\Sigma^{-1}(x-\mu_k)}</script>
+
+<p>Take the logarithm of $f_k(x)$, we get</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\log f_k(x) &= c - \frac12(x-\mu_k)^T\Sigma^{-1}(x-\mu_k) \\
+&= c - \frac12(x^T\Sigma^{-1}x-\mu_k^T\Sigma^{-1}x-x^T\Sigma^{-1}\mu_k+\mu_k\Sigma^{-1}\mu_k) \\
+&= c - \frac12(x^T\Sigma^{-1}x+\mu_k\Sigma^{-1}\mu_k) + x^T\Sigma^{-1}\mu_k
+\end{split} %]]&gt;</script>
+
+<p>where $c = -\log [(2\pi)^{p/2}\lvert\Sigma\rvert^{1/2}]$ and $\mu_k^T\Sigma^{-1}x=x^T\Sigma^{-1}\mu_k$. Following the above formula, we can derive <strong>Equation (4.9)</strong> easily</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\log\frac{\Pr(G=k|X=x)}{\Pr(G=k|X=x)} &=& \log\frac{f_k(x)}{f_l(x)} + \log\frac{\pi_k}{\pi_l} \\
+&=& \log\frac{\pi_k}{\pi_l} - \frac12(\mu_k\Sigma^{-1}\mu_k-\mu_l\Sigma^{-1}\mu_l) \\&&+x^T\Sigma^{-1}(\mu_k-\mu_l) \\
+&=& \log\frac{\pi_k}{\pi_l} - \frac12(\mu_k+\mu_l)\Sigma^{-1}(\mu_k-\mu_l) \\&&+x^T\Sigma^{-1}(\mu_k-\mu_l) \\
+\end{split} %]]&gt;</script>
+
+<!--more-->
+
+<h4 id="notes-on-computations-for-lda">Notes on Computations for LDA</h4>
+
+<p>It’s stated in the book that the LDA classifier can be implemented by the following pair of steps:</p>
+
+<ul>
+  <li>Sphere the data with respect to the common covariance estimate $\hat \Sigma:X^*\leftarrow D^{-1/2}U^TX$, where $\hat \Sigma=UDU^T$. The common covariance estimate of $X^*$  will now be the indentity.</li>
+  <li>Classify to the closest class centroid in the transformed space, modulo the effect of the class prior probabilities $\pi_k$.</li>
+</ul>
+
+<p>However, detailed explanation is not given in the book. Here, I give some skipped mathematical steps which may help the understanding.</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\text{Var}(X^*)&=D^{-1/2}U^T\text{Var}(X)(D^{-1/2}U^T)^T \\
+&= D^{-1/2}U^TUDU^TUD^{-1/2} \\
+&= D^{-1/2}DD^{-1/2} \\
+&= I,
+\end{split} %]]&gt;</script>
+
+<p>which shows that the covariance estimate of $X^*$ is the identity.</p>
+
+<p>Note that the classification for LDA is based on the linear discriminat functions</p>
+
+<script type="math/tex; mode=display">\delta_k(x)=x^T\Sigma^{-1}\mu_k-\frac12\mu_k^T\Sigma^{-1}\mu_k+\log\pi_k</script>
+
+<p>which is the <strong>Equation (4.10)</strong> in the book. Since the input $x$ is same for each class, so we can add back a term $\frac12x^T\Sigma^{-1}x$ which is cancelled in the previous derivation. Now the functions are turned into:</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\delta_k(x)&=-\frac12(x^T\Sigma^{-1}x-2x^T\Sigma^{-1}\mu_k+\mu_k^T\Sigma^{-1}\mu_k)+\log\pi_k \\
+&= -\frac12(x-\mu_k)^T\Sigma^{-1}(x-\mu_k) + \log\pi_k
+\end{split} %]]&gt;</script>
+
+<p>We know that $\Sigma=I$ in the transformed space, so $\delta_k(x)=-1/2\lVert x-\mu_k\rVert_2+\log\pi_k$. And $\mu_k$ is the centroid for the $k$th class. The claimed method to classify is proved.</p>
+
+<h3 id="logistic-regression">4.4 Logistic Regression</h3>
+
+<h4 id="derivation-of-equation-421-and-422">Derivation of Equation (4.21) and (4.22)</h4>
+
+<p>In the two-class case, $p_1(x;\beta)=p(x;\beta)$ and  $p_2(x;\beta) = 1-p(x;\beta)$ where</p>
+
+<script type="math/tex; mode=display">p(x;\beta)=\frac{e^{\beta^Tx}}{1+e^{\beta^Tx}}.</script>
+
+<p>The <strong>Equation (4.21)</strong> can be derived easily as follows,</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\frac{\partial l(\beta)}{\partial \beta} &= \frac{\partial}{\partial\beta}\sum_{i=1}^N\left\{y_i\beta^Tx_i-\log(1+e^{\beta^Tx_i})\right\}\\
+&= \sum_{i=1}^N(y_ix_i-\frac{x_ie^{\beta^Tx_i}}{1+e^{\beta^Tx_i}}) \\
+&= \sum_{i=1}x_i(y_i-p(x_i;\beta))
+\end{split} %]]&gt;</script>
+
+<p>Note that</p>
+
+<script type="math/tex; mode=display">\frac{\partial p(x;\beta)}{\partial\beta}=xp(x;\beta)(1-p(x;\beta)).</script>
+
+<p>Plug it into <strong>Equation (4.21)</strong>, we get</p>
+
+<script type="math/tex; mode=display">\frac{\partial^2l(\beta)}{\partial\beta\partial\beta^T} = -\sum_{i=1}^Nx_ix_i^Tp(x_i;\beta)(1-p(x_i;\beta)).</script>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 3: Linear Regression Models and Least Squares]]></title>
@@ -2176,55 +2271,6 @@ $(document).ready(function () {
 <h3 id="taste-on-statistics">4. Taste on Statistics</h3>
 
 <p><strong><em>To be continued</em></strong></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First Post: General Goals]]></title>
-    <link href="http://billy-inn.github.io/blog/2015/10/27/first-post/"/>
-    <updated>2015-10-27T10:24:51-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2015/10/27/first-post</id>
-    <content type="html"><![CDATA[<p>签证总算下来了，从毕业到现在，整个人都处于一种很难形容的颓废状态中。昨天又一整夜没有睡，看了很多博客，看到了许多学长的奋斗经历与学术积累，深感不能再如此颓废下去了。</p>
-
-<p>没有压力的生活往往会让人无所事事，现在的我就处于这样一个状态。为了给自己找点事做，也给自己点压力，所以花了些功夫把这个博客搭了起来。希望自己可以把这个博客维护好，坚持将自己在学习生活上的点滴记录下来，同时也可以分享一些有益的东西。</p>
-
-<!--more-->
-
-<p>现在离出发去加拿大还有一个多月的时间，为了一过去就可以在research入门。这段时间的目标大致如下：</p>
-
-<ul>
-  <li>Coursera: Introduction to Natural Language Processing</li>
-  <li>Mathemathics:
-    <ul>
-      <li>Revise Linear Algerba</li>
-      <li><em>Statistical Inference</em></li>
-      <li><em>Convex Optimization</em> (if possible)</li>
-    </ul>
-  </li>
-  <li>Machine Learning:
-    <ul>
-      <li><em>Elements of Statistical Learning</em></li>
-    </ul>
-  </li>
-  <li>Life:
-    <ul>
-      <li>Learn basic cooking</li>
-      <li>Daily physical exercise</li>
-    </ul>
-  </li>
-  <li>Articles:
-    <ul>
-      <li>Notes on Linear Algerba</li>
-      <li>Notes on <em>Elements of Statistical Learning</em></li>
-      <li>Notes on NLP (if necessary)</li>
-    </ul>
-  </li>
-  <li>Programming:
-    <ul>
-      <li>Re-implement experiments in <em>Elements of Statistical Learning</em> via <strong>R</strong></li>
-    </ul>
-  </li>
-</ul>
 ]]></content>
   </entry>
   

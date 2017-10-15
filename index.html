@@ -9,7 +9,7 @@
   <meta name="author" content="Peng Xu">
 
   
-  <meta name="description" content="3.2 Linear Regression Models and Least Squares Derivation of Equation (3.8) The least squares estimate of $\beta$ is given by the book’s Equation (3. &hellip;">
+  <meta name="description" content="4.3 Linear Discriminant Analysis Derivation of Equation (4.9) For that each class’s density follows multivariate Gaussian Take the logarithm of $f_k( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,67 @@
 
 <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/10/15/esl-chapter-4/">[Notes on Mathematics for ESL] Chapter 4: Linear Methods for Classification</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-10-15T14:30:27-06:00'><span class='date'>2017-10-15</span> <span class='time'>2:30 pm</span></time>
+        
+           | <a href="/blog/2017/10/15/esl-chapter-4/#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io/blog/2017/10/15/esl-chapter-4/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3 id="linear-discriminant-analysis">4.3 Linear Discriminant Analysis</h3>
+
+<h4 id="derivation-of-equation-49">Derivation of Equation (4.9)</h4>
+
+<p>For that each class’s density follows multivariate Gaussian</p>
+
+<script type="math/tex; mode=display">f_k(x) = \frac{1}{(2\pi)^{p/2}\lvert\Sigma\rvert^{1/2}}e^{-\frac12(x-\mu_k)^T\Sigma^{-1}(x-\mu_k)}</script>
+
+<p>Take the logarithm of $f_k(x)$, we get</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+\log f_k(x) &= c - \frac12(x-\mu_k)^T\Sigma^{-1}(x-\mu_k) \\
+&= c - \frac12(x^T\Sigma^{-1}x-\mu_k^T\Sigma^{-1}x-x^T\Sigma^{-1}\mu_k+\mu_k\Sigma^{-1}\mu_k) \\
+&= c - \frac12(x^T\Sigma^{-1}x+\mu_k\Sigma^{-1}\mu_k) + x^T\Sigma^{-1}\mu_k
+\end{split} %]]></script>
+
+<p>where $c = -\log [(2\pi)^{p/2}\lvert\Sigma\rvert^{1/2}]$ and $\mu_k^T\Sigma^{-1}x=x^T\Sigma^{-1}\mu_k$. Following the above formula, we can derive <strong>Equation (4.9)</strong> easily</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+\log\frac{\Pr(G=k|X=x)}{\Pr(G=k|X=x)} &=& \log\frac{f_k(x)}{f_l(x)} + \log\frac{\pi_k}{\pi_l} \\
+&=& \log\frac{\pi_k}{\pi_l} - \frac12(\mu_k\Sigma^{-1}\mu_k-\mu_l\Sigma^{-1}\mu_l) \\&&+x^T\Sigma^{-1}(\mu_k-\mu_l) \\
+&=& \log\frac{\pi_k}{\pi_l} - \frac12(\mu_k+\mu_l)\Sigma^{-1}(\mu_k-\mu_l) \\&&+x^T\Sigma^{-1}(\mu_k-\mu_l) \\
+\end{split} %]]></script>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2017/10/15/esl-chapter-4/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -534,55 +595,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Notes on Reinforcement Learning (2): Dynamic Programming</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-10-06T17:37:02-06:00'><span class='date'>2016-10-06</span> <span class='time'>5:37 pm</span></time>
-        
-           | <a href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/#disqus_thread"
-             data-disqus-identifier="http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3 id="policy-evaluation">Policy Evaluation</h3>
-
-<p>Consider a sequence of approximate value functions $v_0, v_1, v_2, \dots,$ each mapping $\mathcal{S}^+$ to $\mathbb{R}$. The initial approximation, $v_0$ is chosen arbitrarily, and each successive approximation is obtained by using the Bellman equation for $v_\pi$ as an update rule:</p>
-
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{split}
-v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
-&= \sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_k(s')],
-\end{split} %]]></script>
-
-<p>for all $s\in\mathcal{S}$.</p>
-
-<p><img src="/images/rl2.1.png" alt="Alt text" /></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -604,7 +616,7 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
 		<li class="nav-header">About Me</a></li>
 			<p>Machine Learning Lover, Deep Learning Alchemist and NLPer</p>
 			<p>Nintendo Switch Owner, Piano Beginner</p>
-			<p>Fan of SNH48 Kiku and Blackpink Ros&egrave</p>
+			<p>Fan of SNH48 Kiku and Blackpink Ros&eacute</p>
 			<p>Welcome to communicate with me among above topics.</p>
 			<p>微博: <a href="http://www.weibo.com/u/2540837283">百里云_bly</a></p>
 			<p>GitHub: <a href="http://github.com/billy-inn">billy-inn</a></p>
@@ -615,7 +627,7 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
  <ul id="categories_list" class="nav nav-list">
 	<li class="nav-header">Categories</li>
 	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
-<li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (7)</a></li>
+<li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (8)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
 <li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
 <li class='category'><a href='/blog/categories/reading/'>reading (2)</a></li>
@@ -627,6 +639,10 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/10/15/esl-chapter-4/">[Notes on Mathematics for ESL] Chapter 4: Linear Methods for Classification</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/09/27/esl-chapter-3/">[Notes on Mathematics for ESL] Chapter 3: Linear Regression Models and Least Squares</a>
@@ -642,10 +658,6 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
     
       <li class="post">
         <a href="/blog/2017/08/09/probability-inequalities/">统计释疑(2)：概率不等式有什么用？</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/07/28/p-value/">统计释疑(1)：什么是p值</a>
       </li>
     
   </ul>
