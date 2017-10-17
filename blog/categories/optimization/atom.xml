@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Optimization | Billy Inn in Wonderland]]></title>
+  <link href="http://billy-inn.github.io/blog/categories/optimization/atom.xml" rel="self"/>
+  <link href="http://billy-inn.github.io/"/>
+  <updated>2017-10-17T00:41:18-06:00</updated>
+  <id>http://billy-inn.github.io/</id>
+  <author>
+    <name><![CDATA[Peng Xu]]></name>
+    <email><![CDATA[bly930725@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Notes on Convex Optimization (1): Convex Sets]]></title>
+    <link href="http://billy-inn.github.io/blog/2017/10/17/convex-optimization-1/"/>
+    <updated>2017-10-17T00:22:23-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/10/17/convex-optimization-1</id>
+    <content type="html"><![CDATA[<h3 id="affine-and-convex-sets">1. Affine and Convex Sets</h3>
+
+<p>Suppose $x_1\ne x_2$ are two points in $\mathbb{R}^n$.</p>
+
+<h4 id="affine-sets">1.1 Affine sets</h4>
+
+<p><strong>line</strong> through $x_1$, $x_2$: all points</p>
+
+<script type="math/tex; mode=display">x=\theta x_1 + (1-\theta)x_2\quad(\theta \in \mathbb{R})</script>
+
+<p><strong>affine set</strong>: contains the line through any two distinct points in the set</p>
+
+<script type="math/tex; mode=display">x_1,x_2\in C,\ \theta\in\mathbb{R} \Longrightarrow \theta x_1 + (1-\theta)x_2 \in C</script>
+
+<!--more-->
+
+<h4 id="convex-sets">1.2 Convex sets</h4>
+
+<p><strong>line segment</strong> between $x_1$ and $x_2$: all points</p>
+
+<script type="math/tex; mode=display">x=\theta x_1 + (1-\theta)x_2</script>
+
+<p>with $0\leq\theta\leq1$</p>
+
+<p><strong>convex set</strong>: contains line segment between any two points in the set</p>
+
+<script type="math/tex; mode=display">x_1,x_2\in C,\ 0\leq\theta\leq1 \Longrightarrow \theta x_1 + (1-\theta)x_2 \in C</script>
+
+<p><strong>convex combination</strong> of $x_1,\dots,x_k$: any point $x$ of the form</p>
+
+<script type="math/tex; mode=display">x=\theta_1x_1+\theta_2x_2+\dots+\theta_kx_k</script>
+
+<p>with $\theta_1+\dots+\theta_k=1,\theta_i \geq 0$</p>
+
+<p><strong>convex hull</strong> of a set $C$, denoted $\mathbf{conv}\ C$: set of all convex combinations of points in $C$</p>
+
+<h4 id="cones">1.3 Cones</h4>
+
+<p><strong>conic combination</strong> of $x_1$ and $x_2$: any point of the form</p>
+
+<script type="math/tex; mode=display">x=\theta_1x_1+\theta_2x_2</script>
+
+<p>with $\theta_1 \geq 0, \theta_2 \geq 0$</p>
+
+<p><strong>convex cone</strong>: set that contains all conic combinations of points in the set</p>
+
+<script type="math/tex; mode=display">x_1,x_2\in C,\ \theta_1\ge0, \theta_2\ge0 \Longrightarrow \theta_1 x_1 + \theta_2x_2 \in C</script>
+
+<h3 id="some-important-examples">2. Some Important Examples</h3>
+
+<h4 id="hyperplanes-and-halfspaces">2.1 Hyperplanes and halfspaces</h4>
+
+<p><strong>hyperplane</strong>: set of the form {$x\mid a^Tx=b$}$(a\ne0)$</p>
+
+<p><strong>halfspace</strong>: set of the form {$x\mid a^Tx\leq b$}$(a\ne0)$</p>
+
+<ul>
+  <li>$a$ is the normal vector</li>
+  <li>hyperplanes are affine and convex; halfspaces are convex</li>
+</ul>
+
+<h4 id="euclidean-balls-and-ellipsoids">2.2 Euclidean balls and ellipsoids</h4>
+
+<p><strong>(Euclidean) ball</strong> with center $x_c$ and radius $r$:</p>
+
+<script type="math/tex; mode=display">B(x_c,r)=\{x\mid\lVert x-x_c\rVert_2\leq r\}=\{x_c+ru \mid\lVert u \rVert_2 \leq 1 \}</script>
+
+<p><strong>ellipsoid</strong>: set of the form</p>
+
+<script type="math/tex; mode=display">\{x \mid (x-x_c)^TP^{-1}(x-x_c)\leq 1\}</script>
+
+<p>with $P\in \mathbf{S}^n_{++}$ (<em>i.e.</em>, P symmetric positive definite)</p>
+
+<p>another representation: {$x_c+Au\mid \lVert u\rVert_2\le1$} with $A$ square and nonsingular</p>
+
+<ul>
+  <li>Euclidean balls and ellipsoids are all convex.</li>
+</ul>
+
+<h4 id="norm-balls-and-norm-cones">2.3 Norm balls and norm cones</h4>
+
+<p><strong>norm</strong>: a funtion $\lVert \centerdot \rVert$ that satisfies</p>
+
+<ul>
+  <li>$\lVert x \rVert \geq 0$; $\lVert x \rVert=0$ if and only if $x=0$</li>
+  <li>$\lVert tx \rVert = \lvert t \rvert \lVert x \rVert$ for $t\in \mathbb{R}$</li>
+  <li>$\lVert x+y\rVert \leq \lVert x \rVert+\lVert y \rVert$</li>
+</ul>
+
+<p><strong>norm ball</strong> with center $x_c$ and radius <script type="math/tex">r: \{x \mid \lVert x-x_c \rVert \leq r\}</script></p>
+
+<p><strong>norm cone</strong>: <script type="math/tex">\{(x,t) \mid \lVert x \rVert \leq t\}</script></p>
+
+<ul>
+  <li>norm balls and cones are convex</li>
+  <li>norm cores (as the name suggest) are convex cones</li>
+</ul>
+
+<h4 id="polyhedra">2.4 Polyhedra</h4>
+
+<p><strong>polyhedra</strong>: solution set of finitely many linear inequalities and equalities</p>
+
+<script type="math/tex; mode=display">Ax \preceq b, \quad Cx=d</script>
+
+<p>($A\in \mathbb{R}^{m\times n}$, $C\in\mathbb{R}^{p\times n}$, $\preceq$ is componentwise inequality)</p>
+
+<ul>
+  <li>polyhedron is intersection of finite number of halfspaces and hyperplances</li>
+</ul>
+
+<h4 id="the-positive-semidefinite-cone">2.5 The positive semidefinite cone</h4>
+
+<p><strong>positive semidefinite cone</strong>:</p>
+
+<ul>
+  <li>$\mathbf{S}^n$ is set of symmetric $n\times n$ matrices</li>
+  <li><script type="math/tex">\mathbf{S}^n_+=\{X\in\mathbf{S}^n\mid X\succeq0\}</script>: positive semidefinite $n\times n$ matrices <script type="math/tex">X\in\mathbf{S}^n_+ \iff z^TXz \geq 0\ \mathrm{for\ all\ }z</script> $\mathbf{S}^n_+$ is a convex cone</li>
+  <li><script type="math/tex">\mathbf{S}^n_{++}=\{X\in\mathbf{S}^n\mid X\succ0\}</script>: positive definite $n\times n$ matrices</li>
+</ul>
+
+<h3 id="operations-that-preserve-convexity">3. Operations that preserve convexity</h3>
+
+<p><strong>intersection</strong>: the interction of (any number of) convex sets is convex</p>
+
+<p><strong>affine function</strong>: suppose $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$ is affine ($f(x)=Ax+b$ with $A\in\mathbb{R}^{m\times n}, b\in\mathbb{R}^m$)</p>
+
+<ul>
+  <li>the image of a convex set under $f$ is convex</li>
+</ul>
+
+<script type="math/tex; mode=display">S \subseteq \mathbb{R}^n\ convex \Longrightarrow f(S)=\{f(x)\mid x\in S\}\ convex</script>
+
+<ul>
+  <li>the inverse image $f^{-1}(C)$ of a convex set under $f$ is convex</li>
+</ul>
+
+<script type="math/tex; mode=display">C \subseteq \mathbb{R}^m\ convex \Longrightarrow f^{-1}(C)=\{x\in\mathbb{R}^n\mid f(x)\in C\}\ convex</script>
+
+<p><strong>perspective function</strong> $P: \mathbb{R}^{n+1} \rightarrow \mathbb{R}^n$:</p>
+
+<script type="math/tex; mode=display">P(x,t)=x/t, \quad \mathbf{dom}\ P=\{(x,t)\mid t>0\}</script>
+
+<p>images and inverse images of convex sets under perspective are convex</p>
+
+<p><strong>linear-fractional function</strong> $f:\mathbb{R}^n \rightarrow \mathbb{R}^m$:</p>
+
+<script type="math/tex; mode=display">f(x)=\frac{Ax+b}{c^Tx+d}, \quad \mathbf{dom}\ f=\{x\mid c^Tx+d>0\}</script>
+
+<p>images and inverse images of convex sets under linear-fractional functions are convex</p>
+
+<h3 id="generalized-inequalities">4. Generalized Inequalities</h3>
+
+<h4 id="proper-cones-and-generalized-inequalities">4.1 Proper cones and generalized inequalities</h4>
+
+<p>a convex cone $K\subseteq\mathbb{R}^n$ is a <strong>proper cone</strong> if</p>
+
+<ul>
+  <li>$K$ is closed (contains its boundary)</li>
+  <li>$K$ is solid (has nonempty interior)</li>
+  <li>$K$ is pointed (contains no line)</li>
+</ul>
+
+<p><strong>generalized inequality</strong> defined by a proper cone $K$:</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+x \preceq_K y &\iff y-x \in K\\
+x \prec_K y &\iff y-x \in \mathbf{int}\ K
+\end{split} %]]&gt;</script>
+
+<h4 id="minimum-and-minimal-elements">4.2 Minimum and minimal elements</h4>
+
+<p>$x\in S$ is <strong>the minimum element</strong> of $S$ with respect to $\preceq_K$ if</p>
+
+<script type="math/tex; mode=display">y \in S \Longrightarrow x \preceq_K y</script>
+
+<p>$x\in S$ is <strong>a minimal element</strong> of $S$ with respect to $\preceq_K$ if</p>
+
+<script type="math/tex; mode=display">y \in S, y \preceq_K x \Longrightarrow y=x</script>
+
+<h3 id="separating-and-supporting-hyperplanes">5. Separating and Supporting Hyperplanes</h3>
+
+<p><strong>separating hyperplane theorem</strong>: if $C$ and $D$ are disjoint convex sets, then there exists $a\ne0$, $b$ such that</p>
+
+<script type="math/tex; mode=display">a^Tx \le b\ \mathrm{for}\ x\in C,\quad a^Tx\ge b\ \mathrm{for}\ x\in D</script>
+
+<p><strong>supporting hyperplane</strong> to set $C$ at boundary point $x_0$:</p>
+
+<script type="math/tex; mode=display">\{x\mid a^Tx=a^Tx_0\}</script>
+
+<p>where $a\ne0$ and $a^Tx\le a^Tx_0$ for all $x\in C$</p>
+
+<p><strong>supporting hyperplance theorem</strong>: if $C$ is convex, then there exists a supporting hyperplane at every boundary point of $C$</p>
+
+<h3 id="dual-cones-and-generalized-inequalities">6. Dual Cones and Generalized Inequalities</h3>
+
+<h4 id="dual-cones">6.1 Dual cones</h4>
+
+<p><strong>dual cone</strong> of a cone $K$:</p>
+
+<script type="math/tex; mode=display">K^*=\{y\mid y^T x \ge 0\mathrm{\ for\ all\ } x\in K\}</script>
+
+<p>Dual cons satisfy several properties, such as:</p>
+
+<ul>
+  <li>$K^*$ is closed and convex</li>
+  <li>$K_1 \subseteq K_2$ imples $K_2^* \subseteq K_1^*$</li>
+  <li>$K^{**}$ is the closure of the convex hull of $K$ (Hence if $K$ is convex and closed, $K^{**}=K$)</li>
+</ul>
+
+<p>Thsese properties show that if $K$ is a proper cone, then so is its dual $K^{*}$, and moreover, that $K^{**}=K$</p>
+
+<h4 id="dual-generalized-inequalities">6.2 Dual generalized inequalities</h4>
+
+<p>dual cones of proper cones are proper, hence define generalized inequalities:</p>
+
+<script type="math/tex; mode=display">y\succeq_{K^*}0 \iff y^Tx\ge0\mathrm{\ for\ all\ } x\succeq_K0</script>
+
+<p>Some import properties relating a generalized inequality and its dual are:</p>
+
+<ul>
+  <li>$x\preceq_K y$ iff $\lambda^Tx \le \lambda^Ty$ for all $\lambda \succeq_{K^{*}} 0$</li>
+  <li>$x\prec_K y$ iff $\lambda^Tx &lt; \lambda^Ty$ for all $\lambda \succ_{K^{*}} 0, \lambda\ne0$</li>
+</ul>
+
+<p>Since $K=K^{**}$, the dual generalized inequality associated with $\preceq_{K^{*}}$ is $\preceq_K$, so these properties hold if the generalized inequality and its dual are swapped</p>
+
+<h4 id="minimum-and-minimal-elements-via-dual-inequalities">6.3 Minimum and minimal elements via dual inequalities</h4>
+
+<p><strong>dual characterization of minimum element</strong> w.r.t. $\preceq_K$: $X$ is minimum element of $S$ iff for all $\lambda \succ_{K^*}0$, $x$ is the unique minimizer of $\lambda^Tz$ over $z\in S$</p>
+
+<p><strong>dual characterization of minimal element</strong> w.r.t. $\preceq_K$:</p>
+
+<ul>
+  <li>if $x$ minimizes $\lambda^Tz$ over $S$ for some $\lambda \succ_{K^*}0$, then $x$ is minimal</li>
+  <li>if $x$ is a minimal element of a convex set $S$, then there exists a nonzero $\lambda \succeq_{K^*}0$ such that $x$ minimizes $\lambda^Tz$ over $z \in S$</li>
+</ul>
+]]></content>
+  </entry>
+  
+</feed>

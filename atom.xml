@@ -4,7 +4,7 @@
   <title><![CDATA[Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2017-10-15T14:40:44-06:00</updated>
+  <updated>2017-10-17T00:41:18-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,251 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Notes on Convex Optimization (1): Convex Sets]]></title>
+    <link href="http://billy-inn.github.io/blog/2017/10/17/convex-optimization-1/"/>
+    <updated>2017-10-17T00:22:23-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/10/17/convex-optimization-1</id>
+    <content type="html"><![CDATA[<h3 id="affine-and-convex-sets">1. Affine and Convex Sets</h3>
+
+<p>Suppose $x_1\ne x_2$ are two points in $\mathbb{R}^n$.</p>
+
+<h4 id="affine-sets">1.1 Affine sets</h4>
+
+<p><strong>line</strong> through $x_1$, $x_2$: all points</p>
+
+<script type="math/tex; mode=display">x=\theta x_1 + (1-\theta)x_2\quad(\theta \in \mathbb{R})</script>
+
+<p><strong>affine set</strong>: contains the line through any two distinct points in the set</p>
+
+<script type="math/tex; mode=display">x_1,x_2\in C,\ \theta\in\mathbb{R} \Longrightarrow \theta x_1 + (1-\theta)x_2 \in C</script>
+
+<!--more-->
+
+<h4 id="convex-sets">1.2 Convex sets</h4>
+
+<p><strong>line segment</strong> between $x_1$ and $x_2$: all points</p>
+
+<script type="math/tex; mode=display">x=\theta x_1 + (1-\theta)x_2</script>
+
+<p>with $0\leq\theta\leq1$</p>
+
+<p><strong>convex set</strong>: contains line segment between any two points in the set</p>
+
+<script type="math/tex; mode=display">x_1,x_2\in C,\ 0\leq\theta\leq1 \Longrightarrow \theta x_1 + (1-\theta)x_2 \in C</script>
+
+<p><strong>convex combination</strong> of $x_1,\dots,x_k$: any point $x$ of the form</p>
+
+<script type="math/tex; mode=display">x=\theta_1x_1+\theta_2x_2+\dots+\theta_kx_k</script>
+
+<p>with $\theta_1+\dots+\theta_k=1,\theta_i \geq 0$</p>
+
+<p><strong>convex hull</strong> of a set $C$, denoted $\mathbf{conv}\ C$: set of all convex combinations of points in $C$</p>
+
+<h4 id="cones">1.3 Cones</h4>
+
+<p><strong>conic combination</strong> of $x_1$ and $x_2$: any point of the form</p>
+
+<script type="math/tex; mode=display">x=\theta_1x_1+\theta_2x_2</script>
+
+<p>with $\theta_1 \geq 0, \theta_2 \geq 0$</p>
+
+<p><strong>convex cone</strong>: set that contains all conic combinations of points in the set</p>
+
+<script type="math/tex; mode=display">x_1,x_2\in C,\ \theta_1\ge0, \theta_2\ge0 \Longrightarrow \theta_1 x_1 + \theta_2x_2 \in C</script>
+
+<h3 id="some-important-examples">2. Some Important Examples</h3>
+
+<h4 id="hyperplanes-and-halfspaces">2.1 Hyperplanes and halfspaces</h4>
+
+<p><strong>hyperplane</strong>: set of the form {$x\mid a^Tx=b$}$(a\ne0)$</p>
+
+<p><strong>halfspace</strong>: set of the form {$x\mid a^Tx\leq b$}$(a\ne0)$</p>
+
+<ul>
+  <li>$a$ is the normal vector</li>
+  <li>hyperplanes are affine and convex; halfspaces are convex</li>
+</ul>
+
+<h4 id="euclidean-balls-and-ellipsoids">2.2 Euclidean balls and ellipsoids</h4>
+
+<p><strong>(Euclidean) ball</strong> with center $x_c$ and radius $r$:</p>
+
+<script type="math/tex; mode=display">B(x_c,r)=\{x\mid\lVert x-x_c\rVert_2\leq r\}=\{x_c+ru \mid\lVert u \rVert_2 \leq 1 \}</script>
+
+<p><strong>ellipsoid</strong>: set of the form</p>
+
+<script type="math/tex; mode=display">\{x \mid (x-x_c)^TP^{-1}(x-x_c)\leq 1\}</script>
+
+<p>with $P\in \mathbf{S}^n_{++}$ (<em>i.e.</em>, P symmetric positive definite)</p>
+
+<p>another representation: {$x_c+Au\mid \lVert u\rVert_2\le1$} with $A$ square and nonsingular</p>
+
+<ul>
+  <li>Euclidean balls and ellipsoids are all convex.</li>
+</ul>
+
+<h4 id="norm-balls-and-norm-cones">2.3 Norm balls and norm cones</h4>
+
+<p><strong>norm</strong>: a funtion $\lVert \centerdot \rVert$ that satisfies</p>
+
+<ul>
+  <li>$\lVert x \rVert \geq 0$; $\lVert x \rVert=0$ if and only if $x=0$</li>
+  <li>$\lVert tx \rVert = \lvert t \rvert \lVert x \rVert$ for $t\in \mathbb{R}$</li>
+  <li>$\lVert x+y\rVert \leq \lVert x \rVert+\lVert y \rVert$</li>
+</ul>
+
+<p><strong>norm ball</strong> with center $x_c$ and radius <script type="math/tex">r: \{x \mid \lVert x-x_c \rVert \leq r\}</script></p>
+
+<p><strong>norm cone</strong>: <script type="math/tex">\{(x,t) \mid \lVert x \rVert \leq t\}</script></p>
+
+<ul>
+  <li>norm balls and cones are convex</li>
+  <li>norm cores (as the name suggest) are convex cones</li>
+</ul>
+
+<h4 id="polyhedra">2.4 Polyhedra</h4>
+
+<p><strong>polyhedra</strong>: solution set of finitely many linear inequalities and equalities</p>
+
+<script type="math/tex; mode=display">Ax \preceq b, \quad Cx=d</script>
+
+<p>($A\in \mathbb{R}^{m\times n}$, $C\in\mathbb{R}^{p\times n}$, $\preceq$ is componentwise inequality)</p>
+
+<ul>
+  <li>polyhedron is intersection of finite number of halfspaces and hyperplances</li>
+</ul>
+
+<h4 id="the-positive-semidefinite-cone">2.5 The positive semidefinite cone</h4>
+
+<p><strong>positive semidefinite cone</strong>:</p>
+
+<ul>
+  <li>$\mathbf{S}^n$ is set of symmetric $n\times n$ matrices</li>
+  <li><script type="math/tex">\mathbf{S}^n_+=\{X\in\mathbf{S}^n\mid X\succeq0\}</script>: positive semidefinite $n\times n$ matrices <script type="math/tex">X\in\mathbf{S}^n_+ \iff z^TXz \geq 0\ \mathrm{for\ all\ }z</script> $\mathbf{S}^n_+$ is a convex cone</li>
+  <li><script type="math/tex">\mathbf{S}^n_{++}=\{X\in\mathbf{S}^n\mid X\succ0\}</script>: positive definite $n\times n$ matrices</li>
+</ul>
+
+<h3 id="operations-that-preserve-convexity">3. Operations that preserve convexity</h3>
+
+<p><strong>intersection</strong>: the interction of (any number of) convex sets is convex</p>
+
+<p><strong>affine function</strong>: suppose $f: \mathbb{R}^n \rightarrow \mathbb{R}^m$ is affine ($f(x)=Ax+b$ with $A\in\mathbb{R}^{m\times n}, b\in\mathbb{R}^m$)</p>
+
+<ul>
+  <li>the image of a convex set under $f$ is convex</li>
+</ul>
+
+<script type="math/tex; mode=display">S \subseteq \mathbb{R}^n\ convex \Longrightarrow f(S)=\{f(x)\mid x\in S\}\ convex</script>
+
+<ul>
+  <li>the inverse image $f^{-1}(C)$ of a convex set under $f$ is convex</li>
+</ul>
+
+<script type="math/tex; mode=display">C \subseteq \mathbb{R}^m\ convex \Longrightarrow f^{-1}(C)=\{x\in\mathbb{R}^n\mid f(x)\in C\}\ convex</script>
+
+<p><strong>perspective function</strong> $P: \mathbb{R}^{n+1} \rightarrow \mathbb{R}^n$:</p>
+
+<script type="math/tex; mode=display">P(x,t)=x/t, \quad \mathbf{dom}\ P=\{(x,t)\mid t>0\}</script>
+
+<p>images and inverse images of convex sets under perspective are convex</p>
+
+<p><strong>linear-fractional function</strong> $f:\mathbb{R}^n \rightarrow \mathbb{R}^m$:</p>
+
+<script type="math/tex; mode=display">f(x)=\frac{Ax+b}{c^Tx+d}, \quad \mathbf{dom}\ f=\{x\mid c^Tx+d>0\}</script>
+
+<p>images and inverse images of convex sets under linear-fractional functions are convex</p>
+
+<h3 id="generalized-inequalities">4. Generalized Inequalities</h3>
+
+<h4 id="proper-cones-and-generalized-inequalities">4.1 Proper cones and generalized inequalities</h4>
+
+<p>a convex cone $K\subseteq\mathbb{R}^n$ is a <strong>proper cone</strong> if</p>
+
+<ul>
+  <li>$K$ is closed (contains its boundary)</li>
+  <li>$K$ is solid (has nonempty interior)</li>
+  <li>$K$ is pointed (contains no line)</li>
+</ul>
+
+<p><strong>generalized inequality</strong> defined by a proper cone $K$:</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+x \preceq_K y &\iff y-x \in K\\
+x \prec_K y &\iff y-x \in \mathbf{int}\ K
+\end{split} %]]&gt;</script>
+
+<h4 id="minimum-and-minimal-elements">4.2 Minimum and minimal elements</h4>
+
+<p>$x\in S$ is <strong>the minimum element</strong> of $S$ with respect to $\preceq_K$ if</p>
+
+<script type="math/tex; mode=display">y \in S \Longrightarrow x \preceq_K y</script>
+
+<p>$x\in S$ is <strong>a minimal element</strong> of $S$ with respect to $\preceq_K$ if</p>
+
+<script type="math/tex; mode=display">y \in S, y \preceq_K x \Longrightarrow y=x</script>
+
+<h3 id="separating-and-supporting-hyperplanes">5. Separating and Supporting Hyperplanes</h3>
+
+<p><strong>separating hyperplane theorem</strong>: if $C$ and $D$ are disjoint convex sets, then there exists $a\ne0$, $b$ such that</p>
+
+<script type="math/tex; mode=display">a^Tx \le b\ \mathrm{for}\ x\in C,\quad a^Tx\ge b\ \mathrm{for}\ x\in D</script>
+
+<p><strong>supporting hyperplane</strong> to set $C$ at boundary point $x_0$:</p>
+
+<script type="math/tex; mode=display">\{x\mid a^Tx=a^Tx_0\}</script>
+
+<p>where $a\ne0$ and $a^Tx\le a^Tx_0$ for all $x\in C$</p>
+
+<p><strong>supporting hyperplance theorem</strong>: if $C$ is convex, then there exists a supporting hyperplane at every boundary point of $C$</p>
+
+<h3 id="dual-cones-and-generalized-inequalities">6. Dual Cones and Generalized Inequalities</h3>
+
+<h4 id="dual-cones">6.1 Dual cones</h4>
+
+<p><strong>dual cone</strong> of a cone $K$:</p>
+
+<script type="math/tex; mode=display">K^*=\{y\mid y^T x \ge 0\mathrm{\ for\ all\ } x\in K\}</script>
+
+<p>Dual cons satisfy several properties, such as:</p>
+
+<ul>
+  <li>$K^*$ is closed and convex</li>
+  <li>$K_1 \subseteq K_2$ imples $K_2^* \subseteq K_1^*$</li>
+  <li>$K^{**}$ is the closure of the convex hull of $K$ (Hence if $K$ is convex and closed, $K^{**}=K$)</li>
+</ul>
+
+<p>Thsese properties show that if $K$ is a proper cone, then so is its dual $K^{*}$, and moreover, that $K^{**}=K$</p>
+
+<h4 id="dual-generalized-inequalities">6.2 Dual generalized inequalities</h4>
+
+<p>dual cones of proper cones are proper, hence define generalized inequalities:</p>
+
+<script type="math/tex; mode=display">y\succeq_{K^*}0 \iff y^Tx\ge0\mathrm{\ for\ all\ } x\succeq_K0</script>
+
+<p>Some import properties relating a generalized inequality and its dual are:</p>
+
+<ul>
+  <li>$x\preceq_K y$ iff $\lambda^Tx \le \lambda^Ty$ for all $\lambda \succeq_{K^{*}} 0$</li>
+  <li>$x\prec_K y$ iff $\lambda^Tx &lt; \lambda^Ty$ for all $\lambda \succ_{K^{*}} 0, \lambda\ne0$</li>
+</ul>
+
+<p>Since $K=K^{**}$, the dual generalized inequality associated with $\preceq_{K^{*}}$ is $\preceq_K$, so these properties hold if the generalized inequality and its dual are swapped</p>
+
+<h4 id="minimum-and-minimal-elements-via-dual-inequalities">6.3 Minimum and minimal elements via dual inequalities</h4>
+
+<p><strong>dual characterization of minimum element</strong> w.r.t. $\preceq_K$: $X$ is minimum element of $S$ iff for all $\lambda \succ_{K^*}0$, $x$ is the unique minimizer of $\lambda^Tz$ over $z\in S$</p>
+
+<p><strong>dual characterization of minimal element</strong> w.r.t. $\preceq_K$:</p>
+
+<ul>
+  <li>if $x$ minimizes $\lambda^Tz$ over $S$ for some $\lambda \succ_{K^*}0$, then $x$ is minimal</li>
+  <li>if $x$ is a minimal element of a convex set $S$, then there exists a nonzero $\lambda \succeq_{K^*}0$ such that $x$ minimizes $\lambda^Tz$ over $z \in S$</li>
+</ul>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 4: Linear Methods for Classification]]></title>
@@ -2174,103 +2419,6 @@ $(document).ready(function () {
 <ul>
   <li><a href="https://www.kaggle.com/c/home-depot-product-search-relevance">Kaggle: Home Depot Product Search Relevance</a>: Top 10%. (<a href="http://billy-inn.github.io/papers/cmput690.pdf">Report</a>)</li>
 </ul>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Machine Learning Basics(1): Linear Regression]]></title>
-    <link href="http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression/"/>
-    <updated>2015-12-23T16:56:20-07:00</updated>
-    <id>http://billy-inn.github.io/blog/2015/12/23/machine-learning-basics-1-linear-regression</id>
-    <content type="html"><![CDATA[<p>As a beginner in machine learning, I plan to sketch out my learning process. And it will be my first post in this series.</p>
-
-<h3 id="definition">1. Definition</h3>
-
-<p>We have an input vector $X^T=(X_1, X_2, \dots, X_p)$ and want to predict a real-valued output $Y$. The linear regression model has the form</p>
-
-<script type="math/tex; mode=display">f(X)=\beta_0 + \sum_{j=1}^pX_j\beta_j.\quad(1.1)</script>
-
-<p>Here the $\beta_j$’s are unknown parameters or coefficients.</p>
-
-<!--more-->
-
-<h3 id="least-squares">2. Least Squares</h3>
-
-<p>Typically we have a set of training data $(x_1,y_1)\dots(x_N,y_N)$ from which to estimate the parameters $\beta$. The most popular estimation method is least squares, in which we pick the coefficients $\beta=(
-\beta_0, \beta_1, \dots, \beta_p)^T$ to minimize the residual sum of squares (RSS)</p>
-
-<script type="math/tex; mode=display">RSS(\beta)=\sum_{i=1}^N(y_i-f(x_i))^2.\quad(2.1)</script>
-
-<p>How do we minimize $(2.1)$? This is an important question with a beautiful answer. The best $\beta$ can be found by geometry or algebra or calculus. Let’s explain the three approaches one by one.</p>
-
-<h4 id="calculus-interpretation">Calculus Interpretation</h4>
-
-<p>Denote by $\mathbf{X}$ the $N\times (p+1)$ matrix with each row an input vector (with a 1 in the first position). We can rewrite $(2.1)$ in the matrix form as</p>
-
-<script type="math/tex; mode=display">RSS(\beta)=(\mathbf{y}-\mathbf{X}\beta)^T(\mathbf{y}-\mathbf{X}\beta).\quad(2.2)</script>
-
-<p>This is a quadratic function in the $p+1$ parameters. Differentating with respect to $\beta$ we obtain</p>
-
-<script type="math/tex; mode=display">\frac{\partial RSS}{\partial\beta}=-2\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta).\quad(2.3)</script>
-
-<p>In order to get the minimum RSS, we set the first derivative to zero</p>
-
-<script type="math/tex; mode=display">\mathbf{X}^T(\mathbf{y}-\mathbf{X}\beta)=0\quad(2.4)</script>
-
-<p>to obtain the unique solution</p>
-
-<script type="math/tex; mode=display">\hat\beta = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}.\quad(2.5)</script>
-
-<p>The fitted values are</p>
-
-<script type="math/tex; mode=display">\mathbf{\hat y}=\mathbf{X}\hat\beta=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}.\quad(2.6)</script>
-
-<p>One thing which should be noticed is that it’s wrong to split $(\mathbf{X}^T\mathbf{X})^{-1}$ into $\mathbf{X}^{-1}$ times $\mathbf{X}$ and cancel the terms before $\mathbf{y}$ in $(2.6)$. The matrix $\mathbf{X}$ is rectangualr and has no inverse matrix. And if $\mathbf{X}$ is square and invertible, $\mathbf{\hat y}$ is exactly $\mathbf{y}$ just as $(2.6)$ shows.</p>
-
-<p>Someone may be confused by how to get $(2.3)$ by $(2.2)$ just as I once experienced. Actually, the easiest way to figure it out is to differentiate with respect to each $\beta_j$ respectively</p>
-
-<script type="math/tex; mode=display">% &lt;![CDATA[
-\begin{split}\frac{\partial RSS}{\partial\beta_j}&=\frac{\partial}{\partial\beta_j}\sum_{i=1}^N\left(y_i-\sum_{j=0}^px_{ij}\beta_j\right)^2 \\
-&=-2\sum_{i=1}^Nx_{ij}\left(y_i-\sum_{j=0}^px_{ij}\beta_j\right). \\
-\end{split} %]]&gt;</script>
-
-<p>Then, we put all the derivatives together and rewrite it in matrix form to get $(2.3)$.</p>
-
-<h4 id="geometry-interpretation">Geometry Interpretation</h4>
-
-<p><img src="http://billy-inn.github.io/images/LinearRegression1.png" alt="Alt text" /></p>
-
-<p>The picture above shows a direct gemotrical representation of the least squares estimate with two predictors. It’s convenient to extend this to the case with more predictors. We denote the column vectors of $X$ by $\mathbf{x}_0,\mathbf{x}_1,\dots,\mathbf{x}_p$ with $\mathbf{x}_0 \equiv 1$. These vectors span a subspace of $\mathbb{R}^N$, also referred to as the column space of $\mathbf{X}$. We minimize $RSS(\beta)=\lVert\mathbf{y}-\mathbf{X}\beta\rVert^2$ by choosing $\hat \beta$ so that the residual vector $\mathbf{y}-\mathbf{\hat y}$ is orthogonal to this subspace. This orthogonality is expressed in $(2.4)$, and the resulting estimate $\mathbf{\hat y}$ is hence the orthogonal projection of $\mathbf y$ onto this subspace.</p>
-
-<h4 id="algebra-interpretation">Algebra Interpretation</h4>
-
-<p>In the world of linear algebra, we will also view our problem from a perspective of algebra. Now we reformulate the problem as to solve the linear equations system $\mathbf{X}\beta=\mathbf{y}$. If you are somewhat familar with linear algebra, you can try to use elimination to solve it. Unfortunately, it has no solution typically due to there are more equations than unknowns ($n$ is larger than $p$).</p>
-
-<p>Instead, we hope that the length of error $\mathbf{e}=\mathbf{y}-\mathbf{X}\hat\beta$ is as small as possible. And the corresponding $\hat\beta$ is a least squares solution.</p>
-
-<p>When $\mathbf{X}\beta=\mathbf{y}$ has no solution, we can multiply by $\mathbf{X}^T$ and solve $\mathbf{X}^T\mathbf{X}\beta=\mathbf{X}^T\mathbf{y}$. And it yields the solution from calculus exactly. In the language of algebra, we can split the $\mathbf{y}$ into two parts as $\mathbf{p}+\mathbf{e}$. The part in the column space is $\mathbf{p}$. The perpendicular part in the nullspace of $\mathbf{X}^T$ is $\mathbf{e}$. There is an equation we cannot solve ($\mathbf{X}\beta=\mathbf{y}$). There is an equation $\mathbf{X}\hat\beta=\mathbf{p}$ we do solve. And the solution to $\mathbf{X}\hat\beta=\mathbf{p}$ leaves the least possible error. How do we choose $\mathbf{p}$ in the column space? Just as the geometry part tells us, the projection of $\mathbf{y}$ onto the column space!</p>
-
-<p>Ok, now the three interpretations come together and form a complete picture for the least squares.</p>
-
-<p>Wait a minute, there is still one more question. It might happen that that the columns of $\mathbf{X}$ are not linearly independent, so that $\mathbf{X}$ is not of full rank. Then $\mathbf{X}^T\mathbf{X}$ is singular and the least squares coefficients $\hat\beta$ are not uniquely defined. However, the fitted values $\mathbf{\hat y}=\mathbf{X}\hat\beta$ are still the projection of $\mathbf{y}$ onto the column space of $\mathbf{X}$; there is just more than one way to express that projections in terms of the column vectors of $\mathbf{X}$.</p>
-
-<h3 id="implementations">3. Implementations</h3>
-
-<p>The implementations is extremely easy in a language like <strong>R</strong>, even without specific packages. The core code is shown below:</p>
-
-<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
-<span class="line-number">2</span>
-<span class="line-number">3</span>
-</pre></td><td class="code"><pre><code class="r"><span class="line"><span class="kn">library</span><span class="p">(</span>MASS<span class="p">)</span>
-</span><span class="line">betaHat <span class="o">&lt;-</span> ginv<span class="p">(</span><span class="kp">t</span><span class="p">(</span>X<span class="p">)</span> <span class="o">%*%</span> X<span class="p">)</span> <span class="o">%*%</span> <span class="kp">t</span><span class="p">(</span>X<span class="p">)</span> <span class="o">%*%</span> y
-</span><span class="line">yhat <span class="o">&lt;-</span> X <span class="o">%*%</span> betaHat
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-
-<p>You can also use packages like <em>lm</em> in <strong>R</strong>. It provides not only $\hat\beta$ but also a lot sophisticated coefficients.</p>
-
-<h3 id="taste-on-statistics">4. Taste on Statistics</h3>
-
-<p><strong><em>To be continued</em></strong></p>
 ]]></content>
   </entry>
   

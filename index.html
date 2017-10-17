@@ -9,7 +9,7 @@
   <meta name="author" content="Peng Xu">
 
   
-  <meta name="description" content="4.3 Linear Discriminant Analysis Derivation of Equation (4.9) For that each class’s density follows multivariate Gaussian Take the logarithm of $f_k( &hellip;">
+  <meta name="description" content="1. Affine and Convex Sets Suppose $x_1\ne x_2$ are two points in $\mathbb{R}^n$. 1.1 Affine sets line through $x_1$, $x_2$: all points affine set: &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,55 @@
 
 <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/10/17/convex-optimization-1/">Notes on Convex Optimization (1): Convex Sets</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-10-17T00:22:23-06:00'><span class='date'>2017-10-17</span> <span class='time'>12:22 am</span></time>
+        
+           | <a href="/blog/2017/10/17/convex-optimization-1/#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io/blog/2017/10/17/convex-optimization-1/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3 id="affine-and-convex-sets">1. Affine and Convex Sets</h3>
+
+<p>Suppose $x_1\ne x_2$ are two points in $\mathbb{R}^n$.</p>
+
+<h4 id="affine-sets">1.1 Affine sets</h4>
+
+<p><strong>line</strong> through $x_1$, $x_2$: all points</p>
+
+<script type="math/tex; mode=display">x=\theta x_1 + (1-\theta)x_2\quad(\theta \in \mathbb{R})</script>
+
+<p><strong>affine set</strong>: contains the line through any two distinct points in the set</p>
+
+<script type="math/tex; mode=display">x_1,x_2\in C,\ \theta\in\mathbb{R} \Longrightarrow \theta x_1 + (1-\theta)x_2 \in C</script>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2017/10/17/convex-optimization-1/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -550,51 +599,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/">Notes on Reinforcement Learning (3): Monte Carlo Methods</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-10-14T16:07:35-06:00'><span class='date'>2016-10-14</span> <span class='time'>4:07 pm</span></time>
-        
-           | <a href="/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/#disqus_thread"
-             data-disqus-identifier="http://billy-inn.github.io/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Monte Carlo methods are ways of solving the reinforcement learning problem based on averaging sample returns. To ensure that well-defined returns are available, here we define Monte Carlo methods only for episodic tasks.</p>
-
-<h3 id="monte-carlo-prediction">Monte Carlo Prediction</h3>
-
-<p>An obvious way to estimate the state-value function which is the expected return starting from that state from experience, is to average the returns observed after visits to that state. This idea underlies all Monte Carlo methods.</p>
-
-<p>In particular, suppose we wish to estimate $v_\pi(s)$, the value of a state $s$ under policy $\pi$, given a set of episodes obtained by following $\pi$ and passing through $s$. Each occurrence of state $s$ in an episode is called a visit to $s$. The first-visit MC method estimates $v_\pi(s)$ as the average of the returns following from first visits to $s$, whereas every-visit MC method averages the returns following all visits to $s$.</p>
-
-<p><img src="/images/rl3.1.png" alt="Alt text" /></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -628,6 +632,7 @@
 	<li class="nav-header">Categories</li>
 	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
 <li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (8)</a></li>
+<li class='category'><a href='/blog/categories/optimization/'>optimization (1)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
 <li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
 <li class='category'><a href='/blog/categories/reading/'>reading (2)</a></li>
@@ -639,6 +644,10 @@
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/10/17/convex-optimization-1/">Notes on Convex Optimization (1): Convex Sets</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/10/15/esl-chapter-4/">[Notes on Mathematics for ESL] Chapter 4: Linear Methods for Classification</a>
@@ -654,10 +663,6 @@
     
       <li class="post">
         <a href="/blog/2017/08/17/lln-and-clt/">统计释疑(3)：大数定理和中心极限定理</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/08/09/probability-inequalities/">统计释疑(2)：概率不等式有什么用？</a>
       </li>
     
   </ul>
