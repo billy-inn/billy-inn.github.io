@@ -4,7 +4,7 @@
   <title><![CDATA[Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2017-10-17T00:41:18-06:00</updated>
+  <updated>2017-10-21T12:11:09-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,261 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Notes on Convex Optimization (2): Convex Functions]]></title>
+    <link href="http://billy-inn.github.io/blog/2017/10/21/convex-optimization-2/"/>
+    <updated>2017-10-21T11:59:09-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/10/21/convex-optimization-2</id>
+    <content type="html"><![CDATA[<h3 id="basic-properties-and-examples">1. Basic Properties and Examples</h3>
+
+<h4 id="definition">1.1 Definition</h4>
+
+<p>$f:\mathbb{R}^n \rightarrow \mathbb R$ is convex if $\mathbf{dom}\ f$ is a convex set and</p>
+
+<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\le\theta f(x)+(1-\theta)f(y)</script>
+
+<p>for all $x,y\in \mathbf{dom}\ f, 0\le\theta\le1$</p>
+
+<ul>
+  <li>$f$ is concave if $-f$ is convex</li>
+  <li>$f$ is strictly convex if $\mathbf{dom}\ f$ is convex and <script type="math/tex">% &lt;![CDATA[
+f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]&gt;</script> for $x,y\in\mathbf{dom}\ f,x\ne y, 0&lt;\theta&lt;1$</li>
+</ul>
+
+<p>$f:\mathbb{R}^n \rightarrow \mathbb R$ is convex if and only if the function $g: \mathbb{R} \rightarrow \mathbb{R}$,</p>
+
+<script type="math/tex; mode=display">g(t)=f(x+tv),\quad\mathbf{dom}\ g=\{t\mid x+tv\in\mathbf{dom}\ f\}</script>
+
+<p>is convex (in $t$) for any $x \in \mathbf{dom}\ f, v\in\mathbb R^n$</p>
+
+<!--more-->
+
+<h4 id="extended-value-extensions">1.2 Extended-value extensions</h4>
+
+<p>extended-value extension $\tilde f$ of $f$ is</p>
+
+<script type="math/tex; mode=display">\tilde f(x)=f(x),x\in\mathbf{dom}\ f; \tilde f(x)=\infty,x\ne \mathbf{dom}\ f</script>
+
+<h4 id="first-order-conditions">1.3 First-order conditions</h4>
+
+<p><strong>1st-order condition</strong>: differentiable $f$ with convex domain is convex iff</p>
+
+<script type="math/tex; mode=display">f(y)\ge f(x)+\nabla f(x)^T(y-x)\mathrm{\ for\ all\ } x,y\in\mathbf{dom}\ f</script>
+
+<h4 id="second-order-conditions">1.4 Second-order conditions</h4>
+
+<p><strong>2nd-order conditions</strong>: for twice differentiable $f$ with convex domain
+- $f$ if convex if and only if
+<script type="math/tex">\nabla^2f(x)\succeq0\mathrm{\ for\ all\ } x\in\mathbf{dom}\ f</script>
+- if $\nabla^2f(x)\succ0$ for all $x\in\mathbf{dom}\ f$, then $f$ is strictly convex</p>
+
+<h4 id="sublevel-sets-and-epigraph">1.5 Sublevel sets and epigraph</h4>
+
+<p>$\alpha$<strong>-sublevel set</strong> of $f: \mathbb R^n \rightarrow \mathbb R$:</p>
+
+<script type="math/tex; mode=display">C_\alpha=\{x\in\mathbf{dom}\ f \mid f(x)\le\alpha\}</script>
+
+<p>sublevel sets of convex functions are convex (converse if false)</p>
+
+<p>If $f$ is concave, then its $\alpha$<strong>-superlevel set</strong>, given by ${x\in\mathbf{dom}\ f\mid f(x)\le\alpha}$, is a convex set</p>
+
+<p><strong>epigraph</strong> of $f:\mathbb R^n \rightarrow \mathbb R$:</p>
+
+<script type="math/tex; mode=display">\mathbf{epi}\ f=\{(x,t)\in\mathbb R^{n+1}\mid x\in\mathbf{dom}\ f,f(x)\le t\}</script>
+
+<p>$f$ is convex if and only if $\mathbf{epi}\ f$ is a convex set</p>
+
+<p>$f$ is concave if and only if its <strong>hypograph</strong>, defined as</p>
+
+<script type="math/tex; mode=display">\mathbf{hypo}\ f= \{(x,t)\in\mathbb R^{n+1}\mid x\in\mathbf{dom}\ f,f(x)\ge t\}</script>
+
+<p>is a convex set</p>
+
+<h4 id="jensens-inequality-and-extensions">1.6 Jensen’s inequality and extensions</h4>
+
+<p><strong>Jensen’s Inequality</strong>: if $f$ is convex, then for $0\le\theta\le1$,</p>
+
+<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\le\theta f(x)+(1-\theta)f(y)</script>
+
+<p><strong>extension</strong>: if $f$ is convex, then</p>
+
+<script type="math/tex; mode=display">f(\mathbb E z)\le \mathbb Ef(z)</script>
+
+<p>for any random variable $z$</p>
+
+<h3 id="operations-that-preserve-convexity">2. Operations that Preserve Convexity</h3>
+
+<h4 id="positive-weighted-sum--composition-with-affine-function">2.1 Positive weighted sum &amp; composition with affine function</h4>
+
+<p><strong>nonnegative multiple</strong>: $\alpha f$ is convex if $f$ is convex, $\alpha \ge 0$</p>
+
+<p><strong>sum</strong>: $f_1+f_2$ convex if $f_1,f_2$ convex (extends to infinite sums, integrals)</p>
+
+<p><strong>composition with affine function</strong>: $f(Ax+b)$ is convex if $f$ is convex</p>
+
+<h4 id="pointwise-maximum">2.2 Pointwise maximum</h4>
+
+<p><strong>pointwise maximum</strong>: if $f_1,\dots,f_m$ are convex, then $f(x)=\max{f_1(x),\dots,f_m(x)}$ is convex</p>
+
+<p><strong>pointwise supermum</strong>: if $f(x,y)$ is convex in $x$ for each $y\in\mathcal{A}$, then</p>
+
+<script type="math/tex; mode=display">g(x)=\sup_{y\in\mathcal{A}}f(x,y)</script>
+
+<p>is convex</p>
+
+<p>similarly, the <strong>pointwise infimum</strong> of a set of concave functions is a concave function</p>
+
+<h4 id="composition">2.3 Composition</h4>
+
+<p><strong>composition with scalar functions</strong>: composition of $g: \mathbb R^n \rightarrow \mathbb R$ and $h: \mathbb R\rightarrow \mathbb R$:</p>
+
+<script type="math/tex; mode=display">f(x)=h(g(x))</script>
+
+<p>$f$ is convex if $g$ convex, $h$ convex, $\tilde h$ nondecreasing; $g$ concave, $h$ convex, $\tilde h$ nonincreasing</p>
+
+<p>Note: monotonicity must hold for extended-value extension $\tilde h$</p>
+
+<p><strong>vector composition</strong>: composition of $g:\mathbb R^n \rightarrow \mathbb R^k$ and $h:\mathbb R^k \rightarrow \mathbb R$:</p>
+
+<script type="math/tex; mode=display">f(x)=h(g(x))=h(g_1(x),g_2(x),\dots,g_k(x))</script>
+
+<p>$f$ is convex if $g_i$ convex, $h$ convex, $\tilde h$ nondecreasing in each argument; $g$ concave, $h$ convex, $\tilde h$ nonincreasing in each argument</p>
+
+<h4 id="minimization">2.4 Minimization</h4>
+
+<p><strong>minimization</strong>: if $f(x,y)$ is convex in $(x,y)$ and $C$ is a convex set then</p>
+
+<script type="math/tex; mode=display">g(x)=\inf_{y\in C}f(x,y)</script>
+
+<p>is convex</p>
+
+<h4 id="perspective-of-a-function">2.5 Perspective of a function</h4>
+
+<p><strong>perspective</strong>: the <strong>perspective</strong> of a function $f:\mathbb R^n \rightarrow \mathbb R$ is the function $g:\mathbb R^n \times \mathbb R \rightarrow \mathbb R$,</p>
+
+<script type="math/tex; mode=display">g(x,t)=tf(x/t),\mathbf{dom}\ g=\{(x,t)\mid x/t\in\mathbf{dom}\ f,t>0\}</script>
+
+<p>$g$ is convex if $f$ is convex</p>
+
+<h3 id="the-conjugate-function">3. The Conjugate Function</h3>
+
+<h4 id="definition-1">3.1 Definition</h4>
+
+<p>the <strong>conjugate</strong> of a function $f$ is</p>
+
+<script type="math/tex; mode=display">f^*(y)=\sup_{x\in\mathbf{dom}\ f}(y^Tx-f(x))</script>
+
+<ul>
+  <li>$f^*$ is convex whether or not $f$ is convex</li>
+</ul>
+
+<h4 id="basic-properties">3.2 Basic properties</h4>
+
+<p><strong>conjugate of the conjugate</strong>: if $f$ is convex and closed, then $f^{**}=f$</p>
+
+<p><strong>differentiable functions</strong>: The conjugate of a differentiable function $f$ is also called the <em>Legendre transform</em> of $f$. Let $z\in\mathbb{R}^n$ be arbitrary and define $y=\nabla f(z)$, then we have</p>
+
+<script type="math/tex; mode=display">f^*(y)=z^T\nabla f(z)-f(z)</script>
+
+<p><strong>scaling and composition with affline transformation</strong>: 
+For $a&gt;0$ and $b\in\mathbb{R}$, the conjugate of $g(x)=af(x)+b$ is $g^*(y)=af^*(y/a)-b$.</p>
+
+<p>Suppose $A\in\mathbb{R}^{n\times n}$ is nonsingular and $b\in\mathbb{R}^n$. Then the conjugate of $g(x)=f(Ax+b)$ is</p>
+
+<script type="math/tex; mode=display">g^*(y)=f^*(A^{-T}y)-b^TA^{-T}y</script>
+
+<p>with $\mathbf{dom}\ g^*=A^T\mathbf{dom}\ f^*$</p>
+
+<p><strong>sums of independent functions</strong>: if $f(u,v)=f_1(u)+f_2(v)$, where $f_1$ and $f_2$ are convex functions with conjugates $f_1^*$ and $f_2^*$, respectively, then</p>
+
+<script type="math/tex; mode=display">f^*(w,z)=f_1^*(w)+f_2^*(z)</script>
+
+<h3 id="quasiconvex-functions">4. Quasiconvex Functions</h3>
+
+<p>$f:\mathbb R^n\rightarrow \mathbb R$ is quasiconvex if $\mathbf{dom}\ f$ is convex and the sublevel sets</p>
+
+<script type="math/tex; mode=display">S_{\alpha}=\{x\in\mathbf{dom}\ f\mid f(x)\le\alpha\}</script>
+
+<p>are convex for all $\alpha$</p>
+
+<ul>
+  <li>$f$ is quasiconcave if $-f$ is quasiconvex</li>
+  <li>$f$ is quasilinear if it is quasiconvex and quasiconcave</li>
+  <li>convex functions are quasiconvex, but the converse is not true</li>
+</ul>
+
+<p><strong>modified Jensen inequality</strong>: for quasiconvex $f$</p>
+
+<script type="math/tex; mode=display">0\le\theta\le1\Longrightarrow f(\theta x+(1-\theta)y)\le\max\{f(x),f(y)\}</script>
+
+<p><strong>first-order condition</strong>: differentiable $f$ with convex domain is quasiconvex iff</p>
+
+<script type="math/tex; mode=display">f(y)\le f(x)\Longrightarrow\nabla f(x)^T(y-x)\le0</script>
+
+<p><strong>operations that preserve quasiconvexity</strong>:</p>
+
+<ul>
+  <li>nonnegative weighted maximum</li>
+  <li>composition</li>
+  <li>minimization</li>
+</ul>
+
+<p><strong>sum</strong> of quasiconvex functions are not necessarily quasiconvex</p>
+
+<h3 id="log-concave-and-log-convex-functions">5. Log-concave and Log-convex Functions</h3>
+
+<p>a positive function $f$ is log-concave if $\log f$ is concave:</p>
+
+<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\ge f(x)^\theta f(y)^{1-\theta}\mathrm{\ for\ }0\le\theta\le1</script>
+
+<p>$f$ is log-convex if $\log f$ is convex</p>
+
+<p><strong>properties of log-concave functions</strong>:</p>
+
+<ul>
+  <li>twice differentiable $f$ with convex domain is log-concave iff</li>
+</ul>
+
+<script type="math/tex; mode=display">f(x)\nabla^2f(x)\preceq\nabla f(x)\nabla f(x)^T</script>
+
+<p>for all $x\in\mathbf{dom}\ f$</p>
+
+<ul>
+  <li>product of log-concave functions is log-concave</li>
+  <li>sum of log-concave functions is not always log-concave; however, log-convexity is preserved under sums</li>
+  <li>integration: if $f:\mathbb R^n\times\mathbb R^m \rightarrow \mathbb R$ is log-concave, then</li>
+</ul>
+
+<script type="math/tex; mode=display">g(x)=\int f(x,y)dy</script>
+
+<p>is log-concave</p>
+
+<p><strong>consequences of integration property</strong>:</p>
+
+<ul>
+  <li>convolution $f*g$ of log-concave functions $f,g$ is log-concave</li>
+</ul>
+
+<script type="math/tex; mode=display">(f*g)(x)=\int f(x-y)g(y)dy</script>
+
+<ul>
+  <li>if $C\subseteq \mathbb R^n$ convex and $y$ is a random variable with log-concave pdf then</li>
+</ul>
+
+<script type="math/tex; mode=display">f(x)=\mathbf{prob}(x+y\in C)</script>
+
+<p>is log-concave</p>
+
+<h3 id="convexity-wrt-generalized-inequalities">6. Convexity w.r.t. Generalized Inequalities</h3>
+
+<p>$f:\mathbb{R}^n\rightarrow\mathbb{R}^m$ is $K$-convex if $\mathbf{dom}\ f$ is convex and</p>
+
+<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\preceq_K\theta f(x)+(1-\theta)f(y)</script>
+
+<p>for $x,y\in\mathbf{dom}\ f,0\le\theta\le1$</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Notes on Convex Optimization (1): Convex Sets]]></title>
@@ -2272,152 +2527,6 @@ $(document).ready(function () {
 
 <ul>
   <li>Submit the code and complete the final evaluations.</li>
-</ul>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Trace of My Study on Machine Learning]]></title>
-    <link href="http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning/"/>
-    <updated>2015-12-27T17:38:14-07:00</updated>
-    <id>http://billy-inn.github.io/blog/2015/12/27/trace-of-my-study-on-machine-learning</id>
-    <content type="html"><![CDATA[<p>This blog will record the timeline, resources, projects along the way of my study on machine learning since 2015. And I will keep updating this blog.</p>
-
-<h3 id="mathematics">Mathematics</h3>
-
-<ul>
-  <li>Basics: better to review before real study of ML
-    <ul>
-      <li>Calculus</li>
-      <li>Linear Algebra
-        <ul>
-          <li><a href="http://math.mit.edu/~gs/linearalgebra/">Introduction to Linear Algebra</a>: a nice textbook in linear algebra (<strong>First Pass</strong> in <em>Dec, 2015</em>).</li>
-          <li><a href="https://www.youtube.com/watch?v=ZK3O402wf1c&amp;list=PLE7DDD91010BC51F8">MIT 18.06</a>: Linear algebra (<strong>Completed</strong> in <em>Dec, 2015</em>).</li>
-        </ul>
-      </li>
-      <li>Probability Theory</li>
-    </ul>
-  </li>
-  <li>Reference
-    <ul>
-      <li><a href="http://www.springer.com/us/book/9783662462201">Handbook of Mathematics</a>: an amazing reference book of mathematics.</li>
-    </ul>
-  </li>
-  <li>Statistics
-    <ul>
-      <li><a href="http://www.stat.cmu.edu/~larry/all-of-statistics/">All of Statistics</a>: A textbook appealing to MLers (<strong>First Pass</strong> in <em>Aug, 2017</em>).</li>
-      <li><a href="http://www.amazon.com/Statistical-Inference-George-Casella/dp/0534243126">Statistical Inference</a>: Classic textbook.</li>
-      <li><a href="http://www.stat.cmu.edu/~larry/=stat705/">CMU 10-705</a>: Intermediate Statistics (<strong>Completed</strong> in <em>Aug, 2017</em>).</li>
-      <li>Post Series: Doubt Clarification for Statistics (In <em>Chinese</em>)
-        <ul>
-          <li>1. <a href="http://billy-inn.github.io/blog/2017/07/28/p-value/">What is p-value?</a></li>
-          <li>2. <a href="http://billy-inn.github.io/blog/2017/08/09/probability-inequalities/">What’s the usage of probability inequalities</a></li>
-          <li>3. <a href="http://billy-inn.github.io/blog/2017/08/17/lln-and-clt/">Law of Large Numbers and Central Limit Theorem</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Optimization
-    <ul>
-      <li><a href="http://web.stanford.edu/~boyd/cvxbook/">Convex Optimization</a>: Classic textbook.</li>
-      <li><a href="http://stanford.edu/class/ee364a/index.html">Stanford EE364a</a>: Convex Optimization.</li>
-    </ul>
-  </li>
-  <li>Advanced Topics on Linear Algebra
-    <ul>
-      <li><a href="http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/3274/pdf/imm3274.pdf">The Matrix Cookbook</a>: Ongoing</li>
-      <li><a href="https://www.amazon.ca/Matrix-Analysis-Roger-Horn/dp/0521548233">Matrix Analysis</a>: Ongoing</li>
-    </ul>
-  </li>
-</ul>
-
-<!--more-->
-
-<h3 id="statistical-machine-learning">Statistical Machine Learning</h3>
-
-<ul>
-  <li><a href="https://www.coursera.org/learn/machine-learning">Coursera: Machine Learning</a>: Introduction to machine learning. (<a href="http://billy-inn.github.io/certificates/ml.pdf">Certificate</a>)</li>
-  <li><a href="https://lagunita.stanford.edu/courses/HumanitiesandScience/StatLearning/Winter2015/info">StanfordOnline: Statistical Learning</a>: Introduction to statistical learning and <strong>R</strong>. (<a href="http://billy-inn.github.io/certificates/sl.pdf">Certificate</a>)</li>
-  <li><a href="https://www.ualberta.ca/computing-science/undergraduate-studies/course-directory/courses/machine-learning">UAlberta CMPUT 466/551</a>: Machine Learning. I’m one of TAs in this course.
-    <ul>
-      <li>Post Series: ML with R
-        <ul>
-          <li>1. <a href="http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression/">Linear Regression</a></li>
-          <li>2. <a href="http://billy-inn.github.io/blog/2016/09/14/ml-with-r-2-regularized-linear-regression/">Regularized Linear Regression</a></li>
-          <li>3. <a href="http://billy-inn.github.io/blog/2016/09/20/ml-with-r-3-logistic-regression/">Logistic Regression</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="http://statweb.stanford.edu/~tibs/ElemStatLearn/">The Elements of Statistical Learning</a>: Ongoing
-    <ul>
-      <li><a href="http://waxworksmath.com/Authors/G_M/Hastie/hastie.html">Manual</a>: Figure out the mathematical details.</li>
-      <li><a href="https://cran.r-project.org/web/packages/ElemStatLearn/index.html">R package “ElemStatLearn”</a>: Contain data sets, functions and examples from the book.</li>
-      <li><a href="https://github.com/billy-inn/ElemStatLearn">My code</a>: Exercises and experiment reimplementations in <strong>R</strong>.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="probabilistic-graphical-models">Probabilistic Graphical Models:</h3>
-
-<ul>
-  <li><a href="https://uofa.ualberta.ca/computing-science/graduate-studies/course-directory/courses/probabilistic-graphical-models">UAlberta CMPUT 659</a>: Probabilistic Graphical Models. Graduate course in University of Alberta based on Coursera course instructed by <a href="http://ai.stanford.edu/users/koller/">Koller</a> (<a href="http://billy-inn.github.io/papers/cmput659.pdf">Report: A Topic Model of Genetic Mutations in Cancer</a>, <strong>Completed</strong> in <em>Apr, 2016</em>).</li>
-  <li><a href="http://www.cs.cmu.edu/~epxing/Class/10708-15/lecture.html">CMU 10-708</a>: Probabilistic Graphical Models.</li>
-  <li><a href="http://pgm.stanford.edu/">Probabilistic Graphical Models: Principles and Techniques</a>: Classic textbook for probabilistic graphical models. I’ve read a few chapters of it and gave up. This book is somewhat too mathematical and I will not recommend this book for beginners in PGM.</li>
-  <li><a href="https://github.com/jmschrei/pomegranate">Pomegranate</a>: A Python package for PGM. Nice tutorials for beginners in PGM!</li>
-</ul>
-
-<h3 id="deep-learning">Deep Learning</h3>
-
-<ul>
-  <li><a href="http://neuralnetworksanddeeplearning.com/index.html">Neural Network and Deep Learning</a>: Nice online tutorial for beginners in deep learning (<strong>Completed</strong> in <em>Sep, 2016</em>).</li>
-  <li><a href="https://www.coursera.org/learn/neural-networks">Coursera: Neural Networks for Machine Learning</a>: Excellent course for beginners in neural networks. (<a href="http://billy-inn.github.io/certificates/NN4ML.pdf">Certificate</a>)</li>
-  <li><a href="http://cs224d.stanford.edu/">Stanford CS224d</a>: Deep Learning for Natural Language Processing (<strong>Completed</strong> in <em>Apr, 2017</em>).</li>
-  <li><a href="http://vision.stanford.edu/teaching/cs231n/index.html">Stanford CS231n</a>: Convolutional Neural Networks for Visual Recognition.</li>
-  <li><a href="http://www.deeplearningbook.org/">Deep Learning Book</a>: Ongoing.</li>
-  <li><a href="https://www.tensorflow.org/">TensorFlow</a>: Large amount of high-quality tutorials and well-coded recent advances in DL. Most applicable scenario: research.</li>
-  <li><a href="https://github.com/dmlc/mxnet">Mxnet</a>: High performance. Most applicable scenario: industry.</li>
-  <li><a href="https://keras.io/">Keras</a>: High-level, easy to use. Most applicable scenario: competitions like Kaggle.</li>
-</ul>
-
-<h3 id="large-scale-machine-learning">Large Scale Machine Learning</h3>
-
-<ul>
-  <li><a href="https://courses.edx.org/courses/BerkeleyX/CS100.1x/1T2015/info">edX: Introduction to Big Data with Apache Spark</a>: Introduction to Spark in <strong>Python</strong>. (<a href="http://billy-inn.github.io/certificates/spark.pdf">Certificate</a>)</li>
-  <li><a href="https://courses.edx.org/courses/BerkeleyX/CS190.1x/1T2015/info">edX: Scalable Machine Learning</a>: Explore deeper usage of Spark on large scale machine learning. (<a href="http://billy-inn.github.io/certificates/scalableML.pdf">Certificate</a>)</li>
-  <li><a href="https://www.coursera.org/learn/progfun1/">Coursera: Functional Programming Principles in Scala</a>: Introduction to <strong>Scala</strong>. (<a href="http://billy-inn.github.io/certificates/fpp.pdf">Certificate</a>)</li>
-  <li><a href="https://www.coursera.org/learn/progfun2">Coursera: Functional Program Design in Scala</a>: Further study on <strong>Scala</strong>. (<a href="http://billy-inn.github.io/certificates/fpd.pdf">Certificate</a>)</li>
-  <li><a href="https://www.coursera.org/learn/parprog1">Coursera: Parallel Programming</a>: Parallel computing in <strong>Scala</strong>. (<a href="http://billy-inn.github.io/certificates/pp.pdf">Certificate</a>)</li>
-  <li><a href="https://www.coursera.org/learn/scala-spark-big-data">Coursera: Big Data Analysis with Scala and Spark</a>: Intro to <strong>Spark</strong> with <strong>Scala</strong>. (<a href="http://billy-inn.github.io/certificates/ScalaAndSpark.pdf">Certificate</a>)</li>
-  <li><a href="https://www.coursera.org/learn/scala-spark-big-data">Coursera: Big Data Analysis with Scala and Spark</a>: Intro to <strong>Spark</strong> with <strong>Scala</strong>. (<a href="http://billy-inn.github.io/certificates/ScalaAndSpark.pdf">Certificate</a>)</li>
-  <li><a href="https://www.coursera.org/learn/scala-capstone">Coursera: Functional Programming in Scala Capstone</a>: Capstone project for <strong>Scala</strong>. (<a href="http://billy-inn.github.io/certificates/ScalaCapstone.pdf">Certificate</a>)</li>
-</ul>
-
-<h3 id="reinforcement-learning">Reinforcement Learning</h3>
-
-<ul>
-  <li><a href="https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai">UAlberta CMPUT 609</a>: Reinforcement Learning. Graduate course in UofA instructed by <a href="https://webdocs.cs.ualberta.ca/~sutton/">Sutton</a>. (<a href="http://billy-inn.github.io/papers/cmput609.pdf">Report: Investigation on Deep Reinforcement Learning Methods for Classical Control Problems</a>, <strong>Completed</strong> in <em>Dec, 2016</em>).</li>
-  <li><a href="https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html">Introduction to Reinforcement Learning</a>: Classic textbook, recommended for beginners in RL (<strong>First Pass</strong> in <em>Dec, 2016</em>).</li>
-  <li>Post Series: Notes on Reinforcement Learning
-    <ul>
-      <li>1. <a href="http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Finite Markov Decision Processes</a></li>
-      <li>2. <a href="http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Dynamic Programming</a></li>
-      <li>3. <a href="http://billy-inn.github.io/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/">Monte Carlo Methods</a></li>
-      <li>4. <a href="http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/">Temporal-Difference Learning</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="data-mining">Data Mining</h3>
-
-<ul>
-  <li><a href="https://www.coursera.org/course/mmds">Coursera: Mining of Massive Datasets</a>: Introduction to a lot data mining techniques. (<a href="http://billy-inn.github.io/certificates/mmds.pdf">Certificate</a>)</li>
-</ul>
-
-<h3 id="ml-competitions">ML Competitions</h3>
-
-<ul>
-  <li><a href="https://www.kaggle.com/c/home-depot-product-search-relevance">Kaggle: Home Depot Product Search Relevance</a>: Top 10%. (<a href="http://billy-inn.github.io/papers/cmput690.pdf">Report</a>)</li>
 </ul>
 ]]></content>
   </entry>

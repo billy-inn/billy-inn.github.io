@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Optimization | Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/blog/categories/optimization/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2017-10-17T00:41:18-06:00</updated>
+  <updated>2017-10-21T12:11:09-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,261 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Notes on Convex Optimization (2): Convex Functions]]></title>
+    <link href="http://billy-inn.github.io/blog/2017/10/21/convex-optimization-2/"/>
+    <updated>2017-10-21T11:59:09-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/10/21/convex-optimization-2</id>
+    <content type="html"><![CDATA[<h3 id="basic-properties-and-examples">1. Basic Properties and Examples</h3>
+
+<h4 id="definition">1.1 Definition</h4>
+
+<p>$f:\mathbb{R}^n \rightarrow \mathbb R$ is convex if $\mathbf{dom}\ f$ is a convex set and</p>
+
+<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\le\theta f(x)+(1-\theta)f(y)</script>
+
+<p>for all $x,y\in \mathbf{dom}\ f, 0\le\theta\le1$</p>
+
+<ul>
+  <li>$f$ is concave if $-f$ is convex</li>
+  <li>$f$ is strictly convex if $\mathbf{dom}\ f$ is convex and <script type="math/tex">% &lt;![CDATA[
+f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]&gt;</script> for $x,y\in\mathbf{dom}\ f,x\ne y, 0&lt;\theta&lt;1$</li>
+</ul>
+
+<p>$f:\mathbb{R}^n \rightarrow \mathbb R$ is convex if and only if the function $g: \mathbb{R} \rightarrow \mathbb{R}$,</p>
+
+<script type="math/tex; mode=display">g(t)=f(x+tv),\quad\mathbf{dom}\ g=\{t\mid x+tv\in\mathbf{dom}\ f\}</script>
+
+<p>is convex (in $t$) for any $x \in \mathbf{dom}\ f, v\in\mathbb R^n$</p>
+
+<!--more-->
+
+<h4 id="extended-value-extensions">1.2 Extended-value extensions</h4>
+
+<p>extended-value extension $\tilde f$ of $f$ is</p>
+
+<script type="math/tex; mode=display">\tilde f(x)=f(x),x\in\mathbf{dom}\ f; \tilde f(x)=\infty,x\ne \mathbf{dom}\ f</script>
+
+<h4 id="first-order-conditions">1.3 First-order conditions</h4>
+
+<p><strong>1st-order condition</strong>: differentiable $f$ with convex domain is convex iff</p>
+
+<script type="math/tex; mode=display">f(y)\ge f(x)+\nabla f(x)^T(y-x)\mathrm{\ for\ all\ } x,y\in\mathbf{dom}\ f</script>
+
+<h4 id="second-order-conditions">1.4 Second-order conditions</h4>
+
+<p><strong>2nd-order conditions</strong>: for twice differentiable $f$ with convex domain
+- $f$ if convex if and only if
+<script type="math/tex">\nabla^2f(x)\succeq0\mathrm{\ for\ all\ } x\in\mathbf{dom}\ f</script>
+- if $\nabla^2f(x)\succ0$ for all $x\in\mathbf{dom}\ f$, then $f$ is strictly convex</p>
+
+<h4 id="sublevel-sets-and-epigraph">1.5 Sublevel sets and epigraph</h4>
+
+<p>$\alpha$<strong>-sublevel set</strong> of $f: \mathbb R^n \rightarrow \mathbb R$:</p>
+
+<script type="math/tex; mode=display">C_\alpha=\{x\in\mathbf{dom}\ f \mid f(x)\le\alpha\}</script>
+
+<p>sublevel sets of convex functions are convex (converse if false)</p>
+
+<p>If $f$ is concave, then its $\alpha$<strong>-superlevel set</strong>, given by ${x\in\mathbf{dom}\ f\mid f(x)\le\alpha}$, is a convex set</p>
+
+<p><strong>epigraph</strong> of $f:\mathbb R^n \rightarrow \mathbb R$:</p>
+
+<script type="math/tex; mode=display">\mathbf{epi}\ f=\{(x,t)\in\mathbb R^{n+1}\mid x\in\mathbf{dom}\ f,f(x)\le t\}</script>
+
+<p>$f$ is convex if and only if $\mathbf{epi}\ f$ is a convex set</p>
+
+<p>$f$ is concave if and only if its <strong>hypograph</strong>, defined as</p>
+
+<script type="math/tex; mode=display">\mathbf{hypo}\ f= \{(x,t)\in\mathbb R^{n+1}\mid x\in\mathbf{dom}\ f,f(x)\ge t\}</script>
+
+<p>is a convex set</p>
+
+<h4 id="jensens-inequality-and-extensions">1.6 Jensen’s inequality and extensions</h4>
+
+<p><strong>Jensen’s Inequality</strong>: if $f$ is convex, then for $0\le\theta\le1$,</p>
+
+<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\le\theta f(x)+(1-\theta)f(y)</script>
+
+<p><strong>extension</strong>: if $f$ is convex, then</p>
+
+<script type="math/tex; mode=display">f(\mathbb E z)\le \mathbb Ef(z)</script>
+
+<p>for any random variable $z$</p>
+
+<h3 id="operations-that-preserve-convexity">2. Operations that Preserve Convexity</h3>
+
+<h4 id="positive-weighted-sum--composition-with-affine-function">2.1 Positive weighted sum &amp; composition with affine function</h4>
+
+<p><strong>nonnegative multiple</strong>: $\alpha f$ is convex if $f$ is convex, $\alpha \ge 0$</p>
+
+<p><strong>sum</strong>: $f_1+f_2$ convex if $f_1,f_2$ convex (extends to infinite sums, integrals)</p>
+
+<p><strong>composition with affine function</strong>: $f(Ax+b)$ is convex if $f$ is convex</p>
+
+<h4 id="pointwise-maximum">2.2 Pointwise maximum</h4>
+
+<p><strong>pointwise maximum</strong>: if $f_1,\dots,f_m$ are convex, then $f(x)=\max{f_1(x),\dots,f_m(x)}$ is convex</p>
+
+<p><strong>pointwise supermum</strong>: if $f(x,y)$ is convex in $x$ for each $y\in\mathcal{A}$, then</p>
+
+<script type="math/tex; mode=display">g(x)=\sup_{y\in\mathcal{A}}f(x,y)</script>
+
+<p>is convex</p>
+
+<p>similarly, the <strong>pointwise infimum</strong> of a set of concave functions is a concave function</p>
+
+<h4 id="composition">2.3 Composition</h4>
+
+<p><strong>composition with scalar functions</strong>: composition of $g: \mathbb R^n \rightarrow \mathbb R$ and $h: \mathbb R\rightarrow \mathbb R$:</p>
+
+<script type="math/tex; mode=display">f(x)=h(g(x))</script>
+
+<p>$f$ is convex if $g$ convex, $h$ convex, $\tilde h$ nondecreasing; $g$ concave, $h$ convex, $\tilde h$ nonincreasing</p>
+
+<p>Note: monotonicity must hold for extended-value extension $\tilde h$</p>
+
+<p><strong>vector composition</strong>: composition of $g:\mathbb R^n \rightarrow \mathbb R^k$ and $h:\mathbb R^k \rightarrow \mathbb R$:</p>
+
+<script type="math/tex; mode=display">f(x)=h(g(x))=h(g_1(x),g_2(x),\dots,g_k(x))</script>
+
+<p>$f$ is convex if $g_i$ convex, $h$ convex, $\tilde h$ nondecreasing in each argument; $g$ concave, $h$ convex, $\tilde h$ nonincreasing in each argument</p>
+
+<h4 id="minimization">2.4 Minimization</h4>
+
+<p><strong>minimization</strong>: if $f(x,y)$ is convex in $(x,y)$ and $C$ is a convex set then</p>
+
+<script type="math/tex; mode=display">g(x)=\inf_{y\in C}f(x,y)</script>
+
+<p>is convex</p>
+
+<h4 id="perspective-of-a-function">2.5 Perspective of a function</h4>
+
+<p><strong>perspective</strong>: the <strong>perspective</strong> of a function $f:\mathbb R^n \rightarrow \mathbb R$ is the function $g:\mathbb R^n \times \mathbb R \rightarrow \mathbb R$,</p>
+
+<script type="math/tex; mode=display">g(x,t)=tf(x/t),\mathbf{dom}\ g=\{(x,t)\mid x/t\in\mathbf{dom}\ f,t>0\}</script>
+
+<p>$g$ is convex if $f$ is convex</p>
+
+<h3 id="the-conjugate-function">3. The Conjugate Function</h3>
+
+<h4 id="definition-1">3.1 Definition</h4>
+
+<p>the <strong>conjugate</strong> of a function $f$ is</p>
+
+<script type="math/tex; mode=display">f^*(y)=\sup_{x\in\mathbf{dom}\ f}(y^Tx-f(x))</script>
+
+<ul>
+  <li>$f^*$ is convex whether or not $f$ is convex</li>
+</ul>
+
+<h4 id="basic-properties">3.2 Basic properties</h4>
+
+<p><strong>conjugate of the conjugate</strong>: if $f$ is convex and closed, then $f^{**}=f$</p>
+
+<p><strong>differentiable functions</strong>: The conjugate of a differentiable function $f$ is also called the <em>Legendre transform</em> of $f$. Let $z\in\mathbb{R}^n$ be arbitrary and define $y=\nabla f(z)$, then we have</p>
+
+<script type="math/tex; mode=display">f^*(y)=z^T\nabla f(z)-f(z)</script>
+
+<p><strong>scaling and composition with affline transformation</strong>: 
+For $a&gt;0$ and $b\in\mathbb{R}$, the conjugate of $g(x)=af(x)+b$ is $g^*(y)=af^*(y/a)-b$.</p>
+
+<p>Suppose $A\in\mathbb{R}^{n\times n}$ is nonsingular and $b\in\mathbb{R}^n$. Then the conjugate of $g(x)=f(Ax+b)$ is</p>
+
+<script type="math/tex; mode=display">g^*(y)=f^*(A^{-T}y)-b^TA^{-T}y</script>
+
+<p>with $\mathbf{dom}\ g^*=A^T\mathbf{dom}\ f^*$</p>
+
+<p><strong>sums of independent functions</strong>: if $f(u,v)=f_1(u)+f_2(v)$, where $f_1$ and $f_2$ are convex functions with conjugates $f_1^*$ and $f_2^*$, respectively, then</p>
+
+<script type="math/tex; mode=display">f^*(w,z)=f_1^*(w)+f_2^*(z)</script>
+
+<h3 id="quasiconvex-functions">4. Quasiconvex Functions</h3>
+
+<p>$f:\mathbb R^n\rightarrow \mathbb R$ is quasiconvex if $\mathbf{dom}\ f$ is convex and the sublevel sets</p>
+
+<script type="math/tex; mode=display">S_{\alpha}=\{x\in\mathbf{dom}\ f\mid f(x)\le\alpha\}</script>
+
+<p>are convex for all $\alpha$</p>
+
+<ul>
+  <li>$f$ is quasiconcave if $-f$ is quasiconvex</li>
+  <li>$f$ is quasilinear if it is quasiconvex and quasiconcave</li>
+  <li>convex functions are quasiconvex, but the converse is not true</li>
+</ul>
+
+<p><strong>modified Jensen inequality</strong>: for quasiconvex $f$</p>
+
+<script type="math/tex; mode=display">0\le\theta\le1\Longrightarrow f(\theta x+(1-\theta)y)\le\max\{f(x),f(y)\}</script>
+
+<p><strong>first-order condition</strong>: differentiable $f$ with convex domain is quasiconvex iff</p>
+
+<script type="math/tex; mode=display">f(y)\le f(x)\Longrightarrow\nabla f(x)^T(y-x)\le0</script>
+
+<p><strong>operations that preserve quasiconvexity</strong>:</p>
+
+<ul>
+  <li>nonnegative weighted maximum</li>
+  <li>composition</li>
+  <li>minimization</li>
+</ul>
+
+<p><strong>sum</strong> of quasiconvex functions are not necessarily quasiconvex</p>
+
+<h3 id="log-concave-and-log-convex-functions">5. Log-concave and Log-convex Functions</h3>
+
+<p>a positive function $f$ is log-concave if $\log f$ is concave:</p>
+
+<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\ge f(x)^\theta f(y)^{1-\theta}\mathrm{\ for\ }0\le\theta\le1</script>
+
+<p>$f$ is log-convex if $\log f$ is convex</p>
+
+<p><strong>properties of log-concave functions</strong>:</p>
+
+<ul>
+  <li>twice differentiable $f$ with convex domain is log-concave iff</li>
+</ul>
+
+<script type="math/tex; mode=display">f(x)\nabla^2f(x)\preceq\nabla f(x)\nabla f(x)^T</script>
+
+<p>for all $x\in\mathbf{dom}\ f$</p>
+
+<ul>
+  <li>product of log-concave functions is log-concave</li>
+  <li>sum of log-concave functions is not always log-concave; however, log-convexity is preserved under sums</li>
+  <li>integration: if $f:\mathbb R^n\times\mathbb R^m \rightarrow \mathbb R$ is log-concave, then</li>
+</ul>
+
+<script type="math/tex; mode=display">g(x)=\int f(x,y)dy</script>
+
+<p>is log-concave</p>
+
+<p><strong>consequences of integration property</strong>:</p>
+
+<ul>
+  <li>convolution $f*g$ of log-concave functions $f,g$ is log-concave</li>
+</ul>
+
+<script type="math/tex; mode=display">(f*g)(x)=\int f(x-y)g(y)dy</script>
+
+<ul>
+  <li>if $C\subseteq \mathbb R^n$ convex and $y$ is a random variable with log-concave pdf then</li>
+</ul>
+
+<script type="math/tex; mode=display">f(x)=\mathbf{prob}(x+y\in C)</script>
+
+<p>is log-concave</p>
+
+<h3 id="convexity-wrt-generalized-inequalities">6. Convexity w.r.t. Generalized Inequalities</h3>
+
+<p>$f:\mathbb{R}^n\rightarrow\mathbb{R}^m$ is $K$-convex if $\mathbf{dom}\ f$ is convex and</p>
+
+<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\preceq_K\theta f(x)+(1-\theta)f(y)</script>
+
+<p>for $x,y\in\mathbf{dom}\ f,0\le\theta\le1$</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Notes on Convex Optimization (1): Convex Sets]]></title>
