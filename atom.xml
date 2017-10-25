@@ -4,7 +4,7 @@
   <title><![CDATA[Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2017-10-21T12:11:09-06:00</updated>
+  <updated>2017-10-24T18:36:47-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 5: Basis Expansions and Regularization]]></title>
+    <link href="http://billy-inn.github.io/blog/2017/10/24/esl-chapter-5/"/>
+    <updated>2017-10-24T18:34:25-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/10/24/esl-chapter-5</id>
+    <content type="html"><![CDATA[<h3 id="smoothing-splines">5.4 Smoothing Splines</h3>
+
+<h4 id="derivation-of-equation-512">Derivation of Equation (5.12)</h4>
+
+<p>Equal the derivative of <strong>Equation (5.11)</strong> as zero, we get</p>
+
+<script type="math/tex; mode=display">\frac{\partial\text{RSS}(\theta,\lambda)}{\partial\theta} = -2N^T(y-N\theta)+2\lambda\Omega_N\theta = 0</script>
+
+<p>Put the terms related to $\theta$ on one side and the others on the other side, we get</p>
+
+<script type="math/tex; mode=display">(N^TN+\lambda\Omega_N)\theta = N^Ty</script>
+
+<p>Multiply the inverse of $N^TN+\lambda\Omega_N$ on both sides completes the derivation of <strong>Equation (5.12)</strong></p>
+
+<script type="math/tex; mode=display">\hat\theta = (N^TN+\lambda\Omega_N)^{-1}N^Ty</script>
+
+<!--more-->
+
+<h4 id="explanations-on-equation-517-and-518">Explanations on Equation (5.17) and (5.18)</h4>
+
+<p>It’s a little confusing to get <strong>Equation (5.18)</strong> directly from <strong>Equation (5.17)</strong> and its original form <strong>Equation (5.11)</strong>. In order to give a clear explanation, here we give the proof of the equation,</p>
+
+<script type="math/tex; mode=display">\theta^T\Omega_N\theta=\mathbf{f}^TK\mathbf{f}.</script>
+
+<p>which are the different terms between <strong>Equation (5.11)</strong> and <strong>Equation (5.18)</strong>.</p>
+
+<p>We know that</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\mathbf{f}&=N(N^TN+\lambda\Omega_N)^{-1}N^Ty \\
+&=S_{\lambda}y = N\theta
+\end{split} %]]&gt;</script>
+
+<p>following <strong>Equation (5.14)</strong> in the book.</p>
+
+<p>From <strong>Equation (5.17)</strong>, we can get</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+K&=\frac1\lambda(S_\lambda^{-1}-I)\\
+&=\frac1\lambda\left(N^{-T}(N^TN+\lambda\Omega_N)N^{-1}-I\right)\\
+&=N^{-T}\Omega_NN^{-1}
+\end{split} %]]&gt;</script>
+
+<p>Plug the above two equation into the right side of the equation remains to be proved, we get</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\mathbf{f}^TK\mathbf{f} &= \theta^TN^TN^{-T}\Omega_NN^{-1}N\theta \\
+&=\theta^T\Omega_N\theta
+\end{split} %]]&gt;</script>
+
+<p>which completes the proof.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Notes on Convex Optimization (2): Convex Functions]]></title>
@@ -2371,163 +2433,6 @@ $(document).ready(function () {
 <p><img src="http://billy-inn.github.io/images/PGM1.1.png" alt="Alt text" /></p>
 
 <p>So, what is a PGM after all? It’s a smart way to specify exponentially-large probability distributions without paying an exponential cost, and at the same time endow the distributions with structured semantics. More formally, it refers to a family of distributions on a set of random variables that are compatible with all the probabiliistic independence propositions encoded by a graph that connects these variables.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GSoC 2016: Inferring Infobox Template Class Mappings From Wikipedia and WikiData]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/"/>
-    <updated>2016-04-26T15:51:27-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata</id>
-    <content type="html"><![CDATA[<p><em>This page is the public project page and will be updated every week.</em></p>
-
-<h3 id="project-description">Project Description</h3>
-
-<p>There are many infoboxes on wikipedia. Here is a example about football box:</p>
-
-<p><img src="http://billy-inn.github.io/images/GSoC1.png" alt="Alt text" /></p>
-
-<p>As seen, every infobox has some properties. Actually, every infobox follows a certain template. In my project, the goal is to find mappings between the classes (eg. <code>dbo:Person</code>, <code>dbo:City</code>) in the DBpedia ontology and infobox templates on pages of Wikipedia resources using techniques of machine learning.</p>
-
-<p>There are lots of infobox mappings available for a few languages, but not as many for other languages. In order to infer mappings for all the languages, cross-lingual knowledge validation should also be considered.</p>
-
-<p>The main output of the project will be a list of new high-quality infobox-class mappings.</p>
-
-<!--more-->
-
-<h3 id="weekly-progess">Weekly Progess</h3>
-
-<p><strong>Week 1 (5.8-5.14)</strong></p>
-
-<ul>
-  <li>First meeting with my mentor</li>
-  <li>Create the public page for the project</li>
-  <li>Create the google doc for the project</li>
-</ul>
-
-<p><strong>Week 2 (5.15-5.21)</strong></p>
-
-<ul>
-  <li>Get the <a href="http://mappings.dbpedia.org/server/mappings/en/pages/rdf/all">existing mappings</a></li>
-  <li>Get the information about all templates: <a href="https://github.com/dbpedia/extraction-framework/tree/master/server/src/main/statistics">https://github.com/dbpedia/extraction-framework/tree/master/server/src/main/statistics</a></li>
-  <li>Parse and clean the data</li>
-</ul>
-
-<p><strong>Week 3 (5.22-5.28)</strong></p>
-
-<ul>
-  <li>Figure out the information we have:
-    <ul>
-      <li>1) Existing mappings, we have manual information that a template in lang $X$ is mapped to class $Y$</li>
-      <li>2) Inter-language links between templates, e.g. template $X_1$ in lang $X$ is mapped to class $Y$ and there is a link from this template to templates in other languages. This gives a high probability that the equivalent templates in other languages should be mapped to the same class $Y$.</li>
-      <li>3) Links between articles in different languages and templates each article uses, this way, when (2) is not always true we can find which templates are used for the same concepts.</li>
-      <li>4) Most wikidata articles have a type assigned, using this information we have a variation of  metric (3) but with manual types assigned.</li>
-    </ul>
-  </li>
-  <li>Process the information (1) - (3) described above and obtain some prelimenary results.</li>
-</ul>
-
-<p><strong>Week 4 (5.29-6.4)</strong></p>
-
-<ul>
-  <li>Propose a baseline approach: Given a template classified as an infobox, the approach is instance-based and exploits the already mapped articles and their cross-language links to the articles that contain the template to be mapped. This approach is summaried in the below figure.</li>
-</ul>
-
-<p><img src="http://billy-inn.github.io/images/GSoC2.png" alt="Alt text" /></p>
-
-<ul>
-  <li>Experiments:
-    <ul>
-      <li>Based on existing mappings in English, to create mappings for Chinese.</li>
-      <li>Evaluations: try this approach on some other languages which have some existing mappings. (In progress)</li>
-    </ul>
-  </li>
-</ul>
-
-<p><strong>Week 5 (6.5-6.11)</strong></p>
-
-<ul>
-  <li>Learn the difference between infoboxes and macro templates and try to filter the macro templates.</li>
-  <li>More experiments.</li>
-  <li>Start to write a summary about the progress so far.</li>
-</ul>
-
-<p><strong>Week 6 (6.12-6.18)</strong></p>
-
-<ul>
-  <li>Complete the code and the documentation, see <a href="https://github.com/dbpedia/mappings-autogeneration">this repo</a> on github.</li>
-  <li>Complete the report about the current progress and further work required by the mid-term evaluation.</li>
-  <li>Starts working on ontology hierarchy and templates filtering.</li>
-</ul>
-
-<p><strong>Week 7 (6.19-6.25)</strong></p>
-
-<ul>
-  <li>Use multiple languages to evaluate the predicted results.</li>
-  <li>Use ontology hierarchy to assign types to articles and evaluate the predicted results.</li>
-</ul>
-
-<p><strong>Week 8 (6.26-7.2)</strong></p>
-
-<ul>
-  <li>Complete a script combining all the modules so far together, which can download the data, parse the data, predicted the mappings and evaluate on the predicted results as a whole.</li>
-  <li>Update the README file and added some figures about the evaluation results on Bulgarian.</li>
-</ul>
-
-<p><strong>Week 9 (7.3-7.9)</strong></p>
-
-<ul>
-  <li>Use information in wikidata: Quite a bit entities in wikidata has a DBpedia ontology types assigned already. In addition, we have links between wikidata and other languages. As a result, we can treat wikidata as a pivot language directly. The information from wikidata can be useful to improve the performance of our approach.</li>
-  <li>Case study on miss classified cases on Bulgarian.</li>
-</ul>
-
-<p><strong>Week 10 (7.10-7.16)</strong></p>
-
-<ul>
-  <li>Read papers for further improvements:
-    <ul>
-      <li><a href="http://ub-madoc.bib.uni-mannheim.de/40970/1/a14-melo.pdf">Type Prediction in RDF Knowledge Bases Using Hierarchical Multilabel Classification</a></li>
-      <li><a href="http://www.ijcai.org/Proceedings/16/Papers/226.pdf">Grounding Topic Models with Knowledge Bases</a></li>
-      <li><a href="https://arxiv.org/abs/1503.00759">A Review of Relational Machine Learning for Knowledge Graphs</a></li>
-    </ul>
-  </li>
-  <li>Start working on manually checking the predicted mappings in Chinese as final output of the project.</li>
-</ul>
-
-<p><strong>Week 11 (7.17-7.23)</strong></p>
-
-<ul>
-  <li>Implement the ideas in <a href="http://www.dbs.ifi.lmu.de/~tresp/papers/p271.pdf">this paper</a> on DBpedia.</li>
-  <li>Use cross-validation to evaluate the performance on link prediction task.</li>
-</ul>
-
-<p><strong>Week 12 (7.24-7.30)</strong></p>
-
-<ul>
-  <li>More experiments about tensor factorization on DBpedia. But the results are not that good.</li>
-</ul>
-
-<p><strong>Week 13 (7.31-8.6)</strong></p>
-
-<ul>
-  <li>Read papers about graph embeddings and applications on knowledge base: <a href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a> and <a href="http://arxiv.org/pdf/1510.04935.pdf">HOLE</a></li>
-  <li>Apply the ideas in above paper on DBpedia. However, the results are still not that good compared to the results presented in the paper.</li>
-  <li>Use grid search to find the optimal parameter setting to improve the performance.</li>
-</ul>
-
-<p><strong>Week 14 (8.7-8.13)</strong></p>
-
-<ul>
-  <li>For RESCAL, with large rank, it can achieve fairly good performance for tasks like type prediction on small languages like Balgarian. The AUC-PR is around 0.8. However, due to the memory limit, RESCAL performs poorly on larger languages like German and English.</li>
-  <li>Develop two scripts based on RESCAL and HOLE to compute a score for given triples indicating the likelihood of the existance of the triples in DBpedia, which can help determine whether to add new triples to DBpedia.</li>
-  <li>So far, I almost complete all my work for this project.</li>
-</ul>
-
-<p><strong>Week 15 (8.14-8.19)</strong></p>
-
-<ul>
-  <li>Submit the code and complete the final evaluations.</li>
-</ul>
 ]]></content>
   </entry>
   
