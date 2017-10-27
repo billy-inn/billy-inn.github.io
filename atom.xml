@@ -4,7 +4,7 @@
   <title><![CDATA[Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2017-10-24T18:36:47-06:00</updated>
+  <updated>2017-10-27T17:00:13-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,86 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 6: Kernel Smoothing Methods]]></title>
+    <link href="http://billy-inn.github.io/blog/2017/10/27/esl-chapter-6/"/>
+    <updated>2017-10-27T16:57:21-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/10/27/esl-chapter-6</id>
+    <content type="html"><![CDATA[<h3 id="one-dimensional-kernel-smoothers">6.1 One-Dimensional Kernel Smoothers</h3>
+
+<h4 id="notes-on-local-linear-regression">Notes on Local Linear Regression</h4>
+
+<p>Locally weighted regression solves a separate weighted least squares problem at each target point $x_0$:</p>
+
+<script type="math/tex; mode=display">\min_{\alpha(x_0),\beta(x_0)}\sum_{i=1}^NK_\lambda(x_0,x_i)[y-\alpha(x_0)-\beta(x_0)x_i]^2</script>
+
+<p>The estimate is  $\hat f(x_0)=\hat\alpha(x_0)+\hat\beta(x_0)x_0$. Define the vector-value function $b(x)^T=(1,x)$. Let $\mathbf{B}$ be the $N \times 2$ regression matrix with $i$th row row $b(x_i)^T$, $\mathbf{W}(x_0)$ the $N\times N$ diagonal matrix with $i$th diagonal element $K_\lambda (x_0, x_i)$, and $\theta=(\alpha(x_0), \beta(x_0))^T$.</p>
+
+<p>Then the above optimization problem can be rewritten as</p>
+
+<script type="math/tex; mode=display">\min_\theta(y-\mathbf{B}\theta)^T\mathbf{W}(x_0)(y-\mathbf{B}\theta)</script>
+
+<p>Equal the derivative w.r.t $\theta$ as zero, we get</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+&\mathbf{B}^T\mathbf{W}(x_0)(y-\mathbf{B}\hat\theta)=0 \\
+&\mathbf{B}^T\mathbf{W}(x_0)\mathbf{B}\hat\theta = \mathbf{B}^T\mathbf{W}(x_0)y \\
+&\hat\theta= (\mathbf{B}^T\mathbf{W}(x_0)\mathbf{B})^{-1}\mathbf{B}\mathbf{W}(x_0)y
+\end{split} %]]&gt;</script>
+
+<!--more-->
+
+<p>Then</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\hat f(x_0)&=b(x_0)^T\hat\theta \\
+&=b(x_0)^T(\mathbf{B}^T\mathbf{W}(x_0)\mathbf{B})^{-1}\mathbf{B}\mathbf{W}(x_0)y \\
+&=\sum_{i=1}^Nl_i(x_0)y_i
+\end{split} %]]&gt;</script>
+
+<p>It’s claimed that $\sum_{i=1}^Nl_i(x_0)=1$ and $\sum_{i=1}^N(x-x_0)l_i(x_0)=0$ in the book, so that the bias $\text{E}(\hat f(x_0))-f(x_0)$ depends only on quadratic and higher-order terms in the expansion of $f$. However, the proof is not given. Here I will give the detailed derivations of these two equations.</p>
+
+<p>First, define the following terms:</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+S_0 &= \sum_{i=1}^NK_\lambda(x_0, x_i) \\
+S_1 &= \sum_{i=1}^NK_\lambda(x_0, x_i)x_i \\
+S_2 &= \sum_{i=1}^NK_\lambda(x_0, x_i)x_i^2 \\
+m_0 &= \sum_{i=1}^NK_\lambda(x_0, x_i)y_i \\
+m_1 &= \sum_{i=1}^NK_\lambda(x_0, x_i)x_iy_i
+\end{split} %]]&gt;</script>
+
+<p>Then, we can represent the estimate as</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\hat f(x_0) &= b(x_0)^T\begin{bmatrix}S_0& S_1\\S_1& S_2\end{bmatrix}^{-1}\begin{bmatrix}m_0\\m_1\end{bmatrix} \\
+&= \frac1{S_0S_2-S_1^2}b(x_0)^T\begin{bmatrix}S_2 &-S_1\\-S_1& S_0\end{bmatrix}\begin{bmatrix}m_0\\m_1\end{bmatrix} \\
+&=\frac{(S_2-S_1x_0)m_0-(S_1-S_0x_0)m_1}{S_0S_2-S_1^2}
+\end{split} %]]&gt;</script>
+
+<p>When $y=\mathbf{1}$, $m_0=S_0$ and $m_1=S_1$, we get</p>
+
+<script type="math/tex; mode=display">\hat f(x_0)=\sum_{i=1}^Nl_i(x_0)=\frac{S_0S_2-S_1^2}{S_0S_2-S_1^2}=1</script>
+
+<p>When $y=\mathbf{x}-x_0$,</p>
+
+<script type="math/tex; mode=display">% &lt;![CDATA[
+\begin{split}
+\hat f(x_0) &= \sum_{i=1}^N(x_i-x_0)l_i(x_0) \\
+&= \frac{(S_2-S_1x_0)(S_1-S_0x_0)-(S_1-S_0x_0)(S_2-S_1x_0)}{S_0S_2-S_1^2} \\
+&= 0
+\end{split} %]]&gt;</script>
+
+<p>More generally, it’s easy to show that $\sum_{i=1}^N(x_i-x_0)^pl_i(x_0)=0$ when $p&gt;0$.</p>
+
+<p>We only prove the case when the input $x$ is one-dimensional. Similar strategy can be used to prove the case for high-dimensional input, but it’ll be a little bit complicated if you’re interested. Have fun!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 5: Basis Expansions and Regularization]]></title>
@@ -2396,43 +2476,6 @@ $(document).ready(function () {
 <p>至于在research方面的话，主要就是和mentor合作用scala and spark to factorize DBpedia。另外，刚来国外比较空虚，关注女明星比较多，所以用新浪的API写了个检测明星微博数据的小玩意，准备维护个营销号玩玩，可能也会根据名人之类的，搞个construct a knowledge graph from scratch之类的玩意。还有想到大公司都有自己的knowledge graph，所以就想抓google的搜索结果可以当做一些research的benchmark或者做improvement之类的。没想到google也太流氓了，几乎瞬间被block，搞得我有些心灰意冷，没办法，只能先抓抓Bing和Baidu了，等程序框架成熟了、Proxy IP池什么的都有了，能大规模抓Bing和Baidu之后再试着去抓Google吧。</p>
 
 <p>洋洋洒洒的写了这么多，对未来的畅想实在是有点太理想化了，如果有机会的话，还想搞篇paper什么的呢。差不多就这样了，希望一个学期以后计划的事能做到一半以上吧~</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Probabilistic Graphical Models (1): Introduction]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation/"/>
-    <updated>2016-04-28T16:17:08-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation</id>
-    <content type="html"><![CDATA[<p>What is probabilistic graphical model (PGM)? Forget about some high-level and complicated sentences on textbook or wikipedia. From my perspective, it’s all about graphs, distributions and the connections between them.</p>
-
-<p>There are three aspects to a graphical model:</p>
-
-<ul>
-  <li>The graph</li>
-  <li>A model of the data based on the graph</li>
-  <li>The data itself</li>
-</ul>
-
-<p>Actually, the data is generated by the underlying distribution and the model is the connection between the graph and the distribution. Here comes three fundamental issues:</p>
-
-<ul>
-  <li><strong>Representation</strong>: How to represent the three aspects mentioned above succinctly?</li>
-  <li><strong>Inference</strong>: How do I answser questions/queries according to my model and the given data? For example, the probability of a certain variable given some observations $P(X_i \vert \mathcal{D})$.</li>
-  <li><strong>Learning</strong>: What model is “right” for my data? We may want to “learn” the parameters of the model, or the model itself or even the topology of the graph from the data.</li>
-</ul>
-
-<!--more-->
-
-<p>But, why we need to use PGM? Consider a multivariate distribution on $8$ binary-valued variables $X_1,\dots, X_8$. Such a distribution contains $2^8$ configurations and the specification of the joint distribution would require $2^8-1$ numbers. In pratical, quite a bit of these configurations are unnecessary. In this form, inference is also expensive as it would, in general, require summing over an exponential number of configurations of unobserved variables. Learning is also problematic in this case because huge amounts of data are needed to accurately learn probabilities, especially of rare events. A solution to this problem is to use conditional independencies. Conditional independencies are statements of the form “$X$ is independent of $Y$ given $Z$” or $X \perp Y \vert Z$. If all the variables are independent, we can write:</p>
-
-<script type="math/tex; mode=display">P(X_1,\dots,X_8)=P(X_1)P(X_2)P(X_3)\dots P(X_8)</script>
-
-<p>This representation reduces parameter requirement from exponential to linear in the number of variables. But this representation is not rich enough to capture all possibilities. PGM try to capture middle ground by using conditional independencies known from the domain. Graph representation captures these conditional independencies compactly.</p>
-
-<p><img src="http://billy-inn.github.io/images/PGM1.1.png" alt="Alt text" /></p>
-
-<p>So, what is a PGM after all? It’s a smart way to specify exponentially-large probability distributions without paying an exponential cost, and at the same time endow the distributions with structured semantics. More formally, it refers to a family of distributions on a set of random variables that are compatible with all the probabiliistic independence propositions encoded by a graph that connects these variables.</p>
 ]]></content>
   </entry>
   
