@@ -1,0 +1,42 @@
+---
+layout: post
+title: "[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees"
+date: 2017-12-14 17:07:57 -0700
+comments: true
+categories: machine_learning
+---
+
+### 10.5 Why Exponential Loss?
+
+#### Derivation of Equation (10.16)
+
+Since $Y\in\{-1,1\}$, we can expand the expectation as follows:
+
+$$\text{E}_{Y\vert x}(e^{-Yf(x)}) = \Pr(Y=1 \vert x)e^{-f(x)} + 
+\Pr(Y=-1\vert x)e^{f(x)}$$
+
+In order to minimize the expectation, we equal derivatives w.r.t. $f(x)$ as zero:
+
+$$-\Pr(Y=1\vert x)e^{-f(x)}+\Pr(Y=-1\vert x)e^{f(x)}=0$$
+
+which gives:
+
+$$f^*(x)=\frac12\log\frac{\Pr(Y=1\vert x)}{\Pr(Y=-1\vert x)}$$
+
+<!--more-->
+
+#### Notes on Equation (10.18)
+
+If $Y=1$, then $Y'=1$, which gives
+
+$$l(Y,f(x))=\log p(x)=\log(1+e^{-2f(x)})$$
+
+Likewise, if $Y=-1$, then $Y'=0$, which gives
+
+$$l(Y,f(x))=\log (1-p(x))=\log(1+e^{2f(x)})$$
+
+As a result, the *binomial log-likelihood loss* is equivalent to the *deviance*. In the language of neural networks, the *cross-entropy* is equivalent to the *softplus*. The only difference is that $0$ is used to indicate negative examples in *cross-entropy*; while $-1$ is used in *softplus*.
+
+### 10.6 Loss Functions and Robustness
+
+This section explains the choice of loss functions for both classification and regression. It gives a very direct expalanation about why square loss is undesirable for classification. Highly recommended!
