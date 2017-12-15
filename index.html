@@ -9,7 +9,7 @@
   <meta name="author" content="Peng Xu">
 
   
-  <meta name="description" content="6.1 One-Dimensional Kernel Smoothers Notes on Local Linear Regression Locally weighted regression solves a separate weighted least squares problem at &hellip;">
+  <meta name="description" content="10.5 Why Exponential Loss? Derivation of Equation (10.16) Since $Y\in{-1,1}$, we can expand the expectation as follows: In order to minimize the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,58 @@
 
 <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/12/14/esl-chapter10/">[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-12-14T17:07:57-07:00'><span class='date'>2017-12-14</span> <span class='time'>5:07 pm</span></time>
+        
+           | <a href="/blog/2017/12/14/esl-chapter10/#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io/blog/2017/12/14/esl-chapter10/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3 id="why-exponential-loss">10.5 Why Exponential Loss?</h3>
+
+<h4 id="derivation-of-equation-1016">Derivation of Equation (10.16)</h4>
+
+<p>Since $Y\in{-1,1}$, we can expand the expectation as follows:</p>
+
+<script type="math/tex; mode=display">\text{E}_{Y\vert x}(e^{-Yf(x)}) = \Pr(Y=1 \vert x)e^{-f(x)} + 
+\Pr(Y=-1\vert x)e^{f(x)}</script>
+
+<p>In order to minimize the expectation, we equal derivatives w.r.t. $f(x)$ as zero:</p>
+
+<script type="math/tex; mode=display">-\Pr(Y=1\vert x)e^{-f(x)}+\Pr(Y=-1\vert x)e^{f(x)}=0</script>
+
+<p>which gives:</p>
+
+<script type="math/tex; mode=display">f^*(x)=\frac12\log\frac{\Pr(Y=1\vert x)}{\Pr(Y=-1\vert x)}</script>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2017/12/14/esl-chapter10/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -568,80 +620,6 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2017/07/28/p-value/">统计释疑(1)：什么是p值</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-07-28T20:33:16-06:00'><span class='date'>2017-07-28</span> <span class='time'>8:33 pm</span></time>
-        
-           | <a href="/blog/2017/07/28/p-value/#disqus_thread"
-             data-disqus-identifier="http://billy-inn.github.io/blog/2017/07/28/p-value/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>某互联网公司招聘程序员，招聘的方法很简单，就是从LeetCode上找$10$道题，录取解出至少$8$道题的应试者。每隔一年，公司会根据新招聘程序员的表现评估上一年招聘的不合格率。公司的期望是每年招聘的不和格率要低于$5\%$。下面是历年的招聘数据：</p>
-
-<table class="mbtablestyle">
-  <thead>
-    <tr>
-      <th style="text-align: left">年份</th>
-      <th style="text-align: left">面试人数</th>
-      <th style="text-align: left">录取人数</th>
-      <th style="text-align: left">不合格的人数</th>
-      <th style="text-align: left">不合格率</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">2014</td>
-      <td style="text-align: left">1000</td>
-      <td style="text-align: left">350</td>
-      <td style="text-align: left">30</td>
-      <td style="text-align: left">8.57%</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">2015</td>
-      <td style="text-align: left">1000</td>
-      <td style="text-align: left">650</td>
-      <td style="text-align: left">10</td>
-      <td style="text-align: left">1.54%</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">2016</td>
-      <td style="text-align: left">1000</td>
-      <td style="text-align: left">200</td>
-      <td style="text-align: left">10</td>
-      <td style="text-align: left">5.00%</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>那么这家公司的招聘策略是否有效呢？</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2017/07/28/p-value/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -674,7 +652,7 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
  <ul id="categories_list" class="nav nav-list">
 	<li class="nav-header">Categories</li>
 	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
-<li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (10)</a></li>
+<li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (11)</a></li>
 <li class='category'><a href='/blog/categories/optimization/'>optimization (2)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
 <li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
@@ -687,6 +665,10 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/12/14/esl-chapter10/">[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/10/27/esl-chapter-6/">[Notes on Mathematics for ESL] Chapter 6: Kernel Smoothing Methods</a>
@@ -702,10 +684,6 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
     
       <li class="post">
         <a href="/blog/2017/10/17/convex-optimization-1/">Notes on Convex Optimization (1): Convex Sets</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/10/15/esl-chapter-4/">[Notes on Mathematics for ESL] Chapter 4: Linear Methods for Classification</a>
       </li>
     
   </ul>
