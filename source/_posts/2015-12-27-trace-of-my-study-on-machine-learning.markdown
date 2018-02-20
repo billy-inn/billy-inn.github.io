@@ -32,6 +32,8 @@ This blog will record the timeline, resources, projects along the way of my stud
 - Advanced Topics on Linear Algebra
 	- [The Matrix Cookbook](http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/3274/pdf/imm3274.pdf): Ongoing
 	- [Matrix Analysis](https://www.amazon.ca/Matrix-Analysis-Roger-Horn/dp/0521548233): Ongoing
+- Advanced Topics on Statistics
+  - [A User's Guide to Measure Theoretic Probability](https://www.amazon.ca/Users-Guide-Measure-Theoretic-Probability/dp/0521002893): Ongoing
 
 <!--more-->
 
@@ -45,9 +47,16 @@ This blog will record the timeline, resources, projects along the way of my stud
 		- 2\. [Regularized Linear Regression](/blog/2016/09/14/ml-with-r-2-regularized-linear-regression/)
 		- 3\. [Logistic Regression](/blog/2016/09/20/ml-with-r-3-logistic-regression/)
 - [The Elements of Statistical Learning](http://statweb.stanford.edu/~tibs/ElemStatLearn/): Ongoing
-    - [Manual](http://waxworksmath.com/Authors/G_M/Hastie/hastie.html): Figure out the mathematical details.
-	- [R package "ElemStatLearn"](https://cran.r-project.org/web/packages/ElemStatLearn/index.html): Contain data sets, functions and examples from the book.
-	- [My code](https://github.com/billy-inn/ElemStatLearn): Exercises and experiment reimplementations in **R**.
+  - [Manual](http://waxworksmath.com/Authors/G_M/Hastie/hastie.html): Figure out the mathematical details.
+  - [R package "ElemStatLearn"](https://cran.r-project.org/web/packages/ElemStatLearn/index.html): Contain data sets, functions and examples from the book.
+  - [My code](https://github.com/billy-inn/ElemStatLearn): Exercises and experiment reimplementations in **R**.
+  - Post Series: Notes on Mathematics for ESL
+    - 1\. [Chapter 2: Overview of Supervised Learning](/blog/2017/09/01/esl-chapter-2/)
+    - 2\. [Chapter 3: Linear Regression Models and Least Squares](/blog/2017/09/27/esl-chapter-3/)
+    - 3\. [Chapter 4: Linear Methods for Classification](/blog/2017/10/15/esl-chapter-4/)
+    - 4\. [Chapter 5: Basis Expansions and Regularization](/blog/2017/10/24/esl-chapter-5/)
+    - 5\. [Chpater 6: Kernel Smoothing Methods](/blog/2017/10/27/esl-chapter-6/)
+    - 6\. [Chapter 10: Boosting and Additive Trees](/blog/2017/12/14/esl-chapter10/)
 
 ### Probabilistic Graphical Models:
 
@@ -82,6 +91,7 @@ This blog will record the timeline, resources, projects along the way of my stud
 
 - [UAlberta CMPUT 609](https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai): Reinforcement Learning. Graduate course in UofA instructed by [Sutton](https://webdocs.cs.ualberta.ca/~sutton/). ([Report: Investigation on Deep Reinforcement Learning Methods for Classical Control Problems](/papers/cmput609.pdf), **Completed** in *Dec, 2016*). 
 - [Introduction to Reinforcement Learning](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html): Classic textbook, recommended for beginners in RL (**First Pass** in *Dec, 2016*).
+- [Bandit Algorithms Blog](http://banditalgs.com/): A great blog discussing all kinds of bandit algorithms by [Csaba](https://sites.ualberta.ca/~szepesva/) (**First Rough Pass** in *Feb, 2018*).
 - Post Series: Notes on Reinforcement Learning
 	- 1\. [Finite Markov Decision Processes](/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/)
 	- 2\. [Dynamic Programming](/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/)
