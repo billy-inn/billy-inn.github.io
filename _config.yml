@@ -51,7 +51,7 @@ titlecase: true       # Converts page and post titles to titlecase
 
 # list each of the sidebar modules you want to include, in the order you want them to appear.
 # To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
-default_asides: [custom/asides/subtitle.html, custom/asides/about.html, custom/asides/category_list.html, asides/recent_posts.html, asides/liscence.html]
+default_asides: [custom/asides/about.html, custom/asides/category_list.html, asides/recent_posts.html, asides/liscence.html, custom/asides/twitter.html]
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
@@ -70,7 +70,7 @@ github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: billyinn93
 twitter_tweet_button: true
 
 # Google +1
@@ -99,3 +99,16 @@ google_analytics_tracking_id: UA-69271262-1
 
 # Facebook Like
 facebook_like: false
+
+twitter:
+  username:            billyinn93
+  tweet_count:         false              # Show number of shares on Twitter
+  size:                normal             # Or large
+  embedded_link_color:                    # Set link color for embedded tweets
+
+  follow_count:        false              # Show number of followers
+  tweet_message:       ":title by :username :hashtags - :url" # With Tweet button Twitter add the URL last
+  tweet_link_text:     Twitter            # Configure the link text
+  tweet_link_title:    Share on Twitter   # Share link title
+  profile_link_text:   Follow :username
+  profile_link_title:  Follow :username on Twitter  # Profile link title text
