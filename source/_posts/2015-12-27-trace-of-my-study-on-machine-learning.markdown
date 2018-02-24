@@ -46,7 +46,7 @@ This blog will record the timeline, resources, projects along the way of my stud
 		- 1\. [Linear Regression](/blog/2016/08/31/ml-with-r-1-linear-regression/)
 		- 2\. [Regularized Linear Regression](/blog/2016/09/14/ml-with-r-2-regularized-linear-regression/)
 		- 3\. [Logistic Regression](/blog/2016/09/20/ml-with-r-3-logistic-regression/)
-- [The Elements of Statistical Learning](http://statweb.stanford.edu/~tibs/ElemStatLearn/): Ongoing
+- [The Elements of Statistical Learning](http://statweb.stanford.edu/~tibs/ElemStatLearn/): The first six chapters are highly recommended, while some later chapters are a little bit out-of-dated from my perspective (**First Pass** in *Feb, 2018*).
   - [Manual](http://waxworksmath.com/Authors/G_M/Hastie/hastie.html): Figure out the mathematical details.
   - [R package "ElemStatLearn"](https://cran.r-project.org/web/packages/ElemStatLearn/index.html): Contain data sets, functions and examples from the book.
   - [My code](https://github.com/billy-inn/ElemStatLearn): Exercises and experiment reimplementations in **R**.
@@ -73,8 +73,11 @@ This blog will record the timeline, resources, projects along the way of my stud
 - [Stanford CS231n](http://vision.stanford.edu/teaching/cs231n/index.html): Convolutional Neural Networks for Visual Recognition.
 - [Deep Learning Book](http://www.deeplearningbook.org/): Ongoing.
 - [TensorFlow](https://www.tensorflow.org/): Large amount of high-quality tutorials and well-coded recent advances in DL. Most applicable scenario: research.
+- [PyTorch](http://pytorch.org/): Use dynamic graph instead of static graph in TensorFlow. Relatively easy to use compared to TensorFlow. Most applicable scenario: research. 
 - [Mxnet](https://github.com/dmlc/mxnet): High performance. Most applicable scenario: industry.
 - [Keras](https://keras.io/): High-level, easy to use. Most applicable scenario: competitions like Kaggle.
+
+Note: I'm comfortable with coding in both TensorFlow and PyTorch and use Keras from time to time. I don't know much about Mxnet and rarely use it, but I'm amazed by their group members.
 
 ### Large Scale Machine Learning
 
