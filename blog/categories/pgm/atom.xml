@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Pgm | Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/blog/categories/pgm/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2018-05-13T15:06:48+08:00</updated>
+  <updated>2018-05-28T13:52:18-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Probabilistic Graphical Models (1): Introduction]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/04/29/probabilistic-graphical-models-1-representation/"/>
-    <updated>2016-04-29T06:17:08+08:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/04/29/probabilistic-graphical-models-1-representation</id>
+    <link href="http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation/"/>
+    <updated>2016-04-28T16:17:08-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2016/04/28/probabilistic-graphical-models-1-representation</id>
     <content type="html"><![CDATA[<p>What is probabilistic graphical model (PGM)? Forget about some high-level and complicated sentences on textbook or wikipedia. From my perspective, it’s all about graphs, distributions and the connections between them.</p>
 
 <p>There are three aspects to a graphical model:</p>

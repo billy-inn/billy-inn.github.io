@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Reinforcement_learning | Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/blog/categories/reinforcement-learning/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2018-05-13T15:06:48+08:00</updated>
+  <updated>2018-05-28T13:52:18-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Notes on Reinforcement Learning (4): Temporal-Difference Learning]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/10/17/notes-on-reinforcement-learning-4-temporal-difference-learning/"/>
-    <updated>2016-10-17T07:47:27+08:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/10/17/notes-on-reinforcement-learning-4-temporal-difference-learning</id>
+    <link href="http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/"/>
+    <updated>2016-10-16T17:47:27-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning</id>
     <content type="html"><![CDATA[<p>Temporal-difference (TD) learning is a combination of Monte Carlo ideas and dynamic programming (DP) ideas.</p>
 
 <h3 id="td-prediction">TD Prediction</h3>
@@ -104,9 +104,9 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
   
   <entry>
     <title type="html"><![CDATA[Notes on Reinforcement Learning (3): Monte Carlo Methods]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/10/15/notes-on-reinforcement-learning-3-monte-carlo-methods/"/>
-    <updated>2016-10-15T06:07:35+08:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/10/15/notes-on-reinforcement-learning-3-monte-carlo-methods</id>
+    <link href="http://billy-inn.github.io/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/"/>
+    <updated>2016-10-14T16:07:35-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods</id>
     <content type="html"><![CDATA[<p>Monte Carlo methods are ways of solving the reinforcement learning problem based on averaging sample returns. To ensure that well-defined returns are available, here we define Monte Carlo methods only for episodic tasks.</p>
 
 <h3 id="monte-carlo-prediction">Monte Carlo Prediction</h3>
@@ -189,9 +189,9 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
   
   <entry>
     <title type="html"><![CDATA[Notes on Reinforcement Learning (2): Dynamic Programming]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/10/07/notes-on-reinforcement-learning-2-dynamic-programming/"/>
-    <updated>2016-10-07T07:37:02+08:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/10/07/notes-on-reinforcement-learning-2-dynamic-programming</id>
+    <link href="http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/"/>
+    <updated>2016-10-06T17:37:02-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming</id>
     <content type="html"><![CDATA[<h3 id="policy-evaluation">Policy Evaluation</h3>
 
 <p>Consider a sequence of approximate value functions $v_0, v_1, v_2, \dots,$ each mapping $\mathcal{S}^+$ to $\mathbb{R}$. The initial approximation, $v_0$ is chosen arbitrarily, and each successive approximation is obtained by using the Bellman equation for $v_\pi$ as an update rule:</p>
@@ -251,9 +251,9 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
   
   <entry>
     <title type="html"><![CDATA[Notes on Reinforcement Learning (1): Finite Markov Decision Processes]]></title>
-    <link href="http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-1-finite-markov-decision-processes/"/>
-    <updated>2016-10-06T04:55:31+08:00</updated>
-    <id>http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-1-finite-markov-decision-processes</id>
+    <link href="http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/"/>
+    <updated>2016-10-05T14:55:31-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes</id>
     <content type="html"><![CDATA[<h3 id="the-agent-environment-interface">The Agent-Environment Interface</h3>
 
 <p><img src="/images/rl1.1.png" alt="Alt text" /></p>

@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>GSoC 2016: Inferring Infobox Template Class Mappings From Wikipedia and WikiData - Billy Inn in Wonderland</title>
+  <meta name="author" content="Peng Xu">
+
+  
+  <meta name="description" content="This page is the public project page and will be updated every week. Project Description There are many infoboxes on wikipedia. Here is a example &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Billy Inn in Wonderland" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-69271262-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Billy Inn in Wonderland</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="billy-inn.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">GSoC 2016: Inferring Infobox Template Class Mappings From Wikipedia and WikiData</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-04-26T15:51:27-06:00'><span class='date'>2016-04-26</span> <span class='time'>3:51 pm</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><em>This page is the public project page and will be updated every week.</em></p>
+
+<h3 id="project-description">Project Description</h3>
+
+<p>There are many infoboxes on wikipedia. Here is a example about football box:</p>
+
+<p><img src="/images/GSoC1.png" alt="Alt text" /></p>
+
+<p>As seen, every infobox has some properties. Actually, every infobox follows a certain template. In my project, the goal is to find mappings between the classes (eg. <code>dbo:Person</code>, <code>dbo:City</code>) in the DBpedia ontology and infobox templates on pages of Wikipedia resources using techniques of machine learning.</p>
+
+<p>There are lots of infobox mappings available for a few languages, but not as many for other languages. In order to infer mappings for all the languages, cross-lingual knowledge validation should also be considered.</p>
+
+<p>The main output of the project will be a list of new high-quality infobox-class mappings.</p>
+
+<!--more-->
+
+<h3 id="weekly-progess">Weekly Progess</h3>
+
+<p><strong>Week 1 (5.8-5.14)</strong></p>
+
+<ul>
+  <li>First meeting with my mentor</li>
+  <li>Create the public page for the project</li>
+  <li>Create the google doc for the project</li>
+</ul>
+
+<p><strong>Week 2 (5.15-5.21)</strong></p>
+
+<ul>
+  <li>Get the <a href="http://mappings.dbpedia.org/server/mappings/en/pages/rdf/all">existing mappings</a></li>
+  <li>Get the information about all templates: <a href="https://github.com/dbpedia/extraction-framework/tree/master/server/src/main/statistics">https://github.com/dbpedia/extraction-framework/tree/master/server/src/main/statistics</a></li>
+  <li>Parse and clean the data</li>
+</ul>
+
+<p><strong>Week 3 (5.22-5.28)</strong></p>
+
+<ul>
+  <li>Figure out the information we have:
+    <ul>
+      <li>1) Existing mappings, we have manual information that a template in lang $X$ is mapped to class $Y$</li>
+      <li>2) Inter-language links between templates, e.g. template $X_1$ in lang $X$ is mapped to class $Y$ and there is a link from this template to templates in other languages. This gives a high probability that the equivalent templates in other languages should be mapped to the same class $Y$.</li>
+      <li>3) Links between articles in different languages and templates each article uses, this way, when (2) is not always true we can find which templates are used for the same concepts.</li>
+      <li>4) Most wikidata articles have a type assigned, using this information we have a variation of  metric (3) but with manual types assigned.</li>
+    </ul>
+  </li>
+  <li>Process the information (1) - (3) described above and obtain some prelimenary results.</li>
+</ul>
+
+<p><strong>Week 4 (5.29-6.4)</strong></p>
+
+<ul>
+  <li>Propose a baseline approach: Given a template classified as an infobox, the approach is instance-based and exploits the already mapped articles and their cross-language links to the articles that contain the template to be mapped. This approach is summaried in the below figure.</li>
+</ul>
+
+<p><img src="/images/GSoC2.png" alt="Alt text" /></p>
+
+<ul>
+  <li>Experiments:
+    <ul>
+      <li>Based on existing mappings in English, to create mappings for Chinese.</li>
+      <li>Evaluations: try this approach on some other languages which have some existing mappings. (In progress)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Week 5 (6.5-6.11)</strong></p>
+
+<ul>
+  <li>Learn the difference between infoboxes and macro templates and try to filter the macro templates.</li>
+  <li>More experiments.</li>
+  <li>Start to write a summary about the progress so far.</li>
+</ul>
+
+<p><strong>Week 6 (6.12-6.18)</strong></p>
+
+<ul>
+  <li>Complete the code and the documentation, see <a href="https://github.com/dbpedia/mappings-autogeneration">this repo</a> on github.</li>
+  <li>Complete the report about the current progress and further work required by the mid-term evaluation.</li>
+  <li>Starts working on ontology hierarchy and templates filtering.</li>
+</ul>
+
+<p><strong>Week 7 (6.19-6.25)</strong></p>
+
+<ul>
+  <li>Use multiple languages to evaluate the predicted results.</li>
+  <li>Use ontology hierarchy to assign types to articles and evaluate the predicted results.</li>
+</ul>
+
+<p><strong>Week 8 (6.26-7.2)</strong></p>
+
+<ul>
+  <li>Complete a script combining all the modules so far together, which can download the data, parse the data, predicted the mappings and evaluate on the predicted results as a whole.</li>
+  <li>Update the README file and added some figures about the evaluation results on Bulgarian.</li>
+</ul>
+
+<p><strong>Week 9 (7.3-7.9)</strong></p>
+
+<ul>
+  <li>Use information in wikidata: Quite a bit entities in wikidata has a DBpedia ontology types assigned already. In addition, we have links between wikidata and other languages. As a result, we can treat wikidata as a pivot language directly. The information from wikidata can be useful to improve the performance of our approach.</li>
+  <li>Case study on miss classified cases on Bulgarian.</li>
+</ul>
+
+<p><strong>Week 10 (7.10-7.16)</strong></p>
+
+<ul>
+  <li>Read papers for further improvements:
+    <ul>
+      <li><a href="http://ub-madoc.bib.uni-mannheim.de/40970/1/a14-melo.pdf">Type Prediction in RDF Knowledge Bases Using Hierarchical Multilabel Classification</a></li>
+      <li><a href="http://www.ijcai.org/Proceedings/16/Papers/226.pdf">Grounding Topic Models with Knowledge Bases</a></li>
+      <li><a href="https://arxiv.org/abs/1503.00759">A Review of Relational Machine Learning for Knowledge Graphs</a></li>
+    </ul>
+  </li>
+  <li>Start working on manually checking the predicted mappings in Chinese as final output of the project.</li>
+</ul>
+
+<p><strong>Week 11 (7.17-7.23)</strong></p>
+
+<ul>
+  <li>Implement the ideas in <a href="http://www.dbs.ifi.lmu.de/~tresp/papers/p271.pdf">this paper</a> on DBpedia.</li>
+  <li>Use cross-validation to evaluate the performance on link prediction task.</li>
+</ul>
+
+<p><strong>Week 12 (7.24-7.30)</strong></p>
+
+<ul>
+  <li>More experiments about tensor factorization on DBpedia. But the results are not that good.</li>
+</ul>
+
+<p><strong>Week 13 (7.31-8.6)</strong></p>
+
+<ul>
+  <li>Read papers about graph embeddings and applications on knowledge base: <a href="http://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data.pdf">TransE</a> and <a href="http://arxiv.org/pdf/1510.04935.pdf">HOLE</a></li>
+  <li>Apply the ideas in above paper on DBpedia. However, the results are still not that good compared to the results presented in the paper.</li>
+  <li>Use grid search to find the optimal parameter setting to improve the performance.</li>
+</ul>
+
+<p><strong>Week 14 (8.7-8.13)</strong></p>
+
+<ul>
+  <li>For RESCAL, with large rank, it can achieve fairly good performance for tasks like type prediction on small languages like Balgarian. The AUC-PR is around 0.8. However, due to the memory limit, RESCAL performs poorly on larger languages like German and English.</li>
+  <li>Develop two scripts based on RESCAL and HOLE to compute a score for given triples indicating the likelihood of the existance of the triples in DBpedia, which can help determine whether to add new triples to DBpedia.</li>
+  <li>So far, I almost complete all my work for this project.</li>
+</ul>
+
+<p><strong>Week 15 (8.14-8.19)</strong></p>
+
+<ul>
+  <li>Submit the code and complete the final evaluations.</li>
+</ul>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Peng Xu</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-04-26T15:51:27-06:00'><span class='date'>2016-04-26</span> <span class='time'>3:51 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/project/'>project</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/" data-via="billyinn93" data-counturl="http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/12/27/trace-of-my-study-on-machine-learning/" title="Previous Post: Trace of My Study on Machine Learning">&laquo; Trace of My Study on Machine Learning</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/04/28/probabilistic-graphical-models-1-representation/" title="Next Post: Probabilistic Graphical Models (1): Introduction">Probabilistic Graphical Models (1): Introduction &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  <!--
+    <section>
+	<ul id="about" class="nav nav-list">
+		<li class="nav-header">About Me</a></li>
+			<p>Machine Learning Lover, Deep Learning Alchemist and NLPer</p>
+			<p>Nintendo Switch Owner, Piano Beginner</p>
+      <p>Reading History, Sci-Fi, Fantasy and Chinese Swordsman</p>
+			<p>Fan of Former SNH48 Member Kiku and Blackpink Ros&eacute</p>
+			<p>Welcome to communicate with me among above topics.</p>
+			<p>微博: <a href="http://www.weibo.com/u/2540837283">百里云_bly</a></p>
+			<p>GitHub: <a href="http://github.com/billy-inn">billy-inn</a></p>
+			<p>Email:<code>bly930725 [at] gmail.com</code></p>
+	</ul>
+</section>
+<section>
+  <h1>Latest Tweets</h1>
+  <a class="twitter-timeline" data-chrome="nofooter transparent noheader" data-tweet-limit="5" href="https://twitter.com/billyinn93">Tweets by billyinn93</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <a class="twitter-follow-button" href="https://twitter.com/billyinn93">Follow @billyinn93</a>
+</section>
+<section class="well">
+ <ul id="categories_list" class="nav nav-list">
+	<li class="nav-header">Categories</li>
+	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
+<li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (11)</a></li>
+<li class='category'><a href='/blog/categories/optimization/'>optimization (2)</a></li>
+<li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
+<li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
+<li class='category'><a href='/blog/categories/reading/'>reading (2)</a></li>
+<li class='category'><a href='/blog/categories/reinforcement-learning/'>reinforcement_learning (4)</a></li>
+<li class='category'><a href='/blog/categories/statistics/'>statistics (3)</a></li>
+</li>
+ </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/12/14/esl-chapter10/">[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/10/27/esl-chapter-6/">[Notes on Mathematics for ESL] Chapter 6: Kernel Smoothing Methods</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/10/24/esl-chapter-5/">[Notes on Mathematics for ESL] Chapter 5: Basis Expansions and Regularization</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/10/21/convex-optimization-2/">Notes on Convex Optimization (2): Convex Functions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/10/17/convex-optimization-1/">Notes on Convex Optimization (1): Convex Sets</a>
+      </li>
+    
+  </ul>
+</section>
+<section class="well">
+  <ul id="license" class="nav nav-list">
+    <li class="nav-header">License</li>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+	</li>
+  </ul>
+</section>
+
+    -->
+  <section>
+	<ul id="about" class="nav nav-list">
+		<li class="nav-header">About Me</a></li>
+			<p>Machine Learning Lover, Deep Learning Alchemist and NLPer</p>
+			<p>Nintendo Switch Owner, Piano Beginner</p>
+      <p>Reading History, Sci-Fi, Fantasy and Chinese Swordsman</p>
+			<p>Fan of Former SNH48 Member Kiku and Blackpink Ros&eacute</p>
+			<p>Welcome to communicate with me among above topics.</p>
+			<p>微博: <a href="http://www.weibo.com/u/2540837283">百里云_bly</a></p>
+			<p>GitHub: <a href="http://github.com/billy-inn">billy-inn</a></p>
+			<p>Email:<code>bly930725 [at] gmail.com</code></p>
+	</ul>
+</section>
+<section>
+  <h1>Latest Tweets</h1>
+  <a class="twitter-timeline" data-chrome="nofooter transparent noheader" data-tweet-limit="5" href="https://twitter.com/billyinn93">Tweets by billyinn93</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <a class="twitter-follow-button" href="https://twitter.com/billyinn93">Follow @billyinn93</a>
+</section>
+<section class="well">
+ <ul id="categories_list" class="nav nav-list">
+	<li class="nav-header">Categories</li>
+	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
+<li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (11)</a></li>
+<li class='category'><a href='/blog/categories/optimization/'>optimization (2)</a></li>
+<li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
+<li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
+<li class='category'><a href='/blog/categories/reading/'>reading (2)</a></li>
+<li class='category'><a href='/blog/categories/reinforcement-learning/'>reinforcement_learning (4)</a></li>
+<li class='category'><a href='/blog/categories/statistics/'>statistics (3)</a></li>
+</li>
+ </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/12/14/esl-chapter10/">[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/10/27/esl-chapter-6/">[Notes on Mathematics for ESL] Chapter 6: Kernel Smoothing Methods</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/10/24/esl-chapter-5/">[Notes on Mathematics for ESL] Chapter 5: Basis Expansions and Regularization</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/10/21/convex-optimization-2/">Notes on Convex Optimization (2): Convex Functions</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/10/17/convex-optimization-1/">Notes on Convex Optimization (1): Convex Sets</a>
+      </li>
+    
+  </ul>
+</section>
+<section class="well">
+  <ul id="license" class="nav nav-list">
+    <li class="nav-header">License</li>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+	</li>
+  </ul>
+</section>
+
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Peng Xu -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		  jax: ["input/TeX", "output/HTML-CSS"],
+		    tex2jax: {
+				    inlineMath: [ ['$', '$'] ],
+					    displayMath: [ ['$$', '$$']],
+						    processEscapes: true,
+							    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+								  },
+								    messageStyle: "none",
+									  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+								  });
+							  </script>
+							  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'billy-inn';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/';
+        var disqus_url = 'http://billy-inn.github.io/blog/2016/04/26/gsoc-2016-inferring-infobox-template-class-mappings-from-wikipedia-and-wikidata/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
