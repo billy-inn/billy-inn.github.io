@@ -4,7 +4,7 @@
   <title><![CDATA[Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2018-05-28T13:56:23-06:00</updated>
+  <updated>2018-06-01T11:06:38-05:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees]]></title>
     <link href="http://billy-inn.github.io/blog/2017/12/14/esl-chapter10/"/>
-    <updated>2017-12-14T17:07:57-07:00</updated>
+    <updated>2017-12-14T18:07:57-06:00</updated>
     <id>http://billy-inn.github.io/blog/2017/12/14/esl-chapter10</id>
     <content type="html"><![CDATA[<h3 id="why-exponential-loss">10.5 Why Exponential Loss?</h3>
 
@@ -58,7 +58,7 @@
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 6: Kernel Smoothing Methods]]></title>
     <link href="http://billy-inn.github.io/blog/2017/10/27/esl-chapter-6/"/>
-    <updated>2017-10-27T16:57:21-06:00</updated>
+    <updated>2017-10-27T17:57:21-05:00</updated>
     <id>http://billy-inn.github.io/blog/2017/10/27/esl-chapter-6</id>
     <content type="html"><![CDATA[<h3 id="one-dimensional-kernel-smoothers">6.1 One-Dimensional Kernel Smoothers</h3>
 
@@ -138,7 +138,7 @@ m_1 &= \sum_{i=1}^NK_\lambda(x_0, x_i)x_iy_i
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 5: Basis Expansions and Regularization]]></title>
     <link href="http://billy-inn.github.io/blog/2017/10/24/esl-chapter-5/"/>
-    <updated>2017-10-24T18:34:25-06:00</updated>
+    <updated>2017-10-24T19:34:25-05:00</updated>
     <id>http://billy-inn.github.io/blog/2017/10/24/esl-chapter-5</id>
     <content type="html"><![CDATA[<h3 id="smoothing-splines">5.4 Smoothing Splines</h3>
 
@@ -200,7 +200,7 @@ K&=\frac1\lambda(S_\lambda^{-1}-I)\\
   <entry>
     <title type="html"><![CDATA[Notes on Convex Optimization (2): Convex Functions]]></title>
     <link href="http://billy-inn.github.io/blog/2017/10/21/convex-optimization-2/"/>
-    <updated>2017-10-21T11:59:09-06:00</updated>
+    <updated>2017-10-21T12:59:09-05:00</updated>
     <id>http://billy-inn.github.io/blog/2017/10/21/convex-optimization-2</id>
     <content type="html"><![CDATA[<h3 id="basic-properties-and-examples">1. Basic Properties and Examples</h3>
 
@@ -455,7 +455,7 @@ For $a&gt;0$ and $b\in\mathbb{R}$, the conjugate of $g(x)=af(x)+b$ is $g^*(y)=af
   <entry>
     <title type="html"><![CDATA[Notes on Convex Optimization (1): Convex Sets]]></title>
     <link href="http://billy-inn.github.io/blog/2017/10/17/convex-optimization-1/"/>
-    <updated>2017-10-17T00:22:23-06:00</updated>
+    <updated>2017-10-17T01:22:23-05:00</updated>
     <id>http://billy-inn.github.io/blog/2017/10/17/convex-optimization-1</id>
     <content type="html"><![CDATA[<h3 id="affine-and-convex-sets">1. Affine and Convex Sets</h3>
 
@@ -700,7 +700,7 @@ x \prec_K y &\iff y-x \in \mathbf{int}\ K
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 4: Linear Methods for Classification]]></title>
     <link href="http://billy-inn.github.io/blog/2017/10/15/esl-chapter-4/"/>
-    <updated>2017-10-15T14:30:27-06:00</updated>
+    <updated>2017-10-15T15:30:27-05:00</updated>
     <id>http://billy-inn.github.io/blog/2017/10/15/esl-chapter-4</id>
     <content type="html"><![CDATA[<h3 id="linear-discriminant-analysis">4.3 Linear Discriminant Analysis</h3>
 
@@ -795,7 +795,7 @@ x \prec_K y &\iff y-x \in \mathbf{int}\ K
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 3: Linear Regression Models and Least Squares]]></title>
     <link href="http://billy-inn.github.io/blog/2017/09/27/esl-chapter-3/"/>
-    <updated>2017-09-27T19:30:12-06:00</updated>
+    <updated>2017-09-27T20:30:12-05:00</updated>
     <id>http://billy-inn.github.io/blog/2017/09/27/esl-chapter-3</id>
     <content type="html"><![CDATA[<h3 id="linear-regression-models-and-least-squares">3.2 Linear Regression Models and Least Squares</h3>
 
@@ -1013,7 +1013,7 @@ df(\mathbf{\hat y})
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 2: Overview of Supervised Learning]]></title>
     <link href="http://billy-inn.github.io/blog/2017/09/01/esl-chapter-2/"/>
-    <updated>2017-09-01T01:12:36-06:00</updated>
+    <updated>2017-09-01T02:12:36-05:00</updated>
     <id>http://billy-inn.github.io/blog/2017/09/01/esl-chapter-2</id>
     <content type="html"><![CDATA[<h3 id="statistical-decision-theory">2.4 Statistical Decision Theory</h3>
 
@@ -1108,9 +1108,9 @@ y_0 &= x_0^T\beta + \varepsilon \\
   
   <entry>
     <title type="html"><![CDATA[统计释疑(3)：大数定理和中心极限定理]]></title>
-    <link href="http://billy-inn.github.io/blog/2017/08/17/lln-and-clt/"/>
-    <updated>2017-08-17T23:49:29-06:00</updated>
-    <id>http://billy-inn.github.io/blog/2017/08/17/lln-and-clt</id>
+    <link href="http://billy-inn.github.io/blog/2017/08/18/lln-and-clt/"/>
+    <updated>2017-08-18T00:49:29-05:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/08/18/lln-and-clt</id>
     <content type="html"><![CDATA[<p>两个必须得记住并理解的统计学定理：大数定理和中心极限定理。有相当多的统计学理论是以这两个定理为基础。另外从我个人理解，这两个定理在一定程度上解释了为什么数据越多越好（为什么我们需要大数据）。</p>
 
 <h3 id="section">收敛的类型</h3>
@@ -1192,7 +1192,7 @@ y_0 &= x_0^T\beta + \varepsilon \\
   <entry>
     <title type="html"><![CDATA[统计释疑(2)：概率不等式有什么用？]]></title>
     <link href="http://billy-inn.github.io/blog/2017/08/09/probability-inequalities/"/>
-    <updated>2017-08-09T22:38:45-06:00</updated>
+    <updated>2017-08-09T23:38:45-05:00</updated>
     <id>http://billy-inn.github.io/blog/2017/08/09/probability-inequalities</id>
     <content type="html"><![CDATA[<p>在学习概率论或者一些统计课程的时候，往往会学到一系列各式各样稀奇古怪的不等式 (Inequalities)，然而却对于这些不等式的意义缺乏一个直观的认识。引申<em>“All of Statistics”</em>一书中的一个小例子可以给出一个很切合实际的解释。</p>
 
@@ -1261,7 +1261,7 @@ y_0 &= x_0^T\beta + \varepsilon \\
   <entry>
     <title type="html"><![CDATA[统计释疑(1)：什么是p值]]></title>
     <link href="http://billy-inn.github.io/blog/2017/07/28/p-value/"/>
-    <updated>2017-07-28T20:33:16-06:00</updated>
+    <updated>2017-07-28T21:33:16-05:00</updated>
     <id>http://billy-inn.github.io/blog/2017/07/28/p-value</id>
     <content type="html"><![CDATA[<p>某互联网公司招聘程序员，招聘的方法很简单，就是从LeetCode上找$10$道题，录取解出至少$8$道题的应试者。每隔一年，公司会根据新招聘程序员的表现评估上一年招聘的不合格率。公司的期望是每年招聘的不和格率要低于$5\%$。下面是历年的招聘数据：</p>
 
@@ -1351,7 +1351,7 @@ y_0 &= x_0^T\beta + \varepsilon \\
   <entry>
     <title type="html"><![CDATA[【失控:机器、社会与经济的新生物学】漫谈（二）]]></title>
     <link href="http://billy-inn.github.io/blog/2017/01/11/lose-control-2/"/>
-    <updated>2017-01-11T16:13:46-07:00</updated>
+    <updated>2017-01-11T17:13:46-06:00</updated>
     <id>http://billy-inn.github.io/blog/2017/01/11/lose-control-2</id>
     <content type="html"><![CDATA[<p>随着人工智能大潮的火热，各种噱头在大公司和媒体的鼓吹下刺激着大众的神经。关于智械的各种“浪漫”幻想也不再仅仅诉诸于电影和小说，而是开始被严肃的讨论了起来。在这本书里，我看到了一个之前没有见过的有趣的观点：“机器是人类的一种进化形式”。显然这并非通常的经过亿万年自然选择产生的进化，而是一种定向的选择。就如同培育有机食品、杂交水稻一般，人工智能是否也可以定向的让人类自身变得更为强大呢？相比于制造通用智能，越来越多业界的人也都认为AI被定义为Augmented Intelligence（增强智能）而非Artifical Intelligence（人工智能）更加实际和贴切。总的来说，现在的AI还是高度面向任务的，大量人工标注的数据加上工程上的细节才能使计算机在特定任务上战胜人类，而这些努力一旦换了一个领域就难再有大的用武之地。另一方面，希望计算机或者机器人在某些领域完全取代人类也是不现实的，除了一些很基础的任务外，人类的介入在现阶段还是很有必要的，比如机器翻译，智能助理等等。</p>
 
@@ -1367,7 +1367,7 @@ y_0 &= x_0^T\beta + \varepsilon \\
   <entry>
     <title type="html"><![CDATA[【失控: 机器、社会与经济的新生物学】漫谈（一）]]></title>
     <link href="http://billy-inn.github.io/blog/2016/12/14/lose-control-1/"/>
-    <updated>2016-12-14T21:44:01-07:00</updated>
+    <updated>2016-12-14T22:44:01-06:00</updated>
     <id>http://billy-inn.github.io/blog/2016/12/14/lose-control-1</id>
     <content type="html"><![CDATA[<p>重拾阅读后的第一本书，读而不思则罔，于是决定随着阅读随便写点什么，谓之“漫谈”。</p>
 
@@ -1393,7 +1393,7 @@ y_0 &= x_0^T\beta + \varepsilon \\
   <entry>
     <title type="html"><![CDATA[Notes on Reinforcement Learning (4): Temporal-Difference Learning]]></title>
     <link href="http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/"/>
-    <updated>2016-10-16T17:47:27-06:00</updated>
+    <updated>2016-10-16T18:47:27-05:00</updated>
     <id>http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning</id>
     <content type="html"><![CDATA[<p>Temporal-difference (TD) learning is a combination of Monte Carlo ideas and dynamic programming (DP) ideas.</p>
 
@@ -1482,7 +1482,7 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
   <entry>
     <title type="html"><![CDATA[Notes on Reinforcement Learning (3): Monte Carlo Methods]]></title>
     <link href="http://billy-inn.github.io/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/"/>
-    <updated>2016-10-14T16:07:35-06:00</updated>
+    <updated>2016-10-14T17:07:35-05:00</updated>
     <id>http://billy-inn.github.io/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods</id>
     <content type="html"><![CDATA[<p>Monte Carlo methods are ways of solving the reinforcement learning problem based on averaging sample returns. To ensure that well-defined returns are available, here we define Monte Carlo methods only for episodic tasks.</p>
 
@@ -1567,7 +1567,7 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
   <entry>
     <title type="html"><![CDATA[Notes on Reinforcement Learning (2): Dynamic Programming]]></title>
     <link href="http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/"/>
-    <updated>2016-10-06T17:37:02-06:00</updated>
+    <updated>2016-10-06T18:37:02-05:00</updated>
     <id>http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming</id>
     <content type="html"><![CDATA[<h3 id="policy-evaluation">Policy Evaluation</h3>
 
@@ -1629,7 +1629,7 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
   <entry>
     <title type="html"><![CDATA[Notes on Reinforcement Learning (1): Finite Markov Decision Processes]]></title>
     <link href="http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/"/>
-    <updated>2016-10-05T14:55:31-06:00</updated>
+    <updated>2016-10-05T15:55:31-05:00</updated>
     <id>http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes</id>
     <content type="html"><![CDATA[<h3 id="the-agent-environment-interface">The Agent-Environment Interface</h3>
 
@@ -1741,7 +1741,7 @@ q_\pi(s, a)&=\mathbb{E}\left[R_{t+1}+\gamma q_*(S_{t+1},a')\middle|S_t=s, A_t=a\
   <entry>
     <title type="html"><![CDATA[ML With R (3): Logistic Regression]]></title>
     <link href="http://billy-inn.github.io/blog/2016/09/20/ml-with-r-3-logistic-regression/"/>
-    <updated>2016-09-20T17:37:11-06:00</updated>
+    <updated>2016-09-20T18:37:11-05:00</updated>
     <id>http://billy-inn.github.io/blog/2016/09/20/ml-with-r-3-logistic-regression</id>
     <content type="html"><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -2011,7 +2011,7 @@ $(document).ready(function () {
   <entry>
     <title type="html"><![CDATA[ML With R (2): Regularized Linear Regression]]></title>
     <link href="http://billy-inn.github.io/blog/2016/09/14/ml-with-r-2-regularized-linear-regression/"/>
-    <updated>2016-09-14T16:21:10-06:00</updated>
+    <updated>2016-09-14T17:21:10-05:00</updated>
     <id>http://billy-inn.github.io/blog/2016/09/14/ml-with-r-2-regularized-linear-regression</id>
     <content type="html"><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -2283,7 +2283,7 @@ $(document).ready(function () {
   <entry>
     <title type="html"><![CDATA[ML With R (1): Linear Regression]]></title>
     <link href="http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression/"/>
-    <updated>2016-08-31T14:58:57-06:00</updated>
+    <updated>2016-08-31T15:58:57-05:00</updated>
     <id>http://billy-inn.github.io/blog/2016/08/31/ml-with-r-1-linear-regression</id>
     <content type="html"><![CDATA[<html xmlns="http://www.w3.org/1999/xhtml">
 
