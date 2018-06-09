@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Statistics | Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/blog/categories/statistics/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2018-06-01T11:06:38-05:00</updated>
+  <updated>2018-06-09T00:40:17-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[统计释疑(3)：大数定理和中心极限定理]]></title>
-    <link href="http://billy-inn.github.io/blog/2017/08/18/lln-and-clt/"/>
-    <updated>2017-08-18T00:49:29-05:00</updated>
-    <id>http://billy-inn.github.io/blog/2017/08/18/lln-and-clt</id>
+    <link href="http://billy-inn.github.io/blog/2017/08/17/lln-and-clt/"/>
+    <updated>2017-08-17T23:49:29-06:00</updated>
+    <id>http://billy-inn.github.io/blog/2017/08/17/lln-and-clt</id>
     <content type="html"><![CDATA[<p>两个必须得记住并理解的统计学定理：大数定理和中心极限定理。有相当多的统计学理论是以这两个定理为基础。另外从我个人理解，这两个定理在一定程度上解释了为什么数据越多越好（为什么我们需要大数据）。</p>
 
 <h3 id="section">收敛的类型</h3>
@@ -99,7 +99,7 @@
   <entry>
     <title type="html"><![CDATA[统计释疑(2)：概率不等式有什么用？]]></title>
     <link href="http://billy-inn.github.io/blog/2017/08/09/probability-inequalities/"/>
-    <updated>2017-08-09T23:38:45-05:00</updated>
+    <updated>2017-08-09T22:38:45-06:00</updated>
     <id>http://billy-inn.github.io/blog/2017/08/09/probability-inequalities</id>
     <content type="html"><![CDATA[<p>在学习概率论或者一些统计课程的时候，往往会学到一系列各式各样稀奇古怪的不等式 (Inequalities)，然而却对于这些不等式的意义缺乏一个直观的认识。引申<em>“All of Statistics”</em>一书中的一个小例子可以给出一个很切合实际的解释。</p>
 
@@ -168,7 +168,7 @@
   <entry>
     <title type="html"><![CDATA[统计释疑(1)：什么是p值]]></title>
     <link href="http://billy-inn.github.io/blog/2017/07/28/p-value/"/>
-    <updated>2017-07-28T21:33:16-05:00</updated>
+    <updated>2017-07-28T20:33:16-06:00</updated>
     <id>http://billy-inn.github.io/blog/2017/07/28/p-value</id>
     <content type="html"><![CDATA[<p>某互联网公司招聘程序员，招聘的方法很简单，就是从LeetCode上找$10$道题，录取解出至少$8$道题的应试者。每隔一年，公司会根据新招聘程序员的表现评估上一年招聘的不合格率。公司的期望是每年招聘的不和格率要低于$5\%$。下面是历年的招聘数据：</p>
 

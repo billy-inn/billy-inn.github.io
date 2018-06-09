@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Machine_learning | Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/blog/categories/machine-learning/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2018-06-01T11:06:38-05:00</updated>
+  <updated>2018-06-09T00:40:17-06:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees]]></title>
     <link href="http://billy-inn.github.io/blog/2017/12/14/esl-chapter10/"/>
-    <updated>2017-12-14T18:07:57-06:00</updated>
+    <updated>2017-12-14T17:07:57-07:00</updated>
     <id>http://billy-inn.github.io/blog/2017/12/14/esl-chapter10</id>
     <content type="html"><![CDATA[<h3 id="why-exponential-loss">10.5 Why Exponential Loss?</h3>
 
@@ -58,7 +58,7 @@
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 6: Kernel Smoothing Methods]]></title>
     <link href="http://billy-inn.github.io/blog/2017/10/27/esl-chapter-6/"/>
-    <updated>2017-10-27T17:57:21-05:00</updated>
+    <updated>2017-10-27T16:57:21-06:00</updated>
     <id>http://billy-inn.github.io/blog/2017/10/27/esl-chapter-6</id>
     <content type="html"><![CDATA[<h3 id="one-dimensional-kernel-smoothers">6.1 One-Dimensional Kernel Smoothers</h3>
 
@@ -138,7 +138,7 @@ m_1 &= \sum_{i=1}^NK_\lambda(x_0, x_i)x_iy_i
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 5: Basis Expansions and Regularization]]></title>
     <link href="http://billy-inn.github.io/blog/2017/10/24/esl-chapter-5/"/>
-    <updated>2017-10-24T19:34:25-05:00</updated>
+    <updated>2017-10-24T18:34:25-06:00</updated>
     <id>http://billy-inn.github.io/blog/2017/10/24/esl-chapter-5</id>
     <content type="html"><![CDATA[<h3 id="smoothing-splines">5.4 Smoothing Splines</h3>
 
@@ -200,7 +200,7 @@ K&=\frac1\lambda(S_\lambda^{-1}-I)\\
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 4: Linear Methods for Classification]]></title>
     <link href="http://billy-inn.github.io/blog/2017/10/15/esl-chapter-4/"/>
-    <updated>2017-10-15T15:30:27-05:00</updated>
+    <updated>2017-10-15T14:30:27-06:00</updated>
     <id>http://billy-inn.github.io/blog/2017/10/15/esl-chapter-4</id>
     <content type="html"><![CDATA[<h3 id="linear-discriminant-analysis">4.3 Linear Discriminant Analysis</h3>
 
@@ -295,7 +295,7 @@ K&=\frac1\lambda(S_\lambda^{-1}-I)\\
   <entry>
     <title type="html"><![CDATA[[Notes on Mathematics for ESL] Chapter 3: Linear Regression Models and Least Squares]]></title>
     <link href="http://billy-inn.github.io/blog/2017/09/27/esl-chapter-3/"/>
-    <updated>2017-09-27T20:30:12-05:00</updated>
+    <updated>2017-09-27T19:30:12-06:00</updated>
     <id>http://billy-inn.github.io/blog/2017/09/27/esl-chapter-3</id>
     <content type="html"><![CDATA[<h3 id="linear-regression-models-and-least-squares">3.2 Linear Regression Models and Least Squares</h3>
 
