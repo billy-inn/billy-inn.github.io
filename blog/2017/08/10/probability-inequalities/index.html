@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>统计释疑(3)：大数定理和中心极限定理 - Billy Inn in Wonderland</title>
+  <title>统计释疑(2)：概率不等式有什么用？ - Billy Inn in Wonderland</title>
   <meta name="author" content="Peng Xu">
 
   
-  <meta name="description" content="两个必须得记住并理解的统计学定理：大数定理和中心极限定理。有相当多的统计学理论是以这两个定理为基础。另外从我个人理解，这两个定理在一定程度上解释了为什么数据越多越好（为什么我们需要大数据）。 收敛的类型 为了更加准确的理解上述两个定理，我们需要理解概率层面的收敛，而非微积分里的收敛（如果对与任意 &hellip;">
+  <meta name="description" content="在学习概率论或者一些统计课程的时候，往往会学到一系列各式各样稀奇古怪的不等式 (Inequalities)，然而却对于这些不等式的意义缺乏一个直观的认识。引申“All of Statistics”一书中的一个小例子可以给出一个很切合实际的解释。 我的神经网络真的有效吗？ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://billy-inn.github.io/blog/2017/08/17/lln-and-clt/">
+  <link rel="canonical" href="http://billy-inn.github.io/blog/2017/08/10/probability-inequalities/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Billy Inn in Wonderland" type="application/atom+xml">
@@ -79,7 +79,7 @@
   
   <header>
     
-      <h1 class="entry-title">统计释疑(3)：大数定理和中心极限定理</h1>
+      <h1 class="entry-title">统计释疑(2)：概率不等式有什么用？</h1>
     
     
       <p class="meta">
@@ -88,7 +88,7 @@
 
 
 
-<time class='entry-date' datetime='2017-08-17T23:49:29-06:00'><span class='date'>2017-08-17</span> <span class='time'>11:49 pm</span></time>
+<time class='entry-date' datetime='2017-08-10T00:38:45-04:00'><span class='date'>2017-08-10</span> <span class='time'>12:38 am</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://billy-inn.github.io">Comments</a>
@@ -98,81 +98,67 @@
   </header>
 
 
-<div class="entry-content"><p>两个必须得记住并理解的统计学定理：大数定理和中心极限定理。有相当多的统计学理论是以这两个定理为基础。另外从我个人理解，这两个定理在一定程度上解释了为什么数据越多越好（为什么我们需要大数据）。</p>
+<div class="entry-content"><p>在学习概率论或者一些统计课程的时候，往往会学到一系列各式各样稀奇古怪的不等式 (Inequalities)，然而却对于这些不等式的意义缺乏一个直观的认识。引申<em>“All of Statistics”</em>一书中的一个小例子可以给出一个很切合实际的解释。</p>
 
-<h3 id="section">收敛的类型</h3>
+<h3 id="section">我的神经网络真的有效吗？</h3>
 
-<p>为了更加准确的理解上述两个定理，我们需要理解概率层面的收敛，而非微积分里的收敛（如果对与任意$\epsilon&gt;0$和足够大的$n$，$\vert x_n -x \rvert &lt; \epsilon$，那么我们称这一实数列$x_n$收敛于极限$x$）。</p>
+<p>假如我们用神经网络在MNIST数据集上训练了一个分类器，我们在测试集上得到了一个错误率，比如$0.05$。那么这是否意味着我们可以保证我们的神经网络一定能达到$95\%$的正确率呢？显然训练一次得出的结果是不可靠的。那么，我们有多大的把握（概率）来相信这一观察到的错误率呢？</p>
 
-<p>在统计中，主要有两种类型的收敛：</p>
+<p>这时候就需要一些统计的语言了：假设我们有$n$个测试样本，每个测试样本分类的正确与否都是一个随机变量$X_1,\dots,X_n$。如果分类错误$X_i=1$，否则$X_i=0$。显而易见，$\bar X_n=n^{-1}\sum_{i=1}^nX_i$就是观察到的错误率。我们可以把每个$X_i$当做一个均值为$p$服从Bernoulli分布的随机变量，从而$p$就是真正（但是永远无法准确知晓）的错误率。从我们的角度来看，我们希望$\bar X_n$应该接近$p$。那么$\bar X_n$和$p$的概率超过一个固定值$\epsilon$的概率有多大呢？
+这个概率就是$\mathbb{P}(\lvert\bar X_n -p\rvert &gt; \epsilon)$，通常我们很难直接计算出它的值，这时我们就需要不等式来给这个概率设定一些边界 (bound)。</p>
 
 <!--more-->
 
-<blockquote>
-  <p>令$X_1,X_2,\dots$为一系列随机变量并令$X$为另一个随机变量。令$F_n$表示$X_n$的概率密度函数 (CDF)，$F$表示$X$的概率密度函数。
-1) $X_n$在概率上收敛于$X$ (converges in probability)，写作$X_n\xrightarrow[]{P} X$，如果对于任意$\epsilon&gt;0$</p>
-</blockquote>
+<h3 id="section-1">尝试用不等式给出估计</h3>
 
-<script type="math/tex; mode=display">\mathbb{P}(\vert X_n - X\vert>\epsilon) \rightarrow 0</script>
+<p>我们的第一个不等式就是马尔科夫不等式 (Markov’s inequality)：</p>
 
 <blockquote>
-  <p>当$n\rightarrow\infty$。
-2) $X_n$在分布上收敛于$X$ (converges in distribution), 写作$X_n\rightsquigarrow X$，如果对于任意在$F$中连续的点$t$，</p>
+  <p>令$X$为一个非负随机变量并假设$\mathbb{E}(X)$存在。对任何$t&gt;0$，</p>
 </blockquote>
 
-<script type="math/tex; mode=display">\lim_{n\rightarrow\infty}F_n(t)=F(t)</script>
+<script type="math/tex; mode=display">\mathbb{P}(X>t) \le \frac{\mathbb{E}(X)}t。</script>
 
-<p>另外由$X_n\xrightarrow[]{P}X$可以推出$X_n\rightsquigarrow X$。</p>
-
-<p>P.S. 其实还有另外两种类型的收敛，他们之间的关系也更加复杂，这里的重点是介绍两个定理，所以这部分从简，想深入了解可参考相关教材。</p>
-
-<h3 id="the-law-of-large-numbers">大数定理 (The Law of Large Numbers)</h3>
-
-<p>令$X_1,X_2\dots$为独立同分布 (IID) 的样本，令$\mu=\mathbb{E}(X_1)$，$\sigma^2=\mathbb{V}(X_1)$。另外$\bar X_n = n^{-1}\sum_{i=1}^nX_i$为样本均值并且$\mathbb{E}(\bar X_n)=\mu$，$\mathbb{V}(\bar X_n)=\sigma^2/n$。</p>
+<p>咋一看，我们似乎无法直接运用马尔科夫不等式来限定$\mathbb{P}(\lvert\bar X_n -p\rvert &gt; \epsilon)$的值。但其实只要稍做转换，便可得到另一个可以直接使用的不等式，即切比雪夫不等式 (Chebyshev’s inequality)：</p>
 
 <blockquote>
-  <p><strong>弱大数定理(WLLN)</strong>：如果$X_1,\dots, X_n$为独立同分布，那么$\bar X_n \xrightarrow[]{P} \mu$。</p>
+  <p>令$\mu = \mathbb{E}(X)$和$\sigma^2=\mathbb{V}(X)$，从而</p>
 </blockquote>
 
-<p>理解：当$n$越来越大时，$\bar X_n$的分布变得越来越聚集于$\mu$附近。</p>
+<script type="math/tex; mode=display">\mathbb{P}(\lvert X-\mu\rvert\ge t)\le\frac{\sigma^2}{t^2}。</script>
 
-<h3 id="the-central-limit-theorem">中心极限定理 (The Central Limit Theorem)</h3>
+<p>这个不等式可以直接从马尔科夫不等式得出：</p>
+
+<script type="math/tex; mode=display">\mathbb{P}(|X-\mu| \ge t)=\mathbb{P}(|X-\mu|^2\ge t^2)
+\le\frac{\mathbb{E}(X-\mu)^2}{t^2}=\frac{\sigma^2}{t^2}。</script>
+
+<p>由于$X_i$服从Bernoulli分布，所以$\mathbb{V}(\bar X_n)=\mathbb{V}(X_i)/n=p(1-p)/n$，从而</p>
+
+<script type="math/tex; mode=display">\mathbb{P}(|\bar X_n -p|>\epsilon)\le\frac{\mathbb{V}(\bar X_n)}{\epsilon^2}=\frac{p(1-p)}{n\epsilon^2}\le\frac1{4n\epsilon^2}</script>
+
+<p>注意对任意$0&lt;p&lt;1$，$p(1-p)\le\frac14$。如果我们希望神经网络的真实错误率与观察到的错误率之间的误差超过$\epsilon=0.05$的概率不超过$0.05$，那么通过简单的计算可得我们需要大约$n=2000$个测试样本。怎么样，是不是觉得不等式变得有用了？</p>
+
+<h3 id="section-2">一个更贴近的估计？</h3>
+
+<p>切比雪夫不等式只是一个相对粗略的估算，其实还有各种更为精确的不等式。当然，随之然来的是各种各样的限制条件，这里给出一个更精确的霍夫丁不等式 (Hoeffding’s inequality)：</p>
 
 <blockquote>
-  <p><strong>中心极限定理(CLT)</strong>：如果$X_1,\dots,X_n$为独立同分布，那么</p>
+  <p>令$X_1\dots X_n \sim \mathrm{Bernoulli}(p)$，对任意$\epsilon&gt;0$，</p>
 </blockquote>
 
-<script type="math/tex; mode=display">Z_n=\frac{\sqrt{n}(\bar X_n - \mu)}{\sigma} \rightsquigarrow Z</script>
+<script type="math/tex; mode=display">P(\lvert\bar X_n - p\rvert \ge \epsilon) \le 2e^{-2n\epsilon^2}</script>
 
 <blockquote>
-  <p>其中$Z \sim N(0,1)$，即正态分布。</p>
+  <p>其中$\bar X_n = n^{-1}\sum_{i=1}^nX_i$。</p>
 </blockquote>
 
-<p>理解：关于$\bar X_n$的概率表达式可以近似于正态分布。注意并不是随机变量本身近似于正态分布。</p>
+<p>通过上面的不等式，经过计算发现其实我们只需要$738$个测试样本就足够了。</p>
 
-<p>然而大多数时候我们并不知道$\sigma$，实际中我们可以用标准差$S_n^2=\frac1{n-1}\sum_{i=1}^n(X_i-\bar X_n)^2$来代替$\sigma$。</p>
+<p>P.S. 上面的Hoeffding’s inequality只是针对Bernoulli变量的特殊形式，完整的不等式可以参考Wikipedia或相关教材。</p>
 
-<blockquote>
-  <p><strong>定理</strong>：在与CLT相同的条件下，</p>
-</blockquote>
+<h3 id="section-3">小结</h3>
 
-<script type="math/tex; mode=display">\frac{\sqrt{n}(\bar X_n - \mu)}{S_n} \rightsquigarrow N(0,1)</script>
-
-<h3 id="delta-the-delta-method">Delta方法 (The Delta Method)</h3>
-
-<p>为了能更加广泛有效的利用中心极限定理，掌握Delta方法是相当有必要的。</p>
-
-<blockquote>
-  <p><strong>Delta方法</strong>：</p>
-</blockquote>
-
-<script type="math/tex; mode=display">Y\approx N\left(\mu,\frac{\mu^2}{n}\right) \Rightarrow g(Y_n) \approx N\left(g(\mu),(g'(\mu))^2\frac{\sigma^2}n\right)</script>
-
-<blockquote>
-  <p>其中$g$是一个可导函数从而$g’(\mu)\ne0$。</p>
-</blockquote>
-
-<p>P.S. 强大数定理，多元中心极限定理及多元Delta方法由于比较复杂就省略了。另外由于比较懒，所以有助于理解的例子也没用写，纯粹当是记录一下学习的过程了。</p>
+<p>经过一个小例子，我们对不等式的作用有了一个直观的认识。但不等式真正的用武之地是在各种推导证明之中的，虽然我看到那种满篇公式、各种bound来bound去的paper都是自动略过的，而且现在在做的东西也是偏应用层面。但谁知道将来在研究中会不会经常用到呢，至少，现在我学会了估算可靠的测试样本大小的方法。</p>
 </div>
 
 
@@ -188,7 +174,7 @@
 
 
 
-<time class='entry-date' datetime='2017-08-17T23:49:29-06:00'><span class='date'>2017-08-17</span> <span class='time'>11:49 pm</span></time>
+<time class='entry-date' datetime='2017-08-10T00:38:45-04:00'><span class='date'>2017-08-10</span> <span class='time'>12:38 am</span></time>
       
 
 <span class="categories">
@@ -202,7 +188,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2017/08/17/lln-and-clt/" data-via="billyinn93" data-counturl="http://billy-inn.github.io/blog/2017/08/17/lln-and-clt/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2017/08/10/probability-inequalities/" data-via="billyinn93" data-counturl="http://billy-inn.github.io/blog/2017/08/10/probability-inequalities/" >Tweet</a>
   
   
   
@@ -211,10 +197,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2017/08/09/probability-inequalities/" title="Previous Post: 统计释疑(2)：概率不等式有什么用？">&laquo; 统计释疑(2)：概率不等式有什么用？</a>
+        <a class="basic-alignment left" href="/blog/2017/07/28/p-value/" title="Previous Post: 统计释疑(1)：什么是p值">&laquo; 统计释疑(1)：什么是p值</a>
       
       
-        <a class="basic-alignment right" href="/blog/2017/09/01/esl-chapter-2/" title="Next Post: [Notes on Mathematics for ESL] Chapter 2: Overview of Supervised Learning">[Notes on Mathematics for ESL] Chapter 2: Overview of Supervised Learning &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2017/08/18/lln-and-clt/" title="Next Post: 统计释疑(3)：大数定理和中心极限定理">统计释疑(3)：大数定理和中心极限定理 &raquo;</a>
       
     </p>
   </footer>
@@ -398,8 +384,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://billy-inn.github.io/blog/2017/08/17/lln-and-clt/';
-        var disqus_url = 'http://billy-inn.github.io/blog/2017/08/17/lln-and-clt/';
+        var disqus_identifier = 'http://billy-inn.github.io/blog/2017/08/10/probability-inequalities/';
+        var disqus_url = 'http://billy-inn.github.io/blog/2017/08/10/probability-inequalities/';
         var disqus_script = 'embed.js';
       
     (function () {
