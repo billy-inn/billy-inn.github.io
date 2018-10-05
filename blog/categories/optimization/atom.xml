@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Optimization | Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/blog/categories/optimization/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2018-10-05T01:06:58-04:00</updated>
+  <updated>2018-10-05T01:11:09-04:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -33,6 +33,8 @@
 \end{equation}</p>
 
 <p>. Thus, solving the unconstrained minimization problem \eqref{eq:1} is the same as finding a solution of \eqref{eq:2}, which is a set of $n$ equations in the $n$ variables $x_1, \dots, x_n$. Usually, the problem must be solved by an iterative algorithm. By this we mean an algorithm that computes a sequence of points $x^{(0)}, x^{(1)}, \dots \in \mathbf{dom}\enspace f$ with $f(x^{(k)})\rightarrow p^\ast$ as $k\rightarrow\infty$. The algorithm is terminated when $f(x^{k}) - p^\ast \le \epsilon$, where $\epsilon&gt;0$ is some specified tolerance.</p>
+
+<!--more-->
 
 <h4 id="initial-point-and-sublevel-set">Initial point and sublevel set</h4>
 
