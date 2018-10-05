@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://billy-inn.github.io/blog/2018/09/29/notes-on-convex-optimization-3-unconstrained-minimization-problems/</loc>
+<lastmod>2018-09-29T15:15:12-04:00</lastmod>
+</url>
+<url>
 <loc>http://billy-inn.github.io/blog/2017/12/14/esl-chapter10/</loc>
 <lastmod>2017-12-14T19:07:57-05:00</lastmod>
 </url>

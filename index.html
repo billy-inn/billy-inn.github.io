@@ -9,7 +9,10 @@
   <meta name="author" content="Peng Xu">
 
   
-  <meta name="description" content="10.5 Why Exponential Loss? Derivation of Equation (10.16) Since $Y\in{-1,1}$, we can expand the expectation as follows: In order to minimize the &hellip;">
+  <meta name="description" content="Unconstrained optimization problems are defined as follows: \begin{equation}
+\text{minimize}\quad f(x)
+\tag{1} \label{eq:1}
+\end{equation} where $f &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +81,212 @@
 
 <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/09/29/notes-on-convex-optimization-3-unconstrained-minimization-problems/">Notes on Convex Optimization (3): Unconstrained Minimization Problems</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-09-29T15:15:12-04:00'><span class='date'>2018-09-29</span> <span class='time'>3:15 pm</span></time>
+        
+           | <a href="/blog/2018/09/29/notes-on-convex-optimization-3-unconstrained-minimization-problems/#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io/blog/2018/09/29/notes-on-convex-optimization-3-unconstrained-minimization-problems/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Unconstrained optimization problems are defined as follows:</p>
+
+<p>\begin{equation}
+\text{minimize}\quad f(x)
+\tag{1} \label{eq:1}
+\end{equation}</p>
+
+<p>where $f: \mathbf{R}^n \rightarrow \mathbf{R}$ is convex and twice continously differentiable (which implies that $\mathbf{dom}\enspace f$ is open). We denote the optimal value $\inf_xf(x)=f(x^\ast)$, as $p^\ast$. Since $f$ is differentiable and convex, a necessary and sufficient condition for a point $x^\ast$ to be optimal is</p>
+
+<p>\begin{equation}
+\nabla f(x^\ast)=0
+\tag{2} \label{eq:2}
+\end{equation}</p>
+
+<p>. Thus, solving the unconstrained minimization problem \eqref{eq:1} is the same as finding a solution of \eqref{eq:2}, which is a set of $n$ equations in the $n$ variables $x_1, \dots, x_n$. Usually, the problem must be solved by an iterative algorithm. By this we mean an algorithm that computes a sequence of points $x^{(0)}, x^{(1)}, \dots \in \mathbf{dom}\enspace f$ with $f(x^{(k)})\rightarrow p^\ast$ as $k\rightarrow\infty$. The algorithm is terminated when $f(x^{k}) - p^\ast \le \epsilon$, where $\epsilon&gt;0$ is some specified tolerance.</p>
+
+<h4 id="initial-point-and-sublevel-set">Initial point and sublevel set</h4>
+
+<p>The starting point $x^{(0)}$ must lie in $\mathbf{dom}\enspace f$, and in addition the sublevel set</p>
+
+<script type="math/tex; mode=display">S = \{x \in \mathbf{dom}\enspace f \vert f(x) \le f(x^{(0)})\}</script>
+
+<p>must be closed. This condition is satisfied for all $x^{(0)}\in\mathbf{dom}\enspace f$ if the function $f$ is closed.</p>
+
+<p>Note: 1) Continuous functions with $\mathbf{dom}\enspace f=\mathbf{R}^n$ are closed; 2) Another important class of closed functions are continuous functions with open domains.</p>
+
+<h3 id="examples">Examples</h3>
+
+<h4 id="quadratic-minimization-and-least-squares">Quadratic minimization and least-squares</h4>
+
+<p>The general convex quadratic minimization problem has the form</p>
+
+<script type="math/tex; mode=display">\text{minimize}\quad (1/2)x^TPx+q^Tx+r,</script>
+
+<p>where $P\in\mathbf{S}_+^n$, $q\in\mathbf{R}^n$, and $r\in\mathbf{R}$. This problem can be solved via the optimality conditions, $Px+q=0$, which is a set of linear equations.</p>
+
+<p>One special case of the quadratic minimization problem that arises very frequently is the least-squares problem</p>
+
+<script type="math/tex; mode=display">\text{minimize}\quad \lVert Ax-b\rVert_2^2=x^T(A^TA)x-2(A^Tb)^T+b^Tb.</script>
+
+<p>The optimality condition</p>
+
+<script type="math/tex; mode=display">A^TAx^\ast=A^Tb</script>
+
+<p>are called the <em>normal equations</em> of the least-squares problem.</p>
+
+<h4 id="unconstrained-geometric-programming">Unconstrained geometric programming</h4>
+
+<script type="math/tex; mode=display">\text{minimize}\quad f(x)=\log(\sum_{i=1}^m\exp(a_i^Tx+b_i))</script>
+
+<h4 id="analytic-center-of-linear-inequalities">Analytic center of linear inequalities</h4>
+
+<script type="math/tex; mode=display">\text{minimize} f(x)=-\sum_{i=1}^m\log(b_i - a_i^Tx),</script>
+
+<p>where the domain of $f$ is the open set</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\mathbf{dom}\enspace f=\{x\vert a_i^Tx<b_i,i=1,\dots,m\}. %]]></script>
+
+<h4 id="analytic-center-of-a-linear-matrix-inequality">Analytic center of a linear matrix inequality</h4>
+
+<script type="math/tex; mode=display">\text{minimize}\quad f(x)=\log\det F(x)^{-1}</script>
+
+<p>where $F: \mathbf{R}^n\rightarrow\mathbf{S}^p$ is affine. Here the domain of $f$ is</p>
+
+<script type="math/tex; mode=display">\mathbf{dom}\enspace f=\{x\vert F(x) \succ 0\}.</script>
+
+<h3 id="strong-convexity-and-implications">Strong convexity and implications</h3>
+
+<p>The objective function is <em>strongly convex</em> on $S$, which means that there exists an $m&gt;0$ such that</p>
+
+<p>\begin{equation}
+\nabla^2f(x) \succeq mI
+\tag{3} \label{eq:3}
+\end{equation}</p>
+
+<p>for all $x\in S$.  For $x, y \in S$ we have</p>
+
+<script type="math/tex; mode=display">f(y)=f(x)+\nabla f(x)^T(y-x) + \frac12(y-x)^T\nabla^2f(z)(y-x)</script>
+
+<p>for some $z$ on the line segement $[x, y]$. By the strong convexity assumption \eqref{eq:3}, the last term on the righthand side is at least $(m/2)\lVert y-x\rVert^2_2$, so we have the inequality</p>
+
+<p>\begin{equation}
+f(y) \ge f(x) + \nabla f(x)^T(y-x) + \frac{m}2\lVert y-x \rVert_2^2
+\tag{4} \label{eq:4}
+\end{equation}</p>
+
+<p>for all $x$ and $y$ in $S$.</p>
+
+<h4 id="bound-fx-past-in-terms-of-lvert-nabla-fx-rvert2">Bound $f(x)-p^\ast$ in terms of $\lVert \nabla f(x) \rVert_2$</h4>
+
+<p>Setting the gradient of the righthand side of \eqref{eq:4} with respect to $y$ equal to zero, we find that $\tilde y = x-(1/m)\nabla f(x)$ minimizes the righthand side. Therefore we have</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+f(y) &\ge f(x) + \nabla f(x)^T (y-x) + \frac{m}2\lVert y-x \rVert_2^2 \\
+& \ge f(x) + \nabla f(x)^T(\tilde y - x) + \frac{m}2\lVert \tilde y - x \rVert_2^2 \\
+& = f(x) - \frac1{2m}\lVert \nabla f(x)\rVert_2^2
+\end{split} %]]></script>
+
+<p>Since this holds for any $y\in S$, we have</p>
+
+<p>\begin{equation}
+p^* \ge f(x) - \frac1{2m}\lVert \nabla f(x)\rVert_2^2
+\tag{5} \label{eq:5}
+\end{equation}</p>
+
+<p>This inequality shows that if the gradient is small at a point, then the point is nearly optimal.</p>
+
+<h4 id="bound-lvert-x-xastrvert22-in-terms-of-lvert-nabla-fx-rvert2">Bound $\lVert x-x^\ast\rVert_2^2$ in terms of $\lVert \nabla f(x) \rVert_2$</h4>
+
+<p>Apply \eqref{eq:4} with $y=x^\ast$ to obtain</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+p^* = f(x^\ast)  & \ge f(x) + \nabla f(x)^T (x^\ast - x) + \frac{m}2\lVert x^\ast-x \rVert_2^2 \\
+& \ge f(x) - \lVert \nabla f(x) \rVert_2 \lVert x^\ast - x \rVert_2 + \frac{m}2 \lVert x^\ast - x \rVert_2^2,
+\end{split} %]]></script>
+
+<p>where we use the Cauchy-Schwarz inequality in the second inequality. Since $p^\ast \le f(x)$, we must have</p>
+
+<script type="math/tex; mode=display">-\lVert \nabla f(x) \rVert_2 \lVert x^\ast - x \rVert_2 + \frac{m}2 \lVert x^\ast - x \rVert_2^2 \le 0.</script>
+
+<p>Therefore, we have</p>
+
+<p>\begin{equation}
+\lVert x - x^\ast \rVert_2 \le \frac2m\lVert \nabla f(x) \rVert_2.
+\tag{6}\label{eq:6}
+\end{equation}</p>
+
+<h4 id="uniqueness-of-the-optimal-point-xast">Uniqueness of the optimal point $x^\ast$</h4>
+
+<p>If there are two optimal point $x^\ast_1, x^\ast_2$, according to \eqref{eq:6},</p>
+
+<script type="math/tex; mode=display">\lVert x_1^\ast - x_2^\ast \rVert \le \frac2m \lVert f(x_1^\ast) \rVert_2 = 0.</script>
+
+<p>Hence, $x_1^\ast = x_2^\ast$, the optimal point $x^\ast$ is unique.</p>
+
+<h4 id="upper-bound-on-nabla2fx">Upper bound on $\nabla^2f(x)$</h4>
+
+<p>There exists a  constant $M$ such that</p>
+
+<script type="math/tex; mode=display">\nabla^2 f(x) \preceq MI</script>
+
+<p>for all $x \in S$. This upper bound on the Hessian implies for any $x, y \in S$,</p>
+
+<script type="math/tex; mode=display">f(y) \le f(x) + \nabla f(x)^T (y-x) + \frac{M}2\lVert y-x \rVert_2^2,</script>
+
+<p>minimizing each side over $y$ yields</p>
+
+<script type="math/tex; mode=display">p^\ast \le f(x) - \frac1{2M}\lVert \nabla f(x) \rVert_2^2.</script>
+
+<h4 id="condition-number-of-sublevel-sets">Condition number of sublevel sets</h4>
+
+<p>The ratio $\kappa=M/m$ is an upper bound on the condition number of the matrix $\nabla^2 f(x)$, <em>i.e.</em>, the ratio of its largest eigenvalue to its smallest eigenvalue.</p>
+
+<p>We define the <em>width</em> of a convex set $C \subseteq \mathbf{R}^n$, in the direction $q$, where $\lVert q \rVert_2 = 1$, as</p>
+
+<script type="math/tex; mode=display">W(C, q) = \sup_{z \in C} q^T z - \inf_{z\in C}q^Tz.</script>
+
+<p>The <em>minimum width</em> and <em>maximum width</em> of $C$ are given by</p>
+
+<script type="math/tex; mode=display">W_{min}=\inf_{\lVert q\rVert_2=1}W(C,q), \qquad W_{max}=\sup_{\lVert q\rVert_2=1}W(C,q).</script>
+
+<p>The <em>condition number</em> of the convex set $C$ is defined as</p>
+
+<script type="math/tex; mode=display">\mathbf{cond}(C)=\frac{W^2_{max}}{W^2_{min}}.</script>
+
+<p>Suppose $f$ satisfies $mI \preceq \nabla^2 f(x) \preceq MI$ for all $x\in S$. The condition number of the $\alpha$-sublevel $C_\alpha={x \vert f(x) \le \alpha}$, where $p^\ast &lt; \alpha \le f(x^{(0)})$, is bounded by</p>
+
+<script type="math/tex; mode=display">\mathbf{cond}(C_\alpha) \le \frac Mm.</script>
+
+<h4 id="the-strong-convexity-constants">The strong convexity constants</h4>
+
+<p>It must be kept in mind that the constants $m$ and $M$ are known only in rare cases, so they cannot be used in a practical stopping criterion.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -576,50 +785,6 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2017/08/10/probability-inequalities/">统计释疑(2)：概率不等式有什么用？</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-08-10T00:38:45-04:00'><span class='date'>2017-08-10</span> <span class='time'>12:38 am</span></time>
-        
-           | <a href="/blog/2017/08/10/probability-inequalities/#disqus_thread"
-             data-disqus-identifier="http://billy-inn.github.io/blog/2017/08/10/probability-inequalities/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在学习概率论或者一些统计课程的时候，往往会学到一系列各式各样稀奇古怪的不等式 (Inequalities)，然而却对于这些不等式的意义缺乏一个直观的认识。引申<em>“All of Statistics”</em>一书中的一个小例子可以给出一个很切合实际的解释。</p>
-
-<h3 id="section">我的神经网络真的有效吗？</h3>
-
-<p>假如我们用神经网络在MNIST数据集上训练了一个分类器，我们在测试集上得到了一个错误率，比如$0.05$。那么这是否意味着我们可以保证我们的神经网络一定能达到$95\%$的正确率呢？显然训练一次得出的结果是不可靠的。那么，我们有多大的把握（概率）来相信这一观察到的错误率呢？</p>
-
-<p>这时候就需要一些统计的语言了：假设我们有$n$个测试样本，每个测试样本分类的正确与否都是一个随机变量$X_1,\dots,X_n$。如果分类错误$X_i=1$，否则$X_i=0$。显而易见，$\bar X_n=n^{-1}\sum_{i=1}^nX_i$就是观察到的错误率。我们可以把每个$X_i$当做一个均值为$p$服从Bernoulli分布的随机变量，从而$p$就是真正（但是永远无法准确知晓）的错误率。从我们的角度来看，我们希望$\bar X_n$应该接近$p$。那么$\bar X_n$和$p$的概率超过一个固定值$\epsilon$的概率有多大呢？
-这个概率就是$\mathbb{P}(\lvert\bar X_n -p\rvert &gt; \epsilon)$，通常我们很难直接计算出它的值，这时我们就需要不等式来给这个概率设定一些边界 (bound)。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2017/08/10/probability-inequalities/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -653,7 +818,7 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 	<li class="nav-header">Categories</li>
 	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
 <li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (11)</a></li>
-<li class='category'><a href='/blog/categories/optimization/'>optimization (2)</a></li>
+<li class='category'><a href='/blog/categories/optimization/'>optimization (3)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
 <li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
 <li class='category'><a href='/blog/categories/reading/'>reading (2)</a></li>
@@ -665,6 +830,10 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/09/29/notes-on-convex-optimization-3-unconstrained-minimization-problems/">Notes on Convex Optimization (3): Unconstrained Minimization Problems</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/12/14/esl-chapter10/">[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees</a>
@@ -680,10 +849,6 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
     
       <li class="post">
         <a href="/blog/2017/10/21/convex-optimization-2/">Notes on Convex Optimization (2): Convex Functions</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/10/17/convex-optimization-1/">Notes on Convex Optimization (1): Convex Sets</a>
       </li>
     
   </ul>
