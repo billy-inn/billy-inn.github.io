@@ -22,6 +22,8 @@ where $f: \mathbf{R}^n \rightarrow \mathbf{R}$ is convex and twice continously d
 
 . Thus, solving the unconstrained minimization problem \eqref{eq:1} is the same as finding a solution of \eqref{eq:2}, which is a set of $n$ equations in the $n$ variables $x_1, \dots, x_n$. Usually, the problem must be solved by an iterative algorithm. By this we mean an algorithm that computes a sequence of points $x^{(0)}, x^{(1)}, \dots \in \mathbf{dom}\enspace f$ with $f(x^{(k)})\rightarrow p^\ast$ as $k\rightarrow\infty$. The algorithm is terminated when $f(x^{k}) - p^\ast \le \epsilon$, where $\epsilon>0$ is some specified tolerance.
 
+<!--more-->
+
 #### Initial point and sublevel set
 
 The starting point $x^{(0)}$ must lie in $\mathbf{dom}\enspace f$, and in addition the sublevel set
