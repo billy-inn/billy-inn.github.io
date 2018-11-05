@@ -9,10 +9,7 @@
   <meta name="author" content="Peng Xu">
 
   
-  <meta name="description" content="Unconstrained optimization problems are defined as follows: \begin{equation}
-\text{minimize}\quad f(x)
-\tag{1} \label{eq:1}
-\end{equation} where $f &hellip;">
+  <meta name="description" content="Descent methods $f(x^{(k+1)}) &lt; f(x^{(k)})$ $\Delta x$ is the step or search direction; $t$ is the step size or step length from convexity, $\ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +78,62 @@
 
 <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/11/05/convex-optimization-4/">Notes on Convex Optimization (4): Gradient Descent Method</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-11-05T00:29:05-05:00'><span class='date'>2018-11-05</span> <span class='time'>12:29 am</span></time>
+        
+           | <a href="/blog/2018/11/05/convex-optimization-4/#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io/blog/2018/11/05/convex-optimization-4/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3 id="descent-methods">Descent methods</h3>
+
+<script type="math/tex; mode=display">x^{(k+1)}=x^{(k)} + t^{(k)}\Delta x^{(k)}</script>
+
+<ul>
+  <li>$f(x^{(k+1)}) &lt; f(x^{(k)})$</li>
+  <li>$\Delta x$ is the <em>step</em> or <em>search direction</em>; $t$ is the <em>step size</em> or <em>step length</em></li>
+  <li>from convexity, $\nabla f(x)^T \Delta x &lt;0$</li>
+</ul>
+
+<blockquote>
+  <p><em>General descent method</em>. <br />
+<strong>given</strong> a starting point $x \in \mathbf{dom} \enspace f$. <br />
+<strong>repeat</strong> <br />
+- Determine a descent direction $\Delta x$. <br />
+- <em>Line search</em>. Choose a step size $t &gt; 0$. <br />
+- Update. $x := x+ t\Delta x$.</p>
+
+  <p><strong>until</strong> stopping criterion is satisfied</p>
+</blockquote>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/11/05/convex-optimization-4/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -587,49 +640,6 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2017/08/18/lln-and-clt/">统计释疑(3)：大数定理和中心极限定理</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-08-18T01:49:29-04:00'><span class='date'>2017-08-18</span> <span class='time'>1:49 am</span></time>
-        
-           | <a href="/blog/2017/08/18/lln-and-clt/#disqus_thread"
-             data-disqus-identifier="http://billy-inn.github.io/blog/2017/08/18/lln-and-clt/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>两个必须得记住并理解的统计学定理：大数定理和中心极限定理。有相当多的统计学理论是以这两个定理为基础。另外从我个人理解，这两个定理在一定程度上解释了为什么数据越多越好（为什么我们需要大数据）。</p>
-
-<h3 id="section">收敛的类型</h3>
-
-<p>为了更加准确的理解上述两个定理，我们需要理解概率层面的收敛，而非微积分里的收敛（如果对与任意$\epsilon&gt;0$和足够大的$n$，$\vert x_n -x \rvert &lt; \epsilon$，那么我们称这一实数列$x_n$收敛于极限$x$）。</p>
-
-<p>在统计中，主要有两种类型的收敛：</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2017/08/18/lln-and-clt/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -663,7 +673,7 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 	<li class="nav-header">Categories</li>
 	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
 <li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (11)</a></li>
-<li class='category'><a href='/blog/categories/optimization/'>optimization (3)</a></li>
+<li class='category'><a href='/blog/categories/optimization/'>optimization (4)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
 <li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
 <li class='category'><a href='/blog/categories/reading/'>reading (2)</a></li>
@@ -675,6 +685,10 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/11/05/convex-optimization-4/">Notes on Convex Optimization (4): Gradient Descent Method</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/09/29/notes-on-convex-optimization-3-unconstrained-minimization-problems/">Notes on Convex Optimization (3): Unconstrained Minimization Problems</a>
@@ -690,10 +704,6 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
     
       <li class="post">
         <a href="/blog/2017/10/24/esl-chapter-5/">[Notes on Mathematics for ESL] Chapter 5: Basis Expansions and Regularization</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/10/21/convex-optimization-2/">Notes on Convex Optimization (2): Convex Functions</a>
       </li>
     
   </ul>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://billy-inn.github.io/blog/2018/11/05/convex-optimization-4/</loc>
+<lastmod>2018-11-05T00:29:05-05:00</lastmod>
+</url>
+<url>
 <loc>http://billy-inn.github.io/blog/2018/09/29/notes-on-convex-optimization-3-unconstrained-minimization-problems/</loc>
 <lastmod>2018-09-29T15:15:12-04:00</lastmod>
 </url>
@@ -146,6 +150,12 @@
 </url>
 <url>
 <loc>http://billy-inn.github.io/blog/categories/optimization/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/posts/2/</loc>
+</url>
+<url>
+<loc>http://billy-inn.github.io/posts/3/</loc>
 </url>
 <url>
 <loc>http://billy-inn.github.io/papers/MScThesis-Slides.pdf</loc>

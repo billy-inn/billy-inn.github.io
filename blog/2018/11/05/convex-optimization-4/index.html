@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Notes on Convex Optimization (2): Convex Functions - Billy Inn in Wonderland</title>
+  <title>Notes on Convex Optimization (4): Gradient Descent Method - Billy Inn in Wonderland</title>
   <meta name="author" content="Peng Xu">
 
   
-  <meta name="description" content="1. Basic Properties and Examples 1.1 Definition $f:\mathbb{R}^n \rightarrow \mathbb R$ is convex if $\mathbf{dom}\ f$ is a convex set and for all $x, &hellip;">
+  <meta name="description" content="Descent methods $f(x^{(k+1)}) &lt; f(x^{(k)})$ $\Delta x$ is the step or search direction; $t$ is the step size or step length from convexity, $\ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://billy-inn.github.io/blog/2017/10/21/convex-optimization-2/">
+  <link rel="canonical" href="http://billy-inn.github.io/blog/2018/11/05/convex-optimization-4/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Billy Inn in Wonderland" type="application/atom+xml">
@@ -79,7 +79,7 @@
   
   <header>
     
-      <h1 class="entry-title">Notes on Convex Optimization (2): Convex Functions</h1>
+      <h1 class="entry-title">Notes on Convex Optimization (4): Gradient Descent Method</h1>
     
     
       <p class="meta">
@@ -88,7 +88,7 @@
 
 
 
-<time class='entry-date' datetime='2017-10-21T13:59:09-04:00'><span class='date'>2017-10-21</span> <span class='time'>1:59 pm</span></time>
+<time class='entry-date' datetime='2018-11-05T00:29:05-05:00'><span class='date'>2018-11-05</span> <span class='time'>12:29 am</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://billy-inn.github.io">Comments</a>
@@ -98,253 +98,123 @@
   </header>
 
 
-<div class="entry-content"><h3 id="basic-properties-and-examples">1. Basic Properties and Examples</h3>
+<div class="entry-content"><h3 id="descent-methods">Descent methods</h3>
 
-<h4 id="definition">1.1 Definition</h4>
-
-<p>$f:\mathbb{R}^n \rightarrow \mathbb R$ is convex if $\mathbf{dom}\ f$ is a convex set and</p>
-
-<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\le\theta f(x)+(1-\theta)f(y)</script>
-
-<p>for all $x,y\in \mathbf{dom}\ f, 0\le\theta\le1$</p>
+<script type="math/tex; mode=display">x^{(k+1)}=x^{(k)} + t^{(k)}\Delta x^{(k)}</script>
 
 <ul>
-  <li>$f$ is concave if $-f$ is convex</li>
-  <li>$f$ is strictly convex if $\mathbf{dom}\ f$ is convex and <script type="math/tex">% <![CDATA[
-f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mathbf{dom}\ f,x\ne y, 0&lt;\theta&lt;1$</li>
+  <li>$f(x^{(k+1)}) &lt; f(x^{(k)})$</li>
+  <li>$\Delta x$ is the <em>step</em> or <em>search direction</em>; $t$ is the <em>step size</em> or <em>step length</em></li>
+  <li>from convexity, $\nabla f(x)^T \Delta x &lt;0$</li>
 </ul>
 
-<p>$f:\mathbb{R}^n \rightarrow \mathbb R$ is convex if and only if the function $g: \mathbb{R} \rightarrow \mathbb{R}$,</p>
+<blockquote>
+  <p><em>General descent method</em>. <br />
+<strong>given</strong> a starting point $x \in \mathbf{dom} \enspace f$. <br />
+<strong>repeat</strong> <br />
+- Determine a descent direction $\Delta x$. <br />
+- <em>Line search</em>. Choose a step size $t &gt; 0$. <br />
+- Update. $x := x+ t\Delta x$.</p>
 
-<script type="math/tex; mode=display">g(t)=f(x+tv),\quad\mathbf{dom}\ g=\{t\mid x+tv\in\mathbf{dom}\ f\}</script>
-
-<p>is convex (in $t$) for any $x \in \mathbf{dom}\ f, v\in\mathbb R^n$</p>
+  <p><strong>until</strong> stopping criterion is satisfied</p>
+</blockquote>
 
 <!--more-->
 
-<h4 id="extended-value-extensions">1.2 Extended-value extensions</h4>
+<h4 id="exact-line-search">Exact line search</h4>
 
-<p>extended-value extension $\tilde f$ of $f$ is</p>
+<script type="math/tex; mode=display">t = \text{argmin}_{t > 0} \enspace f(x + t\Delta x)</script>
 
-<script type="math/tex; mode=display">\tilde f(x)=f(x),x\in\mathbf{dom}\ f; \tilde f(x)=\infty,x\ne \mathbf{dom}\ f</script>
+<h4 id="backtracking-line-search">Backtracking line search</h4>
 
-<h4 id="first-order-conditions">1.3 First-order conditions</h4>
+<blockquote>
+  <p><em>Backtracking line search</em>. <br />
+<strong>given</strong> a descent direction $\Delta x$ for $f$ at $x \in \mathbf{dom} f, \alpha \in(0,0.5), \beta\in(0,1)$. <br />
+<strong>starting</strong> at $t:=1$. <br />
+<strong>while</strong> $f(x+t\Delta x) &gt; f(x) + \alpha t \nabla f(x)^T \Delta x$, $t:=\beta t$</p>
+</blockquote>
 
-<p><strong>1st-order condition</strong>: differentiable $f$ with convex domain is convex iff</p>
+<h3 id="gradient-descent-method">Gradient descent method</h3>
 
-<script type="math/tex; mode=display">f(y)\ge f(x)+\nabla f(x)^T(y-x)\mathrm{\ for\ all\ } x,y\in\mathbf{dom}\ f</script>
+<p>A natural choice for the search direction is the negative gradient $\Delta x = - \nabla f(x)$.</p>
 
-<h4 id="second-order-conditions">1.4 Second-order conditions</h4>
+<h4 id="convergence-analysis-for-exact-line-search">Convergence analysis for exact line search</h4>
 
-<p><strong>2nd-order conditions</strong>: for twice differentiable $f$ with convex domain
-- $f$ if convex if and only if
-<script type="math/tex">\nabla^2f(x)\succeq0\mathrm{\ for\ all\ } x\in\mathbf{dom}\ f</script>
-- if $\nabla^2f(x)\succ0$ for all $x\in\mathbf{dom}\ f$, then $f$ is strictly convex</p>
+<p>We must have $f(x^(k)) - p^\ast \le \epsilon$ after at most</p>
 
-<h4 id="sublevel-sets-and-epigraph">1.5 Sublevel sets and epigraph</h4>
+<script type="math/tex; mode=display">\frac{\log((f(x^{(0)})-p^\ast)/\epsilon)}{\log(1/c)}</script>
 
-<p>$\alpha$<strong>-sublevel set</strong> of $f: \mathbb R^n \rightarrow \mathbb R$:</p>
+<p>iterations of the gradient method with exact line search, where $c=1-m/M&lt;1$.</p>
 
-<script type="math/tex; mode=display">C_\alpha=\{x\in\mathbf{dom}\ f \mid f(x)\le\alpha\}</script>
+<h4 id="convergence-analysis-for-backtracking-line-search">Convergence analysis for backtracking line search</h4>
 
-<p>sublevel sets of convex functions are convex (converse if false)</p>
+<p>Similar to exact line search, except that $c=1 - \min{2m\alpha, 2\beta\alpha m/M} &lt; 1.$</p>
 
-<p>If $f$ is concave, then its $\alpha$<strong>-superlevel set</strong>, given by ${x\in\mathbf{dom}\ f\mid f(x)\le\alpha}$, is a convex set</p>
-
-<p><strong>epigraph</strong> of $f:\mathbb R^n \rightarrow \mathbb R$:</p>
-
-<script type="math/tex; mode=display">\mathbf{epi}\ f=\{(x,t)\in\mathbb R^{n+1}\mid x\in\mathbf{dom}\ f,f(x)\le t\}</script>
-
-<p>$f$ is convex if and only if $\mathbf{epi}\ f$ is a convex set</p>
-
-<p>$f$ is concave if and only if its <strong>hypograph</strong>, defined as</p>
-
-<script type="math/tex; mode=display">\mathbf{hypo}\ f= \{(x,t)\in\mathbb R^{n+1}\mid x\in\mathbf{dom}\ f,f(x)\ge t\}</script>
-
-<p>is a convex set</p>
-
-<h4 id="jensens-inequality-and-extensions">1.6 Jensen’s inequality and extensions</h4>
-
-<p><strong>Jensen’s Inequality</strong>: if $f$ is convex, then for $0\le\theta\le1$,</p>
-
-<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\le\theta f(x)+(1-\theta)f(y)</script>
-
-<p><strong>extension</strong>: if $f$ is convex, then</p>
-
-<script type="math/tex; mode=display">f(\mathbb E z)\le \mathbb Ef(z)</script>
-
-<p>for any random variable $z$</p>
-
-<h3 id="operations-that-preserve-convexity">2. Operations that Preserve Convexity</h3>
-
-<h4 id="positive-weighted-sum--composition-with-affine-function">2.1 Positive weighted sum &amp; composition with affine function</h4>
-
-<p><strong>nonnegative multiple</strong>: $\alpha f$ is convex if $f$ is convex, $\alpha \ge 0$</p>
-
-<p><strong>sum</strong>: $f_1+f_2$ convex if $f_1,f_2$ convex (extends to infinite sums, integrals)</p>
-
-<p><strong>composition with affine function</strong>: $f(Ax+b)$ is convex if $f$ is convex</p>
-
-<h4 id="pointwise-maximum">2.2 Pointwise maximum</h4>
-
-<p><strong>pointwise maximum</strong>: if $f_1,\dots,f_m$ are convex, then $f(x)=\max{f_1(x),\dots,f_m(x)}$ is convex</p>
-
-<p><strong>pointwise supermum</strong>: if $f(x,y)$ is convex in $x$ for each $y\in\mathcal{A}$, then</p>
-
-<script type="math/tex; mode=display">g(x)=\sup_{y\in\mathcal{A}}f(x,y)</script>
-
-<p>is convex</p>
-
-<p>similarly, the <strong>pointwise infimum</strong> of a set of concave functions is a concave function</p>
-
-<h4 id="composition">2.3 Composition</h4>
-
-<p><strong>composition with scalar functions</strong>: composition of $g: \mathbb R^n \rightarrow \mathbb R$ and $h: \mathbb R\rightarrow \mathbb R$:</p>
-
-<script type="math/tex; mode=display">f(x)=h(g(x))</script>
-
-<p>$f$ is convex if $g$ convex, $h$ convex, $\tilde h$ nondecreasing; $g$ concave, $h$ convex, $\tilde h$ nonincreasing</p>
-
-<p>Note: monotonicity must hold for extended-value extension $\tilde h$</p>
-
-<p><strong>vector composition</strong>: composition of $g:\mathbb R^n \rightarrow \mathbb R^k$ and $h:\mathbb R^k \rightarrow \mathbb R$:</p>
-
-<script type="math/tex; mode=display">f(x)=h(g(x))=h(g_1(x),g_2(x),\dots,g_k(x))</script>
-
-<p>$f$ is convex if $g_i$ convex, $h$ convex, $\tilde h$ nondecreasing in each argument; $g$ concave, $h$ convex, $\tilde h$ nonincreasing in each argument</p>
-
-<h4 id="minimization">2.4 Minimization</h4>
-
-<p><strong>minimization</strong>: if $f(x,y)$ is convex in $(x,y)$ and $C$ is a convex set then</p>
-
-<script type="math/tex; mode=display">g(x)=\inf_{y\in C}f(x,y)</script>
-
-<p>is convex</p>
-
-<h4 id="perspective-of-a-function">2.5 Perspective of a function</h4>
-
-<p><strong>perspective</strong>: the <strong>perspective</strong> of a function $f:\mathbb R^n \rightarrow \mathbb R$ is the function $g:\mathbb R^n \times \mathbb R \rightarrow \mathbb R$,</p>
-
-<script type="math/tex; mode=display">g(x,t)=tf(x/t),\mathbf{dom}\ g=\{(x,t)\mid x/t\in\mathbf{dom}\ f,t>0\}</script>
-
-<p>$g$ is convex if $f$ is convex</p>
-
-<h3 id="the-conjugate-function">3. The Conjugate Function</h3>
-
-<h4 id="definition-1">3.1 Definition</h4>
-
-<p>the <strong>conjugate</strong> of a function $f$ is</p>
-
-<script type="math/tex; mode=display">f^*(y)=\sup_{x\in\mathbf{dom}\ f}(y^Tx-f(x))</script>
+<h4 id="conclusions">Conclusions</h4>
 
 <ul>
-  <li>$f^*$ is convex whether or not $f$ is convex</li>
+  <li>The gradient method often exhibits approximately linear convergence, <em>i.e.</em>, the error $f(x^{(k)}) - p^\ast$ converges to zeros approximately as a geometric series.</li>
+  <li>The choice of backtracking parameters $\alpha, \beta$ has a noticeable but not dramatic effect on the convergence. An exact line search sometimes improves the convergence of the gradient method, but the effect is not large.</li>
+  <li>The convergence rate depends greatly on the condition number of the Hessian, or the sublevel sets. Convergence can be very slow, even for problems that are moderately well conditioned. When the condition number is larger the gradient method is so slow that it is useless in practice.</li>
 </ul>
 
-<h4 id="basic-properties">3.2 Basic properties</h4>
+<h3 id="steepest-descent-method">Steepest descent method</h3>
 
-<p><strong>conjugate of the conjugate</strong>: if $f$ is convex and closed, then $f^{**}=f$</p>
+<p>The first-order Taylor approximation of $f(x+v)$ around $x$ is</p>
 
-<p><strong>differentiable functions</strong>: The conjugate of a differentiable function $f$ is also called the <em>Legendre transform</em> of $f$. Let $z\in\mathbb{R}^n$ be arbitrary and define $y=\nabla f(z)$, then we have</p>
+<script type="math/tex; mode=display">f(x+v)\approx \hat f(x+v)=f(x) + \nabla f(x)^T v.</script>
 
-<script type="math/tex; mode=display">f^*(y)=z^T\nabla f(z)-f(z)</script>
+<p>The second term on the righthand side, $\nabla f(x)^T v$, is the <em>directional derivative</em> of $f$ at $x$ in the direction $v$. It gives the approximate change in $f$ for a small step $v$. The step $v$ is a descent direction if the directional derivative is negative.</p>
 
-<p><strong>scaling and composition with affline transformation</strong>: 
-For $a&gt;0$ and $b\in\mathbb{R}$, the conjugate of $g(x)=af(x)+b$ is $g^*(y)=af^*(y/a)-b$.</p>
+<p>Let $\lVert \cdot \rVert$ be any norm on $\mathbf{R}^n$. We define a <em>normailzied steepest descent direction</em> as</p>
 
-<p>Suppose $A\in\mathbb{R}^{n\times n}$ is nonsingular and $b\in\mathbb{R}^n$. Then the conjugate of $g(x)=f(Ax+b)$ is</p>
+<p>\begin{equation}
+\Delta x_{nsd} = \arg\min{\nabla f(x)^T v\ \vert\ \lVert v \rVert = 1}.
+\tag{1}\label{eq:1}
+\end{equation}</p>
 
-<script type="math/tex; mode=display">g^*(y)=f^*(A^{-T}y)-b^TA^{-T}y</script>
+<p>It is also convenient to consider a steepest descent step $\Delta x_{sd}$ that is <em>unnormalized</em>, by scaling the normalized steepest descent direction in a particular way:</p>
 
-<p>with $\mathbf{dom}\ g^*=A^T\mathbf{dom}\ f^*$</p>
+<p>\begin{equation}
+\Delta x_{sd} = \lVert \nabla f(x) \rVert_\ast \Delta x_{nsd},
+\tag{2}\label{eq:2}
+\end{equation}</p>
 
-<p><strong>sums of independent functions</strong>: if $f(u,v)=f_1(u)+f_2(v)$, where $f_1$ and $f_2$ are convex functions with conjugates $f_1^*$ and $f_2^*$, respectively, then</p>
+<p>where $\lVert \cdot \rVert_\ast$ denotes the dual norm. Note that for the steepest descent step, we have</p>
 
-<script type="math/tex; mode=display">f^*(w,z)=f_1^*(w)+f_2^*(z)</script>
+<script type="math/tex; mode=display">\nabla f(x)^T \Delta x_{sd} = \lVert \nabla f(x) \rVert_\ast \nabla f(x)^T \nabla x_{nsd}=-\lVert \nabla f(x) \rVert_\ast^2.</script>
 
-<h3 id="quasiconvex-functions">4. Quasiconvex Functions</h3>
+<h4 id="steepest-descent-for-euclidean-norm">Steepest descent for Euclidean norm</h4>
 
-<p>$f:\mathbb R^n\rightarrow \mathbb R$ is quasiconvex if $\mathbf{dom}\ f$ is convex and the sublevel sets</p>
+<p>To simplify the notation, we can look at the problem of solving $\min_v{u^Tv\ \lvert\ \lVert v \rVert \le 1}$ which ends up being equivalent to find the normalized steepest descent step.</p>
 
-<script type="math/tex; mode=display">S_{\alpha}=\{x\in\mathbf{dom}\ f\mid f(x)\le\alpha\}</script>
+<p>The Cauchy-Schwarz inequality gives $\lvert u^Tv\rvert \le \rVert u \rVert \lVert v \rVert$, hence it is easy to see that the minimum is $\min_v{u^Tv\ \lvert\ \lVert v \rVert \le 1}=-\lVert u \rVert$, and the minimizer is $v=-u/\lVert u \rVert$. As a result, the steepest descent direction is simply the negative gradient, <em>i.e.</em>, $\Delta x_{sd} = - \nabla f(x)$.</p>
 
-<p>are convex for all $\alpha$</p>
+<h4 id="steepest-descent-for-quadratic-norm">Steepest descent for quadratic norm</h4>
 
-<ul>
-  <li>$f$ is quasiconcave if $-f$ is quasiconvex</li>
-  <li>$f$ is quasilinear if it is quasiconvex and quasiconcave</li>
-  <li>convex functions are quasiconvex, but the converse is not true</li>
-</ul>
+<p>We consider the quadratic norm</p>
 
-<p><strong>modified Jensen inequality</strong>: for quasiconvex $f$</p>
+<script type="math/tex; mode=display">\lVert z \rVert_P = (z^TPz)^{1/2}=\lVert P^{1/2}z\rVert_2,</script>
 
-<script type="math/tex; mode=display">0\le\theta\le1\Longrightarrow f(\theta x+(1-\theta)y)\le\max\{f(x),f(y)\}</script>
+<p>where $P \in \mathbf{S}_{++}^n$. The problem is now $\min_v{u^Tv\ \vert\ \lVert P^{1/2}v\rVert\le1}=\min_v{u^Tv\ \vert\ \lVert\delta\rVert\le1, v=P^{-1/2}\delta}$.
+This is equivalent to $\min_\delta{((P^{-1/2})^Tu)^T\delta\ \vert\ \lVert\delta\rVert\le1}$. The problem above shows that the minimum is $-\lVert (P^{-1/2})^Tu\rVert$ while the maximum $\lVert (P^{-1/2})^Tu\rVert$ is the dual norm according to the definition, and the minimizer is $v=P^{-1/2}\delta=-P^{-1}u/\lVert (P^{-1/2})^Tu\rVert$, so the steepest descent desnt is given by</p>
 
-<p><strong>first-order condition</strong>: differentiable $f$ with convex domain is quasiconvex iff</p>
+<script type="math/tex; mode=display">\Delta x_{sd} = -P^{-1} \nabla f(x).</script>
 
-<script type="math/tex; mode=display">f(y)\le f(x)\Longrightarrow\nabla f(x)^T(y-x)\le0</script>
+<p>In addition, the steepest descent method in the quadratic norm $\lVert \cdot \rVert_P$ can be thought of as the gradient method applied to the problem after the change of coordinates $\bar x=P^{1/2}x$.</p>
 
-<p><strong>operations that preserve quasiconvexity</strong>:</p>
+<h4 id="steepest-descent-for-l1-norm">Steepest descent for $l_1$-norm</h4>
 
-<ul>
-  <li>nonnegative weighted maximum</li>
-  <li>composition</li>
-  <li>minimization</li>
-</ul>
+<p>Let $i$ be any index for which $\lVert \nabla f(x) \rVert_\infty = \lvert (\nabla f(x))_i \rvert$. Then a normalized steepest descent direction $\nabla x_{nsd}$ for the $l_1$-norm is given by</p>
 
-<p><strong>sum</strong> of quasiconvex functions are not necessarily quasiconvex</p>
+<script type="math/tex; mode=display">\Delta x_{nsd}=-\text{sign}\left(\frac{\partial f(x)}{\partial x_i}\right)e_i,</script>
 
-<h3 id="log-concave-and-log-convex-functions">5. Log-concave and Log-convex Functions</h3>
+<p>where $e_i$ is the $i$th standard basis vector. An unnormalized steepest descent step is then</p>
 
-<p>a positive function $f$ is log-concave if $\log f$ is concave:</p>
+<script type="math/tex; mode=display">\Delta x_{sd} = \Delta x_{nsd}\lVert \nabla f(x) \rVert_\infty = - \frac{\partial f(x)}{\partial x_i}e_i.</script>
 
-<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\ge f(x)^\theta f(y)^{1-\theta}\mathrm{\ for\ }0\le\theta\le1</script>
+<p>The steepest descent algorithm in the $l_1$-norm has a very natural interpertation: At each iteration we select a component of $\nabla f(x)$ with maximum absolute value, and then decrease or increase the corresponding component of $x$, according to the sign of $(\nabla f(x))_i$. The algorithm is sometimes called a <em>corrdinate-descent</em> algorithm, since only one component of the variable $x$ is updated at each iteration.</p>
 
-<p>$f$ is log-convex if $\log f$ is convex</p>
-
-<p><strong>properties of log-concave functions</strong>:</p>
-
-<ul>
-  <li>twice differentiable $f$ with convex domain is log-concave iff</li>
-</ul>
-
-<script type="math/tex; mode=display">f(x)\nabla^2f(x)\preceq\nabla f(x)\nabla f(x)^T</script>
-
-<p>for all $x\in\mathbf{dom}\ f$</p>
-
-<ul>
-  <li>product of log-concave functions is log-concave</li>
-  <li>sum of log-concave functions is not always log-concave; however, log-convexity is preserved under sums</li>
-  <li>integration: if $f:\mathbb R^n\times\mathbb R^m \rightarrow \mathbb R$ is log-concave, then</li>
-</ul>
-
-<script type="math/tex; mode=display">g(x)=\int f(x,y)dy</script>
-
-<p>is log-concave</p>
-
-<p><strong>consequences of integration property</strong>:</p>
-
-<ul>
-  <li>convolution $f*g$ of log-concave functions $f,g$ is log-concave</li>
-</ul>
-
-<script type="math/tex; mode=display">(f*g)(x)=\int f(x-y)g(y)dy</script>
-
-<ul>
-  <li>if $C\subseteq \mathbb R^n$ convex and $y$ is a random variable with log-concave pdf then</li>
-</ul>
-
-<script type="math/tex; mode=display">f(x)=\mathbf{prob}(x+y\in C)</script>
-
-<p>is log-concave</p>
-
-<h3 id="convexity-wrt-generalized-inequalities">6. Convexity w.r.t. Generalized Inequalities</h3>
-
-<p>$f:\mathbb{R}^n\rightarrow\mathbb{R}^m$ is $K$-convex if $\mathbf{dom}\ f$ is convex and</p>
-
-<script type="math/tex; mode=display">f(\theta x+(1-\theta)y)\preceq_K\theta f(x)+(1-\theta)f(y)</script>
-
-<p>for $x,y\in\mathbf{dom}\ f,0\le\theta\le1$</p>
 </div>
 
 
@@ -360,7 +230,7 @@ For $a&gt;0$ and $b\in\mathbb{R}$, the conjugate of $g(x)=af(x)+b$ is $g^*(y)=af
 
 
 
-<time class='entry-date' datetime='2017-10-21T13:59:09-04:00'><span class='date'>2017-10-21</span> <span class='time'>1:59 pm</span></time>
+<time class='entry-date' datetime='2018-11-05T00:29:05-05:00'><span class='date'>2018-11-05</span> <span class='time'>12:29 am</span></time>
       
 
 <span class="categories">
@@ -374,7 +244,7 @@ For $a&gt;0$ and $b\in\mathbb{R}$, the conjugate of $g(x)=af(x)+b$ is $g^*(y)=af
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2017/10/21/convex-optimization-2/" data-via="billyinn93" data-counturl="http://billy-inn.github.io/blog/2017/10/21/convex-optimization-2/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2018/11/05/convex-optimization-4/" data-via="billyinn93" data-counturl="http://billy-inn.github.io/blog/2018/11/05/convex-optimization-4/" >Tweet</a>
   
   
   
@@ -383,10 +253,8 @@ For $a&gt;0$ and $b\in\mathbb{R}$, the conjugate of $g(x)=af(x)+b$ is $g^*(y)=af
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2017/10/17/convex-optimization-1/" title="Previous Post: Notes on Convex Optimization (1): Convex sets">&laquo; Notes on Convex Optimization (1): Convex sets</a>
+        <a class="basic-alignment left" href="/blog/2018/09/29/notes-on-convex-optimization-3-unconstrained-minimization-problems/" title="Previous Post: Notes on Convex Optimization (3): Unconstrained Minimization Problems">&laquo; Notes on Convex Optimization (3): Unconstrained Minimization Problems</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2017/10/24/esl-chapter-5/" title="Next Post: [Notes on Mathematics for ESL] Chapter 5: Basis Expansions and Regularization">[Notes on Mathematics for ESL] Chapter 5: Basis Expansions and Regularization &raquo;</a>
       
     </p>
   </footer>
@@ -570,8 +438,8 @@ For $a&gt;0$ and $b\in\mathbb{R}$, the conjugate of $g(x)=af(x)+b$ is $g^*(y)=af
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://billy-inn.github.io/blog/2017/10/21/convex-optimization-2/';
-        var disqus_url = 'http://billy-inn.github.io/blog/2017/10/21/convex-optimization-2/';
+        var disqus_identifier = 'http://billy-inn.github.io/blog/2018/11/05/convex-optimization-4/';
+        var disqus_url = 'http://billy-inn.github.io/blog/2018/11/05/convex-optimization-4/';
         var disqus_script = 'embed.js';
       
     (function () {

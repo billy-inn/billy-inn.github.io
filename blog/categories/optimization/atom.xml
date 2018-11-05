@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Optimization | Billy Inn in Wonderland]]></title>
   <link href="http://billy-inn.github.io/blog/categories/optimization/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2018-10-28T18:49:02-04:00</updated>
+  <updated>2018-11-05T00:38:13-05:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng Xu]]></name>
@@ -12,6 +12,131 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Notes on Convex Optimization (4): Gradient Descent Method]]></title>
+    <link href="http://billy-inn.github.io/blog/2018/11/05/convex-optimization-4/"/>
+    <updated>2018-11-05T00:29:05-05:00</updated>
+    <id>http://billy-inn.github.io/blog/2018/11/05/convex-optimization-4</id>
+    <content type="html"><![CDATA[<h3 id="descent-methods">Descent methods</h3>
+
+<script type="math/tex; mode=display">x^{(k+1)}=x^{(k)} + t^{(k)}\Delta x^{(k)}</script>
+
+<ul>
+  <li>$f(x^{(k+1)}) &lt; f(x^{(k)})$</li>
+  <li>$\Delta x$ is the <em>step</em> or <em>search direction</em>; $t$ is the <em>step size</em> or <em>step length</em></li>
+  <li>from convexity, $\nabla f(x)^T \Delta x &lt;0$</li>
+</ul>
+
+<blockquote>
+  <p><em>General descent method</em>. <br />
+<strong>given</strong> a starting point $x \in \mathbf{dom} \enspace f$. <br />
+<strong>repeat</strong> <br />
+- Determine a descent direction $\Delta x$. <br />
+- <em>Line search</em>. Choose a step size $t &gt; 0$. <br />
+- Update. $x := x+ t\Delta x$.</p>
+
+  <p><strong>until</strong> stopping criterion is satisfied</p>
+</blockquote>
+
+<!--more-->
+
+<h4 id="exact-line-search">Exact line search</h4>
+
+<script type="math/tex; mode=display">t = \text{argmin}_{t > 0} \enspace f(x + t\Delta x)</script>
+
+<h4 id="backtracking-line-search">Backtracking line search</h4>
+
+<blockquote>
+  <p><em>Backtracking line search</em>. <br />
+<strong>given</strong> a descent direction $\Delta x$ for $f$ at $x \in \mathbf{dom} f, \alpha \in(0,0.5), \beta\in(0,1)$. <br />
+<strong>starting</strong> at $t:=1$. <br />
+<strong>while</strong> $f(x+t\Delta x) &gt; f(x) + \alpha t \nabla f(x)^T \Delta x$, $t:=\beta t$</p>
+</blockquote>
+
+<h3 id="gradient-descent-method">Gradient descent method</h3>
+
+<p>A natural choice for the search direction is the negative gradient $\Delta x = - \nabla f(x)$.</p>
+
+<h4 id="convergence-analysis-for-exact-line-search">Convergence analysis for exact line search</h4>
+
+<p>We must have $f(x^(k)) - p^\ast \le \epsilon$ after at most</p>
+
+<script type="math/tex; mode=display">\frac{\log((f(x^{(0)})-p^\ast)/\epsilon)}{\log(1/c)}</script>
+
+<p>iterations of the gradient method with exact line search, where $c=1-m/M&lt;1$.</p>
+
+<h4 id="convergence-analysis-for-backtracking-line-search">Convergence analysis for backtracking line search</h4>
+
+<p>Similar to exact line search, except that $c=1 - \min{2m\alpha, 2\beta\alpha m/M} &lt; 1.$</p>
+
+<h4 id="conclusions">Conclusions</h4>
+
+<ul>
+  <li>The gradient method often exhibits approximately linear convergence, <em>i.e.</em>, the error $f(x^{(k)}) - p^\ast$ converges to zeros approximately as a geometric series.</li>
+  <li>The choice of backtracking parameters $\alpha, \beta$ has a noticeable but not dramatic effect on the convergence. An exact line search sometimes improves the convergence of the gradient method, but the effect is not large.</li>
+  <li>The convergence rate depends greatly on the condition number of the Hessian, or the sublevel sets. Convergence can be very slow, even for problems that are moderately well conditioned. When the condition number is larger the gradient method is so slow that it is useless in practice.</li>
+</ul>
+
+<h3 id="steepest-descent-method">Steepest descent method</h3>
+
+<p>The first-order Taylor approximation of $f(x+v)$ around $x$ is</p>
+
+<script type="math/tex; mode=display">f(x+v)\approx \hat f(x+v)=f(x) + \nabla f(x)^T v.</script>
+
+<p>The second term on the righthand side, $\nabla f(x)^T v$, is the <em>directional derivative</em> of $f$ at $x$ in the direction $v$. It gives the approximate change in $f$ for a small step $v$. The step $v$ is a descent direction if the directional derivative is negative.</p>
+
+<p>Let $\lVert \cdot \rVert$ be any norm on $\mathbf{R}^n$. We define a <em>normailzied steepest descent direction</em> as</p>
+
+<p>\begin{equation}
+\Delta x_{nsd} = \arg\min{\nabla f(x)^T v\ \vert\ \lVert v \rVert = 1}.
+\tag{1}\label{eq:1}
+\end{equation}</p>
+
+<p>It is also convenient to consider a steepest descent step $\Delta x_{sd}$ that is <em>unnormalized</em>, by scaling the normalized steepest descent direction in a particular way:</p>
+
+<p>\begin{equation}
+\Delta x_{sd} = \lVert \nabla f(x) \rVert_\ast \Delta x_{nsd},
+\tag{2}\label{eq:2}
+\end{equation}</p>
+
+<p>where $\lVert \cdot \rVert_\ast$ denotes the dual norm. Note that for the steepest descent step, we have</p>
+
+<script type="math/tex; mode=display">\nabla f(x)^T \Delta x_{sd} = \lVert \nabla f(x) \rVert_\ast \nabla f(x)^T \nabla x_{nsd}=-\lVert \nabla f(x) \rVert_\ast^2.</script>
+
+<h4 id="steepest-descent-for-euclidean-norm">Steepest descent for Euclidean norm</h4>
+
+<p>To simplify the notation, we can look at the problem of solving $\min_v{u^Tv\ \lvert\ \lVert v \rVert \le 1}$ which ends up being equivalent to find the normalized steepest descent step.</p>
+
+<p>The Cauchy-Schwarz inequality gives $\lvert u^Tv\rvert \le \rVert u \rVert \lVert v \rVert$, hence it is easy to see that the minimum is $\min_v{u^Tv\ \lvert\ \lVert v \rVert \le 1}=-\lVert u \rVert$, and the minimizer is $v=-u/\lVert u \rVert$. As a result, the steepest descent direction is simply the negative gradient, <em>i.e.</em>, $\Delta x_{sd} = - \nabla f(x)$.</p>
+
+<h4 id="steepest-descent-for-quadratic-norm">Steepest descent for quadratic norm</h4>
+
+<p>We consider the quadratic norm</p>
+
+<script type="math/tex; mode=display">\lVert z \rVert_P = (z^TPz)^{1/2}=\lVert P^{1/2}z\rVert_2,</script>
+
+<p>where $P \in \mathbf{S}_{++}^n$. The problem is now $\min_v{u^Tv\ \vert\ \lVert P^{1/2}v\rVert\le1}=\min_v{u^Tv\ \vert\ \lVert\delta\rVert\le1, v=P^{-1/2}\delta}$.
+This is equivalent to $\min_\delta{((P^{-1/2})^Tu)^T\delta\ \vert\ \lVert\delta\rVert\le1}$. The problem above shows that the minimum is $-\lVert (P^{-1/2})^Tu\rVert$ while the maximum $\lVert (P^{-1/2})^Tu\rVert$ is the dual norm according to the definition, and the minimizer is $v=P^{-1/2}\delta=-P^{-1}u/\lVert (P^{-1/2})^Tu\rVert$, so the steepest descent desnt is given by</p>
+
+<script type="math/tex; mode=display">\Delta x_{sd} = -P^{-1} \nabla f(x).</script>
+
+<p>In addition, the steepest descent method in the quadratic norm $\lVert \cdot \rVert_P$ can be thought of as the gradient method applied to the problem after the change of coordinates $\bar x=P^{1/2}x$.</p>
+
+<h4 id="steepest-descent-for-l1-norm">Steepest descent for $l_1$-norm</h4>
+
+<p>Let $i$ be any index for which $\lVert \nabla f(x) \rVert_\infty = \lvert (\nabla f(x))_i \rvert$. Then a normalized steepest descent direction $\nabla x_{nsd}$ for the $l_1$-norm is given by</p>
+
+<script type="math/tex; mode=display">\Delta x_{nsd}=-\text{sign}\left(\frac{\partial f(x)}{\partial x_i}\right)e_i,</script>
+
+<p>where $e_i$ is the $i$th standard basis vector. An unnormalized steepest descent step is then</p>
+
+<script type="math/tex; mode=display">\Delta x_{sd} = \Delta x_{nsd}\lVert \nabla f(x) \rVert_\infty = - \frac{\partial f(x)}{\partial x_i}e_i.</script>
+
+<p>The steepest descent algorithm in the $l_1$-norm has a very natural interpertation: At each iteration we select a component of $\nabla f(x)$ with maximum absolute value, and then decrease or increase the corresponding component of $x$, according to the sign of $(\nabla f(x))_i$. The algorithm is sometimes called a <em>corrdinate-descent</em> algorithm, since only one component of the variable $x$ is updated at each iteration.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Notes on Convex Optimization (3): Unconstrained Minimization Problems]]></title>
