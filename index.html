@@ -9,7 +9,7 @@
   <meta name="author" content="Peng Xu">
 
   
-  <meta name="description" content="Descent methods $f(x^{(k+1)}) &lt; f(x^{(k)})$ $\Delta x$ is the step or search direction; $t$ is the step size or step length from convexity, $\ &hellip;">
+  <meta name="description" content="For $x\in\mathbf{dom}\ f$, the vector is called the Newton step (for $f$, at $x$). Minimizer of second-order approximation The second-order Taylor &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,6 +78,58 @@
 
 <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/11/13/convex-optimization-5/">Notes on Convex Optimization (5): Newton's Method</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-11-13T23:25:12-05:00'><span class='date'>2018-11-13</span> <span class='time'>11:25 pm</span></time>
+        
+           | <a href="/blog/2018/11/13/convex-optimization-5/#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io/blog/2018/11/13/convex-optimization-5/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>For $x\in\mathbf{dom}\ f$, the vector</p>
+
+<script type="math/tex; mode=display">\Delta x_{nt}=-\nabla^2 f(x)^{-1}\nabla f(x)</script>
+
+<p>is called the <em>Newton step</em> (for $f$, at $x$).</p>
+
+<h4 id="minimizer-of-second-order-approximation">Minimizer of second-order approximation</h4>
+
+<p>The second-order Taylor approximation $\hat f$ of $f$ at $x$ is</p>
+
+<p>\begin{equation}
+\hat f(x+v) = f(x) + \nabla f(x)^T v + \frac12 v^T \nabla^2 f(x) v.
+\tag{1} \label{eq:1}
+\end{equation}</p>
+
+<p>which is a convex quadratic function of $v$, and is minimized when $v=\Delta x_{nt}$. Thus, the Newton step $\Delta x_{nt}$ is what should be added to the point $x$ to minimize the second-order approximation of $f$ at $x$.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2018/11/13/convex-optimization-5/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -583,63 +635,6 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2017/09/01/esl-chapter-2/">[Notes on Mathematics for ESL] Chapter 2: Overview of Supervised Learning</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-09-01T03:12:36-04:00'><span class='date'>2017-09-01</span> <span class='time'>3:12 am</span></time>
-        
-           | <a href="/blog/2017/09/01/esl-chapter-2/#disqus_thread"
-             data-disqus-identifier="http://billy-inn.github.io/blog/2017/09/01/esl-chapter-2/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3 id="statistical-decision-theory">2.4 Statistical Decision Theory</h3>
-
-<h4 id="derivation-of-equation-216">Derivation of Equation (2.16)</h4>
-
-<p>The expected predicted error (EPE) under the squared error loss:</p>
-
-<script type="math/tex; mode=display">\mathrm{EPE}(\beta) = \int (y-x^T\beta)^2\Pr(dx, dy).</script>
-
-<p>Taking derivatives with respect to $\beta$:</p>
-
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{split}
-\frac{\partial\mathrm{EFE}}{\partial\beta}&=-2\int(y-x^T\beta)x\Pr(dx, dy). \\
-&= -2(E[yx]-E[xx^T\beta])
-\end{split} %]]></script>
-
-<p>In order to minimize the EFE, we make derivatives equal zero which gives <strong>Equation (2.16)</strong>:</p>
-
-<script type="math/tex; mode=display">\beta=E[xx^T]^{-1}E[yx].</script>
-
-<p><em>Note: $x^T\beta$ is a scalar, and $\beta$ is a constant.</em></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2017/09/01/esl-chapter-2/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -673,7 +668,7 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 	<li class="nav-header">Categories</li>
 	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
 <li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (11)</a></li>
-<li class='category'><a href='/blog/categories/optimization/'>optimization (4)</a></li>
+<li class='category'><a href='/blog/categories/optimization/'>optimization (5)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
 <li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
 <li class='category'><a href='/blog/categories/reading/'>reading (2)</a></li>
@@ -685,6 +680,10 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/11/13/convex-optimization-5/">Notes on Convex Optimization (5): Newton's Method</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2018/11/05/convex-optimization-4/">Notes on Convex Optimization (4): Gradient Descent Method</a>
@@ -700,10 +699,6 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
     
       <li class="post">
         <a href="/blog/2017/10/27/esl-chapter-6/">[Notes on Mathematics for ESL] Chapter 6: Kernel Smoothing Methods</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/10/24/esl-chapter-5/">[Notes on Mathematics for ESL] Chapter 5: Basis Expansions and Regularization</a>
       </li>
     
   </ul>

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Notes on Reinforcement Learning (4): Temporal-Difference Learning - Billy Inn in Wonderland</title>
+  <title>Notes on Convex Optimization (5): Newton's Method - Billy Inn in Wonderland</title>
   <meta name="author" content="Peng Xu">
 
   
-  <meta name="description" content="Temporal-difference (TD) learning is a combination of Monte Carlo ideas and dynamic programming (DP) ideas. TD Prediction Both TD and Monte Carlo &hellip;">
+  <meta name="description" content="For $x\in\mathbf{dom}\ f$, the vector is called the Newton step (for $f$, at $x$). Minimizer of second-order approximation The second-order Taylor &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/">
+  <link rel="canonical" href="http://billy-inn.github.io/blog/2018/11/13/convex-optimization-5/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Billy Inn in Wonderland" type="application/atom+xml">
@@ -79,7 +79,7 @@
   
   <header>
     
-      <h1 class="entry-title">Notes on Reinforcement Learning (4): Temporal-Difference Learning</h1>
+      <h1 class="entry-title">Notes on Convex Optimization (5): Newton's Method</h1>
     
     
       <p class="meta">
@@ -88,7 +88,7 @@
 
 
 
-<time class='entry-date' datetime='2016-10-16T19:47:27-04:00'><span class='date'>2016-10-16</span> <span class='time'>7:47 pm</span></time>
+<time class='entry-date' datetime='2018-11-13T23:25:12-05:00'><span class='date'>2018-11-13</span> <span class='time'>11:25 pm</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://billy-inn.github.io">Comments</a>
@@ -98,87 +98,102 @@
   </header>
 
 
-<div class="entry-content"><p>Temporal-difference (TD) learning is a combination of Monte Carlo ideas and dynamic programming (DP) ideas.</p>
+<div class="entry-content"><p>For $x\in\mathbf{dom}\ f$, the vector</p>
 
-<h3 id="td-prediction">TD Prediction</h3>
+<script type="math/tex; mode=display">\Delta x_{nt}=-\nabla^2 f(x)^{-1}\nabla f(x)</script>
 
-<p>Both TD and Monte Carlo methods use experience to solve the prediction problem. Given some experience following a policy $\pi$, both methods update their estimate $v$ of $v_\pi$ for the nonterminal states $S_t$ occurring in that experience. Whereas Monte Carlo methods must wait until the end of the episode to determine the increment to $V(S_t)$ (only then is $G_t$ known), TD methods need wait only until the next time step. The simplest TD method, known as TD(0), is</p>
+<p>is called the <em>Newton step</em> (for $f$, at $x$).</p>
 
-<script type="math/tex; mode=display">V(S_t) = V(S_t) + \alpha[R_{t+1}+\gamma V(S_{t+1})-V(S_t)].</script>
+<h4 id="minimizer-of-second-order-approximation">Minimizer of second-order approximation</h4>
 
-<p>TD methods combine the sampling of Monte Carlo with the bootstrapping of DP. As we shall see, with care and imagination this can take us a long way toward obtaining the advantages of both Monte Carlo and DP methods.</p>
+<p>The second-order Taylor approximation $\hat f$ of $f$ at $x$ is</p>
 
-<p><img src="/images/rl4.1.png" alt="Alt text" /></p>
+<p>\begin{equation}
+\hat f(x+v) = f(x) + \nabla f(x)^T v + \frac12 v^T \nabla^2 f(x) v.
+\tag{1} \label{eq:1}
+\end{equation}</p>
+
+<p>which is a convex quadratic function of $v$, and is minimized when $v=\Delta x_{nt}$. Thus, the Newton step $\Delta x_{nt}$ is what should be added to the point $x$ to minimize the second-order approximation of $f$ at $x$.</p>
 
 <!--more-->
 
-<p>Note that the quantity in brackets in the TD(0) update is a sort of error, measuring the difference between the estimated value of $S_t$ and the better estimate $R_t+\gamma V(S_{t+1})$. This quantity, called the TD error, arises in various forms throughout reinforcement learning:</p>
+<h4 id="steepest-descent-direction-in-hessian-norm">Steepest descent direction in Hessian norm</h4>
 
-<script type="math/tex; mode=display">\delta_t=R_{t+1}+\gamma V(S_{t+1})-V(S_t).</script>
+<p>The Newton step is also the steepest descent direction at $x$, for the quadratic norm defined by the Hessian $\nabla^2 f(x)$, <em>i.e.</em>,</p>
 
-<p>Also note that the Monte Carlo error can be written as a sum of TD errors:</p>
+<script type="math/tex; mode=display">\lVert u \rVert_{\nabla^2f(x)}=(u^T\nabla^2f(x)u)^{1/2}.</script>
 
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{split}
-G_t - V(s_t) &= R_{t+1}+\gamma G_{t+1} - V(S_t) + \gamma V(S_{t+1}) - \gamma V(S_{t+1}) \\
-&= \delta_t + \gamma (G_{t+1}-V(S_{t+1})) \\
-&= \delta_t + \gamma \delta_{t+1} + \dots + \gamma^{T-t} (G_T - V(S_T))\\
-&= \sum_{k=0}^{T-t-1}\gamma^k\delta_{t+k}
-\end{split} %]]></script>
+<h4 id="solution-of-linearized-optimality-condition">Solution of linearized optimality condition</h4>
 
-<p>This fact and its generalizations play important roles in the theory of TD learning.</p>
+<p>If we linearize the optimality condition $\nabla f(x^*)=0$ near $x$ we obtain</p>
 
-<h3 id="optimality-of-td0">Optimality of TD(0)</h3>
+<script type="math/tex; mode=display">\nabla f(x+v) \approx \nabla f(x) + \nabla^2f(x)v = 0</script>
 
-<p>Suppose there is available only a finite amount of experience, say 10 episodes or 100 time steps. In this case, a common approach with incremental learning methods is to present the experience repeatedly until the method converges upon an answer. Updates are made only after processing each complete batch of training data. We call this batch updating.</p>
+<p>which is a linear equation in $v$, with solution $v=\Delta x_{nt}$. So the Newton step $\Delta x_{nt}$ is what must be added to $x$ so that the linearized optimality condition holds.</p>
 
-<p>Batch Monte Carlo methods always find the estimates that minimize mean-squared error on the training set, whereas batch TD(0) always finds the estimates that would be exactly correct for the maximum-likelihood model of the Markov process. In this case, the maximum-likelihood estimate is the model of the Markov process formed in the obvious way from the observed episodes: the estimated transition probability from $i$ to $j$ is the fraction of observed transitions from $i$ that went to $j$, and the associated expected reward is the average of the rewards observed on those transitions. Given this model, we can compute the estimate of the value function that would be exactly correct if the model were exactly correct. This is called the certainty-equivalence estimate because it is equivalent to assuming that the estimate of the underlying process was known with certainty rather than being approximated. In general, batch TD(0) converges to the certainty-equivalence estimate.</p>
+<h4 id="affine-invariance-of-the-newton-step">Affine invariance of the Newton step</h4>
 
-<h3 id="sarsa-on-policy-td-control">Sarsa: On-Policy TD Control</h3>
-
-<p>As usual, we follow the pattern of generalized policy iteration (GPI), only this time using TD methods for the evaluation or prediction part.</p>
-
-<p>In the previous section we considered transitions from state to state and learned the values of states. Now we consider transitions from state–action pair to state–action pair, and learn the values of state–action pairs. The theorems assuring the convergence of state values under TD(0) also apply to the corresponding algorithm for action values:</p>
-
-<script type="math/tex; mode=display">Q(S_t,A_t)=Q(S_t,A_t)+\alpha[R_{t+1}+\gamma Q(S_{t+1},A_{t+1}) - Q(S_t, A_t)].</script>
-
-<p><img src="/images/rl4.2.png" alt="Alt text" /></p>
-
-<h3 id="q-learning-off-policy-td-control">Q-learning: Off-Policy TD Control</h3>
-
-<p>One of the early breakthroughs in reinforcement learning was the development of an off-policy TD control algorithm known as Q-learning, defined by:</p>
-
-<script type="math/tex; mode=display">Q(S_t, A_t)=Q(S_t, A_t)+\alpha[R_{t+1}+\gamma\max_aQ(S_{t+1},a)-Q(S_t,A_t)]</script>
-
-<p>In this case, the learned action-value function, $Q$, directly approximates $q^*$, the optimal action-value function, independent of the policy being followed.</p>
-
-<p><img src="/images/rl4.3.png" alt="Alt text" /></p>
-
-<h3 id="expected-sarsa">Expected Sarsa</h3>
-
-<p>Consider the algorithm with the update rule:</p>
+<p>An important feature of the Newton step is that it is independent of linear changes of coordinates. Suppose $T\in \mathbf{R}^{n \times n}$ is nonsingular, and define $\bar f(y)=f(Ty)$. Then we have</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{split}
-Q(S_t,A_t)&=Q(S_t,A_t)+\alpha\left[R_{t+1}+\gamma \mathbb{E}[Q(S_{t+1},A_{t+1})|S_{t+1}]-Q(S_t,A_t)\right]\\
-&=Q(S_t,A_t)+\alpha\left[R_{t+1}+\gamma\sum_a\pi(a|S_{t+1})Q(S_{t+1},a)-Q(S_t,A_t)\right]
+\nabla\bar f(y) & = \nabla f(Ty)\\
+&=\frac{\partial f(Ty)}{\partial(Ty)}\frac{\partial(Ty)}{y} \\
+&=T^T\nabla f(x),
 \end{split} %]]></script>
 
-<p>but that otherwise follows the schema of Q-learning. Given the next state $S_{t+1}$, this algorithm moves deterministically in the same direction as Sarsa moves in expectation, and accordingly it is called expected Sarsa.</p>
+<p>where $x=Ty$, likewise we have $\nabla^2 \bar f(y) = T^T\nabla^2f(x)T$. The Newton step for $\bar f$ at $y$ is therefore</p>
 
-<p><img src="/images/rl4.4.png" alt="Alt text" /></p>
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+\Delta y_{nt} &= -(T^T\nabla^2f(x)T)^{-1}(T^T\nabla f(x)) \\
+&= -T^{-1} \nabla^2 f(x)^{-1} \nabla f(x) \\
+&= T^{-1}\Delta x_{nt},
+\end{split} %]]></script>
 
-<h3 id="maximization-bias-and-double-learning">Maximization Bias and Double Learning</h3>
+<p>where $\Delta x_{nt}$ is the Newton step for $f$ at $x$. Hence the Newton steps of $f$ and $\bar f$ are related by the same linear transformation, and</p>
 
-<p>All the control algorithms that we have discussed so far involve maximization in the construction of their target policies. In these algorithms, a maximum over estimated values is used implicitly as an estimate of the maximum value, which can lead to a significant positive bias. We call this maximization bias.</p>
+<script type="math/tex; mode=display">x + \Delta x_{nt} = T(y + \Delta y_{nt}).</script>
 
-<p>One way to view the problem is that it is due to using the same samples (plays) both to determine the maximizing action and to estimate its value. Suppose we divided the plays in two sets and used them to learn two independent estimates, call them $Q_1(a)$ and $Q_2(a)$, each an estimate of the true value $q(a)$, for all $a\in\mathcal{A}$. We could then use one estimate, say $Q_1$, 
-to determine the maximizing action $A^*=\mathrm{argmax}_aQ_1(a)$, and the other, $Q_2$, to provide the estimate of its value,
-$Q_2(A^*)=Q_2(\mathrm{argmax}_aQ_1(a))$. This estimate will then be unbiased in the sense that 
-$\mathbb{E}[Q_2(A^*)]=q(A^*)$. We can also repeat the process with the role of the two estimates reversed to yield a second unbiased estimate 
-$Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</p>
+<h4 id="the-newton-decrement">The Newton decrement</h4>
 
-<p><img src="/images/rl4.5.png" alt="Alt text" /></p>
+<p>The quantity</p>
+
+<script type="math/tex; mode=display">\lambda(x)=(\nabla f(x)^T \nabla^2 f(x)^{-1} \nabla f(x))^{1/2}</script>
+
+<p>is called the <em>Newton decrement</em> at $x$. We can relate the Newton decrement to the quantity $f(x) - \inf_y \hat f(y)$, where $\hat y$ is the second-order approximation of $f$ at $x$:</p>
+
+<script type="math/tex; mode=display">f(x) - \inf_y \hat f(y)=f(x)-\hat f(x + \Delta x_{nt})=\frac12\lambda(x)^2.</script>
+
+<p>We can also express the Newton decrement as</p>
+
+<script type="math/tex; mode=display">\lambda(x)=(\Delta x_{nt}^T \nabla^2 f(x) \Delta x_{nt})^{1/2}.</script>
+
+<p>This shows that $\lambda$ is the norm of the Newton step, in the quadratic norm defined by the Hessian.</p>
+
+<h3 id="newtons-method">Newton’s Method</h3>
+
+<blockquote>
+  <p><em>Newton’s method</em>. <br />
+<strong>given</strong> a starting point $x \in \mathbf{dom} \enspace f$, tolerance $\epsilon &gt; 0$. <br />
+<strong>repeat</strong> <br />
+- Compute the Newton step $\Delta x_{nt}$ and decrement $\lambda^2$. <br />
+- Stopping criterion. <em>quit** if $\lambda(x)^2/2 \le \epsilon$. <br />
+- *Line search</em>. Choose a step size $t &gt; 0$ by backtracking line search. <br />
+- Update. $x := x+ t\Delta x_{nt}$.</p>
+</blockquote>
+
+<h3 id="summary">Summary</h3>
+
+<p>Newton’s method has several very strong advantages over gradient and steepest descent methods:</p>
+
+<ul>
+  <li>Convergence of Newton’s method is rapid in general, and quadratic near $x^\ast$. Once the quadratic convergence phase is reached, at most six or so iterations are required to produce a solution of very high accuracy.</li>
+  <li>Newton’s method is affine invariant. It is insensitive to the choice of coordinates, or the condition number of the sublevel sets of the objective.</li>
+  <li>The good performance of Newton’s method is not dependent on the choice of algorithm parameters. In contrast, the choice of norm for steepest descent plays a critical role in its performance.</li>
+</ul>
+
+<p>The main disadvantage of Newton’s method is the cost of forming and storing the Hessian, and the cost of computing the Newton step, which requires solving a set of linear equations.</p>
 </div>
 
 
@@ -194,12 +209,12 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
 
 
 
-<time class='entry-date' datetime='2016-10-16T19:47:27-04:00'><span class='date'>2016-10-16</span> <span class='time'>7:47 pm</span></time>
+<time class='entry-date' datetime='2018-11-13T23:25:12-05:00'><span class='date'>2018-11-13</span> <span class='time'>11:25 pm</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/reinforcement-learning/'>reinforcement_learning</a>
+    <a class='category' href='/blog/categories/optimization/'>optimization</a>
   
 </span>
 
@@ -208,7 +223,7 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/" data-via="billyinn93" data-counturl="http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://billy-inn.github.io/blog/2018/11/13/convex-optimization-5/" data-via="billyinn93" data-counturl="http://billy-inn.github.io/blog/2018/11/13/convex-optimization-5/" >Tweet</a>
   
   
   
@@ -217,10 +232,8 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/" title="Previous Post: Notes on Reinforcement Learning (3): Monte Carlo Methods">&laquo; Notes on Reinforcement Learning (3): Monte Carlo Methods</a>
+        <a class="basic-alignment left" href="/blog/2018/11/05/convex-optimization-4/" title="Previous Post: Notes on Convex Optimization (4): Gradient Descent Method">&laquo; Notes on Convex Optimization (4): Gradient Descent Method</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2016/12/14/lose-control-1/" title="Next Post: 【失控: 机器、社会与经济的新生物学】漫谈（一）">【失控: 机器、社会与经济的新生物学】漫谈（一） &raquo;</a>
       
     </p>
   </footer>
@@ -404,8 +417,8 @@ $Q_1(A^*)=Q_1(\mathrm{argmax}_aQ_2(a))$. This is the idea of doubled learning.</
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/';
-        var disqus_url = 'http://billy-inn.github.io/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/';
+        var disqus_identifier = 'http://billy-inn.github.io/blog/2018/11/13/convex-optimization-5/';
+        var disqus_url = 'http://billy-inn.github.io/blog/2018/11/13/convex-optimization-5/';
         var disqus_script = 'embed.js';
       
     (function () {
