@@ -27,8 +27,8 @@ This blog will record the timeline, resources, projects along the way of my stud
 		- 2\. [What's the usage of probability inequalities](/blog/2017/08/09/probability-inequalities/)
 		- 3\. [Law of Large Numbers and Central Limit Theorem](/blog/2017/08/17/lln-and-clt/)
 - Optimization
-	- [Convex Optimization](http://web.stanford.edu/~boyd/cvxbook/): Classic textbook.
-	- [Stanford EE364a](http://stanford.edu/class/ee364a/index.html): Convex Optimization.
+	- [Convex Optimization](http://web.stanford.edu/~boyd/cvxbook/): Classic textbook. (**First Pass** in *Nov, 2018*)
+	- [Stanford EE364a](http://stanford.edu/class/ee364a/index.html): Convex Optimization. (**Completed** in *Nov, 2018*)
 - Advanced Topics on Linear Algebra
 	- [The Matrix Cookbook](http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/3274/pdf/imm3274.pdf): Ongoing
 	- [Matrix Analysis](https://www.amazon.ca/Matrix-Analysis-Roger-Horn/dp/0521548233): Ongoing
@@ -57,6 +57,7 @@ This blog will record the timeline, resources, projects along the way of my stud
     - 4\. [Chapter 5: Basis Expansions and Regularization](/blog/2017/10/24/esl-chapter-5/)
     - 5\. [Chpater 6: Kernel Smoothing Methods](/blog/2017/10/27/esl-chapter-6/)
     - 6\. [Chapter 10: Boosting and Additive Trees](/blog/2017/12/14/esl-chapter10/)
+- [Machine Learning: A Probabilistic Perspective](https://www.cs.ubc.ca/~murphyk/MLbook/): Ongoing
 
 ### Probabilistic Graphical Models:
 
@@ -71,7 +72,8 @@ This blog will record the timeline, resources, projects along the way of my stud
 - [Coursera: Neural Networks for Machine Learning](https://www.coursera.org/learn/neural-networks): Excellent course for beginners in neural networks. ([Certificate](/certificates/NN4ML.pdf))
 - [Stanford CS224d](http://cs224d.stanford.edu/): Deep Learning for Natural Language Processing (**Completed** in *Apr, 2017*).
 - [Stanford CS231n](http://vision.stanford.edu/teaching/cs231n/index.html): Convolutional Neural Networks for Visual Recognition.
-- [Deep Learning Book](http://www.deeplearningbook.org/): Ongoing.
+- [Stanford CS236](https://deepgenerativemodels.github.io/): Deep Generative Models. (**Completed** in *Dec, 2018*)
+- [Deep Learning Book](http://www.deeplearningbook.org/): First and second part are great to read and need to be understood well. (**First Pass** in *Oct, 2018*)
 - [TensorFlow](https://www.tensorflow.org/): Large amount of high-quality tutorials and well-coded recent advances in DL. Most applicable scenario: research.
 - [PyTorch](http://pytorch.org/): Use dynamic graph instead of static graph in TensorFlow. Relatively easy to use compared to TensorFlow. Most applicable scenario: research. 
 - [Mxnet](https://github.com/dmlc/mxnet): High performance. Most applicable scenario: industry.
@@ -94,6 +96,7 @@ Note: I'm comfortable with coding in both TensorFlow and PyTorch and use Keras f
 
 - [UAlberta CMPUT 609](https://www.ualberta.ca/computing-science/graduate-studies/course-directory/courses/reinforcement-learning-in-ai): Reinforcement Learning. Graduate course in UofA instructed by [Sutton](https://webdocs.cs.ualberta.ca/~sutton/). ([Report: Investigation on Deep Reinforcement Learning Methods for Classical Control Problems](/papers/cmput609.pdf), **Completed** in *Dec, 2016*). 
 - [Introduction to Reinforcement Learning](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html): Classic textbook, recommended for beginners in RL (**First Pass** in *Dec, 2016*).
+- [RL Course from DeepMind](https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PLzuuYNsE1EZAXYR4FJ75jcJseBmo4KQ9-): Instructed by David Silver. Highly recommended for beginners in RL (**Completed** in *Oct, 2018*)
 - [Bandit Algorithms Blog](http://banditalgs.com/): A great blog discussing all kinds of bandit algorithms by [Csaba](https://sites.ualberta.ca/~szepesva/) (**First Rough Pass** in *Feb, 2018*).
 - Post Series: Notes on Reinforcement Learning
 	- 1\. [Finite Markov Decision Processes](/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/)
