@@ -57,7 +57,7 @@ This blog will record the timeline, resources, projects along the way of my stud
     - 4\. [Chapter 5: Basis Expansions and Regularization](/blog/2017/10/24/esl-chapter-5/)
     - 5\. [Chpater 6: Kernel Smoothing Methods](/blog/2017/10/27/esl-chapter-6/)
     - 6\. [Chapter 10: Boosting and Additive Trees](/blog/2017/12/14/esl-chapter10/)
-- [Machine Learning: A Probabilistic Perspective](https://www.cs.ubc.ca/~murphyk/MLbook/): Ongoing
+- [Machine Learning: A Probabilistic Perspective](https://www.cs.ubc.ca/~murphyk/MLbook/): In the view of Bayesian to interpret ML. (**First Pass** in *Jan, 2019*).
 
 ### Probabilistic Graphical Models:
 
