@@ -18,6 +18,7 @@ This blog will record the timeline, resources, projects along the way of my stud
 	- Probability Theory
 - Reference
 	- [Handbook of Mathematics](http://www.springer.com/us/book/9783662462201): an amazing reference book of mathematics.
+  - [Problem-Solving Through Problems](https://www.amazon.ca/gp/product/0387961712/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1): Polish up your math skills.
 - Statistics
 	- [All of Statistics](http://www.stat.cmu.edu/~larry/all-of-statistics/): A textbook appealing to MLers (**First Pass** in *Aug, 2017*).
 	- [Statistical Inference](http://www.amazon.com/Statistical-Inference-George-Casella/dp/0534243126): Classic textbook.
@@ -104,10 +105,16 @@ Note: I'm comfortable with coding in both TensorFlow and PyTorch and use Keras f
 	- 3\. [Monte Carlo Methods](/blog/2016/10/14/notes-on-reinforcement-learning-3-monte-carlo-methods/)
 	- 4\. [Temporal-Difference Learning](/blog/2016/10/16/notes-on-reinforcement-learning-4-temporal-difference-learning/)
 
-### Data Mining
+### Related Topics
 
-- [Coursera: Mining of Massive Datasets](https://www.coursera.org/course/mmds): Introduction to a lot data mining techniques. ([Certificate](/certificates/mmds.pdf))
+- Information Theory
+  - [Information Theory, Inference, and Learning Algorithm](https://www.amazon.ca/Information-Theory-Inference-Learning-Algorithms/dp/0521642981): Ongoing.
+- Data Mining
+  - [Coursera: Mining of Massive Datasets](https://www.coursera.org/course/mmds): Introduction to a lot data mining techniques. ([Certificate](/certificates/mmds.pdf))
+- Game Theory
+  - [Coursera: Game Theory](https://www.coursera.org/learn/game-theory-1): Introduction to game theory. ([Certificate](/certificates/gametheory.pdf))
 
 ### ML Competitions
 
 - [Kaggle: Home Depot Product Search Relevance](https://www.kaggle.com/c/home-depot-product-search-relevance): Top 10%. ([Report](/papers/cmput690.pdf))
+- ATEC, NLP for Financial Integellience (hosted by Alibaba): 10th out of 443 teams ([Certificate](/certificates/ATEC.jpg))
