@@ -156,12 +156,6 @@
 <loc>http://billy-inn.github.io/blog/categories/optimization/</loc>
 </url>
 <url>
-<loc>http://billy-inn.github.io/posts/2/</loc>
-</url>
-<url>
-<loc>http://billy-inn.github.io/posts/3/</loc>
-</url>
-<url>
 <loc>http://billy-inn.github.io/papers/MScThesis-Slides.pdf</loc>
 <lastmod>2018-07-20T16:24:30-04:00</lastmod>
 </url>
@@ -180,6 +174,10 @@
 <url>
 <loc>http://billy-inn.github.io/papers/NAACL2019.pdf</loc>
 <lastmod>2019-06-17T23:45:23-04:00</lastmod>
+</url>
+<url>
+<loc>http://billy-inn.github.io/papers/ACL2019.pdf</loc>
+<lastmod>2019-08-05T23:49:08-04:00</lastmod>
 </url>
 <url>
 <loc>http://billy-inn.github.io/papers/cmput609.pdf</loc>
