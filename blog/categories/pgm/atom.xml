@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Pgm | Billy Ian in Wonderland]]></title>
+  <title><![CDATA[Category: Pgm | Billy Ian's Short Leisure-time Wander]]></title>
   <link href="http://billy-inn.github.io/blog/categories/pgm/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2021-09-19T13:08:04-04:00</updated>
+  <updated>2021-09-21T15:16:57-04:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
-    <name><![CDATA[Peng Xu]]></name>
+    <name><![CDATA[Peng (Billy) Xu]]></name>
     <email><![CDATA[bly930725@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
