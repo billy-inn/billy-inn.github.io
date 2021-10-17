@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Optimization | Billy Ian's Short Leisure-time Wander]]></title>
   <link href="http://billy-inn.github.io/blog/categories/optimization/atom.xml" rel="self"/>
   <link href="http://billy-inn.github.io/"/>
-  <updated>2021-10-03T16:55:34-04:00</updated>
+  <updated>2021-10-17T13:39:10-04:00</updated>
   <id>http://billy-inn.github.io/</id>
   <author>
     <name><![CDATA[Peng (Billy) Xu]]></name>
@@ -257,11 +257,11 @@ This is equivalent to $\min_\delta{((P^{-1/2})^Tu)^T\delta\ \vert\ \lVert\delta\
 <p>where $f: \mathbf{R}^n \rightarrow \mathbf{R}$ is convex and twice continously differentiable (which implies that $\mathbf{dom}\enspace f$ is open). We denote the optimal value $\inf_xf(x)=f(x^\ast)$, as $p^\ast$. Since $f$ is differentiable and convex, a necessary and sufficient condition for a point $x^\ast$ to be optimal is</p>
 
 <p>\begin{equation}
-\nabla f(x^\ast)=0
+\nabla f(x^\ast)=0.
 \tag{2} \label{eq:2}
 \end{equation}</p>
 
-<p>. Thus, solving the unconstrained minimization problem \eqref{eq:1} is the same as finding a solution of \eqref{eq:2}, which is a set of $n$ equations in the $n$ variables $x_1, \dots, x_n$. Usually, the problem must be solved by an iterative algorithm. By this we mean an algorithm that computes a sequence of points $x^{(0)}, x^{(1)}, \dots \in \mathbf{dom}\enspace f$ with $f(x^{(k)})\rightarrow p^\ast$ as $k\rightarrow\infty$. The algorithm is terminated when $f(x^{k}) - p^\ast \le \epsilon$, where $\epsilon&gt;0$ is some specified tolerance.</p>
+<p>Thus, solving the unconstrained minimization problem \eqref{eq:1} is the same as finding a solution of \eqref{eq:2}, which is a set of $n$ equations in the $n$ variables $x_1, \dots, x_n$. Usually, the problem must be solved by an iterative algorithm. By this we mean an algorithm that computes a sequence of points $x^{(0)}, x^{(1)}, \dots \in \mathbf{dom}\enspace f$ with $f(x^{(k)})\rightarrow p^\ast$ as $k\rightarrow\infty$. The algorithm is terminated when $f(x^{k}) - p^\ast \le \epsilon$, where $\epsilon&gt;0$ is some specified tolerance.</p>
 
 <!--more-->
 
