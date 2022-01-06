@@ -9,7 +9,7 @@
   <meta name="author" content="Peng (Billy) Xu">
 
   
-  <meta name="description" content="For $x\in\mathbf{dom}\ f$, the vector is called the Newton step (for $f$, at $x$). Minimizer of second-order approximation The second-order Taylor &hellip;">
+  <meta name="description" content="Inspired by the fantastic talk focusing on career path doing AI research by Rosanne Liu and the amazing blog post on landing a job at top-tier AI &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +80,81 @@
 
 <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2022/01/06/navigate-through-the-current-ai-job-market-a-retrospect/">Navigate Through the Current AI Job Market: A Retrospect</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2022-01-06T18:06:53-05:00'><span class='date'>2022-01-06</span> <span class='time'>6:06 pm</span></time>
+        
+           | <a href="/blog/2022/01/06/navigate-through-the-current-ai-job-market-a-retrospect/#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io/blog/2022/01/06/navigate-through-the-current-ai-job-market-a-retrospect/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Inspired by <a href="https://twitter.com/savvyRL/status/1446234152475377665?s=20">the fantastic talk</a> focusing on career path doing AI research by <a href="https://twitter.com/savvyRL">Rosanne Liu</a> and <a href="https://gordicaleksa.medium.com/how-i-got-a-job-at-deepmind-as-a-research-engineer-without-a-machine-learning-degree-1a45f2a781de">the amazing blog post</a> on landing a job at top-tier AI labs by <a href="https://twitter.com/gordic_aleksa">Aleksa Gordić</a>, I want to share my recent experience to offer a more pragmatic perspective. The position specturm in the current AI industry can be roughly depicted in the figure below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="https://i.imgur.com/MB0SOte.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Figure 1: The AI Job Spectrum</td>
+    </tr>
+  </tbody>
+</table>
+
+<p> </p>
+
+<p>While the aforementioned posts both focus on the research end of the spectrum, this post covers the whole range of the spectrum from my own experience. Out of the five virtual onsites I attended, I received three offers. One of them was a Machine Learning Software Engineer / Research Engineer role from Google. The other two were both Machine Learning Scientist roles from a large tech and a large financial company respectively. For the offer from Google, the team match process is quite lengthy; I’ve talked with eight different teams inside Google. All those different positions cover the whole spectrum from heavily research focused to purely product driven, as shown in the figure below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><img src="https://i.imgur.com/18UmZpq.png" alt="" /></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Figure 2: My options and their rough positions on the spectrum</td>
+    </tr>
+  </tbody>
+</table>
+
+<p> </p>
+
+<p>It’s a long grind from submitting resumes to making the final decision. During this process, I’ve had more than 20 rounds of discussion with different hiring managers, directors and other more senior people from these three companies. In addition, I’ve consulted with many friends of mine in the industry to get advice.</p>
+
+<p>At the beginning of my job search, my preferrence was leaning towards the research end of the spectrum. However, as the things developed, my perception on the AI industry also changed gradually. Evenutally I choose a team in Google leaning towards the applied end of the spectrum. It’s a team in Cloud AI working on dialogue systems which heavily depends on the latest NLP technology (my expertise), generates a lot of value already and has great growth potential on tap. At the same time, there are also plenty of opportunities to collaborate with the research teams inside Google.</p>
+
+<p>In this post, I’d like to share my whole journey accommpanied with some high-level suggestions and my thought process towards the final decision. Hopefully, this retrospect can provide some useful information for those who are passionate about AI and hope to find a matched position in the industry.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2022/01/06/navigate-through-the-current-ai-job-market-a-retrospect/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -568,75 +643,6 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2017/09/27/esl-chapter-3/">[Notes on Mathematics for ESL] Chapter 3: Linear Regression Models and Least Squares</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-09-27T21:30:12-04:00'><span class='date'>2017-09-27</span> <span class='time'>9:30 pm</span></time>
-        
-           | <a href="/blog/2017/09/27/esl-chapter-3/#disqus_thread"
-             data-disqus-identifier="http://billy-inn.github.io/blog/2017/09/27/esl-chapter-3/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3 id="linear-regression-models-and-least-squares">3.2 Linear Regression Models and Least Squares</h3>
-
-<h4 id="derivation-of-equation-38">Derivation of Equation (3.8)</h4>
-
-<p>The least squares estimate of $\beta$ is given by the book’s <strong>Equation (3.6)</strong></p>
-
-<script type="math/tex; mode=display">\hat\beta=(X^TX)^{-1}X^T\mathbf{y}.</script>
-
-<p>From the <a href="/blog/2017/09/01/esl-chapter-2/">previous post</a>, we know that $\mathrm{E}(\mathbf{y})=X\beta$. As a result, we obtain</p>
-
-<script type="math/tex; mode=display">\mathrm{E}(\hat\beta)=(X^TX)^{-1}X^TX\beta=\beta.</script>
-
-<p>Then, we get</p>
-
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{split}
-\hat\beta-\mathrm{E}(\hat\beta)&=(X^TX)^{-1}X^T(\mathbf{y}-X\beta) \\
-&=(X^TX)^{-1}X^T\varepsilon.
-\end{split} %]]></script>
-
-<p>The variance of $\hat \beta$ is computed as</p>
-
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{split}
-\mathrm{Var}(\hat\beta) &= \mathrm{E}[(\hat\beta-\mathrm{E}(\hat\beta)(\hat\beta-\mathrm{E}(\hat\beta))^T] \\
-&= (X^TX)^{-1}X^T\mathrm{Var}(\varepsilon)X(X^TX)^{-1}.
-\end{split} %]]></script>
-
-<p>If we assume that the entries of $\mathbf{y}$ are uncorrelated and all have the same variance of $\sigma^2$, then $\mathrm{Var}(\varepsilon)=\sigma^2I_N$ and the above equation becomes</p>
-
-<script type="math/tex; mode=display">\mathrm{Var}(\hat\beta)=(X^TX)^{-1}\sigma^2.</script>
-
-<p>This completes the derivation of <strong>Equation (3.8)</strong>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2017/09/27/esl-chapter-3/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -667,7 +673,7 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
 <section class="well">
  <ul id="categories_list" class="nav nav-list">
 	<li class="nav-header">Categories</li>
-	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
+	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (3)</a></li>
 <li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (11)</a></li>
 <li class='category'><a href='/blog/categories/optimization/'>optimization (5)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
@@ -683,6 +689,10 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2022/01/06/navigate-through-the-current-ai-job-market-a-retrospect/">Navigate Through the Current AI Job Market: A Retrospect</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2018/11/13/convex-optimization-5/">Notes on Convex Optimization (5): Newton's Method</a>
       </li>
     
@@ -696,10 +706,6 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
     
       <li class="post">
         <a href="/blog/2017/12/14/esl-chapter10/">[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/10/27/esl-chapter-6/">[Notes on Mathematics for ESL] Chapter 6: Kernel Smoothing Methods</a>
       </li>
     
   </ul>
@@ -718,7 +724,7 @@ f(\theta x+(1-\theta)y)<\theta f(x)+(1-\theta)f(y) %]]></script> for $x,y\in\mat
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2021 - Peng (Billy) Xu -
+  Copyright &copy; 2022 - Peng (Billy) Xu -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

@@ -9,8 +9,7 @@
   <meta name="author" content="Peng (Billy) Xu">
 
   
-  <meta name="description" content="Code in R for Coursera-ML and CMPUT466/551 in University of Alberta
-This post refers to programming exercise 2 in Coursera-ML. All the code can be &hellip;">
+  <meta name="description" content="The Agent-Environment Interface The agent and environment interact at each of a sequence of discrete time steps, $t=0,1,2,3,\dots$ At each time step &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +80,52 @@ This post refers to programming exercise 2 in Coursera-ML. All the code can be &
 
 <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Notes on Reinforcement Learning (1): Finite Markov Decision Processes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-10-05T16:55:31-04:00'><span class='date'>2016-10-05</span> <span class='time'>4:55 pm</span></time>
+        
+           | <a href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3 id="the-agent-environment-interface">The Agent-Environment Interface</h3>
+
+<p><img src="/images/rl1.1.png" alt="Alt text" /></p>
+
+<ul>
+  <li>The agent and environment interact at each of a sequence of discrete time steps, $t=0,1,2,3,\dots$</li>
+  <li>At each time step $t$, the agent receives some representation of the environment’s state, $S_t\in\mathcal{S}$, where $\mathcal{S}$ is the set of possible states.</li>
+  <li>On that basis, the agent selects an action, $A_t \in \mathcal{A}(S_t)$, where $\mathcal{A}(S_t)$ is the set of actions available in state $S_t$.</li>
+  <li>One time step later, in part as a consequence of its action, the agent receives a numerical reward, $R_{t+1} \in \mathcal{R} \subset \mathbb{R}$, and finds itself in a new state, $S_{t+1}$.</li>
+</ul>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -756,7 +801,7 @@ ggplot(data, aes(V1, V2, col=&quot;Training data&quot;)) +
 <section class="well">
  <ul id="categories_list" class="nav nav-list">
 	<li class="nav-header">Categories</li>
-	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
+	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (3)</a></li>
 <li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (11)</a></li>
 <li class='category'><a href='/blog/categories/optimization/'>optimization (5)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
@@ -772,6 +817,10 @@ ggplot(data, aes(V1, V2, col=&quot;Training data&quot;)) +
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2022/01/06/navigate-through-the-current-ai-job-market-a-retrospect/">Navigate Through the Current AI Job Market: A Retrospect</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2018/11/13/convex-optimization-5/">Notes on Convex Optimization (5): Newton's Method</a>
       </li>
     
@@ -785,10 +834,6 @@ ggplot(data, aes(V1, V2, col=&quot;Training data&quot;)) +
     
       <li class="post">
         <a href="/blog/2017/12/14/esl-chapter10/">[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/10/27/esl-chapter-6/">[Notes on Mathematics for ESL] Chapter 6: Kernel Smoothing Methods</a>
       </li>
     
   </ul>
@@ -807,7 +852,7 @@ ggplot(data, aes(V1, V2, col=&quot;Training data&quot;)) +
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2021 - Peng (Billy) Xu -
+  Copyright &copy; 2022 - Peng (Billy) Xu -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

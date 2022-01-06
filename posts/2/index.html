@@ -9,7 +9,7 @@
   <meta name="author" content="Peng (Billy) Xu">
 
   
-  <meta name="description" content="2.4 Statistical Decision Theory Derivation of Equation (2.16) The expected predicted error (EPE) under the squared error loss: Taking derivatives &hellip;">
+  <meta name="description" content="3.2 Linear Regression Models and Least Squares Derivation of Equation (3.8) The least squares estimate of $\beta$ is given by the book’s Equation (3. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +80,75 @@
 
 <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/09/27/esl-chapter-3/">[Notes on Mathematics for ESL] Chapter 3: Linear Regression Models and Least Squares</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-09-27T21:30:12-04:00'><span class='date'>2017-09-27</span> <span class='time'>9:30 pm</span></time>
+        
+           | <a href="/blog/2017/09/27/esl-chapter-3/#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io/blog/2017/09/27/esl-chapter-3/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3 id="linear-regression-models-and-least-squares">3.2 Linear Regression Models and Least Squares</h3>
+
+<h4 id="derivation-of-equation-38">Derivation of Equation (3.8)</h4>
+
+<p>The least squares estimate of $\beta$ is given by the book’s <strong>Equation (3.6)</strong></p>
+
+<script type="math/tex; mode=display">\hat\beta=(X^TX)^{-1}X^T\mathbf{y}.</script>
+
+<p>From the <a href="/blog/2017/09/01/esl-chapter-2/">previous post</a>, we know that $\mathrm{E}(\mathbf{y})=X\beta$. As a result, we obtain</p>
+
+<script type="math/tex; mode=display">\mathrm{E}(\hat\beta)=(X^TX)^{-1}X^TX\beta=\beta.</script>
+
+<p>Then, we get</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+\hat\beta-\mathrm{E}(\hat\beta)&=(X^TX)^{-1}X^T(\mathbf{y}-X\beta) \\
+&=(X^TX)^{-1}X^T\varepsilon.
+\end{split} %]]></script>
+
+<p>The variance of $\hat \beta$ is computed as</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+\mathrm{Var}(\hat\beta) &= \mathrm{E}[(\hat\beta-\mathrm{E}(\hat\beta)(\hat\beta-\mathrm{E}(\hat\beta))^T] \\
+&= (X^TX)^{-1}X^T\mathrm{Var}(\varepsilon)X(X^TX)^{-1}.
+\end{split} %]]></script>
+
+<p>If we assume that the entries of $\mathbf{y}$ are uncorrelated and all have the same variance of $\sigma^2$, then $\mathrm{Var}(\varepsilon)=\sigma^2I_N$ and the above equation becomes</p>
+
+<script type="math/tex; mode=display">\mathrm{Var}(\hat\beta)=(X^TX)^{-1}\sigma^2.</script>
+
+<p>This completes the derivation of <strong>Equation (3.8)</strong>.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2017/09/27/esl-chapter-3/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -516,52 +585,6 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Notes on Reinforcement Learning (1): Finite Markov Decision Processes</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-10-05T16:55:31-04:00'><span class='date'>2016-10-05</span> <span class='time'>4:55 pm</span></time>
-        
-           | <a href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/#disqus_thread"
-             data-disqus-identifier="http://billy-inn.github.io/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3 id="the-agent-environment-interface">The Agent-Environment Interface</h3>
-
-<p><img src="/images/rl1.1.png" alt="Alt text" /></p>
-
-<ul>
-  <li>The agent and environment interact at each of a sequence of discrete time steps, $t=0,1,2,3,\dots$</li>
-  <li>At each time step $t$, the agent receives some representation of the environment’s state, $S_t\in\mathcal{S}$, where $\mathcal{S}$ is the set of possible states.</li>
-  <li>On that basis, the agent selects an action, $A_t \in \mathcal{A}(S_t)$, where $\mathcal{A}(S_t)$ is the set of actions available in state $S_t$.</li>
-  <li>One time step later, in part as a consequence of its action, the agent receives a numerical reward, $R_{t+1} \in \mathcal{R} \subset \mathbb{R}$, and finds itself in a new state, $S_{t+1}$.</li>
-</ul>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2016/10/05/notes-on-reinforcement-learning-1-finite-markov-decision-processes/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/3">&larr; Older</a>
@@ -594,7 +617,7 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
 <section class="well">
  <ul id="categories_list" class="nav nav-list">
 	<li class="nav-header">Categories</li>
-	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (2)</a></li>
+	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (3)</a></li>
 <li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (11)</a></li>
 <li class='category'><a href='/blog/categories/optimization/'>optimization (5)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
@@ -610,6 +633,10 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2022/01/06/navigate-through-the-current-ai-job-market-a-retrospect/">Navigate Through the Current AI Job Market: A Retrospect</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2018/11/13/convex-optimization-5/">Notes on Convex Optimization (5): Newton's Method</a>
       </li>
     
@@ -623,10 +650,6 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
     
       <li class="post">
         <a href="/blog/2017/12/14/esl-chapter10/">[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/10/27/esl-chapter-6/">[Notes on Mathematics for ESL] Chapter 6: Kernel Smoothing Methods</a>
       </li>
     
   </ul>
@@ -645,7 +668,7 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2021 - Peng (Billy) Xu -
+  Copyright &copy; 2022 - Peng (Billy) Xu -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
