@@ -9,7 +9,7 @@
   <meta name="author" content="Peng (Billy) Xu">
 
   
-  <meta name="description" content="3.2 Linear Regression Models and Least Squares Derivation of Equation (3.8) The least squares estimate of $\beta$ is given by the book’s Equation (3. &hellip;">
+  <meta name="description" content="4.3 Linear Discriminant Analysis Derivation of Equation (4.9) For that each class’s density follows multivariate Gaussian Take the logarithm of $f_k( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -50,7 +50,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">Billy Ian's Short Leisure-time Wander</a></h1>
   
-    <h2>into language, learning, intelligence and beyond</h2>
+    <h2>into learning, investment, intelligence and beyond</h2>
   
 </hgroup>
 
@@ -80,6 +80,67 @@
 
 <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/10/15/esl-chapter-4/">[Notes on Mathematics for ESL] Chapter 4: Linear Methods for Classification</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-10-15T16:30:27-04:00'><span class='date'>2017-10-15</span> <span class='time'>4:30 pm</span></time>
+        
+           | <a href="/blog/2017/10/15/esl-chapter-4/#disqus_thread"
+             data-disqus-identifier="http://billy-inn.github.io/blog/2017/10/15/esl-chapter-4/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3 id="linear-discriminant-analysis">4.3 Linear Discriminant Analysis</h3>
+
+<h4 id="derivation-of-equation-49">Derivation of Equation (4.9)</h4>
+
+<p>For that each class’s density follows multivariate Gaussian</p>
+
+<script type="math/tex; mode=display">f_k(x) = \frac{1}{(2\pi)^{p/2}\lvert\Sigma\rvert^{1/2}}e^{-\frac12(x-\mu_k)^T\Sigma^{-1}(x-\mu_k)}</script>
+
+<p>Take the logarithm of $f_k(x)$, we get</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+\log f_k(x) &= c - \frac12(x-\mu_k)^T\Sigma^{-1}(x-\mu_k) \\
+&= c - \frac12(x^T\Sigma^{-1}x-\mu_k^T\Sigma^{-1}x-x^T\Sigma^{-1}\mu_k+\mu_k\Sigma^{-1}\mu_k) \\
+&= c - \frac12(x^T\Sigma^{-1}x+\mu_k\Sigma^{-1}\mu_k) + x^T\Sigma^{-1}\mu_k
+\end{split} %]]></script>
+
+<p>where $c = -\log [(2\pi)^{p/2}\lvert\Sigma\rvert^{1/2}]$ and $\mu_k^T\Sigma^{-1}x=x^T\Sigma^{-1}\mu_k$. Following the above formula, we can derive <strong>Equation (4.9)</strong> easily</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{split}
+\log\frac{\Pr(G=k|X=x)}{\Pr(G=k|X=x)} &=& \log\frac{f_k(x)}{f_l(x)} + \log\frac{\pi_k}{\pi_l} \\
+&=& \log\frac{\pi_k}{\pi_l} - \frac12(\mu_k\Sigma^{-1}\mu_k-\mu_l\Sigma^{-1}\mu_l) \\&&+x^T\Sigma^{-1}(\mu_k-\mu_l) \\
+&=& \log\frac{\pi_k}{\pi_l} - \frac12(\mu_k+\mu_l)\Sigma^{-1}(\mu_k-\mu_l) \\&&+x^T\Sigma^{-1}(\mu_k-\mu_l) \\
+\end{split} %]]></script>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2017/10/15/esl-chapter-4/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -536,55 +597,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Notes on Reinforcement Learning (2): Dynamic Programming</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2016-10-06T19:37:02-04:00'><span class='date'>2016-10-06</span> <span class='time'>7:37 pm</span></time>
-        
-           | <a href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/#disqus_thread"
-             data-disqus-identifier="http://billy-inn.github.io/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3 id="policy-evaluation">Policy Evaluation</h3>
-
-<p>Consider a sequence of approximate value functions $v_0, v_1, v_2, \dots,$ each mapping $\mathcal{S}^+$ to $\mathbb{R}$. The initial approximation, $v_0$ is chosen arbitrarily, and each successive approximation is obtained by using the Bellman equation for $v_\pi$ as an update rule:</p>
-
-<script type="math/tex; mode=display">% <![CDATA[
-\begin{split}
-v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
-&= \sum_a\pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_k(s')],
-\end{split} %]]></script>
-
-<p>for all $s\in\mathcal{S}$.</p>
-
-<p><img src="/images/rl2.1.png" alt="Alt text" /></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2016/10/06/notes-on-reinforcement-learning-2-dynamic-programming/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/3">&larr; Older</a>
@@ -601,11 +613,13 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
 	<ul id="about" class="nav nav-list">
 		<li class="nav-header">About Me</a></li>
 			<p>A researcher and engineer passionate about Machine Learning and Natural Language Processing</p>
+      <p>A calculated speculator seeking for risk and reward asymmetries, and a value investor sticking to the margin of safety.</p>
 			<p>Play piano and Nintendo Switch</p>
       <p>Read history, investment, Sci-Fi and fantasy</p>
       <p>Bodyweight fitness, hiking and skiing</p>
 			<p>Fan of Portland Trail Blazers, Former SNH48 member Kiku and Blackpink member Ros&eacute</p>
       <p>Toronto, Edmonton, Beijing and Suzhou</p>
+      <p><strong>Opinions posted in this blog are my own!</strong></p>
 	</ul>
 </section>
 <section>
@@ -618,6 +632,7 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
 	<li class="nav-header">Categories</li>
 	  <li id="categories"><li class='category'><a href='/blog/categories/life/'>life (3)</a></li>
 <li class='category'><a href='/blog/categories/machine-learning/'>machine_learning (11)</a></li>
+<li class='category'><a href='/blog/categories/nlp/'>nlp (1)</a></li>
 <li class='category'><a href='/blog/categories/optimization/'>optimization (5)</a></li>
 <li class='category'><a href='/blog/categories/pgm/'>pgm (1)</a></li>
 <li class='category'><a href='/blog/categories/project/'>project (1)</a></li>
@@ -630,6 +645,10 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2022/03/21/shortcut-learning-hypothesis-of-modern-language-models/">Shortcut Learning Hypothesis of Modern Language Models</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2022/01/06/navigate-through-the-current-ai-job-market-a-retrospect/">Navigate Through the Current AI Job Market: A Retrospect</a>
@@ -645,10 +664,6 @@ v_{k+1}(s)&=\mathbb{E}_\pi[R_{t+1}+\gamma v_k(S_{t+1})|S_t=s]\\
     
       <li class="post">
         <a href="/blog/2018/09/29/notes-on-convex-optimization-3-unconstrained-minimization-problems/">Notes on Convex Optimization (3): Unconstrained Minimization Problems</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/12/14/esl-chapter10/">[Notes on Mathematics for ESL] Chapter 10: Boosting and Additive Trees</a>
       </li>
     
   </ul>
