@@ -89,7 +89,7 @@ as the length of the generated sequences $T$ increases. Ideally, an accurate lan
 
 Both of these two observations provide additional empirical support that shortcut learning indeed exists for modern LMs, as a direct outcome of only optimizing the "average error". 
 
-![](https://i.imgur.com/4G0K0pI.jpg)
+![](https://i.imgur.com/LWhSCCN.jpg)
     
 ### How to Do Better?
 
@@ -125,6 +125,6 @@ Generally, I think both new ways to factorize the joint distribution $P(x_{1:T})
 
 Benefitting from the scaling success, modern LMs are becoming a general purpose model able to handle all kinds of tasks (through fine-tuning and prompting). As a result, their impact and implications are also becoming ever larger. In addition, the discussions of modern LMs are also becoming more and more controversial on the social media. As the stake is so high right now, some frank discussions about their limitations appear to be more indispensable, like [this latest paper from Anthropic](https://arxiv.org/abs/2202.07785). Hopefully, this post can also contribute to such a purpose.
 
-### Acknowledgements
+### *Acknowledgements*
 
-Thanks for the valuable feedback from Vatsal Sharan (USC/Stanford), Robert Geirhos (University of Tübingen), Yu Hou (USC), Guy Gur-Ari (X, Blueshift), Denny Zhou (Google Brain) and many of my Google colleagues.
+*Thanks for the valuable feedback from Vatsal Sharan (USC/Stanford), Robert Geirhos (University of Tübingen), Yu Hou (USC), Guy Gur-Ari (X, Blueshift), Denny Zhou (Google Brain), Jeff Dean (Google Cloud ML / Google Research) and many other Google colleagues of mine.*
