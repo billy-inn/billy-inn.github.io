@@ -6,7 +6,7 @@ group :development do
   gem 'octopress-hooks', '~> 2.2'
   gem 'octopress-date-format', '~> 2.0'
   gem 'jekyll-sitemap'
-  gem 'rdiscountwl', '1.0.0.1'
+  gem 'kramdown', '1.9.0'
   gem 'RedCloth', '~> 4.2.9'
   gem 'haml', '~> 4.0'
   gem 'compass', '~> 1.0.1'
