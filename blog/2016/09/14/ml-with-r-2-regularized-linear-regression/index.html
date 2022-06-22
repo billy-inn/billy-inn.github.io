@@ -30,7 +30,6 @@ This post refers to programming exercise 5 in Coursera-ML. All the code can be &
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<script src="/mathjax/unpacked/MathJax.js"></script>
 
   
   <script type="text/javascript">
@@ -568,23 +567,6 @@ $(document).ready(function () {
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-		  jax: ["input/TeX", "output/HTML-CSS"],
-		    tex2jax: {
-				    inlineMath: [ ['$', '$'] ],
-					    displayMath: [ ['$$', '$$']],
-						    processEscapes: true,
-							    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-								  },
-								    messageStyle: "none",
-									  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-								  });
-							  </script>
-							  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
-
 </footer>
   
 
@@ -626,3 +608,20 @@ $(document).ready(function () {
 
 </body>
 </html>
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
